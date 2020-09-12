@@ -1,0 +1,154 @@
+%!TEX root = rootfile.tex 
+% chktex-file 3
+% chktex-file 8
+% chktex-file 12
+% chktex-file 24
+% chktex-file 42
+
+Another good name for this bit would be, \enquote{A first introduction to what topology is really about}.
+
+\begin{dfn}
+	Let $ X \subseteq \RR^m$ and $ Y \subseteq \RR^n $ be subspaces.
+	A map $ f \colon X \to Y $ is \defn{continuous} if and only if, for any subset $ S \subseteq X $ and any point $ x\in X$, if $ x $ is close to $S$, then $f(x) $ is close to $f(S)$.
+	In other words, $f$ is continuous if and only if, for any subset $ S \subseteq X $, one has $f(\tau_X(S)) \subseteq \tau_Y(f(S))$.
+\end{dfn}
+
+\begin{prp}%
+\label{prp:equivalent_characterizations_of_continuity}
+	Let $ X \subseteq \RR^m$ and $ Y \subseteq \RR^n $ be subspaces.
+	The following are equivalent for a map $ f \colon X \to Y $.
+	\begin{enumerate}
+		\item The map $ f $ is continuous.
+		\item For any subset $ T \subseteq Y $, one has $\tau_X(f^{-1}(T)) \subseteq f^{-1}(\tau_Y(T))$.
+		\item For any closed subset $ Z \subseteq Y $, the inverse image $ f^{-1}(Z) \subseteq X $ is closed.
+		\item For any open subset $ U \subseteq Y $, the inverse image $ f^{-1}(U) \subseteq X $ is open.
+		\item For any $ x \in X $ and any $\varepsilon > 0$, there exists $\delta >0$ such that if $x_0 \in X$ is a point such that $d(x_0,x) <\delta$, then%
+			\sidenote{This is probably the characterization of continuity that is most familiar to you from analysis.
+			In this text, we are happy to assume basic facts of analysis about the continuity of well-known functions on subspaces of Euclidean space.}
+			$ d(f(x_0), f(x)) < \varepsilon $.
+	\end{enumerate}
+\end{prp}
+
+\begin{proof}
+	Assume (1); we aim to prove (2).
+	Let $T \subseteq Y $, and assume that $ x $ is close to $f^{-1}(T)$.
+	Then by assumption $f(x) $ is close to $f(f^{-1}(T))$.
+	Since $f(f^{-1}(T)) \subseteq T$, it follows that $f(x)$ is close to $T$, so $x \in f^{-1}(\tau_Y(T))$.
+
+	Assume (2); we aim to prove (3).
+	Let $ Z \subseteq Y $ be closed.
+	Then
+	\[
+		\tau_X(f^{-1}(Z)) \subseteq f^{-1}(\tau_Y(Z)) = f^{-1}(Z) \comma
+	\]
+	so $f^{-1}(Z) $ is closed.
+
+	Assume (3); then (4) follows by taking complements.
+
+	Assume (4); we aim to prove (5).
+	Let $ x \in X$, and let $\varepsilon > 0$.
+	The subset $f^{-1}(B^n(f(x),\varepsilon)\cap Y) \subseteq X$ is open.
+	Consequently, there exists $\delta>0$ such that $B^m(x,\delta)\cap X \subseteq f^{-1}(B^n(f(x),\varepsilon)\cap Y)$;
+	that is, for any $x_0 \in X$ such that $d(x_0,x)<\delta$, one has $d(f(x_0),f(x))<\varepsilon$, as desired.
+
+	Assume (5); we aim to prove (1).
+	Let $S \subseteq X $, and let $ x\in X$ be a point that is close to $S$.
+	Let $\varepsilon > 0$.
+	By assumption there is a $\delta>0$ such that for any $x_0 \in X $ with $d(x_0,x)<\delta$, we have $d(f(x_0),f(x))<\varepsilon$.
+	Since $x $ is close to $S$, we may select $s \in S $ such that $d(x,s) <\delta$.
+	Thus $d(f(x),f(s))<\varepsilon$.
+	This proves that $f(x)$ is close to $f(S)$.
+\end{proof}
+
+To be the \enquote{same}, topologically speaking, is to be \emph{homeomorphic}.
+\begin{dfn}
+	Let $ X \subseteq \RR^m$ and $Y \subseteq \RR^n $ be subspaces.
+	Then a \defn{homeomorphism} $ f \colon X \to Y $ is a continuous bijection whose inverse $f^{-1}$ is continuous.
+	In other words, a map $f \colon X \to Y $ is a homeomorphism if and only if $f $ is a bijection such that for any subset $S \subseteq X $, one has $\tau_Y(f(S)) = f(\tau_X(S))$.
+	Equivalently, $f \colon X \to Y $ is a homeomorphism if and only if it is a bijection such that both the image and the inverse image of closed (respectively, open) subsets remains closed (resp., open).
+
+	The two subspaces $X$ and $Y$ are said to be \defn{homeomorphic} if and only if there is a homeomorphism $f \colon X \to Y $.
+\end{dfn}
+
+The following is a very important example to understand what \defn{topology} is all about:
+\begin{exm}
+	The subspaces $\RR$, $\left]0,+\infty\right[$, and $\left]0,1\right[$ are all homeomorphic.
+	To prove this, let's construct some homeomorphisms.
+	The exponential map $\exp \colon \RR \to \left]0,+\infty\right[$ is a continuous bijection%
+	\sidenote{In this course, we will accept these basic facts of analysis.}
+	whose inverse is the logarithm $\log \colon \left]0,+\infty\right[ \to \RR$, which is also continuous.
+	This shows that $\RR$ and $\left]0,+\infty\right[$ are homeomorphic.
+
+	The map $ f \colon \RR \to \left]0,1\right[ $ given by
+	\[
+		f(x) = \frac{1}{1+\exp(-x)}
+	\]
+	is a continuous bijection with inverse $ g\colon \left]0,1\right[ \to \RR $ given by
+	\[
+		g(x) = -\log\left(\frac{1-x}{x}\right) \comma
+	\]
+	which is also continuous.
+	Thus $\RR$ and $\left]0,1\right[$ are homeomorphic.
+
+	Please observe that what we are saying here is that an open interval and the real line are \emph{topologically the same}.
+	The fact that the real line is \enquote{infinitely long} is of no importance to the topologist;
+	the topology \enquote{knows} about the relation of closeness, but nothing about distance.
+\end{exm}
+
+You can think about topology as a certain \enquote{filter} that you've applied to the information supplied by a geometric object.
+That filter removes a lot of what we ordinarily think of as important about these objects -- distances, angles, and so on.
+There's still some information left over, however -- a kind of \enquote{proto-geometric} information.
+
+We imagine our subspace as made up of some infinitely deformable material.
+As long as we don't tear it, or poke holes in it, we are free to stretch it, twist it, and move it around, and we haven't changed its \enquote{topological nature}.
+Understanding that topological nature is the central topic of this course.
+
+\begin{exm}
+	Consider the following two subpsaces.
+	First, we have $X \coloneq \RR \smallsetminus \{0\} \subset \RR$.
+	Next, we have
+	\[
+		Y \coloneq \{(x,y) \in \RR^2 : |x| = 1 \} \subset \RR^2 \period
+	\]
+	These spaces are homeomorphic.
+	To see this, let us define a map $ f \colon X \to Y$.
+	We shall let
+	\[
+		f(t) = \left(\frac{t}{|t|}, \log |t|\right) \period
+	\]
+	This is a continuous bijection with inverse $g \coloneq Y \to X $ given by
+	\[
+		g(x,y) = x\exp(y) \comma
+	\]
+	which is also continuous.
+
+	By taking the real line and removing a point from it, we obtained two lines.%
+	\sidenote{
+		You may be wondering: is there some weird homeomorphism between $\RR$ itself and $Y$?
+		Maybe one line is somehow homeomorphic to two lines?
+		It turns out that $\RR$ and $Y$ are not homeomorphic, and we'll see why in the next section.
+	}
+\end{exm}
+
+Roughly speaking, the pursuit of \defn{topology} is the study of subspaces of $\RR^n$ and more general \emph{topological spaces} (which we will define in the next section) \emph{up to homeomorphism}.
+As topologists, we are constantly interested in the following question: \emph{are these two spaces the same, topologically?}
+That is, \emph{are these two spaces homeomorphic?}
+
+Proving that two spaces \emph{are} homeomorphic is, in principle, straightforward:
+you simply construct a homeomorphism between them.%
+\sidenote{In practice, it often takes a certain amount of inspiration to cook up a homeomorphism.}
+But how does one prove that two spaces are \emph{not} homeomorphic?
+That is, how does one \emph{distinguish} two spaces?
+
+For example, it seems intuitive that there isn't a homeomorphism between $\RR$ and the subspace
+\[
+	Y = \{ (x,y) : |x|=1\}
+\]
+from the example above.
+Somehow, a continuous map from $\RR$ has to be \enquote{drawn without picking up your pen},
+and $Y$ has two lines that are separated from each other.
+
+This is where \emph{topological properties} become useful.
+these are properties that are \defn{homeomorphism invariant}, so that if $X$ has the property, and $X$ is homeomorphic to $Y$, then $Y$ will also have the property.
+Let's study the first of these for subspaces of Euclidean space: \emph{connectedness}.
+

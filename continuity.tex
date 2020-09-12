@@ -1,0 +1,148 @@
+%!TEX root = rootfile.tex 
+% chktex-file 3
+% chktex-file 8
+% chktex-file 12
+% chktex-file 24
+% chktex-file 42
+
+The good news now is that continuity works almost exactly as it did in the example of subspaces of Euclidean space (\Cref{sec:basic_definitions}).
+The only difference is that we no langer have access to the $\varepsilon$-$\delta$ characterization of continuity.
+
+\begin{dfn}
+	Let $X$ and $Y$ be topological spaces, and let $f \colon X \to Y $ be a map.
+	Then $f$ is \defn{continuous} if and only if, for every subset $S \subseteq X$ any every point $x\in X$ that is close to $S$, the point $f(x)$ is close to $f(S)$.
+\end{dfn}
+
+\begin{prp}
+	Let $X$ and $Y$ be topological spaces.
+	The following are equivalent for a map $ f \colon X \to Y $.
+	\begin{enumerate}
+		\item The map $ f $ is continuous.
+		\item For any subset $ T \subseteq Y $, one has $\tau_X(f^{-1}(T)) \subseteq f^{-1}(\tau_Y(T))$.
+		\item For any closed subset $ Z \subseteq Y $, the inverse image $ f^{-1}(Z) \subseteq X $ is closed.
+		\item For any open subset $ U \subseteq Y $, the inverse image $ f^{-1}(U) \subseteq X $ is open.
+	\end{enumerate}
+\end{prp}
+
+\begin{proof}
+	Everything is exactly as in the proof of \Cref{prp:equivalent_characterizations_of_continuity}, except that since we do not have condition (5), we shall have to prove directly that (4) implies (1).
+
+	So assume (4); we aim to prove (1).
+	Let $S \subseteq X$, and let $x \in \tau_X(S)$.
+	Observe that the complement $V \coloneq Y \smallsetminus \tau_Y(f(S))$ is open;
+	hence so is the inverse image $U \coloneq f^{-1}(V) \subseteq X$.
+	Note also that $S$ is disjoint from $U$.
+	Thus the complement $X \smallsetminus U$ is a closed subset that contains $S$.
+	Consequently, $\tau_X(S) \subseteq U$.
+	So since $x \in \tau_X(S)$, it follows that $f(x) \notin V$.
+	In other words, $f(x) \in \tau_Y(f(S))$, as desired.
+\end{proof}
+
+\begin{exm}
+	Let $X$ be a topological space, and let $S$ be a set.
+	Any map $f \colon S \to X$ is continuous if $S$ is endowed with the \emph{discrete} topology.
+	Dually, any map $ g \colon X \to S $ is continuous if $S$ is endowed with the emph{chaotic} topology.
+\end{exm}
+
+\begin{exm}
+	Recall the topological space $\PP^1_{\RR}$ of \Cref{exm:real_projective_line}.
+	Define a map $ L \colon S^1 \to \PP^1_{\RR}$ as follows: for every point $x \in S^1$, let $L(x)$ be the $1$-dimensional subspace spanned by the vector $x$.
+	That is, $L(x)$ is the unique line in $\RR^2$ that passes through the origin and $x$.
+	It follows from the definition of the topology on $\PP^1_{\RR}$ that $L$ is continuous.
+
+	To unpack this a little, let $S \subseteq S^1$ be a subset, and let $x \in \tau(S)$.
+	We want to see that $L(x)$ is close to the image $L(S)$.
+	Let $\varepsilon>0$.
+	There exists $ s \in S$ such that $\|x-s\| < \varepsilon$.
+	Now $L(x)$ intersects $S^1$ at the points $x$ and $-x$, and $L(s)$ intersects $S^1$ in the points $s$ and $-s$.
+	Thus the line $L(s)$ has the property that, in the notation of \Cref{exm:real_projective_line}, $\|i(L(x))-i(L(s))\| < \varepsilon$ or $\|i(L(x))-j(L(s))\| < \varepsilon$.
+
+	Please note that while $L$ is surjective, it is not injective, since for every $x \in S^1$, one has $L(x) = L(-x)$.
+\end{exm}
+
+\newthought{The definition} of \emph{homeomorphism} is also just the same as for subspaces of Euclidean space:
+
+\begin{dfn}
+	Let $X$ and $Y$ be topological spaces.
+	A \defn{homeomorphism} $f \colon X \to Y $ is a continuous bijection whose inverse $f^{-1}$ is continuous.
+	The two topological spaces $X$ and $Y$ are \defn{homeomorphic} if and only if there exists a homeomorphism $X \to Y$.
+	In this case, we may write $X \cong Y$.
+\end{dfn}
+
+\begin{exm}
+	Let's show that the following three topological spaces are homeomorphic:
+	\begin{itemize}
+		\item The circle $S^1 \subseteq \RR^2$.
+		\item The topological space $\PP^1_{\RR}$ from \Cref{exm:real_projective_line}.
+		\item The topological spaces $\RR \sqcup \{\infty\}$ from \Cref{exm:one_point_compactification_of_RR}.
+	\end{itemize}
+
+	The map $L \colon S^1 \to \PP^1_{\RR}$ defined above is not a homeomorphism, but that doesn't mean we can't find another homeomorphism between these two topological spaces.
+	So let's try to go the other way.
+	Let's define a map $ h \colon \PP^1_{\RR} \to S^1$.
+	For every line $L \in \PP^1_{\RR}$, there is a point $z \in S^1$ such that $L=L(z)$.
+	If we think of $S^1 \subset \CC$, we can define $h(L)$ as $z^2$ for any $z \in S^1$ such that $L = L(z)$.
+	In other words, if $L$ is the line spanned by a nonzero vector $(x,y) \in \RR^2$, then
+	\[
+		h(L) = \left( \frac{x^2-y^2}{x^2+y^2}, \frac{2xy}{x^2+y^2} \right) \period
+	\]
+	This is well-defined, since this formula gives the same value if you replace $(x,y)$ with $(\alpha x, \alpha y)$ for $\alpha \in \RR \smallsetminus \{0\}$.
+
+	Let us prove that $ h$ is continuous.
+	We may be tempted to use the fact that the formula above defines a continuous function $\RR^2 \smallsetminus \{0\} \to S^1$, but we have to be a little careful, because $\PP^1_{\RR}$ wasn't defined as a subspace of a Euclidean space.
+	Assume that $S \subseteq \PP^1_{\RR}$, and assume that $L \in \tau(S)$.
+	Let $\varepsilon >0$;
+	there exists a line $L' \in S$ such that either $\|i(L) - i(L')\| < \varepsilon/2$ or $\|i(L) - j(L')\| < \varepsilon/2$.
+	Furthermore, we know that no two points in $S^1$ are separated by a distance of more than $2$;
+	therefore, both $\|i(L) - i(L')\| \leq 2$ or $\|i(L) - j(L')\| \leq 2$.
+	We may therefore multiply these inequalities to obtain:
+	\[
+		\|i(L) - i(L')\| \|i(L) - j(L')\| < \varepsilon \period
+	\]
+	Since $i(L') = -j(L')$, we therefore obtain
+	\[
+		\|h(L) - h(L')\| = \|i(L)^2 -j(L')^2\| < \varepsilon \period
+	\]
+	It therefore follows that $h(L)$ is close to $h(S)$.
+	So $ h $ is continuous.
+
+	Now let us show that $h$ is a bijection.
+	If $ w \in S^1$, then the inverse image $h^{-1}\{w\}$ is the set of lines $L \in \PP^1_{\RR}$ such that either $i(L)$ or $j(L)$ is a square root of $w$.
+	In fact, since $i(L) = -j(L)$, it follows that $i(L)$ is a square root of $w$ if and only if $j(L)$ is a square root of $w$.
+	Hence $h^{-1}\{w\}$ consists of exactly one line: the line passing through either square root of $w$ and the origin.
+
+	Now let's demonstrate that $h $ is a homeomorphism.
+	For this, we note that the inverse $h^{-1}$ carries $w \in S^1$ to the line passing through either square root of $w$ and the origin.
+	To prove that this is continuous, assume that $T \subseteq S^1$, and assume that $w \in S^1$ is close to $T$.
+	Let $\varepsilon>0$;
+	then there exists $w' \in T$ such that $\|w-w'\| < \varepsilon^2$.
+	Now if $z, -z \in S^1$ are the two square roots of $w$, and if $z', -z' \in S^1$ are the two square roots of $w'$, then either $|z-z'|<\varepsilon$ or $|z+z'|<\varepsilon$, since
+	otherwise, we would have
+	\[
+		|w-w'| = |z-z'| |z+z'| \geq \varepsilon^2 \period
+	\]
+	Consequently, it follows that $h^{-1}(w)$ is close to $h^{-1}(T)$.
+	This now completes the proof that $\PP^1_{\RR}$ and $S^1$ are homeomorphic.
+
+	Now we prove that $\RR \sqcup \{\infty\}$ and $S^1$ are homeomorphic.
+	Indeed, define maps
+	\[
+		f \colon S^1 \to \RR \sqcup \{\infty\} \andeq g \colon \RR \sqcup \{\infty\} \to S^1
+	\]
+	by the formulas
+	\[
+		f(x,y) \coloneq \begin{cases}
+			x/(1-y) & \text{if } y \neq 1 \semicolon \\
+			\infty & \text{if } y = 1 \period
+		\end{cases}
+	\]
+	and
+	\[
+		g(t) \coloneq \begin{cases}
+			1/(x^2+1)(2x, x^2-1) & \text{if } x \neq \infty \semicolon \\
+			(0,1) & \text{if } x = \infty \period
+		\end{cases}
+	\]
+\end{exm}
+
+

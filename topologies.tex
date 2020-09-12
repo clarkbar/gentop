@@ -1,0 +1,385 @@
+%!TEX root = rootfile.tex 
+% chktex-file 3
+% chktex-file 8
+% chktex-file 12
+% chktex-file 24
+% chktex-file 42
+
+There are three observations we can make about our study of subspaces of Euclidean space:
+\begin{enumerate}
+	\item When we think about the topological nature of a subspace $X \subseteq \RR^n$, the ambient Euclidean space in which we find them isn't all that important;
+		homeomorphic subspaces can be found in wildly different Euclidean spaces.
+		The only thing we \emph{do} want to remember from the ambient $\RR^n$ is the definition of the closure operator $\tau_X$.
+	\item For the vast majority of the work we've done so far, we didn't need the precise definition of $\tau_X$ in terms of the metric on $\RR^n$.
+		Rather, what we really used repeatedly were the properties given in \Cref{prp:key_properties_of_tau}.
+		Almost everything we did was just a direct consequence of those!
+	\item There are examples of sets with a reasonable notion of closeness that don't arrive in your lap embedded in a Euclidean space.
+		We want to \emph{do topology} with these examples too!
+\end{enumerate}
+
+\begin{exm}%
+\label{exm:real_projective_line}
+	Let's illustrate this last point with an interesting example.
+	Let $\PP^1_{\RR}$ be the set of $1$-dimensional linear subspaces of $\RR^2$.
+	In other words, an element of $\PP^1_{\RR}$ is a line in $\RR^2$ through the origin.
+	If $L \in \PP^1_{\RR}$, let $\mu(L)$ denote the slope of $L$;
+	that is, if $L$ is spanned by a nonzero vector $(x,y) \in \RR^2$, then
+	\[
+		\mu(L) = \begin{cases}
+			y/x & \text{if }x \neq 0\text{;}\\
+			\infty & \text{if }x=0 \period
+		\end{cases}
+	\]
+
+	We will say that a line $L \in \PP^1_{\RR}$ is close to a subset $S \subseteq \PP^1_{\RR}$ if and only if one of the following conditions holds:
+	\begin{itemize}
+		\item if $\mu(L) \neq \infty$, then for every $\varepsilon>0$, there exists a line $L' \in S$, such that
+			\[
+				|\mu(L) - \mu(L')| < \varepsilon \comma
+			\]
+			or
+		\item if $\mu(L) = \infty$, then for every real number $N$, there exists a line $L' \in S $ such that
+			\[
+				|\mu(L')|>N \period
+			\]
+	\end{itemize}
+
+	Equivalently, if we think of the circle $S^1 \subset \RR^2$, then every line $L \in \PP^1_{\RR}$ intersects $S^1$ in exactly two points%
+	\sidenote{For our purposes, it won't matter which of the two intersection points we call $i(L)$ and which we call $j(L)$.}
+	$i(L)$ and $j(L)$, where $i(L) = -j(L)$.
+	We may now say that $L \in \PP^1_{\RR}$ is close to $S \subseteq \PP^1_{\RR}$ if and only if, for every $\varepsilon>0$, there exists a line $L' \in S$ such that either $|i(L)-i(L')|<\varepsilon$ or $|i(L)-j(L)|<\varepsilon$.
+\end{exm}
+
+\newthought{To deal} with examples like this one, we're going to pull a trick that is often quite powerful in mathematics: we're going to turn \Cref{prp:key_properties_of_tau} into a \emph{definition}.
+Thus a \defn{topology} on a set $ X $ is a systematic way of asking whether an element of $ X $ -- which we will call \emph{point} -- is \enquote{close} to a subset.
+In order to constitute a topology on the set $ X $, this notion of closeness must satsify three conditions:
+\begin{itemize}
+	\item For every subset $ S \subseteq X $ and any point $ x \in X$, if $ x \in S $, then $ x $ is close to $ S $.
+		More briefly, an element of a subset is close to that subset.
+	\item For every finite collection $ \{ S_1, \dots, S_n \} $ of subsets of $ X $, if a point $ x \in X $ is close to the union $ S_1 \cup \dots \cup S_n $, then there exists $ i \in \{ 1, \dots, n \} $ such that $ x $ is close to $ S_i $.
+		More briefly, if a point is close to a finite union of subsets, then it is close to one of those subsets.
+		In particular, when $ n = 0 $, this condition says that no point is close to the empty set $ \emptyset $.
+	\item Suppose $ S $ and $ T $ are two subsets of $ X $ such that every point $ s \in S $ is close to $ T $;
+		then if a point $ x $ is close to $ S $, it is also close to $ T $.
+\end{itemize}
+To formalise this idea, we introduce, for each subset $ S \subseteq X $, the set $ \tau(S) $ of all the elements of $ X $ that are close to $ S $, and we list its properties.
+
+\begin{dfn}
+	A \defn{topology} on a set $X$ is a map%
+	\[
+		\tau \colon \PP(X) \to \PP(X)
+	\]
+	such that the following conditions hold.
+	\begin{enumerate}
+		\item For any $ S \in \PP(X) $, one has $ S \subseteq \tau(S) $.
+		In particular, $ \tau(X) = X $.
+		\item For any finite subset $ \Sigma \subseteq \PP(X) $, one has
+		\[
+			\tau \left( \bigcup_{ S \in \Sigma} S \right) = \bigcup_{ S \in \Sigma } \tau(S) \period
+		\]
+		In particular,%
+		\sidenote{An empty union $ \bigcup_{S \in \varnothing} Y_S $ is empty.}
+		$ \tau (\emptyset) = \emptyset $.
+		Also, observe that $\tau$ is \defn{inclusion-preserving};
+		that is, if $S \subseteq T$, then $\tau(S) \subseteq \tau(T)$.
+		\item For any $ S \in \PP(X) $, one has $ \tau( \tau( S ) ) = \tau( S )$.
+	\end{enumerate}
+
+	If $ x \in X $ and $ S \in \PP(X) $, then we say that $ x $ \defn{is close to} $ S $ if and only if $ x \in \tau(S) $.
+
+	A pair $ (X, \tau) $ consisting of a set $ X $ and a topology $ \tau $ on $ X $ is called a \defn{topological space}.
+	We call the elements of a topological space \defn{points}.
+
+	The set $\tau(S)$ is called the \defn{closure} of $ S $.
+	We say that $ S $ is \defn{closed} if $ S = \tau( S ) $, and we say that $ S $ is \defn{open} if its complement is closed.%
+	\sidenote{In a little while, we'll discuss how one can specify a topology by listing the open sets, which is what you will frequently see in other books.}
+\end{dfn}
+
+\begin{exm}
+	We have already seen the first example.
+	Any subset $X \subseteq \RR^n$ inherits a topology $\tau_X$ that carries a subset $S \subseteq X$ to 
+	\[
+		\tau_X(S) = \{ x\in X : (\forall \varepsilon>0)(\exists s \in S)(d(x,s)<\varepsilon\} \period
+	\]
+	When $X=\RR^n$, this is often called the \defn{standard topology},
+	and for $X \subseteq \RR^n$, this is called the \defn{subspace topology}.
+\end{exm}
+
+\begin{exm}
+	The empty set $ \emptyset $ admits a unique topology.
+	The powerset $ \PP( \emptyset ) $ is a singleton $ \{ \emptyset \} $, and the identity is the only map $ \{ \emptyset \} \to \{ \emptyset \} $.
+	This map is a topology.
+	The only subset available -- $ \emptyset $ itself -- is both open and closed.
+\end{exm}
+
+\begin{exm}
+	More generally, on any set $ X $, the identity map
+	\[
+		\delta \colon \PP(X) \to \PP(X)
+	\]
+	is always a topology.
+	This is called the \defn{discrete topology} on a set $ X $.
+
+	In the discrete topology, a point $ x \in X $ is close to a subset $ S \subseteq X $ if and only if $ x \in S $.
+	Every subset of $ X $ is both open and closed in the discrete topology.
+\end{exm}
+
+\begin{exm}
+	Let us study topologies on the singleton $ \{ x \} $.
+	The power set $ \PP( \{ x \} ) $ is a two-element set $ \{ \emptyset, \{ x \} \} $.
+	There are four maps from this set to itself, but most of these are not topologies.
+	In order for a map $ \tau $ to be a topology, the first condition demands that $ \tau( \{ x \} ) = \{ x \} $, and the second condition demands that $ \tau ( \emptyset ) = \emptyset $.
+	Thus the only topology on the singleton $ \{ x \} $ is the discrete topology.
+\end{exm}
+
+\begin{exm}%
+	\label{topologiesontwopointset}
+	Let $ X \coloneq \{ x , y \} $.
+	In order to specify a topology $ \tau $ on $ X $, it is really only necessary to specify the subsets $ \tau ( \{ x \} ) $ and $ \tau ( \{ y \} ) $.
+	The first condition states that these subsets must contain the sets $ \{ x \} $ and $ \{ y \} $, respectively, and the second and third conditions become automatic.
+	That gives us four topologies on $ \{ x, y \} $:
+	\begin{itemize}
+		\item the discrete topology, in which $ \tau( \{ x \} ) = \{ x \} $ and $ \tau( \{ y \} ) = \{ y \} $;
+		\item the topology in which $ \tau( \{ x \} ) = \{ x \}$, and $ \tau( \{ y \} ) = X $; 
+		\item the topology in which $ \tau( \{ y \} ) = X $, and $ \tau( \{ x \} ) = \{ x \} $; and
+		\item the topology in which $ \tau( \{ x \} ) = \tau( \{ y \} ) = X $.
+	\end{itemize}
+
+	Let us describe the relation of closeness for each of these topologies.
+	The only questions that aren't answered by the axioms of a topology is: \enquote{is $ x $ close to $ \{ y \} $?} and \enquote{is $ y $ close to $ \{ x \} $?}
+	Let's answer these in each case:
+	\begin{itemize}
+		\item in the discrete topology, $ x $ is not close to $ \{ y \} $, and $ y $ is not close to $ \{ x \} $;
+		\item in the second of these topologies, $ x $ is close to $ \{ y \} $, but $ y $ is not close to $ \{ x \} $;
+		\item in the third topology, $ y $ is close to $ \{ x \} $, but $ x $ is not close to $ \{ y \} $; and
+		\item finally, in the last of these topologies, $ x $ is close to $ \{ y \} $ and $ y $ is close to $ \{ x \} $.
+\end{itemize}
+
+	The asymmetry in the second and third topologies is strange from our natural idea of what \enquote{close} ought to mean.
+Nevertheless, these topologies are actually interesting examples;
+even rather bizarre ideas of closeness can be captured in topology!
+
+	Finally, for each of these examples, let us determine which sets are open and closed.
+	In each case, the only questions that aren't answered by the axioms are: \enquote{is $ \{ x \} $ open? closed?} and \enquote{is $ \{ y \} $ open? closed?}
+	\begin{itemize}
+		\item in the discrete topology, both $ \{ x \} $ and $ \{ y \} $ are both open and closed;
+		\item in the second topology, $ \{ x \} $ is closed and not open, and $ \{ y \} $ is open and not closed.
+		\item in the third topology, the situation is reversed: $ \{ x \} $ is open and not closed, and $ \{ y \} $ is closed and not open;
+		\item in the last of these topologies, neither $ \{ x \} $ nor $ \{ y \} $ is open or closed.
+	\end{itemize}
+\end{exm}
+
+The discrete topology makes sense for any set.
+Similarly, the last of the topologies in \Cref{topologiesontwopointset} above is sensible for any set.
+
+\begin{exm}
+	For any set $ X $, we define a map
+	\[
+		\iota \colon \PP(X) \to \PP(X)
+	\]
+	by the formula
+
+	\[
+		\iota( S ) \coloneq
+		\begin{cases}
+			\emptyset & \text{if } S = \emptyset \semicolon \\
+			X & \text{ if } S \neq \emptyset \period
+		\end{cases}
+	\]
+	This is a topology called the \defn{indiscrete topology}.
+	Thus in the indiscrete topology, any point is close to any nonempty subset.
+	The only subsets of $ X $ that are open or closed in the indiscrete topology are $ \emptyset $ and $ X $ itself.
+\end{exm}
+
+The other two topologies of \Cref{topologiesontwopointset} are more interesting:
+
+\begin{exm}%
+\label{exm:Alexandroff}
+	Let $P$ be a \emph{preorder}.
+	That is, $P$ is a set equipped with a relation $\leq $ such that:
+	\begin{itemize}
+		\item for every $a \in P$, one has $a \leq a$; and
+		\item for every $a,b,c \in P$, if $a \leq b$ and $b \leq c$, then $a \leq c$.
+	\end{itemize}
+	Then we can define a topology as follows.
+	For any subset $S \subseteq P$, we define
+	\[
+		\tau_{\leq}(S) \coloneq \{a \in P : (\exists s \in S)(a \leq s) \} \period
+	\]
+	In other words, $ a \in P $ is close to $S$ if and only if some element of $S$ exceeds it.
+
+	Let us quickly confirm that this is a topology:
+	\begin{enumerate}
+		\item Let $S \subseteq P$ be a subset.
+			Since $ s \leq s $ for every $ s \in S$, it follows that $S \subseteq \tau_{\leq}(S)$.
+		\item Let $S_1, \dots, S_n \subseteq P$ be a finite collection of subsets of $P$.
+			Then
+			\begin{align*}
+				\tau_{\leq}(S_1 \cup \cdots \cup S_n) & = \{a\in P : (\exists s \in S_1 \cup \cdots \cup S_n)(a \leq s) \} \\
+								    & = \{a \in P : (\exists i)(\exists s \in S_i)(a \leq s)\} \\
+								    & = \tau_{\leq}(S)_1 \cup \cdots \cup \tau_{\leq}(S)_n \period
+			\end{align*}
+		\item Let $S \subseteq P$ be a subset.
+			Then
+			\begin{align*}
+				\tau_{\leq}(\tau_{\leq}(S)) &= \{a \in P : (\exists t \in \overline{S})(a \leq t) \} \\
+							&= \{a \in P : (\exists s \in S)(\exists t \in X)(a \leq t \leq s) \} \\
+							&= \{a \in P : (\exists s \in S)(a \leq s) \} \\
+							&= \tau_{\leq}(S) \period 
+			\end{align*}
+	\end{enumerate}
+	This topology is called the \defn{Alexandroff topology}.
+
+	The \emph{closed subsets} are the subsets $Z \subseteq P$ with the property that if $ a \in P $, $z \in Z$, and $ a \leq z$, then $a \in Z $ as well.
+	The \emph{open subsets} are the subsets $U \subseteq P $ with the property that if $a \in P$, $u \in U$, and $a \geq u$, then $a \in U $ as well.
+\end{exm}
+
+\begin{exm}%
+\label{exm:one_point_compactification_of_RR}
+	Form the set $\RR\sqcup\{\infty\}$, where $\infty$ is just some symbol such that $\infty\notin\RR$.
+	We already have a topology on $\RR$;
+	let's doctor it a mite to make a topology on $\RR\sqcup\{\infty\}$.
+	To do this, we have to understand how our notion of closeness has changed.
+	So we have a point $x\in \RR\sqcup\{\infty\}$ and a subset $S\subseteq\RR\sqcup\{\infty\}$,
+	and we want to see if $x$ is close to $S$.
+	There are two cases:
+	\begin{itemize}
+		\item If $x\in\RR$, then we declare that $x$ is close to $S$ if and only if $x$ is close to $S\cap\RR$ (for the standard topology on $\RR$).
+		\item We declare that $∞$ is close to $S$ if and only if, for every $N\in\RR_{\geq 0}$, there is a point of $S$ that does not lie%
+			\sidenote{Note that this includes two possibilities: the point of $S$ may \emph{be} $∞$, or else the point may be a real element $s\in S$ such that $|s|>N$.}
+			in $[-N,N]$.
+	\end{itemize}
+	Let's see that this is a topology.
+	In effect, you check everything by checking the two cases ($x\in\RR$ or $x\notin\RR$) separately.
+	In the first case, you use the fact that $\RR$ has a topology already, and in the second, you give a little argument.
+	\begin{itemize}
+		\item By definition if $x$ lies in a subset $S\subseteq\RR\sqcup\{∞\}$, then $x$ is close to $S$.
+		\item Let $\{S_1,\dots,S_n\}$ be a finite collection of subsets of $\RR\sqcup\{\infty\}$.
+		If $x\in \RR$, then since one has
+		\[
+		(S_1\cup\dots\cup S_n)\cap\RR=(S_1\cap\RR)\cup\dots\cup (S_n\cap\RR),
+		\]
+		it follows that $x$ is close to $S_1\cup\dots\cup S_n$ if and only if $x$ is close to $(S_1\cap\RR)\cup\dots\cup (S_n\cap\RR)$ (for the standard topology on $\RR$), if and only if $x$ is close to $S_i \cap \RR$ for some $i$ (for the topology on $\RR$), if and only if $x$ is close to $S_i$.
+		Now $\infty$ is close to $S_1\cup\dots\cup S_n$ if and only if, for any $N\in\RR$, there is a point of $S_1\cup\dots\cup S_n$ that does not lie in $[-N,N]$.
+		This happens if and only if there is an $i$ such that for any $N\in\RR$, there is%
+		\sidenote{This is the \defn{pigeonhole principle}.
+		In effect, if $X$ is an infinite set, $Y$ is a finite set, and $f\colon\fromto{X}{Y}$ is a map, there is an element $y\in Y$ such that $f^{-1}\{y\}$ is infinite.}
+		a point of $S_i$ that does not lie in $[-N,N]$.
+		\item Finally, suppose that every point of a subset $S\subseteq\RR\sqcup\{∞\}$ is close to a subset $T\subseteq\RR\sqcup\{∞\}$.
+			Now if $x$ is close to $S$, there are two options.
+			First, if $x\in\RR$, then $x$ is close to $S\cap\RR$ and hence to $T\cap\RR$.
+			Otherwise, if $x=\infty$, then if $∞\in T$ or $∞\in S$, then we're done.
+			If not, then for every $N\in\RR$, there is a point $s_N\in S\subseteq\RR$ such that $|s_N|>N$;
+			this point $s_N$ is close to $T$, so if we set $\epsilon_N\coloneq|s_N|-N$, then there exists a point $t_N\in T$ such that $|s_N-t_N|<\epsilon_N$.
+			Thus $|t_N|>N$, and so $∞$ is close to $T$.
+	\end{itemize}
+\end{exm}
+
+This isn't the only way to enlarge $\RR$.
+\begin{exm}
+	Define a topology on $\RR\sqcup\{-∞,+∞\}$ in which, for any point $x\in\RR\sqcup\{-∞,+∞\}$ and any subset $S\subseteq\RR\sqcup\{-∞,+∞\}$,
+	\begin{itemize}
+		\item If $x\in\RR$, then $x$ is close to $S$ if and only if $x$ is close to $S\cap\RR$.
+		\item We declare that $-∞$ is close to $S$ if and only if either $-∞\in S$ or for any $N\in\RR_{\geq 0}$, there is a point $s\in S\cap\RR$ such that $s<-N$.
+		\item We declare that $+∞$ is close to $S$ if and only if either $+∞\in S$ or for any $N\in\RR_{\geq 0}$, there is a point $s\in S\cap\RR$ such that $s>N$.
+	\end{itemize}
+        This is a topology.%
+	\sidenote{You should convince yourself of this!}
+\end{exm}
+
+\newthought{There is another}, more standard, way to specify topologies.
+It's a little less intuitive, but it becomes technically convenient when we want to do things like \defn{generate} topologies.
+
+\begin{dfn}
+	Fix a set $X$.
+	Let's define two different kinds of information on $X$.
+	\begin{itemize}
+		\item A \defn{system of open sets} on $X$ is a subset $\mathscr{O}\subseteq\PP(X)$ that is stable under unions\sidenote{possibly empty} and finite intersections\sidenote{possibly empty}.
+			That is, if $\Sigma\subseteq \mathscr{O}$, then the union
+			\[
+				\bigcup{U\in \Sigma} U
+			\]
+			also lies in $ \mathscr{O}$,
+			and if $\Sigma$ is finite, then the intersection
+			\[
+				\bigcap_{U\in \Sigma} U
+			\]
+			also lies in $\mathscr{O}$.
+		\item Dually, a \defn{system of closed sets} on $X$ is a subset $\mathscr{C}\subseteq\PP(X)$ that is stable under intersections and finite unions.
+			That is, if $\Sigma \subseteq\mathscr{C}$, then the intersection
+			\[
+				\bigcap_{Z\in\Sigma} Z
+			\]
+			also lies in $\mathscr{C}$,
+			and if $\Sigma$ is finite, then the union
+			\[
+				\bigcup_{Z\in\Sigma} Z
+			\]
+			also lies in $\mathscr{C}$.
+	\end{itemize}
+\end{dfn}
+
+Specifying a system of open sets is the same as specifying a system of closed sets.
+More precisely, the formation of the complement in $X$ defines a bijection between the set of systems of open sets and the set of systems of closed sets.
+
+\begin{nul}
+	Specifying a topology is the same as specifying a system of closed sets.
+
+	For any a topology $\tau$ on $X$, one may define $\mathscr{C}_{\tau}$ as the set of closed subsets of the topology:
+	\[
+		\mathscr{C}_{\tau} \coloneq \{ Z\in\PP(X) : \tau(Z)=Z \} \period
+	\]
+
+	To see that $\mathscr{C}_{\tau}$ is stable under intersection and finite union, let $\Sigma \subseteq \mathscr{C}_{\tau} $ be a subset.
+	Let $W$ be the intersection $\bigcap_{Z \in \Sigma} Z$.
+	For every $Z \in \Sigma$, since $\tau$ is inclusion-preserving, it follows that $\tau\left(W\right) \subseteq \tau(Z) = Z$.
+	Consequently, $\tau(W) $ is contained in the intersection $W$, so $W$ is closed.
+	If $\Sigma$ is finite, then since $\tau$ preserves finite unions, we have
+	\[
+		\tau\left(\bigcup_{Z\in\Sigma} Z\right) = \bigcup_{Z\in\Sigma} \tau(Z) = \bigcup_{Z \in \Sigma} Z \period
+	\]
+	This proves that $\mathscr{C}_{\tau}$ is a system of closed sets.
+
+In the opposite direction, for any system of closed subsets $\mathscr{C}$ on $X$, define a map $\tau_{\mathscr{C}}\colon\PP(X) \to \PP(X)$ that carries a subset $S\subseteq X$ to the smallest element of $\mathscr{C}$ that contains $S$:
+	\sidenote{Since $\mathscr{C}$ is stable under intersections, this formula indeed defines an element of $\mathscr{C}$.
+	So $\tau_{\mathscr{C}}(S)$ is the smallest element of $\mathscr{C}$ that contains $S$.}
+	\[
+		\tau_{\mathscr{C}}(S) \coloneq \bigcap_{\substack{Z\in \mathscr{C},\\ S\subseteq Z}} Z \period
+	\]
+	
+	Let us see that $\tau_{\mathscr{C}}$ is a topology.
+	\begin{enumerate}
+		\item By definition, for every subset $S \subseteq X$, we have $S \subseteq \tau(S)$.
+		\item By definition, $\tau_{\mathscr{C}}$ is an inclusion-preserving operation.
+			Thus if $S_1, \dots, S_n \subseteq X$ is a finite collection of subsets of $X$, then it follows that 
+			\[
+				\tau_{\mathscr{C}}(S_1 \cup \cdots \cup S_n) \supseteq \tau_{\mathscr{C}}(S_1) \cup \cdots \cup \tau_{\mathscr{C}}(S_n) \period
+			\]
+			On the other hand, since $\mathscr{C}$ is stable under finite unions, it follows that $\tau_{\mathscr{C}}(S_1) \cup \cdots \cup \tau_{\mathscr{C}}(S_n) \in \mathscr{C}$.
+			Since in addition, $S_1 \cup \cdots \cup S_n \subseteq \tau_{\mathscr{C}}(S_1) \cup \cdots \cup \tau_{\mathscr{C}}(S_n)$, it follows%
+			\sidenote{The point here is that $\tau_{\mathscr{C}}(S_1 \cup \cdots \cup S_n)$ is the \emph{smallest} closed subset that contains $S_1 \cup \cdots \cup S_n$.}
+			that 
+			\[
+				\tau_{\mathscr{C}}(S_1 \cup \cdots \cup S_n) \subseteq \tau_{\mathscr{C}}(S_1) \cup \cdots \cup \tau_{\mathscr{C}}(S_n) \comma
+			\]
+			whence $\tau_{\mathscr{C}}$ preserves finite unions.
+		\item Finally, $\tau_{\mathscr{C}}(\tau_{\mathscr{C}}(S)$ is the smallest element of $\mathscr{C}$ that contains $\tau_{\mathscr{C}}(S)$.
+			But since $\tau_{\mathscr{C}}(S)$ itself likes in $\mathscr{C}$, it follows that
+			\[
+				\tau_{\mathscr{C}}(\tau_{\mathscr{C}}(S)) \subseteq \tau_{\mathscr{C}}(S) \period
+			\]
+	\end{enumerate}
+
+	Thus one may specify a topology on $X$ by specifying the closed sets and checking stability under intersections and finite unions, or specifying the open sets and checking stability under unions and finite intersections.\sidenote{Most textbooks define topologies as a system of open sets. There's nothing wrong with this definition, but we've delayed this description, because it seems difficult to motivate fully.}
+\end{nul}
+
+\begin{exm} Any set $X$ can be given the \defn{cofinite} topology, in which a subset $Z\subseteq X$ is declared to be closed if and only if either $Z$ is finite or $Z=X$.
+	Thus in the cofinite topology,
+	\[
+		\tau(S) = \begin{cases}
+			S & \text{if } S \text{ is finite;} \\
+			X & \text{if } S \text{ is infinite.}
+		\end{cases}
+	\]
+\end{exm}
+

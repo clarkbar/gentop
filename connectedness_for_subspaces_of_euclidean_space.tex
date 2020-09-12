@@ -1,0 +1,252 @@
+%!TEX root = rootfile.tex 
+% chktex-file 3
+% chktex-file 8
+% chktex-file 12
+% chktex-file 24
+% chktex-file 42
+
+\begin{dfn}
+	Let $X \subseteq \RR^n$ be a subspace.
+	A subset $ S \subseteq X$ that is both open and closed (in $X$) is said to be \defn{clopen}.%
+	\sidenote{I know, this is silly.}
+	We shall say that $X$ is \defn{connected} if there are \emph{exactly two} clopen subsets $S \subseteq X$.
+\end{dfn}
+
+\begin{nul}
+	If $X \subseteq \RR^n$ is a nonempty subspace, then there are always \emph{at least two} clospen subsets of $X$:
+	the empty set $\varnothing$, and $X$ itself.
+	Thus if $X$ is nonempty, then it is connected if and only if the only nonempty clopen subset is $X$ itself.
+\end{nul}
+
+\begin{exm}
+	The empty set $\varnothing$, however, is not connected: it has only one subset, itself, which is clopen.
+\end{exm}
+
+\begin{exm}
+	The space $\RR$ itself is connected.
+	Let's prove this.
+	There are at least two clopen subsets: $\varnothing$ and $\RR$ itself.
+	Now we have to prove that there are no more.
+	So let $S \subseteq \RR$ be a clopen subset.
+	If $S \neq \varnothing$, then there exists a point $x \in S$.
+	Since $S$ is open, there exists $\varepsilon >0$ such that $\left]x-\varepsilon, x+\varepsilon\right[ \subseteq S$.
+	Now let us consider the set
+	\[
+		E \coloneq \{ \varepsilon >0 : \left]x-\varepsilon, x+\varepsilon\right[  \subseteq S \} \subseteq \RR \period
+	\]
+	The set $E$ is unbounded if and only if $S = \RR$, so assume that $E$ in bounded.
+	We aim to generate a contradiction.
+	Since $E$ is bounded, it admits a supremum $\varepsilon_0$.
+	In particular, for every $\varepsilon < \varepsilon_0$, one has $\left]x-\varepsilon, x+\varepsilon\right[  \subseteq S$.
+	Note that $\left]x-\varepsilon_0, x+\varepsilon_0\right[  = \bigcup_{\varepsilon < \varepsilon_0} \left]x-\varepsilon, x+\varepsilon\right[ $, so it follows that $\left]x-\varepsilon_0, x+\varepsilon_0\right[ \subseteq S$ as well.
+	Thus $\varepsilon_0 \in E$.
+
+	Now consider the point $x+\varepsilon_0$.
+	This is close to $S$, because the closure of $S$ contains the closure of $\left]x-\varepsilon_0, x+\varepsilon_0\right[$, which is $[x-\varepsilon_0,x+\varepsilon_0]$. 
+	Since $S$ is closed, it follows that $x +\varepsilon_0 \in S$.
+	The same analysis shows that $x-\varepsilon_0 \in S$.
+
+	Again since $S$ is open, we may choose a $\delta>0$ such that $\left]x+\varepsilon_0-\delta, x+\varepsilon_0+\delta\right[ \subset S$ \emph{and} $\left]x-\varepsilon_0-\delta, x-\varepsilon_0+\delta\right[ \subset S$.
+	But now we have that $\left]x-\varepsilon_0-\delta, x+\varepsilon_0+\delta\right[ \subset S$, so $\varepsilon_0+\delta \in E$, which contradicts the maximality of $\varepsilon_0$.
+
+	This contradiction shows that $E$ is unbounded, and so the only nonempty clopen subset of $\RR$ is $\RR$ itself.
+\end{exm}
+
+\begin{exm}
+	The subspace
+	\[
+		Y \coloneq \{(x,y) \in \RR^2 : |x|=1 \}
+	\]
+	we introduced above is not connected.
+	Indeed, in addition to $\varnothing $ and $Y$ itself, the subset
+	\[
+		Y_+ \coloneq \{(x,y) \in \RR^2 : x=1 \}
+	\]
+	is clopen.
+	To see this, let us show that both $Y_+$ and its complement
+	\[
+		Y_- \coloneq Y \smallsetminus Y_+ = \{ (x,y) \in \RR^2 : x = -1 \}
+	\]
+	are open.
+	The key observation here is that if $ u \in Y_+$ and $v \in Y_-$, then $d(u,v) \geq 2$.
+	Consequently, if $u \in Y_+$, then $B^2(u,1) \cap Y \subset Y_+$, and, similarly, if $v \in Y_-$, then $B^2(v,1) \cap Y \subset Y_-$.
+\end{exm}
+
+\begin{prp}%
+\label{prp:intersecting_unions_of_connecteds_are_connected}
+	Let $\{X_a\}_{a\in A} $ be a nonempty family of connected subspaces $X_a \subseteq \RR^n$.
+	Assume that for any $a,b \in A$, one has $X_a\cap X_b \neq \varnothing$.
+	Then the union $x \coloneq \bigcup_{a\in A}X_a $ is connected as well.
+\end{prp}
+
+\begin{proof}
+	Since $X_a \cap X_b$ is nonempty, the union $X$ is nonempty too.
+	Hence it suffices to show that if $ V \subseteq X $ is a nonempty clopen, then $ V = X$.
+	
+	Note that for any $ a\in A$, the intersection $ V \cap X_a $ is clopen in $X_a$.
+	For each $ a\in A$, the subspace $X_a$ is connected, so $V \cap X_a$ is either $\varnothing$ or $X_a$.
+	In other words, for each $a \in A$, either $V$ is disjoint from $X_a$ or else $X_a \subseteq V$.
+	Since $V\neq\varnothing$, there is at least one $ a_0 \in A $ such that $ X_{a_0} \subseteq V$.
+	
+	But now for any other $a\in A$, the nonempty intersection $X_a \cap X_{a_0}$ is contained in $ X_a \cap V $;
+	thus $X_a \subseteq V $ as well.
+	We thus conclude that $X \subseteq V$.
+\end{proof}
+
+We are now in a position to classify all the connected subspaces of $\RR$.
+
+\begin{exm}
+	Let $X \subseteq\RR$ be a nonempty subset.
+	We'll say that $X$ is \emph{an interval} if and only if, for every $a, b \in X$ and every $x \in \RR $ such that $a \leq x \leq b$, we have $ x\in X$.
+	Assume that $X$ is an interval.
+	If $X$ is bounded above, then there exists a supremum $b \in \RR$.
+	If $X$ is bounded below, then there exists an infimum $a \in \RR$.
+	Now, depending upon whether $a$ and $b$ exist, there are three options for an interval $X$:
+	\begin{itemize}
+		\item a interval of finite length such as $[a,b]$, $\left]a,b\right]$, $\left[a,b\right[$, or $\left]a,b\right[$;
+		\item a ray $\left]a,+\infty\right[$, $\left[a,+\infty\right[$, $\left]-\infty, b\right[$, or $\left]-\infty, b\right]$; or
+		\item the line $\RR$ itself.
+	\end{itemize}
+	
+	Here now is our claim:
+	a subspace $X \subseteq \RR$ is connected if and only if it is an interval -- hence if and only if it is of one of the three forms above.
+	To prove this, we must prove two things:
+	\begin{itemize}
+		\item first, that any interval is connected, and
+		\item second, that any subspace that is not an interval is not connected.
+	\end{itemize}
+
+	To prove the first statement, assume first that $X$ is a closed interval $[a,b]$.
+	Assume that $V \subseteq [a,b]$ is a clopen subset.
+	Suppose that $x \in [a,b]$ is a point such that $x \notin V$;
+	we aim to show that $V$ is empty.
+	
+	If there are points $ s\in V$ such that $ s < x$, let
+	\[
+		s_0 \coloneq \sup \{s\in V : s< x\} \period
+	\]
+	Thus $s_0 \leq x$.
+	Observe that $s_0$ is close\sidenote{\Cref{exm:sups_and_infs_are_close}} to $V$.
+	Since $V$ is closed, it follows that $s_0 \in V$.
+	Since $x \notin V$, it follows that $s_0<x$.
+	Since $V$ is open, there is a $\varepsilon >0$ such that $\left]s_0-\varepsilon,s_0+\varepsilon\right[ \cap [a,b]$ is contained in $V$.
+	In particular, there exist points $s \in V$ such that $s_0 < s < x$, which contradicts the definition of $s_0$.
+	Consequently, there are no points $s\in V$ such that $s<x$.
+
+	On the other hand, if there are points $s \in V$ such that $s>x$, then let
+	\[
+		s_1 \coloneq \inf \{s\in V : s>x\} \period
+	\]
+	We can replay the same argument as above to generate a contradiction.
+	Since $V$ is closed, $s_1 \in V$.
+	Since $V$ is open, there are points $ s\in V$ such that $ x<s<s_1$, which is a contradiction.
+	It therefore follows that $V=\varnothing$, as desired.
+
+	So far, we have shown that a closed interval $[a,b]$ is always connected.
+	Now for a general interval $X$, note that if $x\in X$, then we may write
+	\[
+		X = \bigcup_{\substack{a,b\in X, \\ a\leq x\leq b}} [a,b] \period
+	\]
+	This is a union of connected subspaces of $\RR$ such that any two intersect (because they all contain $x$).
+	Hence $X$ is connected as well, thanks to the previous proposition.
+
+	Now let us prove the converse.
+	Assume that $X \subset \RR$ is \emph{not} an interval.
+	We aim to prove that $X$ is not connected;
+	it will suffice to construct a nonempty proper clopen $ V \subseteq X$.
+	For this, choose real numbers $a<x<b$ such that $a,b \in X$ but $x \notin X$.
+	Now consider the subset
+	\[
+		V = \left[x,+\infty\right[ \cap X = \left]x,+\infty\right[ \cap X \period
+	\]
+	The first expression proves that $V$ is closed; the second proves that $V$ is open.
+	Since $b \in V$ but $a\notin V$, it follows that $V$ is nonempty and proper.
+\end{exm}
+
+Here's our first truly \emph{topological} theorem.
+We will think of this as a generalization of the intermediate value theorem.
+\begin{thm}%
+\label{thm:IVT}
+	Let $ f \colon X \to Y $ be a continuous surjection.
+	If $X$ is connected, so is $Y$.
+\end{thm}
+
+\begin{proof}
+	Assume that $X$ is connected.
+	In particular, $X$ is nonempty, hence so is $Y$.
+	
+	Let $ V \subseteq Y $ be a nonempty clopen.
+	Then $f^{-1}(V) \subseteq X$ is clopen since $f $ is continuous, and it is nonempty since $f$ is a surjection.
+	Since $X$ is connected, it follows that $f^{-1}(V) = X$ itself.
+	This implies that the image $f(X)$ is contained in $V$.
+	Since $f$ is a surjection, it follows that $V=Y$.
+	Thus $Y$ has exactly two clopen subsets: $\varnothing$ and $Y$.
+\end{proof}
+
+\begin{exm}
+	Let $X \subseteq \RR^n$ be a connected subspace, and let $f \colon X \to \RR$ be a continuous map.
+	Then the image $f(X)$ is an interval.
+	This is our friend, the intermediate value theorem.
+
+	Consider the following assertion: there are two \defn{antipodal}%
+	\sidenote{Two points are antipodal if and only if they are in exactly opposite directions from the center of the Earth.}
+	points on the Earth's equator that, at ground level, have exactly the same temperature.%
+	\sidenote{For the purposes of this discussion, we assume that temperature is a continuous function of position.}
+	In other words, there are two coordinates of the form
+	\[
+		0^{\circ}\text{S,} \; x^{\circ}\text{E} \andeq 0^{\circ}\text{N,} \; (180-x)^{\circ}\text{W}
+	\]
+	where at ground level the temperature is exactly the same.
+	
+	Here's the proof.
+	The Earth's equator is homeomorphic to the circle $S^1$, which is a connected subspace of $\RR^2$.
+	Temperature at the equator is thus a continuous function $T \colon S^1 \to \RR$.
+	Now define a related continuous map $ g \colon S^1 \to \RR$ by the formula
+	\[
+		g(x) = T(x)-T(-x) \period
+	\]
+	Now since $x$ and $-x$ are antipodal points, our claim will be proved if we can show that there is a point $x\in S^1 $ such that $g(x)=0$.
+	If $g(1,0)=0$, then we are done.
+	Otherwise, our formula ensures that $g(-1,0)=g(1,0)$, so $g(1,0)$ and $g(-1,0)$ have different signs.%
+	\sidenote{That is, one is positive and one is negative.}
+	But since the image $g(S^1) \subseteq\RR$ is an interval, it follows that $ 0 \in g(S^1)$.
+	Hence there exists $ x \in S^1$ such that $g(x)=0$.
+\end{exm}
+
+\begin{exm}
+	Since $\RR \smallsetminus\{0\} $ and the subspace
+	\[
+		Y = \{(x,y) \in \RR^2 : |x|=1\}
+	\]
+	are homeomorphic, it follows that $\RR\smallsetminus \{0\}$ is not connected.
+
+	Since $\RR$ is connected, it follows that it is not homeomorphic to $\RR \smallsetminus \{0\}$.
+\end{exm}
+
+\begin{exm}
+	The line $\RR$ is not homeomorphic to $S^1$.
+	Indeed, suppose it were; choose a homeomorphism $f \colon \RR \to S^1$.
+	This will restrict to a homeomorphism $\RR \smallsetminus \{0\} \to S^1\smallsetminus\{f(0)\}$.
+	However, we claim that $S^1 \smallsetminus \{f(0)\} $ is connected.
+	In fact, we'll do better: we shall prove that $S^1 \smallsetminus \{f(0)\}$ is homeomorphic to $\RR$.
+
+	To make our formulas simpler, let's use complex numbers.%
+	\sidenote{The field of complex numbers $\CC$ is really nothing more than $\RR^2$, equipped with its complex multiplication rule $(a,b)\cdot (c,d) = (ac-bd, ad+bc)$.}
+	We have:
+	\[
+		S^1 = \{z \in \CC : |z| = 1 \}.
+	\]
+	Let $w = f(0)$.
+	We may first construct a homeomorphism $S^1\smallsetminus\{w\} \to S^1 \smallsetminus \{1\} $ by the rule $ z \mapsto z/w $.
+	Since the inverse map is $ z \mapsto wz$, which is also continuous, we are done.
+
+	With this done, we now construct a homeomorphism $\left]0,1\right[ \to S^1 \smallsetminus \{1\}$ by the rule $t \mapsto \exp(2\pi i t) $.
+	This map is a continuous bijection, but what about its inverse $r$?
+	To make it easy to deduce the continuity of $r$ from well-known bits of analysis, we write it as:%
+	\sidenote{Please note, however, that this formula will not work to define a continuous map from $S^1 \to \RR$.}
+	\[
+		r(x,y) = \frac{1}{2}-\frac{1}{\pi}\arctan\left(\frac{y}{1-x}\right) \period
+	\]
+	It now follows that $S^1\smallsetminus\{1\}$ is homeomorphic to an open interval and thus to $\RR$ itself.
+\end{exm}
+

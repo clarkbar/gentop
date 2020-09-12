@@ -1,0 +1,382 @@
+%!TEX root = rootfile.tex 
+% chktex-file 3
+% chktex-file 8
+% chktex-file 12
+% chktex-file 24
+% chktex-file 42
+
+Our starting place is the study of the \emph{subspaces} of Euclidean space.
+
+\begin{ntn}
+	As usual, $\RR$ will denote the ordered field of real numbers.
+	For any $ n\geq 0$, we write $\RR^n$ for the vector space of $n$-tuples $x = (x_1,\dots,x_n)$ with $x_i \in \RR$.
+	
+	For our purposes, one of the most important features $\RR^n$ has to offer is its \emph{metric};
+	this is the map
+	\[
+		d \colon \RR^n \times \RR^n \to \RR \comma
+	\]
+	called the \emph{distance}, given by the formula
+	\[
+		d(x,y) \coloneq \|x - y\| = \sqrt{\sum_{i=1}^n (x_i-y_i)^2} \period
+	\]
+	This map enjoys four key properties:
+	\begin{enumerate}
+		\item (Nonnegativity.) For every pair of points $x,y \in \RR^n$, one has $d(x,y) \geq 0$.
+		\item (Identity.) For every pair of points $x,y \in \RR^n$, one has $d(x,y)=0$ if and only if $x=y$.
+		\item (Symmetry.) For every pair of points $x,y \in \RR^n$, one has $d(x,y) = d(y,x)$.
+		\item (Triangle inequality.) For every triple of points $x,y,z \in \RR^n$, one has
+			\[
+				d(x,y) + d(y,z) \geq d(x, z) \period
+			\]
+	\end{enumerate}
+
+	If $ r \geq 0$ and $ x \in \RR^n $, then we define the \emph{ball of radius $ r $ centered at $x$}:
+		\[
+			B^n(x,r) \coloneq \{ y \in \RR^n : d(x,y) <r \} \period
+		\]
+\end{ntn}
+
+In topology, we are not interested in the metric $d$ itself but in what it can tell us about the nearness of points and subsets:
+
+\begin{dfn}
+	Let $ S \subseteq \RR^n $ be a subset.
+	A point $ x \in \RR^n $ will be said to be \defn{close to} $S$ if and only if, for every $ \varepsilon > 0 $, there exists an element $ s \in S $ such that $ d(x,s) < \varepsilon $.
+
+	We may express this notion with the aid of an auxiliary quantity.
+	Define the \defn{distance from $x$ to $S$} as%
+	\sidenote{If $S = \varnothing$, then this infimum doesn't exist as a real number.
+	So we'll declare formally that $d(x,\varnothing) = +\infty$.}
+	\[
+		d(x,S) \coloneq \inf \{ d(x,s) : s \in S \} \period
+	\]
+	Then $x$ is \defn{close to} $S$ if and only if $d(x,S) =0$.
+	
+	Let $ X \subseteq \RR^n$ be a subset such that $ S \subseteq X $.
+	We shall write $ \tau_X(S) \subseteq X $ for the set of $ x \in X $ that are close to $ S $:
+	\[
+		\tau_X(S) \coloneq \{ x \in X : (\forall \varepsilon >0)(\exists s \in S)(d(x,s)<\varepsilon) \} = \{x \in X : d(x,S) = 0\}
+	\]
+	This is called the \defn{closure of $S$ in $X$}.
+	In other words,
+	\[
+		\tau_X(S) = X \cap \bigcap_{\varepsilon>0}\bigcup_{s\in S} B^n(s,\varepsilon) \period
+	\]
+
+	We will refer to $X $ along with the map%
+	\sidenote{The set $\PP(X)$ is the \emph{powerset} of $X$;
+	it is the set of subsets of $X$.}
+	$\tau_X \colon \PP(X) \to \PP(X) $ as the \emph{subspace} $X \subseteq \RR^n$.
+\end{dfn}
+
+Every time you see a new definition in mathematics, you should begin immediately to think about as many examples as you can.
+You should also have a couple of \defn{counterexamples} at hand, preferably at least one for each condition in a definition.
+Then, when you encounter a theorem with a proof, you can take your example and \enquote{run} the proof on your example, and you can run it on your counterexample to see where the conditions are really being used.
+This is one of the most important ways to understand how theorems really work.
+
+In that spirit, let's dig into some examples.
+
+\begin{exm}
+	\begin{itemize}
+		\item If $ X = \varnothing $, then this definition becomes a little boring:
+			the only subset of $\varnothing$ is $\varnothing$ itself, and $\tau_{\varnothing}(\varnothing) = \varnothing$.
+		\item If $ X = \RR$ itself, then let's see what happens for various choices of $S$:
+			\begin{itemize}
+				\item Let's consider various unit intervals:
+					\[
+						\tau_{\RR}(\left]0,1\right[) = \tau_{\RR}([0,1]) = \tau_{\RR}(\left]0,1\right]) = [0,1]
+					\]
+				\item If $\QQ \subset \RR$ denotes the set of rational numbers, then $\tau_{\RR}(\QQ) = \RR $.
+				\item At the same time, $\tau_{\RR}(\RR \smallsetminus \QQ) = \RR$.
+				\item Confirm that  $\tau_{\RR}(\varnothing)=\varnothing$.
+			\end{itemize}
+		\item If $ X \subseteq \RR^n$ is a subspace, then we have
+			\[
+				\tau_X(S) = \tau_{\RR^n}(S) \cap X \period
+			\]
+			This is an important point: the closure of $S$ is done \emph{relative to the subspace $X$}.
+			Let's see how the closure of $S = \left]0,1\right[$ depends on which subspace $X \subseteq \RR $ in which we are closing:
+			\begin{itemize}
+				\item If $X=\RR$, then $\tau_{\RR}(\left]0,1\right[) = [0,1]$.
+				\item If $X=\left]0,1\right[$, then $\tau_{\left]0,1\right[}(\left]0,1\right[) = \left]0,1\right[$.
+				\item If $X=\left]0,1\right]$, then $\tau_{\left]0,1\right]}(\left]0,1\right[) = \left]0,1\right]$.
+				\item If $X=\left]0,+\infty\right[$, then $\tau_{\left]0,+\infty\right[}(\left]0,1\right[) = \left]0,1\right]$.
+			\end{itemize}
+	\end{itemize}
+\end{exm}
+
+\begin{exm}
+	Let $X \subseteq \RR$ be a subspace.
+	Let $S \subseteq X$ be a nonempty subset that is bounded above.
+	The completeness property of $\RR$ then ensures that $S$ has a supremum $\sup S$.
+	If $\sup S \in X$, then $\sup S$ is close to $S$ in $X$;
+	that is,
+	\[
+		\sup S \in \tau_X(S) \period
+	\]
+
+	Let's prove this.
+	Let $\varepsilon>0$.
+	If $ \left]x-\varepsilon, x+\varepsilon\right[ \cap S \neq \varnothing$, then $x-\varepsilon$ is also an upper bound for $S$, contradicting the assumption that $x$ is the \emph{least} upper bound for $S$.
+	Consequently, there exists an element $ s \in S$ such that $d(x,s) < \varepsilon$.
+
+	The same argument shows that if $S \subseteq X $ is nonempty and bounded below, then if $\inf S \in X$, then
+	\[
+		\inf S \in \tau_X(S) \period
+	\]
+\end{exm}
+
+\newthought{Here are} the basic facts about the closure operator $\tau_X \colon \PP(X) \to \PP(X)$.
+As we shall see, these facts are in many ways even more important than the definition of $\tau_X$ itself.
+\begin{prp}%
+\label{prp:key_properties_of_tau}
+	Let $X \subseteq \RR^n $ be a subspace.
+	\begin{enumerate}
+		\item For every subset $S \subseteq X $, every point of $S$ is close to $S$.
+			That is, $S \subseteq \tau_X(S)$.
+		\item No points of $X$ are close to $\varnothing$.
+			That is, $\tau_X(\varnothing) = \varnothing$.
+		\item If $S_1,\dots,S_n \subseteq X$ are a finite collection of subsets, then a point $x \in X$ is close to $ S_1 \cup \dots \cup S_n $ if and only if, for some $i$, the point $x$ is close to $S_i$.
+			That is,
+			\[
+				\tau_X\left(S_1 \cup \dots \cup S_n\right) = \tau_X(S_1) \cup \dots \cup \tau_X(S_n) \period
+			\]
+		\item If $S \subseteq X$, then if $x \in X$ is a point that is close to $\tau_X(S)$, then $\mbfx$ is close to $S$ itself.
+			That is, $\tau_X(\tau_X(S)) = \tau_X(S)$.
+	\end{enumerate}
+\end{prp}
+
+\begin{proof}
+	Let us prove these in order.
+	\begin{enumerate}
+		\item If $ x \in S$, then for every $\varepsilon>0$, we certainly have $d(x,x) = 0 < \varepsilon$.
+		\item For every $\varepsilon>0$, the sentence%
+			\sidenote{Sentences of the form $(\exists s \in \varnothing)(\phi(s))$ are \emph{always} false, no matter what $\phi(s)$ says!}
+			$(\exists s \in \varnothing)(d(x,s)<\varepsilon)$ is false.
+		\item If $ x $ is close to $ S_1 \cup \dots \cup S_n $, then for every natural number%
+			\sidenote{In this text, $\NN$ will denote the natural numbers $\{0,1,\dots\}$, and $\NN^{\ast}$ will denote the natural numbers $\{1,2,\dots\}$.}
+			$ m \in \NN^{\ast} $, we may select $s_m \in S_1 \cup \dots \cup S_n $ such that $ d(x, s_m) < 1/m$.
+			By the pigeonhole principle, there exists an $i$ such that the set $\{ m \in \NN^{\ast} : s_m \in S_i \}$ is infinite.
+			Consequently, for any $\varepsilon>0$, there exists a natural number $m\geq 1$ such that $ s_m \in S_i$ and $1/m < \varepsilon$.
+			In particular
+			\[
+				d(x,s_m) < 1/m < \varepsilon \period
+			\]
+			Thus $ x $ is close to $S_i$.
+
+			Conversely, if $ x $ is close to some $S_i$, then for every $\varepsilon >0$, there exists $ s \in S_i \subseteq S_1 \cup \dots \cup S_n $ such that $ d(x,s) <\varepsilon $,
+			so $ x $ is close to $S_1 \cup \dots \cup S_n$.
+		\item If $ x $ is close to $ \tau_X(S)$, then for any $\varepsilon >0$, we may select $ t\in \tau_X(S)$ such that $d(x,t) < \varepsilon/2 $.
+			Since $t$ is close to $S$, we may select $s \in S$ such that $d(t, s) < \varepsilon/2 $.
+			Now by the triangle inequality,
+			\[
+				d(x, s) \leq d(x, t) + d(t, s) < \varepsilon \period
+			\]
+			Thus $ x$ is close to $S$.
+	\end{enumerate}
+\end{proof}
+
+\begin{cor}%
+\label{cor:tau_preserves_inclusion}
+	If $X \subseteq \RR^n$ is a subspace, then for any subsets $S, T \in \PP(X)$, if $S \subseteq T$, then $\tau_X(S) \subseteq \tau_X(T)$.
+\end{cor}
+
+\begin{proof}
+	We may write $ T = S \cup (T \smallsetminus S) $.
+	Then by the third point of the proposition above,
+	\[
+		\tau_X(T) = \tau_X(S) \cup \tau_X(T \smallsetminus S) \comma
+	\]
+	and so $ \tau_X(S) \subseteq \tau_X(T)$.
+\end{proof}
+
+If $X \subseteq \RR^n$ is a subspace, then there are two different kinds of subset that play a big role in topology:
+\begin{dfn}
+	A subset $Z \subseteq X$ is \emph{closed in $X$} if and only if
+	\[
+		\tau_X(Z) = Z \period
+	\]
+	In other words, $Z$ is closed if and only if every point of $X$ that is close to $Z$ is contained in $Z$.
+
+	A subset $U \subseteq X$ is \defn{open in $X$} if and only if $X \smallsetminus U $ is closed.
+	In other words, $U$ is open if and only if no point of $U$ is close to the complement of $U$.
+\end{dfn}
+
+\begin{exm}
+	\begin{itemize}
+		\item For any subspace $X \subseteq \RR^n$, the subset $X \subseteq X$ is both open and closed.%
+			\sidenote{
+				This is sometimes a source of confusion -- or at least irritation.
+				One may expect that \enquote{open} and \enquote{closed} are opposites, but they are not:
+				there are subsets that are neither, and there are subsets that are both.
+				Instead, they are \emph{complementary} notions.
+			}
+		\item For any subspace $X \subseteq \RR^n$, the subset $\varnothing \subseteq X $ is both open and closed.
+		\item In $\RR$ itself, the subset $[0,1] \subset \RR$ is closed but not open.
+		\item In $\RR$, the subset $\left]0,1\right[ \subset \RR$ is open but not closed.
+		\item In $\RR$, the subsets $\left[0,1\right[$ and $\left]0,1\right]$ are neither open nor closed.
+		\item In the subspace $\left]0, +\infty\right[ \subseteq \RR$, the subset $\left]0,1\right] \subseteq \left]0, +\infty\right[$ is closed but not open.
+		\item In the subspace $\left[0, +\infty\right[ \subseteq \RR$, the subset $\left[0,1\right[ \subseteq \left[0, +\infty\right[$ is open but not closed.
+	\end{itemize}
+\end{exm}
+
+\begin{prp}%
+\label{prp:tau_is_smallest_closed}
+	For any subspace $X \subseteq \RR^n$ and any subset $ S \subseteq X $, the closure $\tau_X(S)$ is the smallest closed subset%
+	\sidenote{That is, $\tau_X(S) \subseteq X$ is a closed subset that contains $S$, and for any closed subset $Z \subseteq X$ that contains $S$, one has $\tau_X(S) \subseteq Z$.}
+of $X$ that contains $S$.
+\end{prp}
+
+\begin{proof}
+	Let $Z \subseteq X $ be a closed subset that contains $S$.
+	Then
+	\[
+		\tau_X(S) \subseteq \tau_X(Z) = Z \period
+	\]
+	Hence $\tau_X(S)$ is contained in any closed subset of $X$ that contains $S$.
+	It remains to note that $\tau_X(S)$ is itself a closed subset of $X$ that contains $S$.
+	By the proposition above,
+	\[
+		\tau_X(\tau_X(S)) = \tau_X(S) \comma 
+	\]
+	so $\tau_X(S)$ is closed.
+\end{proof}
+
+\begin{prp}%
+\label{prp:balls_form_a_basis}
+	Let $ X \subseteq \RR^n $ be a subspace.
+	Then $ U \subseteq X $ is open if and only if, for every $ x \in U$, there exists an $\varepsilon >0$ such that
+	\[
+		B^n(x, \varepsilon) \cap X \subseteq U \period
+	\]
+\end{prp}
+
+\begin{proof}
+	Suppose that $U \subseteq X $ is open, and let $ x \in U $ be a point.
+	Then by definition, $x$ is not close to $ X \smallsetminus U $.
+	Hence there exists $\varepsilon>0$ such that for any point $ y \in X \smallsetminus U $, one has $d(x,y) \geq \varepsilon$.
+	That is, $U$ contains $B^n(x,\varepsilon) \cap X $.
+
+	Now assume that for every $ x \in U$, there exists an $\varepsilon >0$ such that
+	\[
+		B^n(x, \varepsilon) \cap X \subseteq U \period
+	\]
+	We aim to show that $ X \smallsetminus U $ is closed;
+	hence let $ x \in U $ be a point that is close to $ X \smallsetminus U $.
+	For some $\varepsilon>0$, the intersection $B^n(x,\varepsilon) \cap X $ is contained in $U$.
+	But at the same time, since $ x $ is close to $X \smallsetminus U$, the intersection $B^n(x, \varepsilon) \cap (X \smallsetminus U) \neq \varnothing$.
+	This is a contradiction that shows that no point of $U$ is close to $X \smallsetminus U $;
+	thus $U$ is open.
+\end{proof}
+
+\begin{prp}%
+\label{prp:closeds_and_open_in_subspace_topology}
+	Let $X \subseteq \RR^n$ be a subspace.
+	Then a subset $Z \subseteq X $ is closed if and only if $Z = Z' \cap X $ for some closed subset $Z' \subseteq \RR^n$.
+	Similarly, a subset $U \subseteq X $ is open if and only if $U = U' \cap X$ for some open subset $U' \subseteq \RR^n$.
+\end{prp}
+
+\begin{proof}
+	Assume that $Z' \subseteq \RR^n$ is a closed subset.
+	Now consider the intersection $Z' \cap X$.
+	The closure $\tau_{\RR^n}(Z' \cap X)$ is contained in $\tau_{\RR^n}(Z') = Z'$.
+	Consequently,
+	\[
+		\tau_X(Z'\cap X) = \tau_{\RR^n}(Z'\cap X) \cap X \subseteq Z' \cap X \comma
+	\]
+	so $Z' \cap X $ is closed.
+	
+	Conversely, assume that $Z \subseteq X$ is a closed subset.
+	Then $Z' \coloneq \tau_{\RR^n}(Z)$ is closed in $\RR^n$, and
+	\[
+		Z = \tau_X(Z) = \tau_{\RR^n}(Z) \cap X = Z' \cap X.
+	\]
+
+	The statements about open subsets of $X$ now follow by taking complements.%
+	\sidenote{For proofs of this kind, it is usually enough just to offer such a short sentence.
+	In this case, we will unpack this sentence a little more.}
+	Indeed, if $U' \subseteq \RR^n$ is an open subset, then let $Z' $ denote its complement.
+	Since $Z'\cap X$ is closed by what we've already proved, its complement in $X$, which is $U' \cap X$ is open.
+	Conversely, if $U \subseteq X$ is open, then let $Z$ denote its complement in $X$.
+	By what we've already shown, there is a closed subset $Z' \subseteq \RR^n$ such that $Z = Z' \cap X$, so if $U'$ denotes the open complement of $Z'$, then $U = U'\cap X$.
+\end{proof}
+
+\begin{prp}%
+\label{prp:stability_properties_of_closeds_and_opens}
+	Let $ X \subseteq \RR^n$ be a subspace.
+	For any family $\{Z_a\}_{a\in A}$ of closed subsets of $X$, the intersection $ \bigcap_{a\in A} Z_a $ is closed as well;
+	if $A$ is \emph{finite}, then the union $\bigcup_{a\in A} Z_a $ is closed as well.
+	Dually, for any family $\{U_a\}_{a\in A}$ of open subsets of $X$, the intersection $ \bigcup_{a\in A} U_a $ is open as well;
+	if $A$ is \emph{finite}, then the intersection $\bigcap_{a\in A} U_a $ is open as well.
+\end{prp}
+
+\begin{proof}
+	Let $W = \bigcap_{a\in A} Z_a$.
+	We aim to prove that $\tau_X(W) \subseteq W$.
+	Let $x \in X$ be a point that is close to $W$.
+	For every $a \in A$, since $W \subseteq Z_a$, it follows that $x$ is close to $Z_a$ as well.
+	Since $Z_a$ is closed, $x \in Z_a$.
+	This happens for every $a \in A$, so $x \in W$.
+
+	If $A$ is finite, then we have shown that
+	\[
+		\tau_X\left(\bigcup_{a \in A} Z_a\right) = \bigcup_{a\in A} \tau_X(Z_a) = \bigcup_{a \in A} Z_a \comma
+	\]
+	so the union is closed.
+
+	The dual statement follows by forming complements.
+\end{proof}
+
+\begin{exm}
+	Let's consider examples in $\RR$ in which the finiteness hypotheses of the previous proposition are necessary.
+	\begin{itemize}
+		\item Infinite unions of closed subsets need not be closed:
+			\[
+				\bigcup_{n\in\NN^{\ast}} \left[-1+\frac{1}{n}, 1-\frac{1}{n}\right] = \left]-1,1\right[ \comma
+			\]
+			or open:
+			\[
+				\bigcup_{n\in\NN^{\ast}} \left[0,1-\frac{1}{n}\right] = \left[0,1\right[ \period.
+			\]
+		\item Infinite intersections of open subsets need not be open:
+			\[
+				\bigcap_{n\in\NN^{\ast}} \left]-1-\frac{1}{n}, 1+\frac{1}{n}\right[ = [-1,1] \comma
+			\]
+			or closed:
+			\[
+				\bigcap_{n\in\NN^{\ast}} \left]0, 1+\frac{1}{n}\right[ = \left]0,1\right] \period
+			\]
+	\end{itemize}
+\end{exm}
+
+We conclude with some examples of subspaces of Euclidean space to which we will return regularly.
+
+\begin{exm}
+	\begin{itemize}
+		\item For any $n \in \NN$, the \defn{$n$-sphere} $S^n$ is the subspace
+			\[
+				S^n \coloneq \{ x \in \RR^{n+1} : \|x\| = 1 \} \period
+			\]
+		\item The \defn{open unit ball} is the subspace
+			\[
+				B^n \coloneq B^n(0,1) = \{ x \in \RR^n : \| x \| < 1 \} \comma
+			\]
+			and its closure in $\RR^n$ is the \defn{closed unit ball}
+			\[
+				\overline{B}^n \coloneq \{ x \in \RR^n : \| x \| \leq 1 \} \period
+			\]
+		\item If we have a finite collection of subspaces $X_1 \subseteq \RR^{n_1}, \dots, X_k \subseteq \RR^{n_k} $ then we obtain the subspace
+			\[
+				X_1 \times \cdots \times X_k \coloneq \{ x = (x^1, \dots, x^k) \in \RR^{n_1} \times \cdots \times \RR^{n_k} : (\forall i)(x^i \in X_i) \} \period
+			\]
+		\item For any $ n\in \NN $, the \defn{$n$-torus} is the subspace
+			\[
+				T^n \coloneq S^1 \times \cdots \times S^1 \subseteq \RR^{2n} \period
+			\]
+			That is,
+			\[
+				T^n \coloneq \{ (x_1, y_1, \dots, x_n, y_n) \in \RR^{2n} : (\forall i)(x_i^2 +y_i^2=1) \} \period
+			\]
+	\end{itemize}
+\end{exm}
+
