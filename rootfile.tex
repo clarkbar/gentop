@@ -23,9 +23,16 @@
 
 % chapter format
 \titleformat{\chapter}%
-  {\LARGE\sffamily}% format applied to label+text
+  {\Huge\sffamily\color{sbase02}}% format applied to label+text
   {\thechapter}% label
   {1cm}% horizontal separation between label and title body
+  {}% before the title body
+  []% after the title body
+
+\titleformat{\section}%
+  {\normalfont\LARGE\sffamily\color{sbase03}}% format applied to label+text
+  {\thesection}% label
+  {0.5cm}% horizontal separation between label and title body
   {}% before the title body
   []% after the title body
 

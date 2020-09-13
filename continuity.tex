@@ -50,6 +50,20 @@ The only difference is that we no langer have access to the $\varepsilon$-$\delt
 	Dually, any map $ g \colon X \to S $ is continuous if $S$ is endowed with the emph{chaotic} topology.
 \end{exm}
 
+\begin{dfn}
+	Suppose $\tau_1$ and $\tau_2$ are two topologies on the same set $X$.
+	Then we say that $\tau_1$ is \defn{finer} than $\tau_2$ -- and that $\tau_2$ is \defn{coarser} than $\tau_1$ -- if the identity map on $X$ is continuous as a map
+\[
+	(X,\tau_1) (X,\tau_2) \period
+\]
+	Hence if $\tau_1$ is finer than $\tau_2$, then the closure of a set relative to $\tau_1$ is contained in its closure relative to $\tau_2$.
+	In particular, the topology $\tau_1$ has more closed sets than the topology $\tau_2$.
+	Forming complements, we deduce also that the topology $\tau_1$ has more open sets than the topology $\tau_2$.
+
+	There are two extremes: the finest topology on a set is the discrete topology, and
+	the coarsest is the chaotic topology.
+\end{dfn}
+
 \begin{exm}
 	Recall the topological space $\PP^1_{\RR}$ of \Cref{exm:real_projective_line}.
 	Define a map $ L \colon S^1 \to \PP^1_{\RR}$ as follows: for every point $x \in S^1$, let $L(x)$ be the $1$-dimensional subspace spanned by the vector $x$.
@@ -88,6 +102,43 @@ A map $ f \colon X \to Y $ is continuous if and only if it is continuous at ever
 	\]
 	is not.
 	Hence $s$ is not continuous at $0$, as we expect!
+\end{exm}
+
+\begin{exm}%
+\label{exm:reciprocalextension}
+	Consider the function $f(x)=1/x$.
+	This is a continuous map
+	\begin{equation*}
+		f\colon \RR-\{0\} \to \RR-\{0\} \comma
+	\end{equation*}
+	relative to the subspace topology on each side.
+	Of course we have removed the point $0\in\RR$, because in primary school we were told that $1/0$ is \enquote{undefined.}
+	But let's try to define it anyhow.
+
+	We note that, as $x$ approaches $0$ from the right, $1/x$ increases without bound;
+	as $x$ approaches $0$ from the left, $1/x$ decreases without bound.
+	If we wanted to add a point that would play the role of $1/0$, then this leads us to the following idea:
+	consider the topological space $\RR\sqcup\{\infty\}$ constructed in \cref{exm:onepointcompactificationofRR}.
+	Now we may extend our map $f\colon \RR-\{0\} \to \RR-\{0\}$ to a map $F \colon \RR\sqcup\{\infty\} \to \RR\sqcup\{\infty\}$ by
+	\[
+		F(x) \coloneq
+		\begin{cases}
+			1/x & \text{if }x \in \RR \smallsetminus \{0\} \semicolon \\
+			∞   & \text{if }x = 0 \semicolon \\
+			0   & \text{if }x = ∞ \period
+		\end{cases}
+	\]
+	With the topology we've given $\RR\sqcup\{\infty\}$, this is continuous!
+	The only thing left for us to check is continuity at $0$ and $∞$.
+	
+	To do this, let $S \subseteq \RR \sqcup \{ \infty \} $ be a subset such that $0$ is close to $S$.
+	Let $N >0$.
+	There exists an element $s \in S$ such that $|s| < 1/N$.
+	Thus $|F(s)|>N$.
+	It follows that $F$ is continuous at $0$.
+	
+	The proof of contiuity at $\infty$ is similar.%
+	\sidenote{Please fill in the details!}
 \end{exm}
 
 \begin{prp}%
