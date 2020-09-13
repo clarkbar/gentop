@@ -47,7 +47,7 @@ There are three observations we can make about our study of subspaces of Euclide
 	Equivalently, if we think of the circle $S^1 \subset \RR^2$, then every line $L \in \PP^1_{\RR}$ intersects $S^1$ in exactly two points%
 	\sidenote{For our purposes, it won't matter which of the two intersection points we call $i(L)$ and which we call $j(L)$.}
 	$i(L)$ and $j(L)$, where $i(L) = -j(L)$.
-	We may now say that $L \in \PP^1_{\RR}$ is close to $S \subseteq \PP^1_{\RR}$ if and only if, for every $\varepsilon>0$, there exists a line $L' \in S$ such that either $|i(L)-i(L')|<\varepsilon$ or $|i(L)-j(L)|<\varepsilon$.
+	We may now say that $L \in \PP^1_{\RR}$ is close to $S \subseteq \PP^1_{\RR}$ if and only if, for every $\varepsilon>0$, there exists a line $L' \in S$ such that either $\|i(L)-i(L')\|<\varepsilon$ or $\|i(L)-j(L)\|<\varepsilon$.
 \end{exm}
 
 \newthought{To deal} with examples like this one, we're going to pull a trick that is often quite powerful in mathematics: we're going to turn \Cref{prp:key_properties_of_tau} into a \emph{definition}.
@@ -95,6 +95,11 @@ To formalise this idea, we introduce, for each subset $ S \subseteq X $, the set
 	\sidenote{In a little while, we'll discuss how one can specify a topology by listing the open sets, which is what you will frequently see in other books.}
 \end{dfn}
 
+\begin{ntn}
+	We will often write just $X$ for the topological space, without introducing an extra symbol for the topology.
+	When we have to name the topology, we shall often just write $\tau_X$.
+\end{ntn}
+
 \begin{exm}
 	We have already seen the first example.
 	Any subset $X \subseteq \RR^n$ inherits a topology $\tau_X$ that carries a subset $S \subseteq X$ to 
@@ -103,6 +108,26 @@ To formalise this idea, we introduce, for each subset $ S \subseteq X $, the set
 	\]
 	When $X=\RR^n$, this is often called the \defn{standard topology},
 	and for $X \subseteq \RR^n$, this is called the \defn{subspace topology}.
+\end{exm}
+
+\begin{exm}
+	The closure operation on $\PP^1_{\RR}$ (\Cref{exm:real_projective_line}) is a topology.
+	\begin{enumerate}
+		\item Let $S \subseteq \PP^1_{\RR}$.
+			If $L \in S$, then the conditions are automatic for $L \in \tau(S)$.
+		\item Let $S_1, \dots, S_n \subseteq \PP^1_{\RR}$ be a collection of subsets of $\PP^1_{\RR}$, and let $L \in \PP^1_{\RR}$.
+			If $L$ is close to $S_1 \cup \cdots \cup S_n$, then a Pigeonhole argument like the one given in \Cref{prp:key_properties_of_tau} ensures that $L$ is close to $S_1 \cup \cdots \cup S_n$.%
+			\sidenote{Fill in the details here!
+			Often, in writing, mathematicians say something like, \enquote{by the same argument \ldots,} or \enquote{by the standard argument \ldots,} or even, \enquote{it is obvious that\ldots.}
+			This can be a little annoying (and I don't recommend calling very many things \enquote{obvious}), but it is a good opportunity for you to take a moment to sort through the details yourself.}
+			If $L$ is close to some $S_i$, then it is certainly close to $S_1 \cup \cdots \cup S_n$.
+		\item Let $S \subseteq \PP^1_{\RR}$, and let $L \in \PP^1_{\RR}$ be a line that is close to $\tau(S)$.
+			We aim to show that $L$ is close to $S$;
+			so let $\varepsilon>0$.
+			There exists a line $L' \in \tau(S)$ such that either $\|i(L) - i(L')\|<\varepsilon$ or $\|i(L)-j(L')\|<\varepsilon/2$.
+			Accordingly, there exists a line $L'' \in S$ such that either $\|i(L') - i(L'')\| < \varepsilon/2$ or $\|i(L') - j(L'')\| < \varepsilon/2$.
+			Analyzing the four options and applying the triangle inequality, we find that either $\|i(L) - i(L'')\|<\varepsilon$ or $\|i(L) - j(L'') \|<\varepsilon$.
+	\end{enumerate}
 \end{exm}
 
 \begin{exm}
@@ -297,7 +322,7 @@ It's a little less intuitive, but it becomes technically convenient when we want
 		\item A \defn{system of open sets} on $X$ is a subset $\mathscr{O}\subseteq\PP(X)$ that is stable under unions\sidenote{possibly empty} and finite intersections\sidenote{possibly empty}.
 			That is, if $\Sigma\subseteq \mathscr{O}$, then the union
 			\[
-				\bigcup{U\in \Sigma} U
+				\bigcup_{U\in \Sigma} U
 			\]
 			also lies in $ \mathscr{O}$,
 			and if $\Sigma$ is finite, then the intersection
@@ -373,6 +398,33 @@ In the opposite direction, for any system of closed subsets $\mathscr{C}$ on $X$
 	Thus one may specify a topology on $X$ by specifying the closed sets and checking stability under intersections and finite unions, or specifying the open sets and checking stability under unions and finite intersections.\sidenote{Most textbooks define topologies as a system of open sets. There's nothing wrong with this definition, but we've delayed this description, because it seems difficult to motivate fully.}
 \end{nul}
 
+\begin{exm}
+	Here's an extremely important example in modern mathematics.
+	This one will be following us around throughout this text.
+	Let $X \subseteq \RR^m$ be any subspace, and let $n \in \NN$.
+	We are about to define a topological space $C_n(X)$ called the \defn{configuration space of $n$ points in $X$}.
+	As a set, $C_n(X)$ is the set of subsets $\{x_1,\dots,x_n\} \subseteq X$ of $n$ distinct points:
+	\[
+		C_n(X) \coloneq \{ S \subseteq \PP(X) : \# S = n \} \period
+	\]
+	To endow it with a topology, we need to define an auxiliary topological space.
+
+	Recall that we defined the subspace
+	\[
+		X^n \coloneq X \times \cdots \times X = \{ x = (x_1, \dots, x_n) \in \RR^{mn} : (\forall i)(x_i \in X) \} \subseteq \RR^{mn} \period
+	\]
+	We now pass to a further subspace:
+	\[
+		E_n(X) \coloneq \{(x_1, \dots, x_n) \in X^n : (\forall i,j)((i \neq j) ⇒ (x_i \neq x_j)) \} \subseteq X^m \period
+	\]
+	Now there is a map $q \colon  E_m(X) \to C_m(X)$ defined by
+	\[
+		q(x_1, \dots, x_n) \coloneq \{x_1, \dots, x_n\} \period
+	\]
+	We now declare that $U \subseteq C_n(X)$ is open if and only if $q^{-1}(U) \subseteq E_n(X) $ is open.
+	This defines a system of open sets (and hence a topology), since the formation of the inverse image preserves unions and intersections.
+\end{exm}
+
 \begin{exm} Any set $X$ can be given the \defn{cofinite} topology, in which a subset $Z\subseteq X$ is declared to be closed if and only if either $Z$ is finite or $Z=X$.
 	Thus in the cofinite topology,
 	\[
@@ -383,3 +435,17 @@ In the opposite direction, for any system of closed subsets $\mathscr{C}$ on $X$
 	\]
 \end{exm}
 
+\begin{dfn}
+	Let $X$ be a topological space, and let $x \in X$.
+	Then an \defn{open neighborhood} of $x$ is an open subset $U \subseteq X $ such that $x \in U$.
+	A \defn{neighborhood} of $x$ is a subset of $X$ that contains an open neighborhood of $x$.
+\end{dfn}
+
+\begin{nul}
+	If $X$ is a topological space, then $\tau(S)$ is the smallest closed subset that contains $S$.
+	Equivalently, a point $y \in X$ lies in the closure $\tau(S)$ if and only if, for any open neighborhood $U$ of $y$, the intersection $U \cap \tau(S)$ is nonempty.
+
+	Why are these equivalent?
+	Well, if $y \notin \tau(S)$, then $X \smallsetminus \tau(S)$ is an open neighborhood of $y$ that does not intersect $S$.
+	Conversely, if $U$ is an open neighborhood of $x$ that does not intersect $ \tau(S) $, then $X \smallsetminus U$ is a closed subset that contains $S$ and therefore $\tau(S)$.
+\end{nul}

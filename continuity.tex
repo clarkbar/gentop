@@ -39,6 +39,12 @@ The only difference is that we no langer have access to the $\varepsilon$-$\delt
 \end{proof}
 
 \begin{exm}
+	Let $X$, $Y$, and $Z$ be topological spaces.
+	Then the identity map $\id \colon X \to X $ is continuous.
+	Also, if $f \colon X \to Y$ and $g \colon Y \to Z$ are continuous, then the composition $g \circ f \colon X \to Z $ is continuous as well.
+\end{exm}
+
+\begin{exm}
 	Let $X$ be a topological space, and let $S$ be a set.
 	Any map $f \colon S \to X$ is continuous if $S$ is endowed with the \emph{discrete} topology.
 	Dually, any map $ g \colon X \to S $ is continuous if $S$ is endowed with the emph{chaotic} topology.
@@ -59,6 +65,61 @@ The only difference is that we no langer have access to the $\varepsilon$-$\delt
 
 	Please note that while $L$ is surjective, it is not injective, since for every $x \in S^1$, one has $L(x) = L(-x)$.
 \end{exm}
+
+\begin{dfn}
+	Let $X$ and $Y$ be topological spaces, and let $x \in X$.
+	Then a map $ f \colon X \to Y $ is \emph{continuous at $x$} if and only if, for any subset $S \subseteq X$, if $x $ is close to $S$ then $f(x)$ is close to $f(S)$.
+\end{dfn}
+
+A map $ f \colon X \to Y $ is continuous if and only if it is continuous at every point $ x \in X $.
+\begin{exm}
+	Consider the map $ s \colon \RR \to \RR $ given by the formula
+	\[
+		s(x) \coloneq \begin{cases}
+			x/|x| & \text{if } x \neq 0 \semicolon \\
+			0 & \text{if } x=0 \period
+		\end{cases}
+	\]
+	Then $s$ is continuous at every $ x \in \RR \smallsetminus \{0\}$.
+	If $s$ were continuous at $0$, then it would be continuous.
+	But even though the set $\{1\} \subset \RR$ is closed, its inverse image
+	\[
+		s^{-1}\{1\} = \left]0, +\infty \right[ \subset \RR
+	\]
+	is not.
+	Hence $s$ is not continuous at $0$, as we expect!
+\end{exm}
+
+\begin{prp}%
+\label{prp:equivalent_characterization_of_continuity_at_a_point}
+	Let $X$ and $Y$ be topological spaces, and let $x \in X$.
+	The following are equivalent for a map $f \colon X \to Y $.
+	\begin{enumerate}
+		\item The map $f $ is continuous at $x$.
+		\item For any open neighborhood $V$ of $f(x)$, the inverse image $f^{-1}(V) $ is an open neighborhood of $x$.
+	\end{enumerate}
+\end{prp}
+
+\begin{proof}
+	Assume (1); we aim to prove (2).
+	Let $V $ be an open neighborhood of $f(x)$.
+	Let $S \coloneq f^{-1}(Y \smallsetminus V)$.
+	If $x \in \tau_X(S)$, then
+	\[
+		f(x) \in \tau_Y(f(S)) \subseteq \tau(Y \smallsetminus V) = Y \smallsetminus V \comma
+	\]
+	since $Y \smallsetminus V $ is closed.
+	This is a contradiction, which shows that $ x \notin \tau_X(S)$.
+	Now let $U \coloneq X \smallsetminus \tau_X(S)$.
+	This is now an open neighborhood of $x$, and $f(U) \subseteq V$.
+
+	Conversely, assume (2); we aim to prove (1).
+	Let $S \subseteq X$ be a subset, and let $x \in \tau_X(S)$.
+	Let $ V \coloneq Y \smallsetminus \tau_Y(f(S))$.
+	If $f(x) \in V$, then by assumption there exists an open neighborhood $U$ of $x$ such that $f(U) \subseteq V$.
+	Since $S$ is disjoint from $f^{-1}(V)$, it follows that the closure $\tau_X(S)$ is disjoint from $U$ as well.
+	This is a contradiction that implies that $f(x) \notin V$, so that $f(x) \in \tau(f(S))$.
+\end{proof}
 
 \newthought{The definition} of \emph{homeomorphism} is also just the same as for subspaces of Euclidean space:
 
@@ -112,7 +173,7 @@ The only difference is that we no langer have access to the $\varepsilon$-$\delt
 	Hence $h^{-1}\{w\}$ consists of exactly one line: the line passing through either square root of $w$ and the origin.
 
 	Now let's demonstrate that $h $ is a homeomorphism.
-	For this, we note that the inverse $h^{-1}$ carries $w \in S^1$ to the line passing through either square root of $w$ and the origin.
+	For this, we note that the inverse $h^{-1}$ carries $w \in S^1$ to the line passing through the square roots of $w$ and the origin.
 	To prove that this is continuous, assume that $T \subseteq S^1$, and assume that $w \in S^1$ is close to $T$.
 	Let $\varepsilon>0$;
 	then there exists $w' \in T$ such that $\|w-w'\| < \varepsilon^2$.
@@ -139,9 +200,40 @@ The only difference is that we no langer have access to the $\varepsilon$-$\delt
 	and
 	\[
 		g(t) \coloneq \begin{cases}
-			1/(x^2+1)(2x, x^2-1) & \text{if } x \neq \infty \semicolon \\
-			(0,1) & \text{if } x = \infty \period
+			1/(t^2+1)(2t, t^2-1) & \text{if } t \neq \infty \semicolon \\
+			(0,1) & \text{if } t = \infty \period
 		\end{cases}
+	\]
+	A direct check confirms that $f$ and $g$ are inverses, but the interesting thing to prove is that they are each continuous.
+	
+	For $f$, continuity away from the point $(0,1)$ follows from the elementary analytic facts we are happy to assume here.
+	But continuity at $(0,1)$ is more interesting!
+	So assume that $S \subseteq S^1$ is a subset to which $(0,1)$ is close.
+	We have to show that $\infty$ is close to $f(S)$.
+	So let $N > 0$ be a real number; 
+	we aim to find an element $ (x,y) \in S $ such that $|x/(1-y)| > N$ or, equivalently, that $x^2/(1-y)^2 = (1+y)/(1-y) > N^2$,
+	Choose $\varepsilon>0$ so that $\varepsilon \leq 2/N^2$;
+	since $(0,1)$ is close to $S$, there exists a point $(x,y) \in S$ such that $x^2 - (1-y)^2 < \varepsilon$ and $y \geq 0$.
+	Since $x^2+y^2 = 1$, this implies that $1-y < \varepsilon/2$, and since $1+y \geq 1$, we obtain
+	\[
+		\frac{1+y}{1-y} \geq \frac{1}{1-y} > \frac{2}{\varepsilon} > N^2 \period
+	\]
+
+	Once again, elementary analysis facts imply that $g$ is continuous at every point of $\RR$.
+	We must show that $g$ is continuous at $\infty$ as well.
+	For this, assume that $T \subseteq \RR \sqcup \{\infty\}$ is a subset such that $\infty$ is close to $T$.
+	Let $\varepsilon >0$;
+	we aim to show that there exists an element $t\in T$ such that $\|g(t)-(0,1)\| < \varepsilon $.
+	If $\infty \in T$, then this is immediate, so it suffices to consider the case in which $T \subseteq \RR$ is an unbounded subset.
+	There exists $t \in T$ such that $|t| > 2/\varepsilon$, and so
+	\[
+		\left\|1/(t^2+1)(2t, t^2-1) - (0,1)\right\|^2 = \frac{4}{t^2+1} < \varepsilon^2 \comma
+	\]
+	so that $ \| g(t) - (0,1) \| < \varepsilon $, just as we'd hoped.
+	
+	The upshot here is that we have
+	\[
+		\PP^1_{\RR} \cong S^1 \cong \RR \sqcup \{\infty\} \period
 	\]
 \end{exm}
 

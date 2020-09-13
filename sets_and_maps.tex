@@ -1,0 +1,548 @@
+%!TEX root = rootfile.tex 
+% chktex-file 3
+% chktex-file 8
+% chktex-file 12
+% chktex-file 24
+% chktex-file 42
+
+Mathematicians treat the concepts of \defn{set} and \defn{element} as \emph{undefined primitives}.
+Rules (in the form of axioms and axiom schemata) are provided for the manipulation of these objects.
+These extend the rules of first-order predicate calculus. In most foundational schemes (including the one presented below), absolutely every mathematical object -- every number, every polynomial, every element of every set -- is a set.
+So when we write $x\in X$, both $x$ and $X$ are sets.
+
+The student who wants to go very deep into the subject of set theory should consult the astonishing text of Jech\autocite{Jech:2003tt}.
+The student who would prefer to work up to Jech's text should begin with Halmos's text\autocite{MR0453532}.%
+\sidenote{Pleasant though Halmos's text is, it should be noted its attitude toward set theory is at times unfairly dismissive of the subject.}
+This course won't require any set theory beyond Halmos's book, but because general topology and set theory interact in various nontrivial ways, it would be intellectually dishonest not to give at least a quick overview of some the basic elements of set theory.
+
+%-------------------------------------------------------------------%
+\section{Sets and elements}%
+\label{sec:sets_and_elements}
+%-------------------------------------------------------------------%
+
+The first thing you have to know about sets is that a set $X$ is equal to a set $Y$ if and only if $X$ and $Y$ have the same elements.
+That is, $X=Y$ if and only if for every $A$, one has $A\in X$ if and only if $A\in Y$.
+
+The easiest set in the world is the \defn{empty set} $\varnothing$.
+It has no elements.
+The sentence $x\in\varnothing$ is \emph{always} false, no matter what $x$ is.
+That means that any universally quantified sentence over the empty set -- \emph{i.e.,} $(\forall x\in\varnothing)(\phi(x))$ -- is \emph{true}, and
+any existentially quantified sentence over the empty set -- \emph{i.e.,} $(\exists x\in\varnothing)(\phi(x))$ -- is \emph{false}.%
+\sidenote{Be sure you see why this is true!}
+
+The next easiest sets in the world are \defn{singletons}.
+A singleton is a set with exactly one element, $\left\{X\right\}$.
+Don't forget that that $X$ has to be a set.
+The axioms of set theory let you take any set $X$ and build the singleton $\{X\}$.
+More generally, if we have a pair of sets $X,Y$, we're permitted to form the set $\left\{X,Y\right\}$.
+
+\begin{exm}
+	The sets $\varnothing$ and $\{\varnothing\}$ are unequal.
+\end{exm}
+
+%-------------------------------------------------------------------%
+\section{Bounded comprehension}%
+\label{sec:bounded_comprehension}
+%-------------------------------------------------------------------%
+
+We also want to be able to carve out pieces of our sets defined by suitable formulas.
+So if $X$ is a set, and $\phi(x)$ is some formula of set theory (any sentence of predicate calculus along with $\in$ in which the only free variable is $x$), then the axioms of set theory allow us to form a set%
+\sidenote{This bit of notation is sometimes called \defn{set-builder} notation. The axioms say, in effect, that this notation actually means something, as long as the $X$ that appears on the left side of the colon is known to be a set.}
+\[
+	A = \left\{x\in X : \phi(x)\right\} \period
+\]
+Thus $A$ is the set whose elements are all and only those elements $x\in X$ such that $\phi(x)$ obtains.
+
+\begin{exm}
+	It's important that sets defined by formulas are carved out of existing sets.
+	This is called \defn{bounded comprehension}.
+	With an \emph{unbounded} comprehension axiom, we would be able to build the following:
+	\[
+		R\coloneq\left\{X : \neg(X\in X)\right\}.
+	\]
+	You may have seen this:
+	this $R$ creates some challenges, since $R \in R $ if and only if $R \notin R $.
+	This is the example that Bertrand Russell cooked up, just to ruin Gottlob Frege's day.
+\end{exm}
+
+%-------------------------------------------------------------------%
+\section{Unions}%
+\label{sec:unions}
+%-------------------------------------------------------------------%
+
+For any set $X$, we also permit ourselves to form the \defn{union} $\cup X$.
+This is the set whose elements are the elements of the elements of $X$;
+that is, $A\in\cup X$ if and only if there exists an element $S\in X$ such that $A\in S$.
+If $X=\{A,B\}$, then we write%
+\sidenote{This $\cup X$ notation may be unfamiliar to you.
+	You might be happier with something like $\bigcup_{S \in X} S $, which means the same thing.
+The $\cup X$ notation is standard in set theory, however.}
+$A\cup B$ for $\cup X$.
+
+\begin{exm}
+	We can start building the \defn{finite von Neumann ordinals} according to the following recipe:
+	first, $0\coloneq\varnothing$.
+	Then, for every von Neumann ordinal $n$, one can create its \defn{successor von Neumann ordinal}
+	\[
+		n+1\coloneq n\cup\{n\} \period
+	\]
+	So the first few von Neumann ordinals look like this:
+	\begin{align*}
+		0 & \coloneq \varnothing;\\
+		1 & \coloneq \{0\}=\{\varnothing\};\\
+		2 & \coloneq \{0,1\}=\{\varnothing,\{\varnothing\}\};\\
+		3 & \coloneq \{0,1,2\}=\{\varnothing,\{\varnothing\},\{\varnothing,\{\varnothing\}\}\};\\
+		4 & \coloneq \{0,1,2,3\}=\{\varnothing,\{\varnothing\},\{\varnothing,\{\varnothing\}\},\{\varnothing,\{\varnothing\},\{\varnothing,\{\varnothing\}\}\}\};\\
+		  & \textit{etc.}
+	\end{align*}
+	If $n$ is a finite von Neumann ordinal, then for every $\alpha,\beta\in n$, exactly one of the following is the case:
+	\[
+		\alpha\in\beta \semicolon \qquad \alpha=\beta \semicolon \quad \textit{or} \quad \alpha \ni \beta \period	
+	\]
+\end{exm}
+
+The axioms then let you build the first \defn{infinite von Neumann ordinal} $\omega$, which is the set of all the finite von Neumann ordinals.
+Once you have that, you can build the successor to $\omega$:
+\[
+	\omega+1\coloneq\omega\cup\{\omega\} \period
+\]
+
+\emph{Wait, isn't that like $\infty+1$? Isn't that $\infty$ again?}
+That sort of thing is true if you're talking about \defn{cardinals}.
+Here, we're talking about \defn{ordinals}, and the distinction is important.
+We'll get into this more when we talk about number systems in the next section.
+But we absolutely can construct
+\[
+	\omega+1,\omega+2,\dots,2\omega=\omega+\omega \comma
+\]
+where $2\omega=\omega+\omega$ is the set
+\[
+	\{0,1,2,\dots,\omega,\omega+1,\omega+2,\dots\}\period
+\]
+Likewise, you can build $3\omega,4\omega,\dots$, and then even $\omega^2,\omega^3,\dots$, and even $\omega^\omega$.
+The key point is that each ordinal is the set of all the ordinals smaller than it.
+We'll investigate this more deeply in the next section.
+
+\newthought{A key construction} for building \enquote{big} sets is the \emph{power set} construction.
+To explain, a \defn{subset} of a set $X$ is a set $S$ such that for any $s\in S$, one has $s\in X$ as well;
+in this case, we write $S\subseteq X$.
+The axioms of set theory permit us to form the \defn{power set} $\PP(X)$, which is the set of all subsets of $X$, so that $S\in\PP(X)$ if and only if $S\subseteq X$.
+
+\begin{exm}
+	The set $\PP(\varnothing)$ is $\{\varnothing\}$.
+	The set $\PP(\PP(\varnothing))$ is $\{\varnothing, \{\varnothing\}\}$.
+\end{exm}
+
+%-------------------------------------------------------------------%
+\section{Ordered pairs}%
+\label{sec:ordered_pairs}
+%-------------------------------------------------------------------%
+
+We can also create \defn{ordered pairs}.
+For sets $X$ and $Y$, we write
+\[
+	\angs{X,Y}\coloneq\left\{\{X\},\{X,Y\}\right\} \period
+\]
+Now for any two sets $X$ and $Y$, we define the \defn{product} as the set of all ordered pairs:
+\[
+	X\times Y\coloneq\left\{S\in\PP(\PP(X\cup Y)) : (\exists x\in X)(\exists y\in Y)(\angs{x,y}=S)\right\} \period
+\]
+We can also define an \defn{ordered triple} by the rule
+\[
+	\angs{X,Y,Z}\coloneq\angs{\angs{X,Y},Z}.
+\]
+We can keep going with this to build ordered quadruples and ordered quintuples, \emph{etc.},
+but once we have the concept of map up and running, we'll find more efficient and intuitive ways to talk about these things.
+
+\begin{exr}
+	How many elements does the ordered pair $\angs{x,x}$ have? How about the ordered triple $\angs{x,x,x}$?
+\end{exr}
+
+%-------------------------------------------------------------------%
+\section{Maps}%
+\label{sec:maps}
+%-------------------------------------------------------------------%
+
+The real point of defining things as we have is so we can talk about \defn{maps} as soon as possible.
+Maps -- \textsc{aka} \defn{set maps}, \defn{mappings}, \defn{functions} -- are an important notion in set theory.
+The idea is that a map $f\colon S \to T$ is a way of taking each element $s\in S$ and associating one and only one element $f(s)\in Y$ thereto.
+Importantly, though, a map $f\colon S \to T$ \enquote{knows} its \defn{source} $S$, its \defn{target} $T$, and the method of associating elements of $T$ with elements of $S$.
+Thus a map $f\colon S \to T$ is defined as an ordered triple $\angs{S,T,\Gamma(f)}$ in which $\Gamma(f) \subseteq S \times T$ is a subset with the property that for every element $s \in S$, there is a unique%
+\sidenote{The phrase \enquote{there is a unique $x$ such that $\phi(x)$} -- sometimes written $(\exists ! x)\ \phi(x)$ -- is a helpful shorthand for the longer sentence
+\[
+	(\exists x)(\phi(x) \wedge ((\forall y)(\phi(y){\implies}(x=y)))) \period
+\]
+You knew that, of course, but our point here is that it's a formula of predicate calculus, and so the phrase \enquote{such-and-so is a map} is a formula of predicate calculus as well.}
+element $f(x)\in Y$ such that $\angs{x,f(x)}\in\Gamma(f)$.
+
+In practice, the way we describe maps is pretty relaxed.
+We typically identify the source $S$ and the target $T$, and
+then we provide a \emph{rule} for \enquote{sending} elements of $S$ to the associated elements of $T$.
+The idea is that for every $ s \in S$, we have to specify a unique $f(s) \in T$ \enquote{attached} to $s$ in the sense that $\angs{s, f(s)} \in \Gamma(f)$.
+
+Sometimes, it's handy to use the following notation:
+we may define a map $ f \colon S \to T $ by the \emph{assignment}
+\[
+	s \mapsto \text{[some formula involving $s$]} \period
+\]
+
+\begin{exm}
+	For instance, we can specify a map $f\colon \omega \to \{0,1\}$ by saying that $f(0)=0$ and for any successor $n+1$, we let $f(n+1)$ be the unique element of $\{0,1\}$ such that $f(n+1)\neq f(n)$.
+	Since we can check that $f(n+1)$ is indeed unique with this property, we are assured that $f$ really is a map.
+\end{exm}
+
+\begin{exm}
+	Suppose $S\subseteq X$.
+	There is a map $i\colon S \to X$ such that $i(s)=s$, called the \defn{inclusion map}.
+	When $S=X$, this is called the \defn{identity map} $\id$.
+\end{exm}
+
+If we specify two sets $S$ and $T$, then we can write $\Map(S, T) \subseteq \PP(S \times T)$ consisting of those subsets $\Gamma \subseteq S \times T $ such that $\angs{S, T, \Gamma}$ is a map.
+We can write this as:
+\[
+	\Map(S, T) \coloneq \{ \Gamma \subseteq \PP(S \times T) : (\forall s \in S)(\exists ! t \in T)(\angs{s,t} \in \Gamma) \} \period
+\]
+this is our set of maps from $S$ to $T$.
+
+\begin{exr}
+	Suppose $X$ a set (possibly empty).
+	The set $\Map(\varnothing,X)$ always consists of exactly one element: the inclusion map $\varnothing \to X$.
+	The point here is that $\varnothing \times X = \varnothing $, so $\PP(\varnothing \times X) = \{\varnothing\}$.
+	The unique subset $\varnothing \subseteq \varnothing $ is a map $\varnothing \to X$:
+	indeed, the condition is:
+	\[
+		(\forall s \in \varnothing)(\exists ! t \in X)(\angs{s,t} \in \varnothing) \comma
+	\]
+	which is always true.
+	The set $\Map(X,\varnothing)$ is often, but not always, empty.
+	Once again, we are looking at the unique subset $ \varnothing \subseteq X \times \varnothing = \varnothing $, and the condition is:
+	\[
+		(\forall s \in X)(\exists t \in \varnothing)(\angs{s,t} \in \varnothing) \comma
+	\]
+	which is true if $X = \varnothing$;
+	otherwise it is false. 
+\end{exr}
+
+Maps can be \defn{composed}.
+If $f\colon S \to T$ is a map, and $g\colon T \to U$ is another, then you can \enquote{do $f$ first, and then do $g$}.
+That is, one can form a new map $g\circ f\colon S \to U$ such that for any $s\in S$, one has
+\[
+	(g\circ f)(s)\coloneq g(f(s)) \period
+\]
+More formally, $f$ and $g$ are triples $\angs{S,T,\Gamma(f)}$ and $\angs{T,U,\Gamma(g)}$ (respectively), and $g\circ f$ is the triple $\angs{S,U,\Gamma(g\circ f)}$, where
+\[
+	\Gamma(g\circ f)\coloneq\{(s,u)\in S\times U : (\exists t\in T)((s,t)\in\Gamma(f)\wedge(t,u)\in\Gamma(g))\}\period
+\]
+It is easy enough to see that $g\circ\id=g$ and $\id\circ f=f$, and moreover composition is associative, so that $(h\circ g)\circ f=h\circ(g\circ f)$.
+
+%-------------------------------------------------------------------%
+\section{Bijections}%
+\label{sec:bijections}
+%-------------------------------------------------------------------%
+
+One important kind of map is the \defn{bijection}.
+When mathematicians are presented with a set, for many purposes, they won't be too very worried about what the elements are, but what structures they have.
+
+The idea is that a bijection of sets is meant to be a \enquote{mere labelling} of the elements of a set $S$ by the elements of a set $T$.
+That labelling is meant to be a perfect match of information:
+you should never use the same label twice, and
+all the labels should be used.
+So a \defn{bijection} of sets is a map $f\colon S \to T$ such that for any $t\in T$, there exists a unique $s\in S$ such that $f(s)=t$.
+
+\begin{exm}
+	Let $S$ and $T$ be two sets.
+	There is a bijection $ \sigma \colon S \times T \to T \times S $, which is given by $\sigma(\angs{s,t}) = \angs{t,s}$.
+\end{exm}
+
+If $ f \colon S \to T $ is a bijection, then there exists a map $ g \colon T \to S $ such that $g \circ f = \id $, and $f \circ g = \id$.
+To prove this, let us construct $g$:
+the function $f $ gives us a subset $\Gamma(f) \subseteq S \times T$ such that for any $s \in S$, there exists a unique $ t \in T$ such that $ \angs{s, t} \in \Gamma(f)$.
+So now let's define $g = \angs{T, S, \Gamma(g)}$, where $\Gamma(g) = \{ \angs{t,s} \in T \times S : \angs{s, t} \in \Gamma(f) \}$.
+Of course $\Gamma(g)$ makes perfect sense as a subset, but we aren't done:
+we have to show it is a map from $S$ to $T$.
+For this we can use the fact that, since $f$ is a bigjection, for every $t \in T$, there exists a unique $s \in S $ such that $\angs{s,t} \in \Gamma(f)$.
+In other words, for every $t \in T$, there exists a unique $s \in S $ such that $\angs{t,s} \in \Gamma(g)$.
+Thus if $t \in T$, then $g(t) \in S$ is the unique element such that $f(g(t) = t$.
+Thus $f \circ g = \id$.
+To see that $g \circ f = \id$, let $ s \in S$;
+then $g(f(s)) \in S$ is the unique element such that $f(g(f(s))) = f(s)$. 
+But since this element of $S$ is \emph{unique} with this property, it follows that $g(f(s)) = s $.
+
+The converse is also correct: if $f \colon S \to T$ is a map such that there exists a function $g \colon T \to S $ such that $g \circ f =\id $ and $f \circ g = \id$, then $f$ is a bijection.
+Indeed, let $t \in T$ be an element;
+we aim to prove that there exists a unique element $ s \in S$ such that $t = f(s)$.
+The function $g$ provides us with exactly such an element: $g(t) \in T$ is an element, and $t = f(g(t))$.
+Now suppose that $s'\in S$ is an element such that $t = f(s')$;
+we see that $g(t) = g(f(s')) = s'$, so we have the uniqueness we sought!
+
+In this case, we say that $g$ is the \emph{inverse} of $f$, and we sometimes write $f^{-1}$ for $g$.
+
+\begin{exm}
+	Let $S$ and $T$ be two sets.
+	Assume that $ f \colon S \to T $ is a bijection between them.
+	Now let $U$ be another set.
+	We can define a map $F \colon \Map(T, U) \to \Map(S, U)$ by the assignment $ \alpha \mapsto \alpha \circ f$.
+	Let's see that this is a bijection.
+	If $g = f^{-1} \colon T \to S $ is the inverse to $f$, then we can define a map $G \colon \Map(S, U) \to \Map(T, U)$ by the assignment $ \beta \mapsto \beta \circ g$.
+	Now $F \circ G = \id$ and $G \circ F = \id$.
+\end{exm}
+
+%-------------------------------------------------------------------%
+\section{Products and sets of maps}%
+\label{sec:products_and_sets_of_maps}
+%-------------------------------------------------------------------%
+
+Here's a basic property that relates the product of sets and the set of maps.
+It's a bit of a tongue-twister, but it's worth it to unpack.
+Let $S$, $T$, and $U$ be three sets.
+Then define a map
+\[
+	\phi \colon \Map(S \times T, U) \to \Map(S, \Map(T, U))
+\]
+that carries an element $h \in \Map(S \times T, U) $ -- that is, a map $ h \colon S \times T \to U $ -- to the element $\phi(h) \in \Map(S, \Map(T, U))$ -- that is, the map $\phi(h) \colon S \to \Map(T, U)$ -- that carries an element $ s \in S $ to the element $\phi(h)(s) \in Map(T,U) $ -- that is, the map $\phi(h)(s) \colon T \to U $ -- that carries an element $t \in T $ to the element
+\[
+	\phi(h)(s)(t) = h(\angs{s,t}) \in U \period
+\]
+
+\emph{Did you catch that?}
+Let's say it differently: we're starting with a map $h \colon S \times T \to U $.
+We want to \emph{get} a map $\phi(h) \colon S \to \Map(T,U) $.
+To describe \emph{that}, we start with an element $s \in S$, and we want to \emph{get} a map $\phi(h)(s) \colon T \to U$.
+To define that, we start with an element $t \in T$, and we want to \emph{get} an element of $U$;
+that element is $h(\angs{s,t})$.
+Some times the map $\phi(h)(s) \colon T \to U $ is written $h(\angs{s,-})$, where the second position is treated as a blank where we can fill in $ t \in T$.
+
+Let's go the other way, and define a map
+\[
+	\psi \colon \Map(S, \Map(T, U)) \to \Map(S \times T, U) \period
+\]
+For this, we're starting with a map $ k \colon S \to \Map(T, U)$, and
+we want to define a map $\psi(k) \colon S \times T \to U$.
+This is defined by
+\[
+	\psi(k)(\angs{s,t}) \coloneq k(s)(t) \period
+\]
+Now if you inspect thes formulas carefully, you'll see that in fact $\phi \circ \psi = \id $ and $\psi \circ \phi = \id$.
+In other words, $\phi $ is a bijection, and $\psi$ is its inverse.
+In still other words, the sets $\Map(S \times T, U)$ and $\Map(S, \Map(T, U))$ are the \enquote{same}, up to relabelling.
+
+%-------------------------------------------------------------------%
+\section{Injections and surjections}%
+\label{sec:injections_and_surjections}
+%-------------------------------------------------------------------%
+
+The condition to be a bijection is really the conjunction of two conditions:
+first, that we never use the same label twice, and
+second, that every label be used.
+Let's give names to these conditions.
+An \defn{injection} is a map $f\colon S \to T$ such that for any $t\in T$, there is \emph{at most one}%
+\sidenote{The phrase \enquote{there is at most one $x$ such that $\phi(x)$} is a helpful shorthand for the longer sentence
+\[
+	(\forall x)(\forall y)((\phi(x)\wedge\phi(y))\implies(x=y)) \period
+\]
+This is a pretty annoying turn of language, one has to admit:
+we're actually using the phrase \enquote{there is} in a sentence in which the only quantifier is universal.}
+$s\in S$ such that $f(s)=t$.
+A \defn{surjection} is a map $f\colon S \to T$ such that for any $t\in T$, there is (\emph{at least one}) $s\in S$ such that $f(s)=t$.
+Of course, a bijection is a map that is both an injection and a surjection.
+
+Here's an important axiom that we will use in a nontrivial way a couple of times in this class.
+It's called the \emph{Axiom of Choice}.
+It says that if you have a surjection $ f \colon S \to T$, then there exists a map $ s \colon T \to S $ such that $f \circ s = \id$.
+Note that we are \emph{not} saying that $s \circ f = \id$ as well;
+that would imply that $f$ is a bijection, which isn't always true.
+
+The map $s$ is not usually an inverse to $f$, and we do not usually use the notation $f^{-1}$ for $s$.
+Rather it is what we call a \defn{section} of $f$.
+Thus the Axiom of Choice says that every surjection has a section.
+
+%-------------------------------------------------------------------%
+\section{The algebra of subsets}%
+\label{sec:the_algebra_of_subsets}
+%-------------------------------------------------------------------%
+
+The algebra of subsets of a set permits one to perform unions, intersections, and complements, and these satisfy certain rules.
+
+So let $X$ be a set, and let $U\colon\fromto{A}{\PP(X)}$ be a map.
+Then there are two new subsets of $X$ that can be constructed: the \defn{indexed union}
+\[
+	\bigcup_{a\in A}U(a)\coloneq\{x\in X : (\exists a\in A)\ x\in U(a)\}
+\]
+and the \defn{indexed intersection}
+\[
+	\bigcap_{a\in A}U(a)\coloneq\{x\in X : (\forall a\in A)\ x\in U(a)\}.
+\]
+
+\begin{exm}
+	There is only one map $I\colon \varnothing \PP(X)$.
+	The indexed union
+	\[
+		\bigcup_{a \in \varnothing} I(a) = \varnothing \period
+	\]
+	The indexed intersection
+	\[
+		\bigcap_{a \in \varnothing} I(a) = X \period
+	\]
+\end{exm}
+
+Let's see what happens when you repeat these operations or mix them.
+Let $A$ and $B$ be sets, and let $U \colon A \times B \to \PP(X)$.
+We're going to exploit some bijections now:
+we know that maps $A \times B \to \PP(X)$ are in bijection with maps $A \to \Map(B, \PP(X))$;
+we also know that $A \times B$ is in bijection with $B \times A$, and
+therefore that maps $A \times B \to \PP(X)$ are in bijection with maps $B \times A \to \PP(X)$,
+which are in turn in bijection with maps $B \to \Map(A, \PP(X))$.
+Here are the formulas:
+\begin{align*}
+	\bigcup_{a\in A} \bigcup{b \in B} U(a,b) &= \bigcup_{b \in B} \bigcup{a \in A} U(a,b) \semicolon \\
+	\bigcap_{a\in A} \bigcap{b \in B} U(a,b) &= \bigcap_{b \in B} \bigcap{a \in A} U(a,b) \semicolon \\
+	\bigcap_{a\in A}\bigcup_{b\in B} U(a,b) &= \bigcup_{f\in\Map(A,B)} \bigcap_{a\in A} U(a,f(a)) \semicolon \\
+	\bigcup_{a\in A} \bigcap_{b\in B} U(a,b) &= \bigcap_{f\in\Map(A,B)} \bigcup_{a\in A} U(a,f(a)) \period
+\end{align*}
+
+There is also the \defn{complement} of any $A\in\PP(X)$
+\[
+	\complement A = X \smallsetminus A \coloneq \{x\in X : x\notin A)\} \period
+\]
+
+The \defn{de Morgan laws} state that the formation of the complement exchanges union and intersection:
+for any map $U\colon\fromto{A}{\PP(X)}$,
+\begin{align*}
+	\complement\left(\bigcup_{a\in A}U(a)\right) &= \bigcap_{a\in A}\complement U(a)\semicolon \\ 
+	\complement\left(\bigcap_{a\in A}U(a)\right) & =\bigcup_{a\in A}\complement U(a) \period
+\end{align*}
+
+%-------------------------------------------------------------------%
+\section{Inverse and direct image}%
+\label{sec:inverse_and_direct_image}
+%-------------------------------------------------------------------%
+
+A map $f \colon X \to Y$ induces a map
+\[
+	f^{\ast} \colon \PP(Y) \to \PP(X)
+\]
+called the \defn{inverse image} and a map
+\[
+	f_{\ast} \colon \PP(X) \to \PP(Y)
+\]
+called the \defn{direct image}.
+The inverse image of a subset $B\subseteq Y$ is the set
+\[
+	f^{\ast}(B) \coloneq \left\{x\in X : f(x)\in B\right\} \comma
+\]
+and the direct image of a subset $A\subseteq X$ is the set
+\[
+	f_{\ast}(A) \coloneq \left\{y\in Y : (\exists x\in A)(y=f(x)) \right\} \period
+\]
+
+These operations are related in the following manner:
+one has $f_{\ast}(A)\subseteq B$ if and only if $A\subseteq f^{\ast}(B)$.
+In particular, we have
+\[
+	A \subseteq f^{\ast}(f_{\ast}(A)) \andeq f_{\ast}(f^{\ast}(B)) \subseteq B \period
+\]
+In general, both of these containments are strict.
+However, if $f$ is an injection, then $A = f^{\ast}(f_{\ast}(A))$, and if $ f $ is a surjection, then $ f_{\ast}(f^{\ast}(B)) = B$.
+
+In many respects, the inverse image is more natural than the direct image.
+For example, the inverse image preserves unions, intersections, and complements,
+so that one has:
+\begin{align*}
+	f^{\ast}\left(\bigcup_{a\in A}U(a)\right) &= \bigcup_{a\in A}f^{\ast}(U(a)) \semicolon \\
+	f^{\ast}\left(\bigcap_{a\in A}U(a)\right) &= \bigcap_{a\in A}f^{\ast}(U(a)) \semicolon \\
+	f^{\ast}(\complement U) &= \complement(f^{\ast}(U)) \period
+\end{align*}
+
+For the direct image, one only has
+\begin{align*}
+	f_{\ast}\left(\bigcup_{a\in A}U(a)\right) &= \bigcup_{a\in A}f_{\ast}(U(a)) \semicolon \\
+	f_{\ast}\left(\bigcap_{a\in A}U(a)\right) &\subseteq \bigcap_{a\in A}f_{\ast}(U(a)) \period
+\end{align*}
+There is no containment between $\complement f_{\ast}(A)$ and $f_{\ast}(\complement A)$ in general.
+
+In the particular case where $B = \{y\}$, the inverse image $f^{\ast}\{y\}$ is called the \defn{fiber} of $f$ over $y$.
+This gives us a handy way to think about maps $f \colon X \to Y $:
+in effect, they organize $X$ into a disjoint union of fibers.
+That is, if $ y \neq y'$, then $f^{\ast}\{y\} \cap f^{\ast}\{y'\} = \varnothing $, and
+\[
+	X = \bigcup_{y \in Y} f^{\ast}\{y\} \period
+\]
+The map $f$ is injective if and only if each fiber $f^{\ast} \{y\}$ has \emph{at most one element}, and 
+$f$ is surjective if and only if each fiber $f^{\ast} \{y\}$ has \emph{at least one element}.
+
+\begin{wrn}
+	Now for the annoying news.
+	The notations $f^{\ast}$ and $f_{\ast}$ are not the usual notations.
+	The more typical notation for the inverse image of $B$ is $f^{-1}(B)$.
+	The more typical notation for the direct image of $A$ is $f(A)$.
+	This notation makes it look as though these operations are inverse -- \emph{in general they are not!!}
+\end{wrn}
+
+%-------------------------------------------------------------------%
+\section{Products of sets}%
+\label{sec:products_of_sets}
+%-------------------------------------------------------------------%
+
+An \defn{indexed set} is really just another name for a map%
+\sidenote{Remember that every element of every set is itself a set;
+thus the elements of $\Xi$ are sets as well!}
+$U\colon A \to \Xi$;
+we typically abuse notation and write $U_a$ instead of $U(a)$, and we write $(U_a)_{a\in A}$ for the map $U$.
+The union of the indexed set $(U_a)_{a\in A}$ will mean the union of the set $\{U_a : a\in A\}$:
+\[
+	\bigcup_{a\in A}U_a\coloneq\bigcup\{U_a : a\in A\}.
+\]
+It may seem a bit silly to belabour this point, but the purpose will, we hope, become clear.
+
+For any indexed set $(U_a)_{a\in A}$, the \defn{product} is the set
+\[
+	\prod_{a\in A} U_a \coloneq \left\{x \in \Map\left(A,\bigcup_{a\in A}U_a\right) : (\forall a\in A)\ x(a)\in U_a\right\} \period
+\]
+An element of $\prod_{a \in A} U_a $ is thus a map $ x \colon A \to \bigcup_{a \in A} U_a $ such that for every $a \in A$, one has $x(a) \in U_a$.
+One usually writes $x_a$ instead of $x(a)$, and one often writes $x = (x_a)_{a\in A}$.
+
+\begin{exm}
+	When $A = \{1,2\}$, an indexed set consists of two sets $U_1$ and $U_2$.
+	The product $\prod_{a \in \{1,2\}} U_a$ thus consists of pairs $(x_1, x_2)$ with $x_1 \in U_1$ and $x_2 \in U_2$.
+	The assignment $(x_1,x_2) \mapsto \angs{x_1,x_2}$ is a bijection $\prod_{a \in \{1,2\}} U_a \to U_1 \times U_2$.
+	Most mathematicians are happy to pretend as if there is no difference between these sets;
+	indeed, there is no \emph{interesting} difference!
+\end{exm}
+More generally, we think of the product $\prod_{a\in A} U_a$ as the set of ordered \enquote{$A$-tuples}.
+
+For every $b\in A$, there is an attached map
+\[
+	\pi_b \colon \prod_{a\in A}U_a \to U_b
+\]
+given by the assignment $x \mapsto x_b$, called the \defn{projection} onto the $b$-th factor.
+
+For every set $S$, every indexed set $\{U_a\}_{a\in A}$, and every indexed set $\left\{f_a\colon\fromto{S}{U_a}\right\}$ of maps, there exists a unique map
+\[
+	f\colon S \to \prod_{a\in A}U_a
+\]
+such that $\pi_a\circ f=f_a$.
+Indeed, the map $f$ is given by the assignment $s \mapsto (f_a(x))_{a\in A}$.
+
+%-------------------------------------------------------------------%
+\section{Coproducts of sets}%
+\label{sec:coproducts_of_sets}
+%-------------------------------------------------------------------%
+
+For any indexed set $\{U_a\}_{a\in A}$, the \defn{coproduct} or \defn{disjoint union} is the set
+\[
+	\coprod_{a\in A}U_a\coloneq\bigcup_{a\in A}U_a\times\{a\}.
+\]
+For every $b\in A$, there is an attached map
+\[
+	\iota_b\colon\fromto{U_b}{\coprod_{a\in A}U_a}
+\]
+given by $\iota_b(x)=(x,b)$, called the \defn{inclusion} onto the $b$-th summand.
+
+The coproduct is really \emph{dual} to the product.
+Here's how: for every set $S$, every indexed set $\{U_a\}_{a\in A}$, and every indexed set $\left\{ f_a\colon U_a \to S \right\}$ of maps, there exists a unique map
+\[
+	f \colon \coprod_{a\in A}U_a \to S
+\]
+such that $f\circ\iota_a=f_a$.
+Indeed, the map $f$ is given by the assignment $ (x,a) \mapsto f_a(x)$. 
+
