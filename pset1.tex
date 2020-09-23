@@ -1,0 +1,194 @@
+% !TeX program = xelatex
+
+\documentclass[a4paper,twoside,nols,nobib]{tufte-handout}
+\usepackage{classnotes}
+
+%-------------------------------------------------------------------%
+% Title page data %
+%-------------------------------------------------------------------%
+
+\title{General topology}
+\author{The Problems}
+\date{Autumn 2020}
+
+%-------------------------------------------------------------------%
+
+\begin{document}
+
+\maketitle
+
+%-------------------------------------------------------------------%
+\section*{Subspaces of Euclidean space}
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Prove or disprove: 
+	every countable subspace $X \subset \RR$ is discrete.%
+	\sidenote{A subspace $X \subseteq \RR$ is \defn{discrete} if and only if every subset $S \subseteq X$ is both open and closed.}
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Let $X \subseteq \RR^n$ be a subspace.
+	For every pair of subsets $S, T \in \PP(X)$, write
+	\[
+		d(S,T) = \inf\{ d(s,t) : (s \in S) \wedge (t \in T) \} \period
+	\]
+	Suppose that $S, T \in \PP(X)$ are subsets with the property that $d(S,T) = 0$.
+	Prove or provide counterexamples for each of the following claims:
+	\begin{itemize}
+		\item $S \cap T \neq \varnothing$;
+		\item $S \cap \tau(T) \neq \varnothing$;
+		\item $(S \cap \tau(T)) \cup (\tau(S) \cap T) \neq \varnothing$;
+		\item $\tau(S) \cap \tau(T) \neq \varnothing$. 
+	\end{itemize}
+\end{Problem}
+
+%-------------------------------------------------------------------%
+\begin{Problem}
+	\noindent
+	Define a map $e \colon \left]0, 1\right] \to S^1$ as follows:
+	\[
+		e(\theta) \coloneq (\cos(2\pi\theta), \sin(2\pi\theta)) \period
+	\]
+	Show that $e$ is a continuous bijection, but not a homeomorphism.
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Prove or disprove: $S^1$ is homeomorphic to the subspace
+	\[
+		\{ z \in \CC : |z-1||z+1| = 1 \} \subset \CC \period
+	\]
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Which pairs of the following five subspaces of $\RR$ are homeomorphic?
+	\begin{itemize}
+		\item $\RR$,
+		\item $[0,1]$,
+		\item $\left[0,+\infty\right[$,
+		\item $\left]-\infty, 0\right]$, and
+		\item $\left]0,1\right[$.
+	\end{itemize}
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Prove that for any $n \in \NN$, the subspace
+	\[
+		B = \{\mbfx \in \RR^n : \|\mbfx\| < 1\} \subset \RR^n
+	\]
+	is homeomorphic to $\RR^n$.
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	For every integer $n \in \NN^{\ast}$, let $X_n \subseteq \CC$ be the subset given by
+	\[
+		X_n \coloneq \{ z \in \CC : z^n = |z|^n \} \period
+	\]
+	Prove or disprove: if $m \neq n$, then $X_m $ is not homeomorphic to $X_n$.
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{ntn*}
+	Let $ k \leq n $ be natural numbers.
+	We will think of elements of $\RR^{nk}$ as $ (n \times k) $-matrices:
+	\[
+		A = \begin{pmatrix}
+			a_{11} & a_{12} & \cdots & a_{1k} \\
+			a_{21} & a_{22} & \cdots & a_{2k} \\
+			\vdots & \vdots & \ddots & \vdots \\
+			a_{n1} & a_{n2} & \cdots & a_{nk}
+		\end{pmatrix} \period
+	\]
+	Using matrix multiplication, we may define a subspace
+	\[
+		V(k,n) = \{ A \in \RR^{nk} : A^t A = I_k \} \subseteq \RR^{nk} \period
+	\]
+	This is called the \defn{Stiefel manifold}.
+	If the columns of $A$ are written as $(\mbfv_1, \dots, \mbfv_k)$, then 
+	\[
+		V(k,n) = \{ (\mbfv_1, \dots, \mbfv_k) \in \RR^{nk} : (\forall i,j)(\mbfv_i \cdot \mbfv_j = \delta_{ij}) \} \comma
+	\]
+	where $\delta$ is the \emph{Kronecker delta}:
+	\[
+		\delta_{ij} \coloneq \begin{cases}
+			1 & \text{if } i=j \comma\\
+			0 & \text{if } i \neq j \period
+		\end{cases}
+	\]
+
+	In particular, $V(1,n) \subseteq \RR^n$ is the set of $\mbfv \in \RR^n$ such that $\|\mbfv\| = 1$.
+	In other words, $V(1,n) = S^{n-1}$.
+\end{ntn*}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Prove that the map $p \colon V(k,n) \to V(1,n) = S^{n-1}$ given by the assignment $(\mbfv_1,\dots,\mbfv_k) \mapsto \mbfv_1$ is continuous.
+	For any $ \mbfv \in V(1,n)$, consider the inverse image $p^{-1}\{\mbfv\} \subseteq V(k,n) \subseteq \RR^{nk}$.
+	Show that $p^{-1}\{\mbfv\}$ is homeomorphic to $V(k-1,n-1)$.
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{ntn*}
+	\begin{marginfigure}
+		\begin{tikzpicture}[decoration=Cantor set,line width=0.5mm]
+			\draw decorate{ (0,-0.25) -- (5,-0.25) };
+			\draw decorate{ decorate{ (0,-0.5) -- (5,-0.5) }};
+			\draw decorate{ decorate{ decorate{ (0,-0.75) -- (5,-0.75) }}};
+			\draw decorate{ decorate{ decorate{ decorate{ (0,-1) -- (5,-1) }}}};
+			\draw decorate{ decorate{ decorate{ decorate{ decorate{ (0,-1.25) -- (5,-1.25) }}}}};
+			\draw decorate{ decorate{ decorate{ decorate{ decorate{ decorate{ (0,-1.5) -- (5,-1.5) }}}}}};
+			\draw decorate{ decorate{ decorate{ decorate{ decorate{ decorate{ decorate{ (0,-1.75) -- (5,-1.75) }}}}}}};
+			\draw decorate{ decorate{ decorate{ decorate{ decorate{ decorate{ decorate{ decorate{ (0,-2) -- (5,-2) }}}}}}}};
+			\draw decorate{ decorate{ decorate{ decorate{ decorate{ decorate{ decorate{ decorate{ decorate{ (0,-2.25) -- (5,-2.25) }}}}}}}}};
+			\draw decorate{ decorate{ decorate{ decorate{ decorate{ decorate{ decorate{ decorate{ decorate{ decorate{ (0,-2.5) -- (5,-2.5) }}}}}}}}}};
+		\end{tikzpicture}
+	\end{marginfigure}%
+	Define a subspace $ C \subset [0,1] $ as follows.
+	For every natural number $n$, set
+	\[
+		C_n \coloneq \bigcup_{k=0}^{3^{n-1}-1} \left(\left[\frac{3k}{3^n},\frac{3k+1}{3^n}\right]\cup\left[\frac{3k+2}{3^n},\frac{3k+3}{3^n}\right]\right) \comma
+	\]
+	and define
+	\[
+		C \coloneq \bigcap_{n\geq 1} C_n \period
+	\]
+	The topological space $C$ is called the \emph{Cantor space}.
+\end{ntn*}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Prove that $C$ is closed in $[0,1]$.
+	What is the interior of $ C$ as a subspace of $[0,1]$?
+	That is, what is the largest open subset $U \subseteq [0,1]$ such that $U \subseteq C $?
+\end{Problem}
+
+(Don't worry; we'll have a lot more questions about the Cantor space!)
+
+%-------------------------------------------------------------------%
+%-------------------------------------------------------------------%
+%-------------------------------------------------------------------%
+%-------------------------------------------------------------------%
+
+\end{document}
