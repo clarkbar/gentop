@@ -1,0 +1,495 @@
+\ProvidesPackage{classnotes}
+
+\newif\if@answers
+\DeclareOption{answers}{\@answerstrue}
+\ProcessOptions*
+
+%-------------------------------------------------------------------%
+% Typesetting %
+%-------------------------------------------------------------------%
+
+\usepackage[leqno]{amsmath}
+\RequirePackage[math-style=ISO]{unicode-math}
+\setmainfont[Numbers={OldStyle}, Ligatures={Common}]{Minion Pro}
+\setsansfont{BrownPro}
+\setmonofont[Scale=MatchLowercase]{Myriad Pro}
+\setmathfont[version=bold]{MinionMath-Bold.otf}
+\setmathfont[
+    Extension = .otf,
+    Scale = 1,
+    Script = Math,
+    SizeFeatures = {
+            {Size = -6, Font = MinionMath-Tiny,
+              Style = MathScriptScript},
+            {Size = 6-8.4, Font = MinionMath-Capt,
+              Style = MathScript},
+            {Size = 8.4-13, Font = MinionMath-Regular,
+              Style = MathScript},
+            {Size = 13-19.9, Font = MinionMath-Subh,
+              Style = MathScript},
+            {Size = 19.9-72, Font = MinionMath-Disp},
+            {Size = 72-, Font = MinionMath-Disp,
+              Style = MathScript},
+    },
+    ]{MinionMath-Regular}
+\setmathfont[range={\mathscr}]{XITS Math}
+\setmathfont[range={\mathit}]{MinionMath-Regular.otf}
+\setmathfont[range={\mathfrak}]{UnifrakturMaguntia}
+
+\renewcommand{\smallcapsspacing}[1]{{\addfontfeature{LetterSpace=5.0}#1}}
+\renewcommand{\smallcaps}[1]{\smallcapsspacing{\scshape\MakeTextLowercase{#1}}}
+\renewcommand{\allcapsspacing}[1]{{\addfontfeature{LetterSpace=10.0}#1}}
+\renewcommand{\textsc}[1]{\smallcapsspacing{\textsmallcaps{#1}}}
+
+\usepackage[final,factor=1100,stretch=10,shrink=10]{microtype}
+
+\SetProtrusion{encoding={*},family={bch},series={*},size={6,7}}
+              {1={ ,750},2={ ,500},3={ ,500},4={ ,500},5={ ,500},
+               6={ ,500},7={ ,600},8={ ,500},9={ ,500},0={ ,500}}
+
+\SetExtraKerning[unit=space]
+    {encoding={*}, family={bch}, series={*}, size={footnotesize,small,normalsize}}
+    {\textendash={400,400}, % en-dash, add more space around it
+     "28={ ,150}, % left bracket, add space from right
+     "29={150, }, % right bracket, add space from left
+     \textquotedblleft={ ,150}, % left quotation mark, space from right
+     \textquotedblright={150, }} % right quotation mark, space from left
+
+\newcommand{\respectively}[1]{\text{\qquad(respectively,\quad}{#1}\text{\quad)}}
+\newcommand{\resp}[1]{\text{\qquad(resp.,\quad}{#1}\text{\quad)}}
+\newcommand{\andeq}{\text{\qquad and\qquad}}
+\newcommand{\period}{\rlap{\ .}}
+\newcommand{\comma}{\rlap{\ ,}}
+
+%-------------------------------------------------------------------%
+% Sectioning %
+%-------------------------------------------------------------------%
+
+\usepackage{amsthm, enumerate}
+
+\setcounter{secnumdepth}{1}
+
+\swapnumbers
+
+\frenchspacing
+
+%-------------------------------------------------------------------%
+% Symbols and letters %
+%-------------------------------------------------------------------%
+
+%\usepackage{latexsym}
+\usepackage{yfonts}
+
+\newcommand{\categ}[1]{\mathbfup{#1}}
+\newcommand{\mf}[1]{\textfrak{#1}}
+\newcommand{\defn}[1]{\textit{#1}}
+\newcommand{\talk}[1]{\textit{#1}}
+
+\renewcommand{\AA}{\mbfA}
+\newcommand{\BB}{\mbfB}
+\newcommand{\CC}{\mbfC}
+\newcommand{\DD}{\mbfD}
+\newcommand{\EE}{\mbfE}
+\newcommand{\FF}{\mbfF}
+\newcommand{\GG}{\mbfG}
+\newcommand{\HH}{\mbfH}
+\newcommand{\II}{\mbfI}
+\newcommand{\JJ}{\mbfJ}
+\newcommand{\KK}{\mbfK}
+\newcommand{\LL}{\mbfL}
+\newcommand{\MM}{\mbfM}
+\newcommand{\NN}{\mbfN}
+\newcommand{\OO}{\mbfO}
+\newcommand{\PP}{\mbfP}
+\newcommand{\QQ}{\mbfQ}
+\newcommand{\RR}{\mbfR}
+\renewcommand{\SS}{\mbfS}
+\newcommand{\TT}{\mbfT}
+\newcommand{\UU}{\mbfU}
+\newcommand{\VV}{\mbfV}
+\newcommand{\WW}{\mbfW}
+\newcommand{\XX}{\mbfX}
+\newcommand{\YY}{\mbfY}
+\newcommand{\ZZ}{\mbfZ}
+
+\DeclareMathOperator{\Map}{Map}
+\DeclareMathOperator{\sgn}{sgn}
+\newcommand{\pr}{\mathit{pr}}
+
+\newcommand{\angs}[1]{\left\langle #1 \right\rangle}
+\newcommand{\coangs}[1]{\left\rangle #1 \right\langle}
+
+%\def\labelitemi{\symbol{983509}}
+
+%-------------------------------------------------------------------%
+%  Graphics                                                         %
+%-------------------------------------------------------------------%
+
+\usepackage{tikz}
+\usepackage{tikz-cd}
+
+\usetikzlibrary{matrix,arrows,arrows.meta,bending,calc,decorations,decorations.pathmorphing,shapes,decorations.fractals}
+
+\tikzset{
+  RRight/.tip={Glyph[glyph math command=arrowkitHeadright]},
+  double distance={0.135em},
+  commutative diagrams/.cd, 
+  arrow style=tikz, 
+}
+
+% tip end  -- 1
+% back end -- 0.00512821
+% line end -- 0.774359
+% visual back end -- 0.574359
+% visual tip end -- 1
+\pgfdeclarearrow{
+    name = minionto,
+    parameters = { \the\pgfarrowlength\the\pgfarrowwidth},
+    setup code = {
+        % The different end values:
+        \pgfarrowssettipend{\pgfarrowlength}
+        \pgfarrowssetbackend{0.00512821\pgfarrowlength}
+        \pgfarrowssetlineend{0.774369\pgfarrowlength}
+        \pgfarrowssetvisualbackend{0.574359\pgfarrowlength}
+        \pgfarrowssetvisualtipend{\pgfarrowlength}
+        % The hull
+        \pgfarrowsupperhullpoint{0cm}{0.914141\pgfarrowwidth}
+        \pgfarrowsupperhullpoint{0cm}{0.469697\pgfarrowwidth}
+        \pgfarrowsupperhullpoint{0.107692\pgfarrowlength}{\pgfarrowwidth}
+        \pgfarrowshullpoint{0.574359\pgfarrowlength}{0cm}
+        \pgfarrowshullpoint{\pgfarrowlength}{0cm}
+        % Saves: the length and width
+        \pgfarrowssavethe\pgfarrowlength
+        \pgfarrowssavethe\pgflinewidth
+    },
+    drawing code = {
+        \pgfpathmoveto{\pgfpoint{0cm}{-0.914141\pgfarrowwidth}}
+        \pgfpathlineto{\pgfpoint{0.574359\pgfarrowlength}{0cm}}
+        \pgfpathlineto{\pgfpoint{0cm}{0.914141\pgfarrowwidth}}        
+        \pgfpathlineto{\pgfpoint{0.107692\pgfarrowlength}{\pgfarrowwidth}}
+        \pgfpathcurveto{\pgfpoint{0.528205\pgfarrowlength}{0.5\pgfarrowwidth}}
+                       {\pgfpoint{0.548718\pgfarrowlength}{0.469697\pgfarrowwidth}}
+                       {\pgfpoint{\pgfarrowlength}{0cm}}
+        \pgfpathcurveto{\pgfpoint{0.528205\pgfarrowlength}{-0.5\pgfarrowwidth}}
+                       {\pgfpoint{0.548718\pgfarrowlength}{-0.469697\pgfarrowwidth}}
+                       {\pgfpoint{0.107692\pgfarrowlength}{-\pgfarrowwidth}}
+        \pgfpathclose
+        \pgfusepathqfill
+    },
+    defaults = {length=0.22em, width=0.19em}
+}
+
+\pgfarrowsdeclarereversed{miniontail}{miniontail}{minionto}{minionto}
+
+\pgfdeclarearrow{
+    name = minionhook,
+    parameters = { \the\pgflinewidth},
+    setup code = {
+        \pgfmathsetlength{\pgfarrowlength}{4.48\pgflinewidth}
+        \pgfarrowssetlineend{\pgflinewidth}
+        \pgfarrowssettipend{\pgfarrowlength}
+        % The hull
+        \pgfarrowsupperhullpoint{0cm}{0.914141\pgflinewidth}
+        \pgfarrowsupperhullpoint{0cm}{0.469697\pgflinewidth}
+        \pgfarrowsupperhullpoint{0.107692\pgfarrowlength}{\pgflinewidth}
+        \pgfarrowshullpoint{0.574359\pgfarrowlength}{0cm}
+        \pgfarrowshullpoint{\pgfarrowlength}{0cm}
+        % Saves: the length and width
+        \pgfarrowssavethe\pgflinewidth
+        \pgfarrowssavethe\pgfarrowlength
+    },
+    drawing code = {
+        \pgfpathmoveto{\pgfpoint{0.25\pgfarrowlength}{-3.84\pgflinewidth}}
+        \pgfpathlineto{\pgfpoint{0.25\pgfarrowlength}{-2.86\pgflinewidth}}
+        \pgfpathcurveto{\pgfpoint{0.73660714\pgfarrowlength}{-2.86\pgflinewidth}}
+                       {\pgfpoint{0.73660714\pgfarrowlength}{-1.9\pgflinewidth}}
+                       {\pgfpoint{0.73660714\pgfarrowlength}{-1.6\pgflinewidth}}
+        \pgfpathcurveto{\pgfpoint{0.73660714\pgfarrowlength}{-0.54\pgflinewidth}}
+                       {\pgfpoint{0.35267857\pgfarrowlength}{-0.45\pgflinewidth}}
+                       {\pgfpoint{0.0\pgfarrowlength}{-0.51\pgflinewidth}}
+        \pgfpathlineto{\pgfpoint{0.0\pgfarrowlength}{0.5\pgflinewidth}}
+        \pgfpathcurveto{\pgfpoint{0.97767857\pgfarrowlength}{0.7\pgflinewidth}}
+                       {\pgfpoint{0.99107143\pgfarrowlength}{-1.2\pgflinewidth}}
+                       {\pgfpoint{1.0\pgfarrowlength}{-1.6\pgflinewidth}}
+        \pgfpathcurveto{\pgfpoint{0.95982143\pgfarrowlength}{-3.86\pgflinewidth}}
+                       {\pgfpoint{0.39732143\pgfarrowlength}{-3.86\pgflinewidth}}
+                       {\pgfpoint{0.25\pgfarrowlength}{-3.86\pgflinewidth}}
+        \pgfpathclose
+        \pgfusepathqfill
+    },
+    defaults = {length=0.22em, width=0.19em}
+}
+
+\pgfdeclarearrow{
+    name = minionhook',
+    parameters = { \the\pgflinewidth},
+    setup code = {
+        \pgfmathsetlength{\pgfarrowlength}{4.48\pgflinewidth}
+        \pgfarrowssetlineend{\pgflinewidth}
+        \pgfarrowssettipend{\pgfarrowlength}
+        % The hull
+        \pgfarrowsupperhullpoint{0cm}{0.914141\pgflinewidth}
+        \pgfarrowsupperhullpoint{0cm}{0.469697\pgflinewidth}
+        \pgfarrowsupperhullpoint{0.107692\pgfarrowlength}{\pgflinewidth}
+        \pgfarrowshullpoint{0.574359\pgfarrowlength}{0cm}
+        \pgfarrowshullpoint{\pgfarrowlength}{0cm}
+        % Saves: the length and width
+        \pgfarrowssavethe\pgflinewidth
+        \pgfarrowssavethe\pgfarrowlength
+    },
+    drawing code = {
+        \pgfpathmoveto{\pgfpoint{0.25\pgfarrowlength}{3.84\pgflinewidth}}
+        \pgfpathlineto{\pgfpoint{0.25\pgfarrowlength}{2.86\pgflinewidth}}
+        \pgfpathcurveto{\pgfpoint{0.73660714\pgfarrowlength}{2.86\pgflinewidth}}
+                       {\pgfpoint{0.73660714\pgfarrowlength}{1.9\pgflinewidth}}
+                       {\pgfpoint{0.73660714\pgfarrowlength}{1.6\pgflinewidth}}
+        \pgfpathcurveto{\pgfpoint{0.73660714\pgfarrowlength}{0.54\pgflinewidth}}
+                       {\pgfpoint{0.35267857\pgfarrowlength}{0.45\pgflinewidth}}
+                       {\pgfpoint{0.0\pgfarrowlength}{0.51\pgflinewidth}}
+        \pgfpathlineto{\pgfpoint{0.0\pgfarrowlength}{-0.5\pgflinewidth}}
+        \pgfpathcurveto{\pgfpoint{0.97767857\pgfarrowlength}{-0.7\pgflinewidth}}
+                       {\pgfpoint{0.99107143\pgfarrowlength}{1.2\pgflinewidth}}
+                       {\pgfpoint{1.0\pgfarrowlength}{1.6\pgflinewidth}}
+        \pgfpathcurveto{\pgfpoint{0.95982143\pgfarrowlength}{3.86\pgflinewidth}}
+                       {\pgfpoint{0.39732143\pgfarrowlength}{3.86\pgflinewidth}}
+                       {\pgfpoint{0.25\pgfarrowlength}{3.86\pgflinewidth}}
+        \pgfpathclose
+        \pgfusepathqfill
+    },
+    defaults = {length=0.22em, width=0.19em}
+}
+
+\tikzset{
+  >/.tip={minionto},
+  >->/.style = {miniontail-minionto},
+  <-</.style = {minionto-miniontail},
+  <->/.style = {minionto-miniontail},
+  hooked/.style = {minionhook-minionto},
+  hooked'/.style = {minionhook'-minionto},
+}
+
+\tikzset{
+RRight/.tip={Glyph[glyph math command=arrowkitHeadright]},
+}
+
+\pgfdeclaredecoration{single line}{initial}{\state{initial}[width=\pgfdecoratedpathlength-1sp]{\pgfpathmoveto{\pgfpointorigin}}\state{final}{\pgfpathlineto{\pgfpointorigin}}}
+
+% Sets global tikzcd settings
+\tikzcdset{  crossing over/.style={
+  /tikz/preaction={
+    /tikz/draw,
+    /tikz/color=\pgfkeysvalueof{/tikz/commutative diagrams/background color},
+    /tikz/arrows=-,
+    /tikz/line width=\pgfkeysvalueof{/tikz/commutative
+    diagrams/crossing over clearance}}}}
+
+% Fixes the tikzcd 'equals' to not have a visible line between the ends of the two equals lines
+
+% Surjection
+\newcommand{\surjection}{↠}
+\newcommand{\surjto}[2]{{#1}\surjection{#2}}
+
+% Fibration
+\newcommand{\fibration}{↠}
+\newcommand{\fibto}[2]{{#1}\surjection{#2}}
+
+
+% Equivalent
+\newcommand{\equivalence}{⥲}
+\newcommand{\equivto}[2]{{#1}\equivalence{#2}}
+
+% Isomorphism
+\newcommand{\isomorphism}{⥲}
+\newcommand{\isomto}[2]{{#1}\isomorphism{#2}}
+
+% Bijection
+\newcommand{\bijection}{⥲}
+\newcommand{\bijectiontwoway}{ \ \tikz[baseline]\draw[>={Stealth[scale=0.75]},<->,font=\scriptsize,inner sep=0.5pt](0,0.5ex)--node[above]{$\sim$}(0.75,0.5ex);\ }
+\newcommand{\bijto}[2]{{#1}\bijection{#2}}
+\newcommand{\bijbackforth}[2]{{#1}\bijectiontwoway{#2}}
+
+% Fromto
+\newcommand{\newto}{→}
+\newcommand{\fromto}[2]{{#1}\newto{#2}}
+\newcommand{\tripseq}[3]{{#1}\newto{#2}\newto{#3}}
+\newcommand{\tripfib}[3]{{#1}\inclusion{#2}\surjection{#3}}
+\newcommand{\ot}{←}
+
+% Ratto
+
+\newcommand{\rationalmap}{⇢}
+\newcommand{\ratto}[2]{{#1}\rationalmap{#2}}
+
+% Parallelto
+\newcommand{\parallelto}{⇉}
+\newcommand{\parto}[2]{{#1}\parallelto{#2}}
+
+% Inclusion
+\newcommand{\inclusion}{↪}
+\newcommand{\incto}[2]{{#1}\inclusion{#2}}
+
+% Closed Inclusion
+
+\newcommand{\closedinclusion}{\arrowkithookuphead\arrowkitNEG\arrowkitheadright}
+\newcommand{\clincto}[2]{{#1} \closedinclusion {#2}}
+
+% Open Inclusion
+
+\newcommand{\openinclusion}{\arrowkithookuphead\kern-0.65em⇴}
+\newcommand{\opincto}[2]{{#1} \openinclusion {#2}}
+
+% Injection
+\newcommand{\injection}{↣}
+\newcommand{\injectionop}{↢}
+\newcommand{\into}[2]{{#1} \injection {#2}}
+\newcommand{\inot}[2]{{#1} \injectionop {#2}}
+
+% Cofibration
+\newcommand{\cofibration}{↣}
+\newcommand{\cofibto}[2]{{#1} \cofib {#2}}
+
+% Trivial Cofibration
+\newcommand{\trivcofib}{⤚⥲}
+\newcommand{\trivcofibto}[2]{{#1} \trivcofib {#2}}
+
+
+% Mapsto
+\newcommand{\mapstoarrow}{↦}
+\newcommand{\goesto}[2]{{#1} \mapstoarrow {#2}}
+
+%\newcounter{sarrow}
+%\newcommand\goesto[2]{\%
+%#1\stepcounter{sarrow}\%
+%\mathrel{\begin{tikzpicture}[baseline= {( $ (current bounding box.south) + (0,-0.25ex) $ )}]
+%\node[inner sep=.5ex] (\thesarrow) {$\quad$};
+%\path[draw,>={Stealth[scale=0.75]},<-,decorate,
+%  decoration={zigzag,amplitude=0.7pt,segment length=1.2mm,pre=lineto,pre length=4pt}] 
+%    (\thesarrow.south east) -- (\thesarrow.south west);
+%\end{tikzpicture}}#2\%
+%}
+
+% Overarrows
+\newcommand{\overarrow}[1]{ \ \tikz[baseline]\draw[>={Stealth[scale=0.75]},->,font=\scriptsize,inner sep=0.5pt](0,0.5ex)--node[above,xshift=-.2ex,yshift=0.1ex]{$ #1 $}(0.5,0.5ex);\ }
+\newcommand{\overto}[3]{{#1} \overarrow{#2} {#3}}
+\newcommand{\overinjection}[1]{ \ \tikz[baseline]\draw[>={Stealth[scale=0.75]},>->,font=\scriptsize,inner sep=0.5pt](0,0.6ex)--node[above,yshift=0.1ex]{$ #1 $}(0.5,0.6ex);\ }
+\newcommand{\overinto}[3]{{#1} \overinjection{#2} {#3}}
+
+% Backforth
+\def\reflectedop#1#2{\mathop{\reflectbox{$#1{#2}$}}}
+\def\noloc{{\mathpalette\reflectedop\colon}}
+
+\newcommand{\backforth}[4]{{#1}\colon{#2} ⇄ {#3}\noloc{#4}}
+
+\newcommand{\adjto}[4]{{#1}\colon{#2} ⇄ {#3}\noloc{#4}}
+
+%\newcommand{\adjto}[4]{{#1}\colon{#2}\ \begin{tikzpicture}[baseline] \draw[>={Stealth[scale=0.75]},->] (0,1.25ex) -- (0.75,1.25ex); \draw[>={Stealth[scale=0.75]},->] (0.75,0.2ex) -- (0,0.2ex); \draw[anchor=mid,commutative diagrams/phantom,->] (0,0.9ex) -- node{$ {\scriptscriptstyle \bot} $} (0.75,0.9ex); \end{tikzpicture}\ {#3}\noloc{#4}}
+
+% 2-cell
+\newcommand{\natto}[2]{{#1}⟹{#2}}
+
+% Convto
+\newcommand{\convto}{\natto}
+
+% 3-cell
+\newcommand{\longRrightarrow}{%
+   \mathrel{\arrowkitHEADnone\arrowkittripleext\arrowkitHEADright}}
+\newcommand{\modto}[2]{{#1}\longRrightarrow{#2}}
+
+%-------------------------------------------------------------------%
+% Bibliography %
+%-------------------------------------------------------------------%
+
+\usepackage[
+  style=verbose-ibid,
+  autocite=footnote,
+  backend=biber
+]{biblatex}
+\addbibresource{top.bib}
+
+%-------------------------------------------------------------------%
+% Hyperlinks %
+%-------------------------------------------------------------------%
+
+\hypersetup{colorlinks=false}
+\usepackage{cleveref}
+
+\newtheoremstyle{spdefinition}% name
+  {\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% Space above
+  {\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% Space below
+  {}% Body font
+  {}%Indent amount (empty = no indent, \parindent = para indent)
+  {\bfseries}%  Thm head font
+  {.}%       Punctuation after thm head
+  { }%      Space after thm head: " " = normal interword space;
+        %       \newline = linebreak
+  {}%       Thm head spec
+  
+\theoremstyle{spdefinition}
+\newtheorem{nul}{}[section]
+\newtheorem{dfn}[nul]{Definition}
+\newtheorem{axm}[nul]{Axiom}
+\newtheorem{cnstr}[nul]{Construction}
+\newtheorem{ntn}[nul]{Notation}
+\newtheorem{exm}[nul]{Example}
+\newtheorem{subexm}{Subexample}[nul]
+\newtheorem{ctrexm}[nul]{Counterexample}
+\newtheorem{exr}[nul]{Exercise}
+\newtheorem{hardexr}[nul]{Exercise$^{\star}$}
+\newtheorem{rec}[nul]{Recollection}
+\newtheorem{wrn}[nul]{Warning}
+\newtheorem*{dfn*}{Definition}
+\newtheorem*{axm*}{Axiom}
+\newtheorem*{ntn*}{Notation}
+\newtheorem*{exm*}{Example}
+\newtheorem*{exr*}{Exercise}
+\newtheorem*{int*}{Intuition}
+\newtheorem*{qst*}{Question}
+\newtheorem{exrctr}{Exercise}
+\newtheorem{hardexrctr}[exrctr]{Exercise$^{\star}$}
+\newtheorem{veryhardexrctr}[exrctr]{Exercise$^{\star\star}$}
+
+\newtheoremstyle{slplain}% name
+  {\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% Space above
+  {\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% Space below
+  {\slshape}% Body font
+  {}%Indent amount (empty = no indent, \parindent = para indent)
+  {\bfseries}%  Thm head font
+  {.}%       Punctuation after thm head
+  { }%      Space after thm head: " " = normal interword space;
+        %       \newline = linebreak
+  {}%       Thm head spec
+
+\theoremstyle{slplain}
+\newtheorem{sch}[nul]{Scholium}
+\newtheorem{thm}[nul]{Theorem}
+\newtheorem{hardthm}[nul]{Theorem${}^{\star}$}
+\newtheorem{prp}[nul]{Proposition}
+\newtheorem{lem}[nul]{Lemma}
+\newtheorem{sublem}{Lemma}[nul]
+\newtheorem{por}[nul]{Porism}
+\newtheorem{cnj}[nul]{Conjecture}
+\newtheorem{cor}{Corollary}[nul]
+\newtheorem*{thm*}{Theorem}
+\newtheorem*{prp*}{Proposition}
+\newtheorem*{cor*}{Corollary}
+\newtheorem*{lem*}{Lemma}
+\newtheorem*{mor*}{Moral}
+\newtheorem*{cnj*}{Conjecture}
+
+\numberwithin{equation}{nul}
+
+%-------------------------------------------------------------------%
+% Exercises %
+%-------------------------------------------------------------------%
+
+\if@answers
+  \usepackage[lastexercise]{exercise}
+\else
+  \usepackage[lastexercise,noanswer]{exercise}
+\fi
+
+\newcounter{Problem}
+\newenvironment{Problem}{\begin{Exercise}[name={Problem},counter={Problem}]}{\end{Exercise}}
+
+\def\AnswerName{Sample solution to problem}
+
