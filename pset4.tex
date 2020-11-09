@@ -1,0 +1,136 @@
+% !TeX program = xelatex
+
+\documentclass[a4paper,twoside,nols,nobib]{tufte-handout}
+\usepackage{classnotes}
+
+%-------------------------------------------------------------------%
+% Title page data %
+%-------------------------------------------------------------------%
+
+\title{General topology}
+\author{The Problems}
+\date{Autumn 2020}
+
+%-------------------------------------------------------------------%
+
+\begin{document}
+
+\maketitle
+
+%-------------------------------------------------------------------%
+\section*{Products}
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Consider the product topological space
+	\[
+		\RR^{\omega} \coloneq \prod_{n \geq 1} \RR \period
+	\]
+	The elements of $\RR^{\omega}$ are sequences $(x_1,x_2,\dots)$ of real numbers.
+	For each of the following subsets $S \subset \RR^{\omega}$, compute the closure of $S$ in $\RR^{\omega}$.
+	\begin{itemize}
+		\item the set of sequences $(x_1,x_2,\dots)$ that are \emph{eventually zero}: i.e., such that there exists an $N$ such that for every $k > N$, one has $x_k = 0$;
+		\item the set of sequences $(x_1,x_2,\dots)$ that converge to $0$;
+		\item the set of Cauchy sequences. 	
+	\end{itemize}
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{ntn*}
+	For any set $S$, let $S^{\delta}$ denote $S$ with the discrete topology.
+\end{ntn*}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Let $S_1, S_2, \dots, S_N$ be a finite collection of sets.
+	Show that
+	\[
+		S_1^{\delta} \times S_2^{\delta} \times \cdots \times S_N^{\delta}
+	\]
+	is discrete.
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Prove that for any set $S$, the topological space
+	\[
+		S^{\omega} \coloneq \prod_{n \geq 1} S^{\delta}
+	\]
+	is discrete if and only if $S$ has $\leq 1$ points.
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Consider the product topological space
+	\[
+		\{0,1\}^{\omega} \coloneq \prod_{n\geq 1} \{0,1\}^{\delta} \period
+	\]
+	For any $ x\in C $, let $a(x)$ be the sequence $(a(x)_1, a(x)_2, \dots)$ such that
+	\[
+		a(x)_n \coloneq \begin{cases}
+			0 & \text{if } {x \in \left[\dfrac{3k}{3^n},\dfrac{3k+1}{3^n}\right] \subset \displaystyle\bigcap_{i=1}^{n} C_i} \text{ for some }k \comma \\[1.5em]
+			1 & \text{if } x \in \left[\dfrac{3k+2}{3^n},\dfrac{3k+3}{3^n}\right] \subset \displaystyle\bigcap_{i=1}^{n} C_i \text{ for some }k \period
+		\end{cases}
+	\]
+	Show that $ a \colon C \to \{0,1\}^{\omega}$ is a homeomorphism.
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Define a map $ c \colon C \to [0,1]$ by the formula
+	\[
+		c(x) \coloneq \sum_{n=1}^{\infty} \frac{a(x)_n}{2^n} \period
+	\]
+	Prove that $c$ is a continuous surjection.
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Construct a homeomorphism $ s \colon C \to C \times C $.
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Use $c $ and $ s $ to construct a continuous surjection
+	\[
+		h \colon C \to [0,1] \times [0,1] \period
+	\]
+	Extend $h$ to a continuous surjection
+	\[
+		[0,1] \to [0,1] \times [0,1] \comma
+	\]
+	a \defn{space-filling curve}.
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+%-------------------------------------------------------------------%
+\section*{Challenge problem}
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Show that if $S$ and $T$ are finite sets of cardinality at least $2$, then $S^{\omega} $ is homeomorphic to $T^{\omega}$.
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+%-------------------------------------------------------------------%
+%-------------------------------------------------------------------%
+%-------------------------------------------------------------------%
+
+\end{document}
