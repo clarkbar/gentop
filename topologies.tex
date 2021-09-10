@@ -270,15 +270,15 @@ The other two topologies of \Cref{topologiesontwopointset} are more interesting:
 	There are two cases:
 	\begin{itemize}
 		\item If $x\in\RR$, then we declare that $x$ is close to $S$ if and only if $x$ is close to $S\cap\RR$ (for the standard topology on $\RR$).
-		\item We declare that $∞$ is close to $S$ if and only if, for every $N\in\RR_{\geq 0}$, there is a point of $S$ that does not lie%
-			\sidenote{Note that this includes two possibilities: the point of $S$ may \emph{be} $∞$, or else the point may be a real element $s\in S$ such that $|s|>N$.}
+		\item We declare that $\infty$ is close to $S$ if and only if, for every $N\in\RR_{\geq 0}$, there is a point of $S$ that does not lie%
+			\sidenote{Note that this includes two possibilities: the point of $S$ may \emph{be} $\infty$, or else the point may be a real element $s\in S$ such that $|s|>N$.}
 			in $[-N,N]$.
 	\end{itemize}
 	Let's see that this is a topology.
 	In effect, you check everything by checking the two cases ($x\in\RR$ or $x\notin\RR$) separately.
 	In the first case, you use the fact that $\RR$ has a topology already, and in the second, you give a little argument.
 	\begin{itemize}
-		\item By definition if $x$ lies in a subset $S\subseteq\RR\sqcup\{∞\}$, then $x$ is close to $S$.
+		\item By definition if $x$ lies in a subset $S\subseteq\RR\sqcup\{\infty\}$, then $x$ is close to $S$.
 		\item Let $\{S_1,\dots,S_n\}$ be a finite collection of subsets of $\RR\sqcup\{\infty\}$.
 		If $x\in \RR$, then since one has
 		\[
@@ -290,23 +290,23 @@ The other two topologies of \Cref{topologiesontwopointset} are more interesting:
 		\sidenote{This is the \defn{pigeonhole principle}.
 		In effect, if $X$ is an infinite set, $Y$ is a finite set, and $f\colon\fromto{X}{Y}$ is a map, there is an element $y\in Y$ such that $f^{-1}\{y\}$ is infinite.}
 		a point of $S_i$ that does not lie in $[-N,N]$.
-		\item Finally, suppose that every point of a subset $S\subseteq\RR\sqcup\{∞\}$ is close to a subset $T\subseteq\RR\sqcup\{∞\}$.
+		\item Finally, suppose that every point of a subset $S\subseteq\RR\sqcup\{\infty\}$ is close to a subset $T\subseteq\RR\sqcup\{\infty\}$.
 			Now if $x$ is close to $S$, there are two options.
 			First, if $x\in\RR$, then $x$ is close to $S\cap\RR$ and hence to $T\cap\RR$.
-			Otherwise, if $x=\infty$, then if $∞\in T$ or $∞\in S$, then we're done.
+			Otherwise, if $x=\infty$, then if $\infty\in T$ or $\infty\in S$, then we're done.
 			If not, then for every $N\in\RR$, there is a point $s_N\in S\subseteq\RR$ such that $|s_N|>N$;
 			this point $s_N$ is close to $T$, so if we set $\epsilon_N\coloneq|s_N|-N$, then there exists a point $t_N\in T$ such that $|s_N-t_N|<\epsilon_N$.
-			Thus $|t_N|>N$, and so $∞$ is close to $T$.
+			Thus $|t_N|>N$, and so $\infty$ is close to $T$.
 	\end{itemize}
 \end{exm}
 
 This isn't the only way to enlarge $\RR$.
 \begin{exm}
-	Define a topology on $\RR\sqcup\{-∞,+∞\}$ in which, for any point $x\in\RR\sqcup\{-∞,+∞\}$ and any subset $S\subseteq\RR\sqcup\{-∞,+∞\}$,
+	Define a topology on $\RR\sqcup\{-\infty,+\infty\}$ in which, for any point $x\in\RR\sqcup\{-\infty,+\infty\}$ and any subset $S\subseteq\RR\sqcup\{-\infty,+\infty\}$,
 	\begin{itemize}
 		\item If $x\in\RR$, then $x$ is close to $S$ if and only if $x$ is close to $S\cap\RR$.
-		\item We declare that $-∞$ is close to $S$ if and only if either $-∞\in S$ or for any $N\in\RR_{\geq 0}$, there is a point $s\in S\cap\RR$ such that $s<-N$.
-		\item We declare that $+∞$ is close to $S$ if and only if either $+∞\in S$ or for any $N\in\RR_{\geq 0}$, there is a point $s\in S\cap\RR$ such that $s>N$.
+		\item We declare that $-\infty$ is close to $S$ if and only if either $-\infty\in S$ or for any $N\in\RR_{\geq 0}$, there is a point $s\in S\cap\RR$ such that $s<-N$.
+		\item We declare that $+\infty$ is close to $S$ if and only if either $+\infty\in S$ or for any $N\in\RR_{\geq 0}$, there is a point $s\in S\cap\RR$ such that $s>N$.
 	\end{itemize}
         This is a topology.%
 	\sidenote{You should convince yourself of this!}
@@ -415,7 +415,7 @@ In the opposite direction, for any system of closed subsets $\mathscr{C}$ on $X$
 	\]
 	We now pass to a further subspace:
 	\[
-		E_n(X) \coloneq \{(x_1, \dots, x_n) \in X^n : (\forall i,j)((i \neq j) ⇒ (x_i \neq x_j)) \} \subseteq X^m \period
+		E_n(X) \coloneq \{(x_1, \dots, x_n) \in X^n : (\forall i,j)((i \neq j) \implies (x_i \neq x_j)) \} \subseteq X^m \period
 	\]
 	Now there is a map $q \colon  E_m(X) \to C_m(X)$ defined by
 	\[
