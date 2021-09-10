@@ -1,0 +1,88 @@
+<section xml:id="sec_inverse_and_direct_image">
+  <title>Inverse and direct image</title>
+  <p>
+    A map <m>f \colon X \to Y</m> induces a map
+    <me>
+      f^{\ast} \colon \PP(Y) \to \PP(X)
+    </me>
+    called the <term>inverse image</term> and a map
+    <me>
+      f_{\ast} \colon \PP(X) \to \PP(Y)
+    </me>
+    called the <term>direct image</term>.
+    The inverse image of a subset <m>B\subseteq Y</m> is the set
+    <me>
+      f^{\ast}(B) \coloneq \left\{x\in X : f(x)\in B\right\}
+    </me>,
+    and the direct image of a subset <m>A\subseteq X</m> is the set
+    <me>
+      f_{\ast}(A) \coloneq \left\{y\in Y : (\exists x\in A)(y=f(x)) \right\}
+    </me>.
+  </p>
+  <p>
+    These operations are related in the following manner:
+    one has <m>f_{\ast}(A)\subseteq B</m> if and only if <m>A\subseteq f^{\ast}(B)</m>.
+    In particular, we have
+    <me>
+      A \subseteq f^{\ast}(f_{\ast}(A)) \andeq f_{\ast}(f^{\ast}(B)) \subseteq B
+    </me>.
+  </p>
+  <p>
+    In general, both of these containments are strict.
+    However, if <m>f</m> is an injection,
+    then <m>A = f^{\ast}(f_{\ast}(A))</m>,
+    and if <m>f</m> is a surjection,
+    then <m>f_{\ast}(f^{\ast}(B)) = B</m>.
+  </p>
+  <p>
+    In many respects,
+    the inverse image is more natural than the direct image.
+    For example, the inverse image preserves unions, intersections,
+    and complements, so that one has:
+    <md>
+      <mrow>f^{\ast}\left(\bigcup_{a\in A}U(a)\right) \amp = \bigcup_{a\in A}f^{\ast}(U(a)) ;</mrow>
+      <mrow>f^{\ast}\left(\bigcap_{a\in A}U(a)\right) \amp = \bigcap_{a\in A}f^{\ast}(U(a)) ;</mrow>
+      <mrow>f^{\ast}(\complement U) \amp = \complement(f^{\ast}(U)) </mrow>
+    </md>.
+  </p>
+  <p>
+    For the direct image, one only has
+    <md>
+      <mrow>f_{\ast}\left(\bigcup_{a\in A}U(a)\right) \amp = \bigcup_{a\in A}f_{\ast}(U(a)) ;</mrow>
+      <mrow>f_{\ast}\left(\bigcap_{a\in A}U(a)\right) \amp \subseteq \bigcap_{a\in A}f_{\ast}(U(a)) </mrow>
+    </md>.
+  </p>
+  <p>
+    There is no containment between
+    <m>\complement f_{\ast}(A)</m> and <m>f_{\ast}(\complement A)</m> in general.
+  </p>
+  <p>
+    In the particular case where <m>B = \{y\}</m>,
+    the inverse image <m>f^{\ast}\{y\}</m> is called the <term>fiber</term>
+    of <m>f</m> over <m>y</m>.
+    This gives us a handy way to think about maps <m>f \colon X \to Y</m>:
+    in effect, they organize <m>X</m> into a disjoint union of fibers.
+    That is, if <m>y \neq y'</m>,
+    then <m>f^{\ast}\{y\} \cap f^{\ast}\{y'\} = \varnothing</m>, and
+    <me>
+      X = \bigcup_{y \in Y} f^{\ast}\{y\}
+    </me>.
+  </p>
+  <p>
+    The map <m>f</m> is injective if and only if each fiber <m>f^{\ast} \{y\}</m> has
+    <em>at most one element</em>,
+    and <m>f</m> is surjective if and only if each fiber
+    <m>f^{\ast} \{y\}</m> has <em>at least one element</em>.
+  </p>
+  <warning>
+    <p>
+      Now for the annoying news.
+      The notations <m>f^{\ast}</m> and
+      <m>f_{\ast}</m> are not the usual notations.
+      The more typical notation for the inverse image of <m>B</m> is <m>f^{-1}(B)</m>.
+      The more typical notation for the direct image of <m>A</m> is <m>f(A)</m>.
+      This notation makes it look as though these operations are inverse <mdash/>
+      <em>in general they are not!!</em>
+    </p>
+  </warning>
+</section>

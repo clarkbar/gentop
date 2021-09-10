@@ -1,0 +1,44 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="cha_elements_of_set_theory">
+  <title>Elements of set theory</title>
+  <introduction>
+    <p>
+      Mathematicians treat the concepts of
+      <term>set</term> and <term>element</term>
+      as <em>undefined primitives</em>.
+      Rules (in the form of axioms and axiom schemata) are provided for the manipulation of these objects.
+      These extend the rules of first-order predicate calculus.
+      In most foundational schemes
+      (including the one presented below),
+      absolutely every mathematical object <mdash/> every number,
+      every polynomial, every element of every set <mdash/> is a set.
+      So when we write <m>x\in X</m>,
+      both <m>x</m> and <m>X</m> are sets.
+    </p>
+    <p>
+      The student who wants to go very deep into the subject of set theory should consult the astonishing text of Jech\autocite{Jech:2003tt}. The student who would prefer to work up to Jech's text should begin with Halmos's text\autocite{MR0453532}.
+    </p>
+    <aside>
+      <p>
+        Pleasant though Halmos's text is,
+        it should be noted its attitude toward set theory is at times unfairly dismissive of the subject.
+      </p>
+    </aside>
+    <p>
+      This course won't require any set theory beyond Halmos's book,
+      but because general topology and set theory interact in various nontrivial ways,
+      it would be intellectually dishonest not to give at least a quick overview of some the basic elements of set theory.
+    </p>
+  </introduction>
+  <xi:include  href="sec_sets_and_elements.ptx"/>
+  <xi:include  href="sec_bounded_comprehension.ptx"/>
+  <xi:include  href="sec_unions.ptx"/>
+  <xi:include  href="sec_ordered_pairs.ptx"/>
+  <xi:include  href="sec_maps.ptx"/>
+  <xi:include  href="sec_bijections.ptx"/>
+  <xi:include  href="sec_products_and_sets_of_maps.ptx"/>
+  <xi:include  href="sec_injections_and_surjections.ptx"/>
+  <xi:include  href="sec_the_algebra_of_subsets.ptx"/>
+  <xi:include  href="sec_inverse_and_direct_image.ptx"/>
+  <xi:include  href="sec_products_of_sets.ptx"/>
+  <xi:include  href="sec_coproducts_of_sets.ptx"/>
+</chapter>

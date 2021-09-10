@@ -1,0 +1,88 @@
+<section xml:id="sec_bijections">
+  <title>Bijections</title>
+  <p>
+    One important kind of map is the <term>bijection</term>.
+    When mathematicians are presented with a set, for many purposes,
+    they won't be too very worried about what the elements are,
+    but what structures they have.
+  </p>
+  <p>
+    The idea is that a bijection of sets is meant to be a
+    <q>mere labelling</q>
+    of the elements of a set <m>S</m> by the elements of a set <m>T</m>.
+    That labelling is meant to be a perfect match of information:
+    you should never use the same label twice,
+    and all the labels should be used.
+    So a <term>bijection</term> of sets is a map
+    <m>f\colon S \to T</m> such that for any <m>t\in T</m>,
+    there exists a unique <m>s\in S</m> such that <m>f(s)=t</m>.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>S</m> and <m>T</m> be two sets.
+        There is a bijection <m>\sigma \colon S \times T \to T \times S</m>,
+        which is given by <m>\sigma(\angs{s,t}) = \angs{t,s}</m>.
+      </p>
+    </statement>
+  </example>
+  <p>
+    If <m>f \colon S \to T</m> is a bijection,
+    then there exists a map <m>g \colon T \to S</m> such that <m>g \circ f = \id</m>,
+    and <m>f \circ g = \id</m>.
+    To prove this, let us construct <m>g</m>:
+    the function <m>f</m> gives us a subset
+    <m>\Gamma(f) \subseteq S \times T</m> such that for any <m>s \in S</m>,
+    there exists a unique <m>t \in T</m> such that <m>\angs{s, t} \in \Gamma(f)</m>.
+    So now let's define <m>g = \angs{T, S, \Gamma(g)}</m>,
+    where <m>\Gamma(g) = \{ \angs{t,s} \in T \times S : \angs{s, t} \in \Gamma(f) \}</m>.
+    Of course <m>\Gamma(g)</m> makes perfect sense as a subset,
+    but we aren't done:
+    we have to show it is a map from <m>S</m> to <m>T</m>.
+    For this we can use the fact that,
+    since <m>f</m> is a bigjection, for every <m>t \in T</m>,
+    there exists a unique <m>s \in S</m> such that <m>\angs{s,t} \in \Gamma(f)</m>.
+    In other words, for every <m>t \in T</m>,
+    there exists a unique <m>s \in S</m> such that <m>\angs{t,s} \in \Gamma(g)</m>.
+    Thus if <m>t \in T</m>, then
+    <m>g(t) \in S</m> is the unique element such that <m>f(g(t) = t</m>.
+    Thus <m>f \circ g = \id</m>.
+    To see that <m>g \circ f = \id</m>, let <m>s \in S</m>;
+    then <m>g(f(s)) \in S</m> is the unique element such that <m>f(g(f(s))) = f(s)</m>.
+    But since this element of <m>S</m> is
+    <em>unique</em> with this property,
+    it follows that <m>g(f(s)) = s</m>.
+  </p>
+  <p>
+    The converse is also correct:
+    if <m>f \colon S \to T</m> is a map such that there exists a function <m>g \colon T \to S</m> such that
+    <m>g \circ f =\id</m> and <m>f \circ g = \id</m>,
+    then <m>f</m> is a bijection.
+    Indeed, let <m>t \in T</m> be an element;
+    we aim to prove that there exists a unique element <m>s \in S</m> such that <m>t = f(s)</m>.
+    The function <m>g</m> provides us with exactly such an element:
+    <m>g(t) \in T</m> is an element, and <m>t = f(g(t))</m>.
+    Now suppose that <m>s'\in S</m> is an element such that <m>t = f(s')</m>;
+    we see that <m>g(t) = g(f(s')) = s'</m>,
+    so we have the uniqueness we sought!
+  </p>
+  <p>
+    In this case, we say that <m>g</m> is the
+    <em>inverse</em> of <m>f</m>,
+    and we sometimes write <m>f^{-1}</m> for <m>g</m>.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>S</m> and <m>T</m> be two sets.
+        Assume that <m>f \colon S \to T</m> is a bijection between them.
+        Now let <m>U</m> be another set.
+        We can define a map <m>F \colon \Map(T, U) \to \Map(S, U)</m> by the assignment <m>\alpha \mapsto \alpha \circ f</m>.
+        Let's see that this is a bijection.
+        If <m>g = f^{-1} \colon T \to S</m> is the inverse to <m>f</m>,
+        then we can define a map <m>G \colon \Map(S, U) \to \Map(T, U)</m> by the assignment <m>\beta \mapsto \beta \circ g</m>.
+        Now <m>F \circ G = \id</m> and <m>G \circ F = \id</m>.
+      </p>
+    </statement>
+  </example>
+</section>

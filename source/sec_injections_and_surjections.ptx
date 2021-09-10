@@ -1,0 +1,49 @@
+<section xml:id="sec_injections_and_surjections">
+  <title>Injections and surjections</title>
+  <p>
+    The condition to be a bijection is really the conjunction of two conditions:
+    first, that we never use the same label twice,
+    and second, that every label be used.
+    Let's give names to these conditions.
+    An <term>injection</term> is a map
+    <m>f\colon S \to T</m> such that for any <m>t\in T</m>,
+    there is <em>at most one</em>
+  </p>
+  <aside>
+    <p>
+      The phrase
+      <q>there is at most one <m>x</m> such that <m>\phi(x)</m></q>
+      is a helpful shorthand for the longer sentence
+      <me>
+        (\forall x)(\forall y)((\phi(x)\wedge\phi(y))\implies(x=y))
+      </me>.
+    </p>
+    <p>
+      This is a pretty annoying turn of language, one has to admit:
+      we're actually using the phrase
+      <q>there is</q>
+      in a sentence in which the only quantifier is universal.
+    </p>
+  </aside>
+  <p>
+    <m>s\in S</m> such that <m>f(s)=t</m>.
+    A <term>surjection</term> is a map
+    <m>f\colon S \to T</m> such that for any <m>t\in T</m>,
+    there is (<em>at least one</em>) <m>s\in S</m> such that <m>f(s)=t</m>.
+    Of course, a bijection is a map that is both an injection and a surjection.
+  </p>
+  <p>
+    Here's an important axiom that we will use in a nontrivial way a couple of times in this class.
+    It's called the <em>Axiom of Choice</em>.
+    It says that if you have a surjection <m>f \colon S \to T</m>,
+    then there exists a map <m>s \colon T \to S</m> such that <m>f \circ s = \id</m>.
+    Note that we are <em>not</em> saying that <m>s \circ f = \id</m> as well;
+    that would imply that <m>f</m> is a bijection, which isn't always true.
+  </p>
+  <p>
+    The map <m>s</m> is not usually an inverse to <m>f</m>,
+    and we do not usually use the notation <m>f^{-1}</m> for <m>s</m>.
+    Rather it is what we call a <term>section</term> of <m>f</m>.
+    Thus the Axiom of Choice says that every surjection has a section.
+  </p>
+</section>

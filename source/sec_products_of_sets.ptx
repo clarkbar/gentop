@@ -1,0 +1,77 @@
+<section xml:id="sec_products_of_sets">
+  <title>Products of sets</title>
+  <p>
+    An <term>indexed set</term> is really just another name for a map
+  </p>
+  <aside>
+    <p>
+      Remember that every element of every set is itself a set;
+      thus the elements of <m>\Xi</m> are sets as well!
+    </p>
+  </aside>
+  <p>
+    <m>U\colon A \to \Xi</m>;
+    we typically abuse notation and write <m>U_a</m> instead of <m>U(a)</m>,
+    and we write <m>(U_a)_{a\in A}</m> for the map <m>U</m>.
+    The union of the indexed set
+    <m>(U_a)_{a\in A}</m> will mean the union of the set <m>\{U_a : a\in A\}</m>:
+    <me>
+      \bigcup_{a\in A}U_a\coloneq\bigcup\{U_a : a\in A\}
+    </me>.
+  </p>
+  <p>
+    It may seem a bit silly to belabour this point,
+    but the purpose will, we hope, become clear.
+  </p>
+  <p>
+    For any indexed set <m>(U_a)_{a\in A}</m>,
+    the <term>product</term> is the set
+    <me>
+      \prod_{a\in A} U_a \coloneq \left\{x \in \Map\left(A,\bigcup_{a\in A}U_a\right) : (\forall a\in A)\ x(a)\in U_a\right\}
+    </me>.
+  </p>
+  <p>
+    An element of <m>\prod_{a \in A} U_a</m> is thus a map
+    <m>x \colon A \to \bigcup_{a \in A} U_a</m> such that for every <m>a \in A</m>,
+    one has <m>x(a) \in U_a</m>.
+    One usually writes <m>x_a</m> instead of <m>x(a)</m>,
+    and one often writes <m>x = (x_a)_{a\in A}</m>.
+  </p>
+  <example>
+    <statement>
+      <p>
+        When <m>A = \{1,2\}</m>,
+        an indexed set consists of two sets <m>U_1</m> and <m>U_2</m>.
+        The product <m>\prod_{a \in \{1,2\}} U_a</m> thus consists of pairs <m>(x_1, x_2)</m> with
+        <m>x_1 \in U_1</m> and <m>x_2 \in U_2</m>.
+        The assignment <m>(x_1,x_2) \mapsto \angs{x_1,x_2}</m> is a bijection <m>\prod_{a \in \{1,2\}} U_a \to U_1 \times U_2</m>.
+        Most mathematicians are happy to pretend as if there is no difference between these sets;
+        indeed, there is no <em>interesting</em> difference!
+      </p>
+    </statement>
+  </example>
+  <p>
+    More generally, we think of the product
+    <m>\prod_{a\in A} U_a</m> as the set of ordered
+    <q><m>A</m>-tuples</q>.
+  </p>
+  <p>
+    For every <m>b\in A</m>, there is an attached map
+    <me>
+      \pi_b \colon \prod_{a\in A}U_a \to U_b
+    </me>
+    given by the assignment <m>x \mapsto x_b</m>,
+    called the <term>projection</term>
+    onto the <m>b</m>-th factor.
+  </p>
+  <p>
+    For every set <m>S</m>, every indexed set <m>\{U_a\}_{a\in A}</m>,
+    and every indexed set <m>\left\{f_a\colon\fromto{S}{U_a}\right\}</m> of maps,
+    there exists a unique map
+    <me>
+      f\colon S \to \prod_{a\in A}U_a
+    </me>
+    such that <m>\pi_a\circ f=f_a</m>.
+    Indeed, the map <m>f</m> is given by the assignment <m>s \mapsto (f_a(x))_{a\in A}</m>.
+  </p>
+</section>

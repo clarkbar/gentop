@@ -1,0 +1,13 @@
+<section xml:id="sec_esoterica">
+  <title>Esoterica</title>
+  <p>
+    The universe of topological spaces is very large,
+    and it includes some <term>beasts</term>.
+    These beasts exhibit some very strange behavior,
+    at least from the standpoint of the topological spaces we construct from Euclidean spaces and finite sets.
+    These are sometimes called <term>pathological topological spaces</term>
+    or just <term>pathologies</term>.
+    They are useful as counterexamples to certain implications in the world of topology,
+    but their importance should not be overestimated.
+  </p>
+</section>

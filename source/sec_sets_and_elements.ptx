@@ -1,0 +1,39 @@
+<section xml:id="sec_sets_and_elements">
+  <title>Sets and elements</title>
+  <p>
+    The first thing you have to know about sets is that a set <m>X</m> is equal to a set <m>Y</m> if and only if <m>X</m> and <m>Y</m> have the same elements.
+    That is, <m>X=Y</m> if and only if for every <m>A</m>,
+    one has <m>A\in X</m> if and only if <m>A\in Y</m>.
+  </p>
+  <p>
+    The easiest set in the world is the
+    <term>empty set</term> <m>\varnothing</m>.
+    It has no elements.
+    The sentence <m>x\in\varnothing</m> is <em>always</em> false,
+    no matter what <m>x</m> is.
+    That means that any universally quantified sentence over the empty set <mdash/> <em>i.e.,</em>
+    <m>(\forall x\in\varnothing)(\phi(x))</m> <mdash/> is <em>true</em>,
+    and any existentially quantified sentence over the empty set <mdash/> <em>i.e.,</em>
+    <m>(\exists x\in\varnothing)(\phi(x))</m> <mdash/> is <em>false</em>.
+  </p>
+  <aside>
+    <p>
+      Be sure you see why this is true!
+    </p>
+  </aside>
+  <p>
+    The next easiest sets in the world are <term>singletons</term>.
+    A singleton is a set with exactly one element, <m>\left\{X\right\}</m>.
+    Don't forget that that <m>X</m> has to be a set.
+    The axioms of set theory let you take any set <m>X</m> and build the singleton <m>\{X\}</m>.
+    More generally, if we have a pair of sets <m>X,Y</m>,
+    we're permitted to form the set <m>\left\{X,Y\right\}</m>.
+  </p>
+  <example>
+    <statement>
+      <p>
+        The sets <m>\varnothing</m> and <m>\{\varnothing\}</m> are unequal.
+      </p>
+    </statement>
+  </example>
+</section>

@@ -1,0 +1,468 @@
+<section xml:id="sec_continuity">
+  <title>Continuity</title>
+  <p>
+    The good news now is that continuity works almost exactly as it did in the example of subspaces of Euclidean space
+    (<xref ref="sec_basic_definitions" autoname="yes"/>).
+    The only difference is that we no langer have access to the
+    <m>\varepsilon</m>-<m>\delta</m> characterization of continuity.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>X</m> and <m>Y</m> be topological spaces,
+        and let <m>f \colon X \to Y</m> be a map.
+        Then <m>f</m> is <term>continuous</term> if and only if,
+        for every subset <m>S \subseteq X</m> any every point <m>x\in X</m> that is close to <m>S</m>,
+        the point <m>f(x)</m> is close to <m>f(S)</m>.
+      </p>
+    </statement>
+  </definition>
+  <proposition>
+    <statement>
+      <p>
+        Let <m>X</m> and <m>Y</m> be topological spaces.
+        The following are equivalent for a map <m>f \colon X \to Y</m>.
+        <ol>
+          <li>
+            <p>
+              The map <m>f</m> is continuous.
+            </p>
+          </li>
+          <li>
+            <p>
+              For any subset <m>T \subseteq Y</m>,
+              one has <m>\tau_X(f^{-1}(T)) \subseteq f^{-1}(\tau_Y(T))</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              For any closed subset <m>Z \subseteq Y</m>,
+              the inverse image <m>f^{-1}(Z) \subseteq X</m> is closed.
+            </p>
+          </li>
+          <li>
+            <p>
+              For any open subset <m>U \subseteq Y</m>,
+              the inverse image <m>f^{-1}(U) \subseteq X</m> is open.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      Everything is exactly as in the proof of <xref ref="prp_equivalent_characterizations_of_continuity" autoname="yes"/>, except that since we do not have condition (5),
+      we shall have to prove directly that (4) implies (1).
+    </p>
+    <p>
+      So assume (4); we aim to prove (1).
+      Let <m>S \subseteq X</m>, and let <m>x \in \tau_X(S)</m>.
+      Observe that the complement <m>V \coloneq Y \smallsetminus \tau_Y(f(S))</m> is open;
+      hence so is the inverse image <m>U \coloneq f^{-1}(V) \subseteq X</m>.
+      Note also that <m>S</m> is disjoint from <m>U</m>.
+      Thus the complement <m>X \smallsetminus U</m> is a closed subset that contains <m>S</m>.
+      Consequently, <m>\tau_X(S) \subseteq U</m>.
+      So since <m>x \in \tau_X(S)</m>,
+      it follows that <m>f(x) \notin V</m>.
+      In other words, <m>f(x) \in \tau_Y(f(S))</m>, as desired.
+    </p>
+  </proof>
+  <example>
+    <statement>
+      <p>
+        Let <m>X</m>, <m>Y</m>, and <m>Z</m> be topological spaces.
+        Then the identity map <m>\id \colon X \to X</m> is continuous.
+        Also, if <m>f \colon X \to Y</m> and <m>g \colon Y \to Z</m> are continuous,
+        then the composition <m>g \circ f \colon X \to Z</m> is continuous as well.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>X</m> be a topological space,
+        and let <m>S</m> be a set.
+        Any map <m>f \colon S \to X</m> is continuous if <m>S</m> is endowed with the
+        <em>discrete</em> topology.
+        Dually, any map <m>g \colon X \to S</m> is continuous if <m>S</m> is endowed with the emph{chaotic} topology.
+      </p>
+    </statement>
+  </example>
+  <definition>
+    <statement>
+      <p>
+        Suppose <m>\tau_1</m> and <m>\tau_2</m> are two topologies on the same set <m>X</m>.
+        Then we say that <m>\tau_1</m> is <term>finer</term>
+        than <m>\tau_2</m> <mdash/> and that <m>\tau_2</m> is <term>coarser</term>
+        than <m>\tau_1</m> <mdash/> if the identity map on <m>X</m> is continuous as a map
+        <me>
+          (X,\tau_1) (X,\tau_2)
+        </me>.
+      </p>
+      <p>
+        Hence if <m>\tau_1</m> is finer than <m>\tau_2</m>,
+        then the closure of a set relative to <m>\tau_1</m> is contained in its closure relative to <m>\tau_2</m>.
+        In particular,
+        the topology <m>\tau_1</m> has more closed sets than the topology <m>\tau_2</m>.
+        Forming complements,
+        we deduce also that the topology <m>\tau_1</m> has more open sets than the topology <m>\tau_2</m>.
+      </p>
+      <p>
+        There are two extremes:
+        the finest topology on a set is the discrete topology,
+        and the coarsest is the chaotic topology.
+      </p>
+    </statement>
+  </definition>
+  <example>
+    <statement>
+      <p>
+        Recall the topological space
+        <m>\PP^1_{\RR}</m> of <xref ref="exm_real_projective_line" autoname="yes"/>.
+        Define a map <m>L \colon S^1 \to \PP^1_{\RR}</m> as follows:
+        for every point <m>x \in S^1</m>,
+        let <m>L(x)</m> be the <m>1</m>-dimensional subspace spanned by the vector <m>x</m>.
+        That is, <m>L(x)</m> is the unique line in <m>\RR^2</m> that passes through the origin and <m>x</m>.
+        It follows from the definition of the topology on
+        <m>\PP^1_{\RR}</m> that <m>L</m> is continuous.
+      </p>
+      <p>
+        To unpack this a little,
+        let <m>S \subseteq S^1</m> be a subset,
+        and let <m>x \in \tau(S)</m>.
+        We want to see that <m>L(x)</m> is close to the image <m>L(S)</m>.
+        Let <m>\varepsilon>0</m>.
+        There exists <m>s \in S</m> such that <m>\|x-s\| \lt \varepsilon</m>.
+        Now <m>L(x)</m> intersects <m>S^1</m> at the points <m>x</m> and <m>-x</m>,
+        and <m>L(s)</m> intersects <m>S^1</m> in the points <m>s</m> and <m>-s</m>.
+        Thus the line <m>L(s)</m> has the property that,
+        in the notation of <xref ref="exm_real_projective_line" autoname="yes"/>,
+        <m>\|i(L(x))-i(L(s))\| \lt \varepsilon</m> or <m>\|i(L(x))-j(L(s))\| \lt \varepsilon</m>.
+      </p>
+      <p>
+        Please note that while <m>L</m> is surjective, it is not injective,
+        since for every <m>x \in S^1</m>,
+        one has <m>L(x) = L(-x)</m>.
+      </p>
+    </statement>
+  </example>
+  <definition>
+    <statement>
+      <p>
+        Let <m>X</m> and <m>Y</m> be topological spaces, and let <m>x \in X</m>.
+        Then a map <m>f \colon X \to Y</m> is
+        <term>continuous at <m>x</m></term> if and only if,
+        for any subset <m>S \subseteq X</m>,
+        if <m>x</m> is close to <m>S</m> then <m>f(x)</m> is close to <m>f(S)</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    A map <m>f \colon X \to Y</m> is continuous if and only if it is continuous at every point <m>x \in X</m>.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Consider the map <m>s \colon \RR \to \RR</m> given by the formula
+        <me>
+          s(x) \coloneq \begin{cases}x/|x| \amp  \text{ if }  x \neq 0 ; \\ 0 \amp  \text{ if }  x=0 . \end{cases}
+        </me>
+      </p>
+      <p>
+        Then <m>s</m> is continuous at every <m>x \in \RR \smallsetminus \{0\}</m>.
+        If <m>s</m> were continuous at <m>0</m>,
+        then it would be continuous.
+        But even though the set <m>\{1\} \subset \RR</m> is closed,
+        its inverse image
+        <me>
+          s^{-1}\{1\} = \left]0, +\infty \right[ \subset \RR
+        </me>
+        is not.
+        Hence <m>s</m> is not continuous at <m>0</m>, as we expect!
+      </p>
+    </statement>
+  </example>
+  <example xml:id="exm_reciprocalextension">
+    <statement>
+      <p>
+        Consider the function <m>f(x)=1/x</m>.
+        This is a continuous map
+        <me>
+          f\colon \RR-\{0\} \to \RR-\{0\}
+        </me>,
+        relative to the subspace topology on each side.
+        Of course we have removed the point <m>0\in\RR</m>,
+        because in primary school we were told that <m>1/0</m> is
+        <q>undefined.</q>
+        But let's try to define it anyhow.
+      </p>
+      <p>
+        We note that, as <m>x</m> approaches <m>0</m> from the right,
+        <m>1/x</m> increases without bound;
+        as <m>x</m> approaches <m>0</m> from the left,
+        <m>1/x</m> decreases without bound.
+        If we wanted to add a point that would play the role of <m>1/0</m>,
+        then this leads us to the following idea:
+        consider the topological space
+        <m>\RR\sqcup\{\infty\}</m> constructed in <xref ref="exm_onepointcompactificationofRR" autoname="yes"/>.
+        Now we may extend our map <m>f\colon \RR-\{0\} \to \RR-\{0\}</m> to a map <m>F \colon \RR\sqcup\{\infty\} \to \RR\sqcup\{\infty\}</m> by
+        <me>
+          F(x) \coloneq \begin{cases}1/x \amp  \text{ if } x \in \RR \smallsetminus \{0\} ; \\ \infty   \amp  \text{ if } x = 0 ; \\ 0   \amp  \text{ if } x = \infty . \end{cases}
+        </me>
+      </p>
+      <p>
+        With the topology we've given <m>\RR\sqcup\{\infty\}</m>,
+        this is continuous!
+        The only thing left for us to check is continuity at <m>0</m> and <m>\infty</m>.
+      </p>
+      <p>
+        To do this, let <m>S \subseteq \RR \sqcup \{ \infty \}</m> be a subset such that <m>0</m> is close to <m>S</m>.
+        Let <m>N >0</m>.
+        There exists an element <m>s \in S</m> such that <m>|s| \lt 1/N</m>.
+        Thus <m>|F(s)|>N</m>.
+        It follows that <m>F</m> is continuous at <m>0</m>.
+      </p>
+      <p>
+        The proof of contiuity at <m>\infty</m> is similar.
+      </p>
+      <aside>
+        <p>
+          Please fill in the details!
+        </p>
+      </aside>
+    </statement>
+  </example>
+  <proposition xml:id="prp_equivalent_characterization_of_continuity_at_a_point">
+    <statement>
+      <p>
+        Let <m>X</m> and <m>Y</m> be topological spaces, and let <m>x \in X</m>.
+        The following are equivalent for a map <m>f \colon X \to Y</m>.
+        <ol>
+          <li>
+            <p>
+              The map <m>f</m> is continuous at <m>x</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              For any open neighborhood <m>V</m> of <m>f(x)</m>,
+              the inverse image <m>f^{-1}(V)</m> is an open neighborhood of <m>x</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      Assume (1); we aim to prove (2).
+      Let <m>V</m> be an open neighborhood of <m>f(x)</m>.
+      Let <m>S \coloneq f^{-1}(Y \smallsetminus V)</m>.
+      If <m>x \in \tau_X(S)</m>, then
+      <me>
+        f(x) \in \tau_Y(f(S)) \subseteq \tau(Y \smallsetminus V) = Y \smallsetminus V
+      </me>,
+      since <m>Y \smallsetminus V</m> is closed.
+      This is a contradiction, which shows that <m>x \notin \tau_X(S)</m>.
+      Now let <m>U \coloneq X \smallsetminus \tau_X(S)</m>.
+      This is now an open neighborhood of <m>x</m>,
+      and <m>f(U) \subseteq V</m>.
+    </p>
+    <p>
+      Conversely, assume (2); we aim to prove (1).
+      Let <m>S \subseteq X</m> be a subset,
+      and let <m>x \in \tau_X(S)</m>.
+      Let <m>V \coloneq Y \smallsetminus \tau_Y(f(S))</m>.
+      If <m>f(x) \in V</m>,
+      then by assumption there exists an open neighborhood <m>U</m> of <m>x</m> such that <m>f(U) \subseteq V</m>.
+      Since <m>S</m> is disjoint from <m>f^{-1}(V)</m>,
+      it follows that the closure
+      <m>\tau_X(S)</m> is disjoint from <m>U</m> as well.
+      This is a contradiction that implies that <m>f(x) \notin V</m>,
+      so that <m>f(x) \in \tau(f(S))</m>.
+    </p>
+  </proof>
+  <p>
+    The definition of <em>homeomorphism</em>
+    is also just the same as for subspaces of Euclidean space:
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>X</m> and <m>Y</m> be topological spaces.
+        A <term>homeomorphism</term>
+        <m>f \colon X \to Y</m> is a continuous bijection whose inverse <m>f^{-1}</m> is continuous.
+        The two topological spaces <m>X</m> and <m>Y</m> are <term>homeomorphic</term>
+        if and only if there exists a homeomorphism <m>X \to Y</m>.
+        In this case, we may write <m>X \cong Y</m>.
+      </p>
+    </statement>
+  </definition>
+  <example>
+    <statement>
+      <p>
+        Let's show that the following three topological spaces are homeomorphic:
+        <ul>
+          <li>
+            <p>
+              The circle <m>S^1 \subseteq \RR^2</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The topological space <m>\PP^1_{\RR}</m> from <xref ref="exm_real_projective_line" autoname="yes"/>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The topological spaces <m>\RR \sqcup \{\infty\}</m> from <xref ref="exm_one_point_compactification_of_RR" autoname="yes"/>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        The map <m>L \colon S^1 \to \PP^1_{\RR}</m> defined above is not a homeomorphism,
+        but that doesn't mean we can't find another homeomorphism between these two topological spaces.
+        So let's try to go the other way.
+        Let's define a map <m>h \colon \PP^1_{\RR} \to S^1</m>.
+        For every line <m>L \in \PP^1_{\RR}</m>,
+        there is a point <m>z \in S^1</m> such that <m>L=L(z)</m>.
+        If we think of <m>S^1 \subset \CC</m>,
+        we can define <m>h(L)</m> as <m>z^2</m> for any
+        <m>z \in S^1</m> such that <m>L = L(z)</m>.
+        In other words,
+        if <m>L</m> is the line spanned by a nonzero vector <m>(x,y) \in \RR^2</m>, then
+        <me>
+          h(L) = \left( \frac{x^2-y^2}{x^2+y^2}, \frac{2xy}{x^2+y^2} \right)
+        </me>.
+      </p>
+      <p>
+        This is well-defined,
+        since this formula gives the same value if you replace <m>(x,y)</m> with
+        <m>(\alpha x, \alpha y)</m> for <m>\alpha \in \RR \smallsetminus \{0\}</m>.
+      </p>
+      <p>
+        Let us prove that <m>h</m> is continuous.
+        We may be tempted to use the fact that the formula above defines a continuous function <m>\RR^2 \smallsetminus \{0\} \to S^1</m>,
+        but we have to be a little careful,
+        because <m>\PP^1_{\RR}</m> wasn't defined as a subspace of a Euclidean space.
+        Assume that <m>S \subseteq \PP^1_{\RR}</m>,
+        and assume that <m>L \in \tau(S)</m>.
+        Let <m>\varepsilon >0</m>;
+        there exists a line <m>L' \in S</m> such that either
+        <m>\|i(L) - i(L')\| \lt  \varepsilon/2</m> or <m>\|i(L) - j(L')\| \lt  \varepsilon/2</m>.
+        Furthermore,
+        we know that no two points in <m>S^1</m> are separated by a distance of more than <m>2</m>;
+        therefore, both <m>\|i(L) - i(L')\| \leq 2</m> or <m>\|i(L) - j(L')\| \leq 2</m>.
+        We may therefore multiply these inequalities to obtain:
+        <me>
+          \|i(L) - i(L')\| \|i(L) - j(L')\| \lt  \varepsilon
+        </me>.
+      </p>
+      <p>
+        Since <m>i(L') = -j(L')</m>, we therefore obtain
+        <me>
+          \|h(L) - h(L')\| = \|i(L)^2 -j(L')^2\| \lt  \varepsilon
+        </me>.
+      </p>
+      <p>
+        It therefore follows that <m>h(L)</m> is close to <m>h(S)</m>.
+        So <m>h</m> is continuous.
+      </p>
+      <p>
+        Now let us show that <m>h</m> is a bijection.
+        If <m>w \in S^1</m>,
+        then the inverse image <m>h^{-1}\{w\}</m> is the set of lines
+        <m>L \in \PP^1_{\RR}</m> such that either <m>i(L)</m> or <m>j(L)</m> is a square root of <m>w</m>.
+        In fact, since <m>i(L) = -j(L)</m>,
+        it follows that <m>i(L)</m> is a square root of <m>w</m> if and only if <m>j(L)</m> is a square root of <m>w</m>.
+        Hence <m>h^{-1}\{w\}</m> consists of exactly one line:
+        the line passing through either square root of <m>w</m> and the origin.
+      </p>
+      <p>
+        Now let's demonstrate that <m>h</m> is a homeomorphism.
+        For this, we note that the inverse <m>h^{-1}</m> carries
+        <m>w \in S^1</m> to the line passing through the square roots of <m>w</m> and the origin.
+        To prove that this is continuous,
+        assume that <m>T \subseteq S^1</m>,
+        and assume that <m>w \in S^1</m> is close to <m>T</m>.
+        Let <m>\varepsilon>0</m>;
+        then there exists <m>w' \in T</m> such that <m>\|w-w'\| \lt  \varepsilon^2</m>.
+        Now if <m>z, -z \in S^1</m> are the two square roots of <m>w</m>,
+        and if <m>z', -z' \in S^1</m> are the two square roots of <m>w'</m>,
+        then either <m>|z-z'|\lt \varepsilon</m> or <m>|z+z'|\lt \varepsilon</m>,
+        since otherwise, we would have
+        <me>
+          |w-w'| = |z-z'| |z+z'| \geq \varepsilon^2
+        </me>.
+      </p>
+      <p>
+        Consequently, it follows that
+        <m>h^{-1}(w)</m> is close to <m>h^{-1}(T)</m>.
+        This now completes the proof that
+        <m>\PP^1_{\RR}</m> and <m>S^1</m> are homeomorphic.
+      </p>
+      <p>
+        Now we prove that <m>\RR \sqcup \{\infty\}</m> and <m>S^1</m> are homeomorphic.
+        Indeed, define maps
+        <me>
+          f \colon S^1 \to \RR \sqcup \{\infty\} \andeq g \colon \RR \sqcup \{\infty\} \to S^1
+        </me>
+        by the formulas
+        <me>
+          f(x,y) \coloneq \begin{cases}x/(1-y) \amp  \text{ if }  y \neq 1 ; \\ \infty \amp  \text{ if }  y = 1 . \end{cases}
+        </me>
+        and
+        <me>
+          g(t) \coloneq \begin{cases}1/(t^2+1)(2t, t^2-1) \amp  \text{ if }  t \neq \infty ; \\ (0,1) \amp  \text{ if }  t = \infty . \end{cases}
+        </me>
+      </p>
+      <p>
+        A direct check confirms that <m>f</m> and <m>g</m> are inverses,
+        but the interesting thing to prove is that they are each continuous.
+      </p>
+      <p>
+        For <m>f</m>,
+        continuity away from the point <m>(0,1)</m> follows from the elementary analytic facts we are happy to assume here.
+        But continuity at <m>(0,1)</m> is more interesting!
+        So assume that <m>S \subseteq S^1</m> is a subset to which <m>(0,1)</m> is close.
+        We have to show that <m>\infty</m> is close to <m>f(S)</m>.
+        So let <m>N > 0</m> be a real number;
+        we aim to find an element <m>(x,y) \in S</m> such that <m>|x/(1-y)| > N</m> or,
+        equivalently,
+        that <m>x^2/(1-y)^2 = (1+y)/(1-y) > N^2</m>, Choose
+        <m>\varepsilon>0</m> so that <m>\varepsilon \leq 2/N^2</m>;
+        since <m>(0,1)</m> is close to <m>S</m>,
+        there exists a point <m>(x,y) \in S</m> such that <m>x^2 - (1-y)^2 \lt  \varepsilon</m> and <m>y \geq 0</m>.
+        Since <m>x^2+y^2 = 1</m>,
+        this implies that <m>1-y \lt  \varepsilon/2</m>,
+        and since <m>1+y \geq 1</m>, we obtain
+        <me>
+          \frac{1+y}{1-y} \geq \frac{1}{1-y} > \frac{2}{\varepsilon} > N^2
+        </me>.
+      </p>
+      <p>
+        Once again, elementary analysis facts imply that <m>g</m> is continuous at every point of <m>\RR</m>.
+        We must show that <m>g</m> is continuous at <m>\infty</m> as well.
+        For this, assume that <m>T \subseteq \RR \sqcup \{\infty\}</m> is a subset such that <m>\infty</m> is close to <m>T</m>.
+        Let <m>\varepsilon >0</m>;
+        we aim to show that there exists an element <m>t\in T</m> such that <m>\|g(t)-(0,1)\| \lt  \varepsilon</m>.
+        If <m>\infty \in T</m>, then this is immediate,
+        so it suffices to consider the case in which
+        <m>T \subseteq \RR</m> is an unbounded subset.
+        There exists <m>t \in T</m> such that <m>|t| > 2/\varepsilon</m>, and so
+        <me>
+          \left\|1/(t^2+1)(2t, t^2-1) - (0,1)\right\|^2 = \frac{4}{t^2+1} \lt  \varepsilon^2
+        </me>,
+        so that <m>\| g(t) - (0,1) \| \lt  \varepsilon</m>, just as we'd hoped.
+      </p>
+      <p>
+        The upshot here is that we have
+        <me>
+          \PP^1_{\RR} \cong S^1 \cong \RR \sqcup \{\infty\}
+        </me>.
+      </p>
+    </statement>
+  </example>
+</section>

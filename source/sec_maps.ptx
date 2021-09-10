@@ -1,0 +1,137 @@
+<section xml:id="sec_maps">
+  <title>Maps</title>
+  <p>
+    The real point of defining things as we have is so we can talk about
+    <term>maps</term> as soon as possible.
+    Maps <mdash/> {\addfontfeature{LetterSpace=5.0}\textsmallcaps{aka}}
+    <term>set maps</term>, <term>mappings</term>,
+    <term>functions</term> <mdash/> are an important notion in set theory.
+    The idea is that a map <m>f\colon S \to T</m> is a way of taking each element <m>s\in S</m> and associating one and only one element <m>f(s)\in Y</m> thereto.
+    Importantly, though, a map <m>f\colon S \to T</m>
+    <q>knows</q>
+    its <term>source</term> <m>S</m>,
+    its <term>target</term> <m>T</m>,
+    and the method of associating elements of <m>T</m> with elements of <m>S</m>.
+    Thus a map <m>f\colon S \to T</m> is defined as an ordered triple <m>\angs{S,T,\Gamma(f)}</m> in which
+    <m>\Gamma(f) \subseteq S \times T</m> is a subset with the property that for every element <m>s \in S</m>,
+    there is a unique
+  </p>
+  <aside>
+    <p>
+      The phrase
+      <q>there is a unique <m>x</m> such that <m>\phi(x)</m></q>
+      <mdash/> sometimes written
+      <m>(\exists ! x)\ \phi(x)</m> <mdash/> is a helpful shorthand for the longer sentence
+      <me>
+        (\exists x)(\phi(x) \wedge ((\forall y)(\phi(y){\implies}(x=y))))
+      </me>.
+    </p>
+    <p>
+      You knew that, of course,
+      but our point here is that it's a formula of predicate calculus,
+      and so the phrase
+      <q>such-and-so is a map</q>
+      is a formula of predicate calculus as well.
+    </p>
+  </aside>
+  <p>
+    element <m>f(x)\in Y</m> such that <m>\angs{x,f(x)}\in\Gamma(f)</m>.
+  </p>
+  <p>
+    In practice, the way we describe maps is pretty relaxed.
+    We typically identify the source <m>S</m> and the target <m>T</m>,
+    and then we provide a <em>rule</em> for
+    <q>sending</q>
+    elements of <m>S</m> to the associated elements of <m>T</m>.
+    The idea is that for every <m>s \in S</m>,
+    we have to specify a unique <m>f(s) \in T</m>
+    <q>attached</q>
+    to <m>s</m> in the sense that <m>\angs{s, f(s)} \in \Gamma(f)</m>.
+  </p>
+  <p>
+    Sometimes, it's handy to use the following notation:
+    we may define a map <m>f \colon S \to T</m> by the <em>assignment</em>
+    <me>
+      s \mapsto \text{ [some formula involving \(s\)] }
+    </me>.
+  </p>
+  <example>
+    <statement>
+      <p>
+        For instance, we can specify a map
+        <m>f\colon \omega \to \{0,1\}</m> by saying that <m>f(0)=0</m> and for any successor <m>n+1</m>,
+        we let <m>f(n+1)</m> be the unique element of <m>\{0,1\}</m> such that <m>f(n+1)\neq f(n)</m>.
+        Since we can check that <m>f(n+1)</m> is indeed unique with this property,
+        we are assured that <m>f</m> really is a map.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Suppose <m>S\subseteq X</m>.
+        There is a map <m>i\colon S \to X</m> such that <m>i(s)=s</m>,
+        called the <term>inclusion map</term>.
+        When <m>S=X</m>, this is called the
+        <term>identity map</term> <m>\id</m>.
+      </p>
+    </statement>
+  </example>
+  <p>
+    If we specify two sets <m>S</m> and <m>T</m>,
+    then we can write <m>\Map(S, T) \subseteq \PP(S \times T)</m> consisting of those subsets
+    <m>\Gamma \subseteq S \times T</m> such that <m>\angs{S, T, \Gamma}</m> is a map.
+    We can write this as:
+    <me>
+      \Map(S, T) \coloneq \{ \Gamma \subseteq \PP(S \times T) : (\forall s \in S)(\exists ! t \in T)(\angs{s,t} \in \Gamma) \}
+    </me>.
+    this is our set of maps from <m>S</m> to <m>T</m>.
+  </p>
+  <p>
+    \begin{exr} Suppose <m>X</m> a set
+    (possibly empty).
+    The set <m>\Map(\varnothing,X)</m> always consists of exactly one element:
+    the inclusion map <m>\varnothing \to X</m>.
+    The point here is that <m>\varnothing \times X = \varnothing</m>,
+    so <m>\PP(\varnothing \times X) = \{\varnothing\}</m>.
+    The unique subset <m>\varnothing \subseteq \varnothing</m> is a map <m>\varnothing \to X</m>:
+    indeed, the condition is:
+    <me>
+      (\forall s \in \varnothing)(\exists ! t \in X)(\angs{s,t} \in \varnothing)
+    </me>,
+    which is always true.
+    The set <m>\Map(X,\varnothing)</m> is often, but not always, empty.
+    Once again, we are looking at the unique subset
+    <m>\varnothing \subseteq X \times \varnothing = \varnothing</m>,
+    and the condition is:
+    <me>
+      (\forall s \in X)(\exists t \in \varnothing)(\angs{s,t} \in \varnothing)
+    </me>,
+    which is true if <m>X = \varnothing</m>;
+    otherwise it is false. \end{exr}
+  </p>
+  <p>
+    Maps can be <term>composed</term>.
+    If <m>f\colon S \to T</m> is a map,
+    and <m>g\colon T \to U</m> is another, then you can
+    <q>do <m>f</m> first, and then do <m>g</m></q>. That is, one can form a new map
+    <m>g\circ f\colon S \to U</m> such that for any <m>s\in S</m>, one has
+    <me>
+      (g\circ f)(s)\coloneq g(f(s))
+    </me>.
+  </p>
+  <p>
+    More formally, <m>f</m> and <m>g</m> are triples
+    <m>\angs{S,T,\Gamma(f)}</m> and <m>\angs{T,U,\Gamma(g)}</m> (respectively),
+    and <m>g\circ f</m> is the triple <m>\angs{S,U,\Gamma(g\circ f)}</m>, where
+    <me>
+      \Gamma(g\circ f)\coloneq\{(s,u)\in S\times U : (\exists t\in T)((s,t)\in\Gamma(f)\wedge(t,u)\in\Gamma(g))\}
+    </me>.
+  </p>
+  <p>
+    It is easy enough to see that
+    <m>g\circ\id=g</m> and <m>\id\circ f=f</m>,
+    and moreover composition is associative,
+    so that <m>(h\circ g)\circ f=h\circ(g\circ f)</m>.
+  </p>
+</section>

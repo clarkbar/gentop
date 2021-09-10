@@ -1,0 +1,34 @@
+<section xml:id="sec_ordered_pairs">
+  <title>Ordered pairs</title>
+  <p>
+    We can also create <term>ordered pairs</term>.
+    For sets <m>X</m> and <m>Y</m>, we write
+    <me>
+      \angs{X,Y}\coloneq\left\{\{X\},\{X,Y\}\right\}
+    </me>.
+  </p>
+  <p>
+    Now for any two sets <m>X</m> and <m>Y</m>,
+    we define the <term>product</term>
+    as the set of all ordered pairs:
+    <me>
+      X\times Y\coloneq\left\{S\in\PP(\PP(X\cup Y)) : (\exists x\in X)(\exists y\in Y)(\angs{x,y}=S)\right\}
+    </me>.
+  </p>
+  <p>
+    We can also define an <term>ordered triple</term> by the rule
+    <me>
+      \angs{X,Y,Z}\coloneq\angs{\angs{X,Y},Z}
+    </me>.
+  </p>
+  <p>
+    We can keep going with this to build ordered quadruples and ordered quintuples,
+    <em>etc.</em>,
+    but once we have the concept of map up and running,
+    we'll find more efficient and intuitive ways to talk about these things.
+  </p>
+  <p>
+    \begin{exr} How many elements does the ordered pair <m>\angs{x,x}</m> have?
+    How about the ordered triple <m>\angs{x,x,x}</m>? \end{exr}
+  </p>
+</section>
