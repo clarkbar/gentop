@@ -1,0 +1,43 @@
+<section xml:id="sec_bounded_comprehension">
+  <title>Bounded comprehension</title>
+  <p>
+    We also want to be able to carve out pieces of our sets defined by suitable formulas.
+    So if <m>X</m> is a set, and <m>\phi(x)</m> is some formula of set theory
+    (any sentence of predicate calculus along with <m>\in</m> in which the only free variable is <m>x</m>),
+    then the axioms of set theory allow us to form a set
+  </p>
+  <aside>
+    <p>
+      This bit of notation is sometimes called
+      <term>set-builder</term> notation.
+      The axioms say,
+      in effect, that this notation actually means something,
+      as long as the <m>X</m> that appears on the left side of the colon is known to be a set.
+    </p>
+  </aside>
+  <me>
+    A = \left\{x\in X : \phi(x)\right\}
+  </me>.
+  <p>
+    Thus <m>A</m> is the set whose elements are all and only those elements <m>x\in X</m> such that <m>\phi(x)</m> obtains.
+  </p>
+  <example>
+    <statement>
+      <p>
+        It's important that sets defined by formulas are carved out of existing sets.
+        This is called <term>bounded comprehension</term>.
+        With an <em>unbounded</em> comprehension axiom,
+        we would be able to build the following:
+        <me>
+          R\coloneq\left\{X : \neg(X\in X)\right\}
+        </me>.
+      </p>
+      <p>
+        You may have seen this: this <m>R</m> creates some challenges,
+        since <m>R \in R</m> if and only if <m>R \notin R</m>.
+        This is the example that Bertrand Russell cooked up,
+        just to ruin Gottlob Frege's day.
+      </p>
+    </statement>
+  </example>
+</section>

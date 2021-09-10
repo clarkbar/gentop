@@ -1,0 +1,68 @@
+<section xml:id="sec_the_algebra_of_subsets">
+  <title>The algebra of subsets</title>
+  <p>
+    The algebra of subsets of a set permits one to perform unions,
+    intersections, and complements,
+    and these satisfy certain rules.
+  </p>
+  <p>
+    So let <m>X</m> be a set, and let <m>U\colon\fromto{A}{\PP(X)}</m> be a map.
+    Then there are two new subsets of <m>X</m> that can be constructed:
+    the <term>indexed union</term>
+    <me>
+      \bigcup_{a\in A}U(a)\coloneq\{x\in X : (\exists a\in A)\ x\in U(a)\}
+    </me>
+    and the <term>indexed intersection</term>
+    <me>
+      \bigcap_{a\in A}U(a)\coloneq\{x\in X : (\forall a\in A)\ x\in U(a)\}
+    </me>.
+  </p>
+  <example>
+    <statement>
+      <p>
+        There is only one map <m>I\colon \varnothing \PP(X)</m>.
+        The indexed union
+        <me>
+          \bigcup_{a \in \varnothing} I(a) = \varnothing
+        </me>.
+      </p>
+      <p>
+        The indexed intersection
+        <me>
+          \bigcap_{a \in \varnothing} I(a) = X
+        </me>.
+      </p>
+    </statement>
+  </example>
+  <p>
+    Let's see what happens when you repeat these operations or mix them.
+    Let <m>A</m> and <m>B</m> be sets,
+    and let <m>U \colon A \times B \to \PP(X)</m>.
+    We're going to exploit some bijections now:
+    we know that maps <m>A \times B \to \PP(X)</m> are in bijection with maps <m>A \to \Map(B, \PP(X))</m>;
+    we also know that <m>A \times B</m> is in bijection with <m>B \times A</m>,
+    and therefore that maps <m>A \times B \to \PP(X)</m> are in bijection with maps <m>B \times A \to \PP(X)</m>,
+    which are in turn in bijection with maps <m>B \to \Map(A, \PP(X))</m>.
+    Here are the formulas:
+    <md>
+      <mrow>\bigcup_{a\in A} \bigcup{b \in B} U(a,b) \amp = \bigcup_{b \in B} \bigcup{a \in A} U(a,b) ;</mrow>
+      <mrow>\bigcap_{a\in A} \bigcap{b \in B} U(a,b) \amp = \bigcap_{b \in B} \bigcap{a \in A} U(a,b) ;</mrow>
+      <mrow>\bigcap_{a\in A}\bigcup_{b\in B} U(a,b) \amp = \bigcup_{f\in\Map(A,B)} \bigcap_{a\in A} U(a,f(a)) ;</mrow>
+      <mrow>\bigcup_{a\in A} \bigcap_{b\in B} U(a,b) \amp = \bigcap_{f\in\Map(A,B)} \bigcup_{a\in A} U(a,f(a)) </mrow>
+    </md>.
+  </p>
+  <p>
+    There is also the <term>complement</term> of any <m>A\in\PP(X)</m>
+    <me>
+      \complement A = X \smallsetminus A \coloneq \{x\in X : x\notin A)\}
+    </me>.
+  </p>
+  <p>
+    The <term>de Morgan laws</term> state that the formation of the complement exchanges union and intersection:
+    for any map <m>U\colon\fromto{A}{\PP(X)}</m>,
+    <md>
+      <mrow>\complement\left(\bigcup_{a\in A}U(a)\right) \amp = \bigcap_{a\in A}\complement U(a);</mrow>
+      <mrow>\complement\left(\bigcap_{a\in A}U(a)\right) \amp  =\bigcup_{a\in A}\complement U(a) </mrow>
+    </md>.
+  </p>
+</section>

@@ -1,0 +1,55 @@
+<section xml:id="sec_products_and_sets_of_maps">
+  <title>Products and sets of maps</title>
+  <p>
+    Here's a basic property that relates the product of sets and the set of maps.
+    It's a bit of a tongue-twister,
+    but it's worth it to unpack.
+    Let <m>S</m>, <m>T</m>, and <m>U</m> be three sets.
+    Then define a map
+    <me>
+      \phi \colon \Map(S \times T, U) \to \Map(S, \Map(T, U))
+    </me>
+    that carries an element <m>h \in \Map(S \times T, U)</m> <mdash/> that is,
+    a map <m>h \colon S \times T \to U</m> <mdash/> to the element <m>\phi(h) \in \Map(S, \Map(T, U))</m> <mdash/> that is,
+    the map <m>\phi(h) \colon S \to \Map(T, U)</m> <mdash/> that carries an element <m>s \in S</m> to the element <m>\phi(h)(s) \in Map(T,U)</m> <mdash/> that is,
+    the map <m>\phi(h)(s) \colon T \to U</m> <mdash/> that carries an element <m>t \in T</m> to the element
+    <me>
+      \phi(h)(s)(t) = h(\angs{s,t}) \in U
+    </me>.
+  </p>
+  <p>
+    <em>Did you catch that?</em> Let's say it differently:
+    we're starting with a map <m>h \colon S \times T \to U</m>.
+    We want to <em>get</em> a map <m>\phi(h) \colon S \to \Map(T,U)</m>.
+    To describe <em>that</em>, we start with an element <m>s \in S</m>,
+    and we want to <em>get</em> a map <m>\phi(h)(s) \colon T \to U</m>.
+    To define that, we start with an element <m>t \in T</m>,
+    and we want to <em>get</em> an element of <m>U</m>;
+    that element is <m>h(\angs{s,t})</m>.
+    Some times the map <m>\phi(h)(s) \colon T \to U</m> is written <m>h(\angs{s,-})</m>,
+    where the second position is treated as a blank where we can fill in <m>t \in T</m>.
+  </p>
+  <p>
+    Let's go the other way, and define a map
+    <me>
+      \psi \colon \Map(S, \Map(T, U)) \to \Map(S \times T, U)
+    </me>.
+  </p>
+  <p>
+    For this, we're starting with a map <m>k \colon S \to \Map(T, U)</m>,
+    and we want to define a map <m>\psi(k) \colon S \times T \to U</m>.
+    This is defined by
+    <me>
+      \psi(k)(\angs{s,t}) \coloneq k(s)(t)
+    </me>.
+  </p>
+  <p>
+    Now if you inspect thes formulas carefully,
+    you'll see that in fact <m>\phi \circ \psi = \id</m> and <m>\psi \circ \phi = \id</m>.
+    In other words, <m>\phi</m> is a bijection,
+    and <m>\psi</m> is its inverse.
+    In still other words, the sets
+    <m>\Map(S \times T, U)</m> and <m>\Map(S, \Map(T, U))</m> are the
+    <q>same</q>, up to relabelling.
+  </p>
+</section>

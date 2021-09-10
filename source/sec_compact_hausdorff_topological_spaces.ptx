@@ -1,0 +1,210 @@
+<section xml:id="sec_compact_hausdorff_topological_spaces">
+  <title>Compact Hausdorff topological spaces</title>
+  <definition>
+    <statement>
+      <p>
+        A topological space <m>X</m> is said to be <term>Hausdorff</term>
+        if for any two points <m>x,y\in X</m>,
+        there exist open neighbourhoods <m>U</m> of <m>x</m> and <m>V</m> of <m>y</m> such that <m>U\cap V=\varnothing</m>.
+      </p>
+    </statement>
+  </definition>
+  <example>
+    <statement>
+      <p>
+        Any discrete topological space is Hausdorff.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Any subspace of Euclidean space is Hausdorff:
+        for any two points <m>x,y\in X</m>,
+        if <m>r\coloneq d(x,y)/2</m>,
+        then the balls <m>B(x,r)</m> and <m>B(y,r)</m> are disjoint.
+      </p>
+    </statement>
+  </example>
+  <counterexample>
+  <statement>
+  <p>
+    The indiscrete topology on a set <m>X</m> is not Hausdorff unless <m>\# X\leq 1</m>.
+  </p>
+  </statement>
+  </counterexample>
+  <example>
+    <statement>
+      <p>
+        Any subspace of a Hausdorff space is Hausdorff.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        If <m>(X,\tau)</m> is Hausdorff,
+        then for any topology <m>\tau'</m> on <m>X</m> that is finer than <m>\tau</m>,
+        the topological space <m>(X,\tau')</m> is Hausdorff as well.
+      </p>
+    </statement>
+  </example>
+  <p>
+    This points in the opposite direction from compactness.
+    Whereas Hausdorffitude is stable under passage to a finer topology,
+    compactness is stable under passage to a coarser topology.
+  </p>
+  <lemma>
+    <statement>
+      <p>
+        Let <m>X</m> be a Hausdorff space,
+        and let <m>K\subseteq X</m> a compact subspace.
+        Then <m>K</m> is closed in <m>X</m>.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      Suppose <m>y\in X \smallsetminus K</m>.
+      We aim to prove that there is an open neighbourhood <m>V</m> of <m>y</m> that does not intersect <m>K</m>.
+      For each point <m>x\in K</m>,
+      select open neighbourhoods <m>U_x</m> of <m>x</m> and <m>V_x</m> of <m>y</m> such that <m>U_x\cap V_x=\varnothing</m>.
+      Now <m>\{U_x\cap K : x\in X\}</m> is an open cover of <m>K</m>,
+      so it contains a finite subcover <m>\{U_{x_1}\cap K,\dots,U_{x_n}\cap K\}</m>.
+      Now <m>V\coloneq V_{x_1}\cap\dots\cap V_{x_n}</m> is an open neighbourhood of <m>y</m> that does not intersect <m>K</m>.
+    </p>
+  </proof>
+  <proposition>
+    <statement>
+      <p>
+        Suppose <m>X</m> a set with two topologies <m>\tau</m> and <m>\tau'</m> such that <m>\tau</m> is coarser than
+        (or equal to)
+        <m>\tau'</m>.
+        Assume that <m>\tau</m> is Hausdorff and that <m>\tau'</m> is compact.
+        Then <m>\tau=\tau'</m>.
+      </p>
+    </statement>
+    <proof>
+      <p>
+        Suppose <m>K\subseteq X</m> a <m>\tau'</m>-closed subset,
+        hence compact with the subspace topology.
+        Since the identity is continuous
+        <m>\fromto{(X,\tau')}{(X,\tau)}</m> and the continuous image of a compactum is compact,
+        it follows that <m>K</m> is compact as a subspace of <m>(X,\tau)</m>.
+        The previous lemma now implies that <m>K</m> is <m>\tau</m>-closed.
+      </p>
+    </proof>
+  </proposition>
+  <proposition>
+    <statement>
+      <p>
+        Suppose <m>X</m> a Hausdorff space,
+        and suppose <m>K,L\subseteq X</m> two disjoint compact subspaces.
+        Then there exist open sets
+        <m>U,V\subseteq X</m> such that <m>K\subseteq U</m>,
+        <m>L\subseteq V</m>, and <m>U\cap V=\varnothing</m>.
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      For every pair of points <m>x\in K</m> and <m>y\in L</m>,
+      select open neighbourhoods <m>U_{x,y}</m> of <m>x</m> and <m>V_{x,y}</m> of <m>y</m> such that <m>U_{x,y}\cap V_{x,y}=\varnothing</m>.
+      For any <m>y\in L</m>,
+      we obtain an open cover <m>\{U_{x,y}\cap K : x\in K\}</m> of <m>K</m>;
+      it contains a finite subcover <m>\{U_{x_1,y}\cap K,\dots,U_{x_m,y}\cap K\}</m>.
+      We form disjoint open sets
+      <me>
+        U_y\coloneq\bigcup_{i=1}^mU_{x_i,y}\text{ and } V_y\coloneq\bigcap_{i=1}^mV_{x_i,y}
+      </me>
+      such that <m>U_y\supseteq K</m> and <m>y\in V_y</m>.
+      Thus we obtain an open cover <m>\{V_y\cap L : y\in L\}</m> of <m>L</m>;
+      it contains a finite subcover <m>\{V_{y_1}\cap L,\dots,V_{y_n}\cap L\}</m>.
+      We form disjoint open sets
+      <me>
+        U\coloneq\bigcap_{j=1}^nU_{y_j}\text{ and } V\coloneq\bigcup_{j=1}^nV_{y_j}
+      </me>
+      such that <m>U\supseteq K</m> and <m>V\supseteq L</m>.
+    </p>
+  </proof>
+  <proposition>
+    <statement>
+      <p>
+        A topological space <m>X</m> is Hausdorff if and only if,
+        for any point <m>x\in X</m>,
+        the intersection <m>I_x</m> of all
+        <term>closed neighbourhoods</term>
+        <mdash/> i.e., all closed subsets of <m>X</m> that contain an open neighbourhood of <m>x</m> <mdash/> of <m>x</m> is the singleton <m>\{x\}</m>.
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      Assume that <m>X</m> is Hausdorff, and let <m>x\in X</m>.
+      Surely <m>x\in I_x</m>,
+      and we claim that any point <m>y\in X\smallsetminus\{x\}</m> is not in <m>I</m>.
+      Indeed, for any such point,
+      one may find disjoint open neighbourhoods <m>U</m> of <m>x</m> and <m>V</m> of <m>y</m>,
+      whence <m>X \smallsetminus V</m> is a closed neighbourhood of <m>x</m> not containing <m>y</m>.
+      Thus <m>I=\{x\}</m>.
+    </p>
+    <p>
+      Conversely, suppose that,
+      for any point <m>x\in X</m>, one has <m>I_x=\{x\}</m>.
+      Suppose <m>x</m> and <m>y</m> two distinct points of <m>X</m>.
+      Then since <m>I_x=\{x\}</m>,
+      there exists a closed neighbourhood <m>W</m> of <m>x</m> not containing <m>y</m>,
+      and now the interior <m>\iota W</m> and the complement
+      <m>X \smallsetminus W</m> are disjoint open neighbourhoods of <m>x</m> and <m>y</m>,
+      respectively.
+    </p>
+  </proof>
+  <proposition>
+    <statement>
+      <p>
+        A topological space <m>X</m> is Hausdorff if and only if the diagonal
+        <me>
+          \Delta_X \coloneq \{ (x,x)\in X\times X \}
+        </me>
+        is a closed subspace of <m>X\times X</m>.
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      The key point is that if <m>U,V \subseteq X</m> are subsets,
+      then <m>U \cap V = \varnothing</m> if and only if <m>(U \times V) \cap \Delta_X = \varnothing</m>.
+    </p>
+    <p>
+      Assume that <m>X</m> is Hausdorff.
+      Let <m>(x,y) \in (X \times X) \smallsetminus \Delta_X</m>.
+      Choose an open neighborhood <m>U</m> of <m>x</m> and <m>V</m> of <m>y</m> such that <m>U \cap V = \varnothing</m>.
+      Thus <m>U \times V</m> is an open neighborhood of <m>(x,y)</m> in <m>(X \times X) \smallsetminus \Delta_X</m>.
+    </p>
+    <p>
+      Conversely, assume that <m>\Delta_X</m> is closed in <m>X \times X</m>.
+      Now let <m>x, y \in X</m> be points such that <m>x \neq y</m>.
+      There exist open neighborhoods <m>U</m> of <m>x</m> and <m>V</m> of <m>y</m> such that <m>(U \times V) \subseteq (X \times X) \smallsetminus \Delta_X</m>.
+      It follows that <m>U \cap V = \varnothing</m>.
+    </p>
+  </proof>
+  <corollary>
+    <statement>
+      <p>
+        If <m>X</m> and <m>Y</m> are topological spaces,
+        and <m>Y</m> is Hausdorff,
+        then for any continuous map
+        <m>f\colon X \to Y</m>, the <term>graph</term>
+        <me>
+          \Gamma_f \coloneq \{ (x,y) \in X\times Y : f(x)=y \}
+        </me>
+        is closed in <m>X\times Y</m>.
+      </p>
+    </statement>
+  </corollary>
+  <proof>
+    <p>
+      This follows from the fact that <m>\Gamma_f = (f \times \id)^{-1}(\Delta_Y)</m>.
+    </p>
+  </proof>
+</section>

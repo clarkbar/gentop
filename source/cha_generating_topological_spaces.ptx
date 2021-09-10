@@ -1,0 +1,7 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="cha_generating_topological_spaces">
+  <title>Generating topological spaces</title>
+  <xi:include  href="sec_generation_by_a_family.ptx"/>
+  <xi:include  href="sec_finitely_generated_topological_spaces.ptx"/>
+  <xi:include  href="sec_numerically_generated_topological_spaces.ptx"/>
+  <xi:include  href="sec_compactly_generated_topological_spaces.ptx"/>
+</chapter>

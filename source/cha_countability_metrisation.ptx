@@ -1,0 +1,7 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="cha_countability_metrisation">
+  <title>Countability &amp; metrisation</title>
+  <xi:include  href="sec_first_countability.ptx"/>
+  <xi:include  href="sec_second_countability.ptx"/>
+  <xi:include  href="sec_urysohn_metrisation.ptx"/>
+  <xi:include  href="sec_nagata_smirnov_metrisation.ptx"/>
+</chapter>

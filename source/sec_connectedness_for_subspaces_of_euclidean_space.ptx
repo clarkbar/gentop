@@ -1,0 +1,502 @@
+<section xml:id="sec_connectedness_for_subspaces_of_euclidean_space">
+  <title>Connectedness</title>
+  <definition>
+    <statement>
+      <p>
+        Let <m>X \subseteq \RR^n</m> be a subspace.
+        A subset <m>S \subseteq X</m> that is both open and closed
+        (in <m>X</m>)
+        is said to be <term>clopen</term>.
+      </p>
+      <aside>
+        <p>
+          I know, this is silly.
+        </p>
+      </aside>
+      <p>
+        We shall say that <m>X</m> is <term>connected</term>
+        if there are <term>exactly two</term>
+        clopen subsets <m>S \subseteq X</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    If <m>X \subseteq \RR^n</m> is a nonempty subspace,
+    then there are always <em>at least two</em>
+    clospen subsets of <m>X</m>:
+    the empty set <m>\varnothing</m>, and <m>X</m> itself.
+    Thus if <m>X</m> is nonempty,
+    then it is connected if and only if the only nonempty clopen subset is <m>X</m> itself.
+  </p>
+  <example>
+    <statement>
+      <p>
+        The empty set <m>\varnothing</m>,
+        however, is not connected:
+        it has only one subset, itself, which is clopen.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        The space <m>\RR</m> itself is connected.
+        Let's prove this.
+        There are at least two clopen subsets:
+        <m>\varnothing</m> and <m>\RR</m> itself.
+        Now we have to prove that there are no more.
+        So let <m>S \subseteq \RR</m> be a clopen subset.
+        If <m>S \neq \varnothing</m>,
+        then there exists a point <m>x \in S</m>.
+        Since <m>S</m> is open, there exists
+        <m>\varepsilon >0</m> such that <m>\left]x-\varepsilon,
+        x+\varepsilon\right[ \subseteq S</m>.
+        Now let us consider the set
+        <me>
+          E \coloneq \left\{ \varepsilon >0 : \left]x-\varepsilon, x+\varepsilon\right[  \subseteq S \right\} \subseteq \RR
+        </me>.
+      </p>
+      <p>
+        The set <m>E</m> is unbounded if and only if <m>S = \RR</m>,
+        so assume that <m>E</m> in bounded.
+        We aim to generate a contradiction.
+        Since <m>E</m> is bounded, it admits a supremum <m>\varepsilon_0</m>.
+        In particular, for every <m>\varepsilon \lt \varepsilon_0</m>,
+        one has <m>\left]x-\varepsilon,
+        x+\varepsilon\right[ \subseteq S</m>.
+        Note that <m>\left]x-\varepsilon_0, x+\varepsilon_0\right[ = \bigcup_{\varepsilon \lt \varepsilon_0} \left]x-\varepsilon,
+        x+\varepsilon\right[</m>,
+        so it follows that <m>\left]x-\varepsilon_0, x+\varepsilon_0\right[ \subseteq S</m> as well.
+        Thus <m>\varepsilon_0 \in E</m>.
+      </p>
+      <p>
+        Now consider the point <m>x+\varepsilon_0</m>.
+        This is close to <m>S</m>,
+        because the closure of <m>S</m> contains the closure of <m>\left]x-\varepsilon_0, x+\varepsilon_0\right[</m>,
+        which is <m>[x-\varepsilon_0,x+\varepsilon_0]</m>.
+        Since <m>S</m> is closed, it follows that <m>x +\varepsilon_0 \in S</m>.
+        The same analysis shows that <m>x-\varepsilon_0 \in S</m>.
+      </p>
+      <p>
+        Again since <m>S</m> is open,
+        we may choose a <m>\delta>0</m> such that <m>\left]x+\varepsilon_0-\delta,
+        x+\varepsilon_0+\delta\right[ \subset S</m> <em>and</em>
+        <m>\left]x-\varepsilon_0-\delta,
+        x-\varepsilon_0+\delta\right[ \subset S</m>.
+        But now we have that <m>\left]x-\varepsilon_0-\delta,
+        x+\varepsilon_0+\delta\right[ \subset S</m>,
+        so <m>\varepsilon_0+\delta \in E</m>,
+        which contradicts the maximality of <m>\varepsilon_0</m>.
+      </p>
+      <p>
+        This contradiction shows that <m>E</m> is unbounded,
+        and so the only nonempty clopen subset of <m>\RR</m> is <m>\RR</m> itself.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        The subspace
+        <me>
+          Y \coloneq \{(x,y) \in \RR^2 : |x|=1 \}
+        </me>
+        we introduced above is not connected.
+        Indeed, in addition to <m>\varnothing</m> and <m>Y</m> itself,
+        the subset
+        <me>
+          Y_+ \coloneq \{(x,y) \in \RR^2 : x=1 \}
+        </me>
+        is clopen.
+        To see this,
+        let us show that both <m>Y_+</m> and its complement
+        <me>
+          Y_- \coloneq Y \smallsetminus Y_+ = \{ (x,y) \in \RR^2 : x = -1 \}
+        </me>
+        are open.
+        The key observation here is that if
+        <m>u \in Y_+</m> and <m>v \in Y_-</m>,
+        then <m>d(u,v) \geq 2</m>.
+        Consequently, if <m>u \in Y_+</m>,
+        then <m>B^2(u,1) \cap Y \subset Y_+</m>, and, similarly,
+        if <m>v \in Y_-</m>, then <m>B^2(v,1) \cap Y \subset Y_-</m>.
+      </p>
+    </statement>
+  </example>
+  <proposition xml:id="prp_intersecting_unions_of_connecteds_are_connected">
+    <statement>
+      <p>
+        Let <m>\{X_a\}_{a\in A}</m> be a nonempty family of connected subspaces <m>X_a \subseteq \RR^n</m>.
+        Assume that for any <m>a,b \in A</m>,
+        one has <m>X_a\cap X_b \neq \varnothing</m>.
+        Then the union <m>x \coloneq \bigcup_{a\in A}X_a</m> is connected as well.
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      Since <m>X_a \cap X_b</m> is nonempty,
+      the union <m>X</m> is nonempty too.
+      Hence it suffices to show that if
+      <m>V \subseteq X</m> is a nonempty clopen, then <m>V = X</m>.
+    </p>
+    <p>
+      Note that for any <m>a\in A</m>,
+      the intersection <m>V \cap X_a</m> is clopen in <m>X_a</m>.
+      For each <m>a\in A</m>, the subspace <m>X_a</m> is connected,
+      so <m>V \cap X_a</m> is either <m>\varnothing</m> or <m>X_a</m>.
+      In other words, for each <m>a \in A</m>,
+      either <m>V</m> is disjoint from <m>X_a</m> or else <m>X_a \subseteq V</m>.
+      Since <m>V\neq\varnothing</m>,
+      there is at least one <m>a_0 \in A</m> such that <m>X_{a_0} \subseteq V</m>.
+    </p>
+    <p>
+      But now for any other <m>a\in A</m>,
+      the nonempty intersection <m>X_a \cap X_{a_0}</m> is contained in <m>X_a \cap V</m>;
+      thus <m>X_a \subseteq V</m> as well.
+      We thus conclude that <m>X \subseteq V</m>.
+    </p>
+  </proof>
+  <p>
+    We are now in a position to classify all the connected subspaces of <m>\RR</m>.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>X \subseteq\RR</m> be a nonempty subset.
+        We'll say that <m>X</m> is <em>an interval</em>
+        if and only if, for every <m>a,
+        b \in X</m> and every <m>x \in \RR</m> such that
+        <m>a \leq x \leq b</m>, we have <m>x\in X</m>.
+        Assume that <m>X</m> is an interval.
+        If <m>X</m> is bounded above,
+        then there exists a supremum <m>b \in \RR</m>.
+        If <m>X</m> is bounded below,
+        then there exists an infimum <m>a \in \RR</m>.
+        Now, depending upon whether <m>a</m> and <m>b</m> exist,
+        there are three options for an interval <m>X</m>:
+        <ul>
+          <li>
+            <p>
+              a interval of finite length such as <m>[a,b]</m>, <m>\left]a,b\right]</m>,
+              <m>\left[a,b\right[</m>, or <m>\left]a,b\right[</m>;
+            </p>
+          </li>
+          <li>
+            <p>
+              a ray <m>\left]a,+\infty\right[</m>,
+              <m>\left[a,+\infty\right[</m>,
+              <m>\left]-\infty,
+              b\right[</m>, or <m>\left]-\infty, b\right]</m>; or
+            </p>
+          </li>
+          <li>
+            <p>
+              the line <m>\RR</m> itself.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        Here now is our claim: a subspace
+        <m>X \subseteq \RR</m> is connected if and only if it is an interval <mdash/> hence if and only if it is of one of the three forms above.
+        To prove this, we must prove two things:
+        <ul>
+          <li>
+            <p>
+              first, that any interval is connected, and
+            </p>
+          </li>
+          <li>
+            <p>
+              second, that any subspace that is not an interval is not connected.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        To prove the first statement,
+        assume first that <m>X</m> is a closed interval <m>[a,b]</m>.
+        Assume that <m>V \subseteq [a,b]</m> is a clopen subset.
+        Suppose that <m>x \in [a,b]</m> is a point such that <m>x \notin V</m>;
+        we aim to show that <m>V</m> is empty.
+      </p>
+      <p>
+        If there are points <m>s\in V</m> such that <m>s \lt  x</m>, let
+        <me>
+          s_0 \coloneq \sup \{s\in V : s\lt  x\}
+        </me>.
+      </p>
+      <p>
+        Thus <m>s_0 \leq x</m>.
+        Observe that <m>s_0</m> is close
+      </p>
+      <aside>
+        <p>
+          <xref ref="exm_sups_and_infs_are_close" autoname="yes"/>
+        </p>
+      </aside>
+      <p>
+        to <m>V</m>.
+        Since <m>V</m> is closed, it follows that <m>s_0 \in V</m>.
+        Since <m>x \notin V</m>, it follows that <m>s_0\lt x</m>.
+        Since <m>V</m> is open, there is a <m>\varepsilon >0</m> such that
+        <m>\left]s_0-\varepsilon,s_0+\varepsilon\right[ \cap [a,b]</m> is contained in <m>V</m>.
+        In particular,
+        there exist points <m>s \in V</m> such that <m>s_0 \lt s \lt x</m>,
+        which contradicts the definition of <m>s_0</m>.
+        Consequently,
+        there are no points <m>s\in V</m> such that <m>s\lt x</m>.
+      </p>
+      <p>
+        On the other hand,
+        if there are points <m>s \in V</m> such that <m>s>x</m>, then let
+        <me>
+          s_1 \coloneq \inf \{s\in V : s>x\}
+        </me>.
+      </p>
+      <p>
+        We can replay the same argument as above to generate a contradiction.
+        Since <m>V</m> is closed, <m>s_1 \in V</m>.
+        Since <m>V</m> is open, there are points <m>s\in V</m> such that
+        <m>x\lt s\lt s_1</m>, which is a contradiction.
+        It therefore follows that <m>V=\varnothing</m>, as desired.
+      </p>
+      <p>
+        So far, we have shown that a closed interval <m>[a,b]</m> is always connected.
+        Now for a general interval <m>X</m>,
+        note that if <m>x\in X</m>, then we may write
+        <me>
+          X = \bigcup_{\substack{a,b\in X, \\ a\leq x\leq b} } [a,b]
+        </me>.
+      </p>
+      <p>
+        This is a union of connected subspaces of <m>\RR</m> such that any two intersect
+        (because they all contain <m>x</m>).
+        Hence <m>X</m> is connected as well,
+        thanks to the previous proposition.
+      </p>
+      <p>
+        Now let us prove the converse.
+        Assume that <m>X \subset \RR</m> is
+        <em>not</em> an interval.
+        We aim to prove that <m>X</m> is not connected;
+        it will suffice to construct a nonempty proper clopen <m>V \subseteq X</m>.
+        For this, choose real numbers <m>a\lt x\lt b</m> such that
+        <m>a,b \in X</m> but <m>x \notin X</m>.
+        Now consider the subset
+        <me>
+          V = \left[x,+\infty\right[ \cap X = \left]x,+\infty\right[ \cap X
+        </me>.
+      </p>
+      <p>
+        The first expression proves that <m>V</m> is closed;
+        the second proves that <m>V</m> is open.
+        Since <m>b \in V</m> but <m>a\notin V</m>,
+        it follows that <m>V</m> is nonempty and proper.
+      </p>
+    </statement>
+  </example>
+  <p>
+    Here's our first truly <em>topological</em> theorem.
+    We will think of this as a generalization of the intermediate value theorem.
+  </p>
+  <theorem xml:id="thm_IVT">
+    <statement>
+      <p>
+        Let <m>f \colon X \to Y</m> be a continuous surjection.
+        If <m>X</m> is connected, so is <m>Y</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Assume that <m>X</m> is connected.
+      In particular, <m>X</m> is nonempty, hence so is <m>Y</m>.
+    </p>
+    <p>
+      Let <m>V \subseteq Y</m> be a nonempty clopen.
+      Then <m>f^{-1}(V) \subseteq X</m> is clopen since <m>f</m> is continuous,
+      and it is nonempty since <m>f</m> is a surjection.
+      Since <m>X</m> is connected, it follows that <m>f^{-1}(V) = X</m> itself.
+      This implies that the image <m>f(X)</m> is contained in <m>V</m>.
+      Since <m>f</m> is a surjection,
+      it follows that <m>V=Y</m>.
+      Thus <m>Y</m> has exactly two clopen subsets:
+      <m>\varnothing</m> and <m>Y</m>.
+    </p>
+  </proof>
+  <example>
+    <statement>
+      <p>
+        Let <m>X \subseteq \RR^n</m> be a connected subspace,
+        and let <m>f \colon X \to \RR</m> be a continuous map.
+        Then the image <m>f(X)</m> is an interval.
+        This is our friend, the intermediate value theorem.
+      </p>
+      <p>
+        Consider the following assertion:
+        there are two <term>antipodal</term>
+      </p>
+      <aside>
+        <p>
+          Two points are antipodal if and only if they are in exactly opposite directions from the center of the Earth.
+        </p>
+      </aside>
+      <p>
+        points on the Earth's equator that,
+        at ground level, have exactly the same temperature.
+      </p>
+      <aside>
+        <p>
+          For the purposes of this discussion,
+          we assume that temperature is a continuous function of position.
+        </p>
+      </aside>
+      <p>
+        In other words, there are two coordinates of the form
+        <me>
+          0^{\circ}\text{ S, }  \; x^{\circ}\text{E}  \andeq 0^{\circ}\text{ N, }  \; (180-x)^{\circ}\text{W}
+        </me>
+        where at ground level the temperature is exactly the same.
+      </p>
+      <p>
+        Here's the proof.
+        The Earth's equator is homeomorphic to the circle <m>S^1</m>,
+        which is a connected subspace of <m>\RR^2</m>.
+        Temperature at the equator is thus a continuous function <m>T \colon S^1 \to \RR</m>.
+        Now define a related continuous map <m>g \colon S^1 \to \RR</m> by the formula
+        <me>
+          g(x) = T(x)-T(-x)
+        </me>.
+      </p>
+      <p>
+        Now since <m>x</m> and <m>-x</m> are antipodal points,
+        our claim will be proved if we can show that there is a point
+        <m>x\in S^1</m> such that <m>g(x)=0</m>.
+        If <m>g(1,0)=0</m>, then we are done.
+        Otherwise, our formula ensures that <m>g(-1,0)=g(1,0)</m>,
+        so <m>g(1,0)</m> and <m>g(-1,0)</m> have different signs.
+      </p>
+      <aside>
+        <p>
+          That is, one is positive and one is negative.
+        </p>
+      </aside>
+      <p>
+        But since the image <m>g(S^1) \subseteq\RR</m> is an interval,
+        it follows that <m>0 \in g(S^1)</m>.
+        Hence there exists <m>x \in S^1</m> such that <m>g(x)=0</m>.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Since <m>\RR \smallsetminus\{0\}</m> and the subspace
+        <me>
+          Y = \{(x,y) \in \RR^2 : |x|=1\}
+        </me>
+        are homeomorphic,
+        it follows that <m>\RR\smallsetminus \{0\}</m> is not connected.
+      </p>
+      <p>
+        Since <m>\RR</m> is connected,
+        it follows that it is not homeomorphic to <m>\RR \smallsetminus \{0\}</m>.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        A good way to confirm that a nonempty subspace
+        <m>X \subseteq \RR^n</m> is connected is to confirm that you can
+        <q>walk</q>
+        from every point to every other point without leaving <m>X</m>.
+        For any two points <m>x,y \in X</m>,
+        a <term>path</term> from <m>x</m> to <m>y</m> in <m>X</m> is a continuous map
+        <me>
+          \gamma \colon [0,1] \to X
+        </me>
+        such that <m>\gamma(0)=x</m> and <m>\gamma(1) = y</m>.
+        If <m>X</m> has the property that for every pair of points from <m>x</m> to <m>y</m>,
+        there exists a path from <m>x</m> to <m>y</m> in <m>X</m>,
+        then <m>X</m> is connected.
+      </p>
+      <aside>
+        <p>
+          The converse is, annoyingly, false.
+          This is the difference between <em>connectedness</em>
+          and what is called <term>path connectedness</term>.
+        </p>
+      </aside>
+      <p>
+        Why?
+        Well, choose <m>x\in X</m>.
+        For every path <m>\gamma</m> from <m>x</m> to another point in <m>X</m>,
+        consider the image <m>\gamma([0,1])</m>;
+        this is connected,
+        and our assumption on <m>X</m> ensures that <m>X</m> is the union of all these images,
+        all of which contain <m>x</m>.
+        Hence <m>X</m> is connected.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        The line <m>\RR</m> is not homeomorphic to <m>S^1</m>.
+        Indeed, suppose it were;
+        choose a homeomorphism <m>f \colon \RR \to S^1</m>.
+        This will restrict to a homeomorphism <m>\RR \smallsetminus \{0\} \to S^1\smallsetminus\{f(0)\}</m>.
+        However, we claim that <m>S^1 \smallsetminus \{f(0)\}</m> is connected.
+        In fact, we'll do better:
+        we shall prove that <m>S^1 \smallsetminus \{f(0)\}</m> is homeomorphic to <m>\RR</m>.
+      </p>
+      <p>
+        To make our formulas simpler,
+        let's use complex numbers.
+      </p>
+      <aside>
+        <p>
+          The field of complex numbers <m>\CC</m> is really nothing more than <m>\RR^2</m>,
+          equipped with its complex multiplication rule <m>(a,b)\cdot (c,d) = (ac-bd,
+          ad+bc)</m>.
+        </p>
+      </aside>
+      <p>
+        We have:
+        <me>
+          S^1 = \{z \in \CC : |z| = 1 \}
+        </me>.
+      </p>
+      <p>
+        Let <m>w = f(0)</m>.
+        We may first construct a homeomorphism
+        <m>S^1\smallsetminus\{w\} \to S^1 \smallsetminus \{1\}</m> by the rule <m>z \mapsto z/w</m>.
+        Since the inverse map is <m>z \mapsto wz</m>,
+        which is also continuous, we are done.
+      </p>
+      <p>
+        With this done, we now construct a homeomorphism
+        <m>\left]0,1\right[ \to S^1 \smallsetminus \{1\}</m> by the rule <m>t \mapsto \exp(2\pi i t)</m>.
+        This map is a continuous bijection,
+        but what about its inverse <m>r</m>?
+        To make it easy to deduce the continuity of <m>r</m> from well-known bits of analysis,
+        we write it as:
+      </p>
+      <aside>
+        <p>
+          Please note, however,
+          that this formula will not work to define a continuous map from <m>S^1 \to \RR</m>.
+        </p>
+      </aside>
+      <me>
+        r(x,y) = \frac{1}{2}-\frac{1}{\pi}\arctan\left(\frac{y}{1-x}\right)
+      </me>.
+      <p>
+        It now follows that <m>S^1\smallsetminus\{1\}</m> is homeomorphic to an open interval and thus to <m>\RR</m> itself.
+      </p>
+    </statement>
+  </example>
+</section>

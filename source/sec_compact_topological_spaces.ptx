@@ -1,0 +1,628 @@
+<section xml:id="sec_compact_topological_spaces">
+  <title>Compact topological spaces</title>
+  <p>
+    There are a lot of different characterisations of compactness out there.
+    We'll give them all,
+  </p>
+  <aside>
+    <p>
+      or, at least, all the ones I know about!
+    </p>
+  </aside>
+  <p>
+    and we'll prove their equivalence.
+  </p>
+  <aside>
+    <p>
+      This is an important principle in mathematics:
+      <term>never have only one definition of any notion</term>.
+      Instead, when possible,
+      have multiple equivalent characterisations of the same idea.
+      Then use whichever one is best adapted for whichever problem you happen to encounter.
+    </p>
+  </aside>
+  <definition>
+    <statement>
+      <p>
+        Suppose <m>X</m> and <m>Y</m> two topological spaces.
+        Then a map <m>f\colon\fromto{X}{Y}</m> is
+        <term>closed</term> if and only if,
+        for any subset <m>S\subseteq X</m> one has <m>f(\overline{S})\supseteq\overline{f(S)}</m>.
+        In other words, if <m>y</m> is close to <m>f(S)</m>,
+        then <m>y=f(x)</m> for some <m>x</m> that is close to <m>S</m>.
+      </p>
+    </statement>
+  </definition>
+  <example>
+    <statement>
+      <p>
+        Any homeomorphism is closed.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Suppose <m>X</m> a topological space,
+        and suppose <m>A\subseteq X</m> a subspace thereof.
+        Then the inclusion map <m>\into{A}{X}</m> is closed if and only if <m>A</m> is closed in <m>X</m>.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        The map <m>f\colon\fromto{\RR}{\RR}</m> given by the formula
+        <m>f(x)=|x|</m> is closed and, of course, continuous.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        The map <m>s\colon\fromto{\RR}{\RR}</m> given by the formula
+        <me>
+          s(x)\coloneq\begin{cases}-1\amp \text{ if } x\lt 0;\\ 0\amp \text{ if } x=0;\\ +1\amp \text{ if } x>0 \end{cases}
+        </me>
+        is closed but not continuous.
+      </p>
+    </statement>
+  </example>
+  <proposition>
+    <statement>
+      <p>
+        Suppose <m>X</m> and <m>Y</m> two topological spaces.
+        Then a map <m>f\colon X \to Y</m> is closed if and only if,
+        for any closed subset <m>Z\subseteq X</m>,
+        the direct image <m>f(Z)</m> is closed.
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      Suppose <m>f</m> closed,
+      and suppose <m>Z\subseteq X</m> a closed subset; then
+      <me>
+        f(Z)=f(\overline{Z})\supseteq\overline{f(Z)}
+      </me>,
+      but the other inclusion <m>f(Z)\subseteq\overline{f(Z)}</m> is automatic.
+      Hence <m>f(Z)=\overline{f(Z)}</m>.
+    </p>
+    <p>
+      Conversely, suppose that <m>f</m> satisfies the condition that for any closed subset <m>Z\subseteq X</m>,
+      the direct image <m>f(Z)</m> is closed,
+      and suppose <m>S\subseteq X</m> any subset.
+      Then <m>f(\overline{S})</m> is certainly closed,
+      and of course it contains <m>f(S)</m>;
+      hence it contains <m>\overline{f(S)}</m>.
+    </p>
+  </proof>
+  <lemma>
+    <statement>
+      <p>
+        If <m>f\colon X \to Y</m> is a closed,
+        continuous surjection, then <m>f</m> is a quotient map.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      Let <m>Z \subseteq Y</m> be a subset such that <m>f^{-1}(Z) \subseteq X</m> is closed.
+      Then <m>Z = f(f^{-1}(Z)) \subseteq Y</m> is closed, since <m>f</m> is closed.
+    </p>
+  </proof>
+  <example>
+    <statement>
+      <p>
+        The projection <m>\pr_1\colon\fromto{\RR^2}{\RR}</m> (given by <m>\pr_1(x,y)=x</m>),
+        which is certainly continuous, is not closed.
+      </p>
+      <aside>
+        <p>
+          It is, however, an <term>open map</term>:
+          the direct image of any open subset is open.
+        </p>
+      </aside>
+      <p>
+        To see this, consider the closed subset
+        <me>
+          Z\coloneq\{(x,y)\in\RR^2 : y=2^x\};
+        </me>
+        then <m>\pr_1(Z)=\left]0,+\infty\right[</m>,
+        which is not closed in <m>\RR</m>.
+      </p>
+    </statement>
+  </example>
+  <definition>
+    <statement>
+      <p>
+        A <term>cover</term> of a set <m>X</m> is a subset
+        <m>\UU\subseteq\PP(X)</m> such that <m>\cup\UU=X</m>.
+        An <term>open cover</term> of a topological space <m>X</m> is a cover whose members are all open in <m>X</m>.
+      </p>
+    </statement>
+  </definition>
+  <proposition>
+    <statement>
+      <p>
+        Let <m>X</m> and <m>Y</m> be two topological spaces,
+        and let <m>\{W_1,\dots,W_n\}</m> be a finite cover of <m>X</m>.
+        Then a map <m>f\colon\fromto{X}{Y}</m> is closed if each restriction <m>f|_{W_j}\colon\fromto{W_j}{Y}</m> is closed.
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      Assume that each restriction <m>f|_{W_j}</m> is closed,
+      and let <m>Z\subseteq X</m> a closed subset.
+      Then <m>Z\cap W_j</m> is closed in <m>W_j</m>, and so the subset
+      <me>
+        f(Z\cap W_j)=f|_{W_j}(Z\cap W_j)\subseteq Y
+      </me>
+      is closed, whence so is the subset <m>f(Z)=\bigcup_{j=1}^nf(Z\cap W_j)</m>.
+    </p>
+  </proof>
+  <proposition>
+    <statement>
+      <p>
+        Let <m>X</m> and <m>Y</m> be two topological spaces,
+        and let <m>f\colon\fromto{X}{Y}</m> be a map.
+        Then the following are equivalent.
+        <ul>
+          <li>
+            <p>
+              The map <m>f</m> is closed.
+            </p>
+          </li>
+          <li>
+            <p>
+              For any <m>y\in Y</m> and any open set <m>U\supseteq X_y</m>,
+              there is an open neighbourhood <m>V</m> of <m>y</m> such that <m>f^{-1}(V)\subseteq U</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      Assume that <m>f</m> is closed,
+      and assume that <m>y\in Y</m> and <m>U\supseteq X_y</m> open.
+      Then set <m>V\coloneq Y \smallsetminus f(X \smallsetminus U)</m>;
+      clearly <m>y\in V</m>, and since <m>f</m> is closed, <m>V</m> is open.
+      Now an element of <m>f^{-1}(V)</m> does not lie in <m>f^{-1}(f(X \smallsetminus U))</m>,
+      whence we deduce that it does not lie in <m>X \smallsetminus U</m>,
+      whence it lies <m>U</m>, as desired.
+    </p>
+    <p>
+      Conversely, suppose the second condition is satisfied,
+      and suppose <m>Z\subseteq X</m> a closed subset.
+      By the second condition, for any point <m>y\notin f(Z)</m>,
+      there is an open neighbourhood <m>V</m> of <m>y</m> such that <m>f^{-1}(V)\subseteq X \smallsetminus Z</m>,
+      whence we deduce that <m>Y \smallsetminus f(Z)</m> is open.
+    </p>
+  </proof>
+  <proposition xml:id="prp_compactness">
+    <statement>
+      <p>
+        The following are equivalent for a topological space <m>X</m>.
+        <ul>
+          <li>
+            <p>
+              Any open cover <m>\UU</m> of <m>X</m> contains a finite <term>subcover</term>
+              <mdash/>       i.e., a finite subset
+              <m>\UU_0\subseteq\UU</m> that covers <m>X</m> as well.
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>T</m> be a topological space,
+              and let <m>t\in T</m> be a point.
+              Then for any open subset <m>U\subseteq T\times X</m> that contains <m>\{t\}\times X</m>,
+              there is an open neighbourhood <m>V</m> of <m>t</m> such that <m>V\times X\subseteq U</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              For any topological space <m>T</m>,
+              the projection map <m>\pr_1\colon\fromto{T\times X}{T}</m> is closed.
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>\ZZ\subseteq\PP(X)</m> be a collection of closed subsets of <m>X</m> such that <m>\cap\ZZ=\varnothing</m>;
+              then there exists a finite subset
+              <m>\ZZ_0\subseteq\ZZ</m> such that the intersection <m>\cap\ZZ_0=\varnothing</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      Let us assume the first condition and prove the second.
+      So let <m>T</m> be a topological space and <m>t\in T</m>,
+      and let <m>U</m> an open set of
+      <m>T\times X</m> containing <m>\{t\}\times X</m>.
+      Now let <m>\UU</m> be the collection of those open subsets
+      <m>W\subseteq X</m> such that for some open neighbourhood <m>E</m> of <m>t</m>,
+      one has <m>E\times W\subseteq U</m>.
+      The collection <m>\UU</m> covers
+    </p>
+    <aside>
+      <p>
+        Since <m>U</m> is open in the product topology, for every <m>x\in X</m>,
+        the point <m>(t,x)</m> lies in an open neighbourhood of the form
+        <m>E\times W</m> such that <m>E\times W\subseteq U</m>
+      </p>
+    </aside>
+    <p>
+      <m>X</m>.
+      The first condition now ensures that there is a finite subcover <m>\UU_0\subseteq\UU</m>.
+      For each <m>W\in\UU_0</m>,
+      select an open neighbourhood <m>E_W</m> of <m>t</m> such that <m>E_W\times W\subseteq U</m>.
+      Now set
+      <me>
+        V\coloneq\bigcap_{W\in\UU_0}E_W;
+      </me>
+      so that <m>V</m> is an open neighbourhood of <m>t</m>,
+      and <m>V\times W\subseteq U</m> for any <m>W\in\UU_0</m>.
+      Hence
+      <me>
+        V\times X=\bigcup_{W\in\UU_0}V\times W\subseteq U
+      </me>.
+    </p>
+    <p>
+      This verifies the second condition.
+    </p>
+    <p>
+      The equivalence of the second and third conditions is the content of the previous proposition.
+    </p>
+    <p>
+      Let us assume the third condition and prove the fourth.
+      So let <m>\ZZ\subseteq\PP(X)</m> be a collection of closed subsets of <m>X</m>,
+      and assume that for any finite subset <m>\ZZ_0\subseteq\ZZ</m>,
+      the intersection <m>\cap\ZZ_0</m> is nonempty.
+      Now let <m>T</m> be the set <m>X\sqcup\{\infty\}</m>,
+      which we topologise with the coarsest topology such that
+    </p>
+    <aside>
+      <p>
+        Please note that this is weird!
+        The topology we're putting on <m>T</m> really has nothing to do with the topology we have on <m>X</m>;
+        it's really all about <m>\ZZ</m>.
+        We're using the class <m>\ZZ</m> of <em>closed</em>
+        subsets of <m>X</m> to describe some
+        <em>open</em> sets of <m>T</m>.
+      </p>
+    </aside>
+    <ul>
+      <li>
+        <p>
+          <em>any</em> subset <m>S\subseteq X</m> is open in <m>T</m>, and
+        </p>
+      </li>
+      <li>
+        <p>
+          for any <m>Z\in\ZZ</m>,
+          the set <m>Z\sqcup\{\infty\}</m> is open in <m>T</m>.
+        </p>
+      </li>
+    </ul>
+    <p>
+      Any open neighbourhood of <m>\infty</m> contains a finite intersection of elements of <m>\ZZ</m>.
+      Since all such intersections are nonempty,
+      any open neighbourhood of <m>\infty</m> contains at least one point of <m>X</m>.
+      Hence <m>\infty</m> is not open or,
+      equivalently, <m>X\subseteq T</m> is dense.
+      Now let
+      <me>
+        \Delta \coloneq \{(x,x) : x\in X\} \subseteq T\times X
+      </me>,
+      and consider the closed set <m>\pr_1(\overline{\Delta})\subseteq T</m>.
+      Clearly <m>X=\pr_1(\Delta)\subseteq\pr_1(\overline{\Delta})</m>,
+      so <m>\pr_1(\overline{\Delta})=T</m>.
+      In other words, <m>\overline{\Delta}</m> contains a point
+      <m>(\infty,
+      x)</m> for some <m>x\in X</m>.
+      Thus for every <m>Z\in\ZZ</m> and every open neighbourhood <m>U</m> of <m>x</m>,
+      one has <m>((Z\sqcup\{\infty\})\times U)\cap\Delta\neq\varnothing</m>, and so
+    </p>
+    <aside>
+      <p>
+        since a point <m>(u,u)</m> of that intersection has the property that <m>u\in Z\cap U</m>
+      </p>
+    </aside>
+    <p>
+      <m>Z\cap U\neq\varnothing</m>.
+      Thus <m>x</m> is close to every <m>Z\in\ZZ</m>,
+      whence <m>x</m> lies in every <m>Z\in\ZZ</m>,
+      whence <m>x\in\cap\ZZ</m>.
+    </p>
+    <p>
+      Finally, let's assume the fourth condition and prove the first.
+      Let <m>\UU\subseteq\PP(X)</m> be an open cover of <m>X</m>.
+      Now let <m>\ZZ</m> be the set of complements of elements
+    </p>
+    <aside>
+      <p>
+        Hence <m>Z\in\ZZ</m> if and only if <m>X \smallsetminus Z\in\UU</m>.
+      </p>
+    </aside>
+    <p>
+      of <m>\UU</m>.
+      Clearly <m>\cap\ZZ=X-\cup\UU=\varnothing</m>,
+      so by the fourth condition,
+      there exists a finite subset
+      <m>\ZZ_0\subseteq\ZZ</m> such that <m>\cap\ZZ_0=\varnothing</m>.
+      Now let <m>\UU_0</m> be the set of complements of elements
+    </p>
+    <aside>
+      <p>
+        Hence <m>U\in\UU_0</m> if and only if <m>X \smallsetminus U\in\ZZ_0</m>.
+      </p>
+    </aside>
+    <p>
+      of <m>\ZZ_0</m>.
+      Now <m>\cup\UU_0=X \smallsetminus \cap\ZZ_0=X</m>,
+      whence <m>\UU_0\subseteq\UU</m> is a finite subcover.
+    </p>
+  </proof>
+  <definition>
+    <statement>
+      <p>
+        A topological space <m>X</m> is <term>compact</term>
+      </p>
+      <aside>
+        <p>
+          Bourbaki use the term <term>quasicompact</term>
+          for the notion we have introduced here,
+          and reserve the term <term>compact</term>
+          for topological spaces that are also <term>Hausdorff</term>.
+          The Bourbaki convention is typical in French mathematical literature and in algebraic geometry literature.
+        </p>
+      </aside>
+      <p>
+        if and only if it satisfies any of the equivalent conditions of <xref ref="prp_compactness"></xref>.
+        In this case, <m>X</m> is called a <term>compactum</term>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Note that compactness is a <term>topologically invariant</term> notion;
+    that is, if <m>X</m> and <m>Y</m> are homeomorphic topological spaces,
+    then <m>X</m> is compact if and only if <m>Y</m> is compact.
+  </p>
+  <aside>
+    <p>
+      Please observe that this cannot be said for notions like openness or closedness;
+      those depend upon the <em>ambient topological space</em>.
+    </p>
+  </aside>
+  <example>
+    <statement>
+      <p>
+        Any finite topological space is compact,
+        and the indiscrete topology on any set is compact.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        The discrete compacta are all finite.
+      </p>
+    </statement>
+  </example>
+  <proposition>
+    <statement>
+      <p>
+        Any closed interval <m>[a,b]</m> is compact.
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      Suppose <m>\UU</m> an open covering of <m>[a,b]</m>; then let
+      <me>
+        c=\sup\left\{x\in[a,b] : [a,x]\text{ is contained in the union of finitely many elements of } \UU\right\}
+      </me>.
+    </p>
+    <p>
+      Now suppose, to generate a contradiction, that <m>c\lt b</m>;
+      then let <m>U\in\UU</m> be an element of the open cover containing <m>c</m>.
+      Then for some <m>\varepsilon>0</m>,
+      one has <m>\left]c-\varepsilon,c+\varepsilon\right[\subset U</m>.
+      By definition of <m>c</m>,
+      one has <m>[a,c-\varepsilon/2]\subseteq\cup\UU_0</m> for a finite subset <m>\UU_0\subseteq\UU</m>;
+      hence the union of the elements of
+      <m>\UU_0\cup\{U\}\subseteq\UU</m> contains <m>[a,c+\varepsilon/2]</m>,
+      yielding the desired contradiction.
+      Thus <m>c=b</m>.
+    </p>
+    <p>
+      Now choose an element <m>V\in\UU</m> than contains <m>b</m>;
+      for some <m>\varepsilon>0</m>,
+      one has <m>\left]b-\varepsilon,b\right]\subset U</m>.
+      Now since <m>c=b</m>, there exists a finite subset
+      <m>\VV_0\subseteq\UU</m> such that <m>\left[a,b-\varepsilon/2\right[\subseteq\cup\VV_0</m>,
+      and so <m>\VV_0\cup\{V\}\subseteq\UU</m> is a finite cover of <m>[a,b]</m>.
+    </p>
+  </proof>
+  <example>
+    <statement>
+      <p>
+        No Euclidean space <m>\RR^n</m> is compact;
+      </p>
+      <aside>
+        <p>
+          Please note that this example,
+          combined with the previous one,
+          implies that <m>\RR</m> is not homeomorphic to any closed interval.
+          There are other ways to prove this,
+          but this one really cuts through the treacle!
+        </p>
+      </aside>
+      <p>
+        indeed, the open balls <m>B^n(x,\varepsilon)</m> form an open cover,
+        but there is no finite subcover.
+        To see this, consider any finite cover of <m>\RR^n</m> by balls
+        <m>B^n(x_i,\varepsilon_i)</m> for <m>i=1,2,\dots,m</m>,
+        and suppose <m>x</m> a point of one of the balls.
+        Then one may choose a real number <m>r</m> so that <m>B^n(x,r)\supset\bigcup_{i=1}^mB^n(x_i,\varepsilon_i)</m>.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Any set with the cofinite topology is compact.
+      </p>
+    </statement>
+  </example>
+  <p>
+    If <m>(X,\tau)</m> is a compactum,
+    and if <m>\tau'</m> is a topology on <m>X</m> that is coarser than <m>\tau</m>,
+    then <m>(X,\tau')</m> is also a compactum.
+  </p>
+  <lemma>
+    <statement>
+      <p>
+        Let <m>X</m> and <m>Y</m> be topological spaces,
+        and let <m>f\colon\fromto{X}{Y}</m> be a continuous surjection.
+        If <m>X</m> is compact, so is <m>Y</m>.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      Let <m>T</m> be a topological space.
+      If <m>Z\subseteq T\times Y</m> is closed,
+      then <m>f^{-1}(Z)\subseteq X</m> is closed, so
+    </p>
+    <aside>
+      <p>
+        The displayed equation is an <em>abuse of notation</em>:
+        on the left side is the direct image under the projection <m>\pr_1\colon\fromto{T\times Y}{T}</m>,
+        and on the right is the direct image under the projection <m>\pr_1\colon\fromto{T\times X}{T}</m>.
+      </p>
+    </aside>
+    <me>
+      \pr_1(Z)=\pr_1(f^{-1}(Z))
+    </me>
+    <p>
+      is closed as well.
+    </p>
+  </proof>
+  <lemma>
+    <statement>
+      <p>
+        A closed subspace of a compactum is compact.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      Let <m>X</m> be a compactum, and suppose <m>Z\subseteq X</m> closed.
+      For any topological space <m>T</m>,
+      the projection <m>\pr_1\colon\fromto{T\times X}{T}</m> is closed,
+      and the inclusion <m>T\times Z \inclusion T\times X</m> is closed,
+      so the composite <m>\fromto{T\times Z}{T}</m>,
+      which is the projection, is closed.
+    </p>
+  </proof>
+  <proposition>
+    <statement>
+      <aside>
+        <p>
+          This is the easy case of Tychonoff's Theorem, to which we shall return.
+        </p>
+      </aside>
+      <p>
+        Let <m>\{X_i\}_{i\in\{1,2,\dots,n\}}</m> be a family of compacta.
+        Then the product <m>\prod_{i=1}^nX_i</m> is compact.
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      Suppose <m>T</m> a topological space.
+      Then the projections <m>\fromto{T\times X_1}{T}</m>,
+      <m>\fromto{T\times X_1\times X_2}{T\times X_1}</m>,
+      <ellipsis/>, and <m>\fromto{T\times X_1\times X_2\times\cdots\times X_n}{T\times X_1\times\cdots\times X_{n-1}}</m> are all closed,
+      and so their composite
+      <me>
+        \fromto{T\times X_1\times X_2\times\cdots\times X_n}{T}
+      </me>
+      is closed as well.
+    </p>
+  </proof>
+  <theorem xml:id="thm_heineborel">
+    <statement>
+      <p>
+        The following are equivalent for a subspace <m>A\subset\RR^n</m>.
+        <ul>
+          <li>
+            <p>
+              <m>A</m> is compact.
+            </p>
+          </li>
+          <li>
+            <p>
+              {[Bolzano<ndash/>Weierstrass]} Every sequence of points in <m>A</m> has a convergent subsequence.
+            </p>
+          </li>
+          <li>
+            <p>
+              {[Heine<ndash/>Borel]} <m>A</m> is closed and bounded.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let us show that the first of these conditions implies the second.
+      Suppose <m>A</m> compact,
+      and suppose <m>(x_i)_{i\geq 0}</m> a sequence of points in <m>A</m>.
+      If there were no convergent subsequence of <m>(x_i)_{i\geq 0}</m>,
+      then the set <m>\{x_i\}_{i\geq 0}</m> would be a closed subset of <m>A</m>,
+      hence compact,
+      and there would be a sequence
+      <m>\varepsilon_i</m> of positive real numbers such that the balls <m>B^n(x_i,\varepsilon_i)</m> would be disjoint.
+      But then <m>\{B^n(x_i,\varepsilon_i)\}_{i\geq 0}</m> would be an open cover of
+      <m>\{x_i\}_{i\geq 0}</m> with no finite subcover.
+    </p>
+    <p>
+      Let us show that the second property implies the third.
+      Suppose <m>A</m> has the property that every sequence has a convergent subsequence.
+      Then <m>A</m> must be bounded,
+      since otherwise there exists a sequence
+      <m>(x_i)_{i\geq 0}</m> of points in <m>A</m> such that <m>\|x_i\|\to\infty</m>.
+      It must also be closed, since if <m>x\in\overline{A}-A</m>,
+      one can construct a sequence of points of <m>A</m> converging to <m>x</m>.
+    </p>
+    <p>
+      Finally, let us show that the third condition implies the first.
+      Suppose <m>A</m> is closed and bounded.
+      Since <m>A</m> is bounded,
+      it is contained in a box <m>[-a,a]^n</m> for some <m>a\geq 0</m>.
+      Since every closed subspace of a compact space is compact,
+      it is enough to show that <m>[-a,a]^n</m> is compact.
+      Since a finite product of compacta is compact,
+      it is enough to show that any closed interval is compact,
+      and we've already shown this.
+    </p>
+  </proof>
+  <corollary>
+    <statement>
+      <p>
+        Suppose <m>X</m> a compactum,
+        and suppose <m>f\colon\fromto{X}{\RR}</m> a continuous function.
+        Then <m>f</m> attains both a maximum and a minimum value.
+      </p>
+    </statement>
+  </corollary>
+</section>

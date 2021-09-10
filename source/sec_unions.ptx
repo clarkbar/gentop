@@ -1,0 +1,107 @@
+<section xml:id="sec_unions">
+  <title>Unions</title>
+  <p>
+    For any set <m>X</m>, we also permit ourselves to form the
+    <term>union</term> <m>\cup X</m>.
+    This is the set whose elements are the elements of the elements of <m>X</m>;
+    that is, <m>A\in\cup X</m> if and only if there exists an element <m>S\in X</m> such that <m>A\in S</m>.
+    If <m>X=\{A,B\}</m>, then we write
+  </p>
+  <aside>
+    <p>
+      This <m>\cup X</m> notation may be unfamiliar to you.
+      You might be happier with something like <m>\bigcup_{S \in X} S</m>,
+      which means the same thing.
+      The <m>\cup X</m> notation is standard in set theory, however.
+    </p>
+  </aside>
+  <p>
+    <m>A\cup B</m> for <m>\cup X</m>.
+  </p>
+  <example>
+    <statement>
+      <p>
+        We can start building the <term>finite von Neumann ordinals</term>
+        according to the following recipe:
+        first, <m>0\coloneq\varnothing</m>.
+        Then, for every von Neumann ordinal <m>n</m>,
+        one can create its <term>successor von Neumann ordinal</term>
+        <me>
+          n+1\coloneq n\cup\{n\}
+        </me>.
+      </p>
+      <p>
+        So the first few von Neumann ordinals look like this:
+        <md>
+          <mrow>0 \amp  \coloneq \varnothing;</mrow>
+          <mrow>1 \amp  \coloneq \{0\}=\{\varnothing\};</mrow>
+          <mrow>2 \amp  \coloneq \{0,1\}=\{\varnothing,\{\varnothing\}\};</mrow>
+          <mrow>3 \amp  \coloneq \{0,1,2\}=\{\varnothing,\{\varnothing\},\{\varnothing,\{\varnothing\}\}\};</mrow>
+          <mrow>4 \amp  \coloneq \{0,1,2,3\}=\{\varnothing,\{\varnothing\},\{\varnothing,\{\varnothing\}\},\{\varnothing,\{\varnothing\},\{\varnothing,\{\varnothing\}\}\}\};</mrow>
+          <mrow>\amp  \textit{etc.}</mrow>
+        </md>
+      </p>
+      <p>
+        If <m>n</m> is a finite von Neumann ordinal,
+        then for every <m>\alpha,\beta\in n</m>,
+        exactly one of the following is the case:
+        <me>
+          \alpha\in\beta ; \qquad \alpha=\beta ;  \textit{or}  \alpha \ni \beta
+        </me>.
+      </p>
+    </statement>
+  </example>
+  <p>
+    The axioms then let you build the first
+    <term>infinite von Neumann ordinal</term> <m>\omega</m>,
+    which is the set of all the finite von Neumann ordinals.
+    Once you have that, you can build the successor to <m>\omega</m>:
+    <me>
+      \omega+1\coloneq\omega\cup\{\omega\}
+    </me>.
+  </p>
+  <p>
+    <em>Wait, isn't that like <m>\infty+1</m>?
+    Isn't that <m>\infty</m> again?</em>
+    That sort of thing is true if you're talking about <term>cardinals</term>.
+    Here, we're talking about <term>ordinals</term>,
+    and the distinction is important.
+    We'll get into this more when we talk about number systems in the next section.
+    But we absolutely can construct
+    <me>
+      \omega+1,\omega+2,\dots,2\omega=\omega+\omega
+    </me>,
+    where <m>2\omega=\omega+\omega</m> is the set
+    <me>
+      \{0,1,2,\dots,\omega,\omega+1,\omega+2,\dots\}
+    </me>.
+  </p>
+  <p>
+    Likewise, you can build <m>3\omega,4\omega,\dots</m>,
+    and then even <m>\omega^2,\omega^3,\dots</m>,
+    and even <m>\omega^\omega</m>.
+    The key point is that each ordinal is the set of all the ordinals smaller than it.
+    We'll investigate this more deeply in the next section.
+  </p>
+  <p>
+    A key construction for building
+    <q>big</q>
+    sets is the <em>power set</em> construction.
+    To explain, a <term>subset</term>
+    of a set <m>X</m> is a set <m>S</m> such that for any <m>s\in S</m>,
+    one has <m>s\in X</m> as well;
+    in this case, we write <m>S\subseteq X</m>.
+    The axioms of set theory permit us to form the
+    <term>power set</term> <m>\PP(X)</m>,
+    which is the set of all subsets of <m>X</m>,
+    so that <m>S\in\PP(X)</m> if and only if <m>S\subseteq X</m>.
+  </p>
+  <example>
+    <statement>
+      <p>
+        The set <m>\PP(\varnothing)</m> is <m>\{\varnothing\}</m>.
+        The set <m>\PP(\PP(\varnothing))</m> is <m>\{\varnothing, \{\varnothing\}\}</m>.
+      </p>
+    </statement>
+  </example>
+</section>

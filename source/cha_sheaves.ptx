@@ -1,0 +1,10 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="cha_sheaves">
+  <title>Sheaves</title>
+  <xi:include  href="sec_presheaves.ptx"/>
+  <xi:include  href="sec_sheaves.ptx"/>
+  <xi:include  href="sec_sheafification.ptx"/>
+  <xi:include  href="sec_pullback_and_pushforward.ptx"/>
+  <xi:include  href="sec_sobriety_redux.ptx"/>
+  <xi:include  href="sec_connectedness_redux.ptx"/>
+  <xi:include  href="sec_sheaves_of_functions.ptx"/>
+</chapter>
