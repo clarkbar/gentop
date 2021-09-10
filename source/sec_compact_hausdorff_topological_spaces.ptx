@@ -27,9 +27,11 @@
     </statement>
   </example>
   <counterexample>
+  <statement>
   <p>
     The indiscrete topology on a set <m>X</m> is not Hausdorff unless <m>\# X\leq 1</m>.
   </p>
+  </statement>
   </counterexample>
   <example>
     <statement>
