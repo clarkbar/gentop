@@ -1,13 +1,5 @@
 <chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="cha_separation">
   <title>Separation</title>
-  <xi:include  href="sec_kolmogoroff_or_t0.ptx"/>
-  <xi:include  href="sec__t1.ptx"/>
-  <xi:include  href="sec_sobriety.ptx"/>
-  <xi:include  href="sec_hausdorff_or_t2.ptx"/>
-  <xi:include  href="sec_regular_or_t3.ptx"/>
-  <xi:include  href="sec_tychonoff_completely_regular_or_t3_5.ptx"/>
-  <xi:include  href="sec_normal_or_t4.ptx"/>
+  <xi:include  href="sec_trennungsaxiome.ptx"/>
   <xi:include  href="sec_urysohn_tietze.ptx"/>
-  <xi:include  href="sec_completely_normal_or_t5.ptx"/>
-  <xi:include  href="sec_perfectly_normal_or_t6.ptx"/>
 </chapter>

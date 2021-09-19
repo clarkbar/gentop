@@ -2,10 +2,5 @@
   <title>Compactness</title>
   <xi:include  href="sec_compact_topological_spaces.ptx"/>
   <xi:include  href="sec_compact_hausdorff_topological_spaces.ptx"/>
-  <xi:include  href="sec_ultrafilters.ptx"/>
-  <xi:include  href="sec_stone_topological_spaces.ptx"/>
-  <xi:include  href="sec_spectral_topological_spaces.ptx"/>
-  <xi:include  href="sec_local_compactness.ptx"/>
-  <xi:include  href="sec_function_spaces_redux.ptx"/>
-  <xi:include  href="sec_paracompactness.ptx"/>
+  <xi:include  href="sec_tikhonov.ptx"/>
 </chapter>

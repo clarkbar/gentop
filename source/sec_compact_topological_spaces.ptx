@@ -4,11 +4,9 @@
     There are a lot of different characterisations of compactness out there.
     We'll give them all,
   </p>
-  <aside>
-    <p>
+  <fn>
       or, at least, all the ones I know about!
-    </p>
-  </aside>
+  </fn>
   <p>
     and we'll prove their equivalence.
   </p>
@@ -21,6 +19,7 @@
       Then use whichever one is best adapted for whichever problem you happen to encounter.
     </p>
   </aside>
+  <video youtube="q22oz8lRM5w"></video>
   <definition>
     <statement>
       <p>
@@ -558,6 +557,7 @@
       is closed as well.
     </p>
   </proof>
+  <video youtube="EwVETD5zQCM"></video>
   <theorem xml:id="thm_heineborel">
     <statement>
       <p>

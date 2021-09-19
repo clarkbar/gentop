@@ -4,6 +4,7 @@
     Our starting place is the study of the
     <em>subspaces</em> of Euclidean space.
   </p>
+  <video youtube="xfRdYLPWcsI"></video>
   <notation>
     <p>
       As usual, <m>\RR</m> will denote the ordered field of real numbers.
@@ -390,6 +391,7 @@
     If <m>X \subseteq \RR^n</m> is a subspace,
     then there are two different kinds of subset that play a big role in topology:
   </p>
+  <video youtube="hSrG8Qs4Wcw"></video>
   <definition>
     <statement>
       <p>
