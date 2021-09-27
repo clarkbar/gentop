@@ -366,10 +366,13 @@
   </docinfo>
   <book>
     <title>Topology</title>
+    <subtitle>General Topology 2021</subtitle>
     <frontmatter>
       <titlepage>
         <author>
           <personname>Clark Barwick</personname>
+          <department>School of Mathematics</department>
+          <institution>University of Edinburgh</institution>
         </author>
       </titlepage>
     </frontmatter>

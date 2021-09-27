@@ -3,4 +3,5 @@
   <xi:include  href="sec_basic_definitions.ptx"/>
   <xi:include  href="sec_continuity_for_subspaces_of_euclidean_space.ptx"/>
   <xi:include  href="sec_connectedness_for_subspaces_of_euclidean_space.ptx"/>
+  <xi:include  href="sec_subspaces_exercises.ptx"/>
 </chapter>

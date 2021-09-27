@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-09-27T08:44:16+01:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Topologies</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore",
+    processHtmlClass: "has_am",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{\andeq}{\text{\qquad and\qquad}}
+\newcommand{\respectively}[1]{\text{\qquad(respectively,\quad}{#1}\text{\quad)}}
+\newcommand{\resp}[1]{\text{\qquad(resp.,\quad}{#1}\text{\quad)}}
+
+\newcommand{\comma}{\rlap{\ ,}}
+\newcommand{\period}{\rlap{\ .}}
+\newcommand{\semicolon}{\rlap{\ ;}}
+ \newcommand{\coloneq}{\mathrel{:=}}
+
+ 
+
+ \newcommand{\mathup}[1]{\mathrm{#1}}
+ \newcommand{\mathbfup}[1]{\mathbf{#1}}
+ 
+ \renewcommand{\AA}{\mathbfit{A}}
+ \newcommand{\BB}{\mathbfit{B}}
+ \newcommand{\CC}{\mathbfit{C}}
+ \newcommand{\DD}{\mathbfit{D}}
+ \newcommand{\EE}{\mathbfit{E}}
+ \newcommand{\FF}{\mathbfit{F}}
+ \newcommand{\GG}{\mathbfit{G}}
+ \newcommand{\HH}{\mathbfit{H}}
+ \newcommand{\II}{\mathbfit{I}}
+ \newcommand{\JJ}{\mathbfit{J}}
+ \newcommand{\KK}{\mathbfit{K}}
+ \newcommand{\LL}{\mathbfit{L}}
+ \newcommand{\MM}{\mathbfit{M}}
+ \newcommand{\NN}{\mathbfit{N}}
+ \newcommand{\OO}{\mathbfit{O}}
+ \newcommand{\PP}{\mathbfit{P}}
+ \newcommand{\QQ}{\mathbfit{Q}}
+ \newcommand{\RR}{\mathbfit{R}}
+ \renewcommand{\SS}{\mathbfit{S}}
+ \newcommand{\TT}{\mathbfit{T}}
+ \newcommand{\UU}{\mathbfit{U}}
+ \newcommand{\VV}{\mathbfit{V}}
+ \newcommand{\WW}{\mathbfit{W}}
+ \newcommand{\XX}{\mathbfit{X}}
+ \newcommand{\YY}{\mathbfit{Y}}
+ \newcommand{\ZZ}{\mathbfit{Z}}
+ 
+ \let\Gammaup\Gamma
+ \let\Deltaup\Delta
+ \let\Thetaup\Theta
+ \let\Lambdaup\Lambda
+ \let\Xiup\Xi
+ \let\Piup\Pi
+ \let\Sigmaup\Sigma
+ \let\Upsilonup\Upsilon
+ \let\Phiup\Phi
+ \let\Psiup\Psi
+ \let\Omegaup\Omega
+ 
+ \renewcommand{\Gamma}{\mathit{\Gammaup}}
+ \renewcommand{\Delta}{\mathit{\Deltaup}}
+ \renewcommand{\Theta}{\mathit{\Thetaup}}
+ \renewcommand{\Lambda}{\mathit{\Lambdaup}}
+ \renewcommand{\Xi}{\mathit{\Xiup}}
+ \renewcommand{\Pi}{\mathit{\Piup}}
+ \renewcommand{\Sigma}{\mathit{\Sigmaup}}
+ \renewcommand{\Upsilon}{\mathit{\Upsilonup}}
+ \renewcommand{\Phi}{\mathit{\Phiup}}
+ \renewcommand{\Psi}{\mathit{\Psiup}}
+ \renewcommand{\Omega}{\mathit{\Omegaup}}
+ 
+
+
+\renewcommand{\epsilon}{\varepsilon}
+ \newcommand{\el}{\ell}
+\renewcommand{\phi}{\varphi}
+
+\newcommand{\mfa}{\mathfrak{a}}
+\newcommand{\mfb}{\mathfrak{b}}
+\newcommand{\mfc}{\mathfrak{c}}
+\newcommand{\mfd}{\mathfrak{d}}
+\newcommand{\mfe}{\mathfrak{e}}
+\newcommand{\mff}{\mathfrak{f}}
+\newcommand{\mfg}{\mathfrak{g}}
+\newcommand{\mfh}{\mathfrak{h}}
+\newcommand{\mfi}{\mathfrak{i}}
+\newcommand{\mfj}{\mathfrak{j}}
+\newcommand{\mfk}{\mathfrak{k}}
+\newcommand{\mfl}{\mathfrak{l}}
+\newcommand{\mfm}{\mathfrak{m}}
+\newcommand{\mfn}{\mathfrak{n}}
+\newcommand{\mfo}{\mathfrak{o}}
+\newcommand{\mfp}{\mathfrak{p}}
+\newcommand{\mfq}{\mathfrak{q}}
+\newcommand{\mfr}{\mathfrak{r}}
+\newcommand{\mfs}{\mathfrak{s}}
+\newcommand{\mft}{\mathfrak{t}}
+\newcommand{\mfu}{\mathfrak{u}}
+\newcommand{\mfv}{\mathfrak{v}}
+\newcommand{\mfw}{\mathfrak{w}}
+\newcommand{\mfx}{\mathfrak{x}}
+\newcommand{\mfy}{\mathfrak{y}}
+\newcommand{\mfz}{\mathfrak{z}}
+
+\newcommand{\ahat}{\hat{a}}
+\newcommand{\bhat}{\hat{b}}
+\newcommand{\chat}{\hat{c}}
+\newcommand{\dhat}{\hat{d}}
+\newcommand{\ehat}{\hat{e}}
+\newcommand{\fhat}{\hat{f}}
+\newcommand{\ghat}{\hat{g}}
+\newcommand{\hhat}{\hat{h}}
+\newcommand{\ihat}{\hat{\i}}
+\newcommand{\jhat}{\hat{\j}}
+\newcommand{\khat}{\hat{k}}
+\newcommand{\elhat}{\hat{\el}}
+\newcommand{\mhat}{\hat{m}}
+\newcommand{\nhat}{\hat{n}}
+\newcommand{\ohat}{\hat{o}}
+\newcommand{\phat}{\hat{p}}
+\newcommand{\qhat}{\hat{q}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\uhat}{\hat{u}}
+\newcommand{\vhat}{\hat{v}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\xhat}{\hat{x}}
+\newcommand{\yhat}{\hat{y}}
+\newcommand{\zhat}{\hat{z}}
+
+\newcommand{\alphahat}{\hat{\alpha}}
+\newcommand{\betahat}{\hat{\beta}}
+\newcommand{\gammahat}{\hat{\gamma}}
+\newcommand{\deltahat}{\hat{\delta}}
+\newcommand{\epsilonhat}{\hat{\epsilon}}
+\newcommand{\zetahat}{\hat{\zeta}}
+\newcommand{\etahat}{\hat{\eta}}
+\newcommand{\thetahat}{\hat{\theta}}
+\newcommand{\iotahat}{\hat{\iota}}
+\newcommand{\kappahat}{\hat{\kappa}}
+\newcommand{\lambdahat}{\hat{\lambda}}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\xihat}{\hat{\xi}}
+\newcommand{\pihat}{\hat{\pi}}
+\newcommand{\rhohat}{\hat{\rho}}
+\newcommand{\sigmahat}{\hat{\sigma}}
+\newcommand{\tauhat}{\hat{\tau}}
+\newcommand{\upsilonhat}{\hat{\upsilon}}
+\newcommand{\phihat}{\hat{\phi}}
+\newcommand{\chihat}{\hat{\chi}}
+\newcommand{\psihat}{\hat{\psi}}
+\newcommand{\omegahat}{\hat{\omega}}
+
+\newcommand{\Ahat}{\hat{A}}
+\newcommand{\Bhat}{\hat{B}}
+\newcommand{\Chat}{\hat{C}}
+\newcommand{\Dhat}{\hat{D}}
+\newcommand{\Ehat}{\hat{E}}
+\newcommand{\Fhat}{\hat{F}}
+\newcommand{\Ghat}{\hat{G}}
+\newcommand{\Hhat}{\hat{H}}
+\newcommand{\Ihat}{\hat{I}}
+\newcommand{\Jhat}{\hat{J}}
+\newcommand{\Khat}{\hat{K}}
+\newcommand{\Lhat}{\hat{L}}
+\newcommand{\Mhat}{\hat{M}}
+\newcommand{\Nhat}{\hat{N}}
+\newcommand{\Ohat}{\hat{O}}
+\newcommand{\Phat}{\hat{P}}
+\newcommand{\Qhat}{\hat{Q}}
+\newcommand{\Rhat}{\hat{R}}
+\newcommand{\Shat}{\hat{S}}
+\newcommand{\That}{\hat{T}}
+\newcommand{\Uhat}{\hat{U}}
+\newcommand{\Vhat}{\hat{V}}
+\newcommand{\What}{\hat{W}}
+\newcommand{\Xhat}{\hat{X}}
+\newcommand{\Yhat}{\hat{Y}}
+\newcommand{\Zhat}{\hat{Z}}
+
+\newcommand{\Gammahat}{\hat{\Gamma}}
+\newcommand{\Deltahat}{\hat{\Delta}}
+\newcommand{\Thetahat}{\hat{\Theta}}
+\newcommand{\Lambdahat}{\hat{\Lambda}}
+\newcommand{\Xihat}{\hat{\Xi}}
+\newcommand{\Pihat}{\hat{\Pi}}
+\newcommand{\Sigmahat}{\hat{\Sigma}}
+\newcommand{\Upsilonhat}{\hat{\Upsilon}}
+\newcommand{\Phihat}{\hat{\Phi}}
+\newcommand{\Chihat}{\hat{\Chi}}
+\newcommand{\Psihat}{\hat{\Psi}}
+\newcommand{\Omegahat}{\hat{\Omega}}
+
+\newcommand{\atilde}{\tilde{a}}
+\newcommand{\btilde}{\tilde{b}}
+\newcommand{\ctilde}{\tilde{c}}
+\newcommand{\dtilde}{\tilde{d}}
+\newcommand{\etilde}{\tilde{e}}
+\newcommand{\ftilde}{\tilde{f}}
+\newcommand{\gtilde}{\tilde{g}}
+\newcommand{\htilde}{\tilde{h}}
+\newcommand{\itilde}{\tilde{\i}}
+\newcommand{\jtilde}{\tilde{\j}}
+\newcommand{\ktilde}{\tilde{k}}
+\newcommand{\eltilde}{\tilde{\el}}
+\newcommand{\mtilde}{\tilde{m}}
+\newcommand{\ntilde}{\tilde{n}}
+\newcommand{\otilde}{\tilde{o}}
+\newcommand{\ptilde}{\tilde{p}}
+\newcommand{\qtilde}{\tilde{q}}
+\newcommand{\rtilde}{\tilde{r}}
+\newcommand{\stilde}{\tilde{s}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\xtilde}{\tilde{x}}
+\newcommand{\ytilde}{\tilde{y}}
+\newcommand{\ztilde}{\tilde{z}}
+
+\newcommand{\alphatilde}{\tilde{\alpha}}
+\newcommand{\betatilde}{\tilde{\beta}}
+\newcommand{\gammatilde}{\tilde{\gamma}}
+\newcommand{\deltatilde}{\tilde{\delta}}
+\newcommand{\epsilontilde}{\tilde{\epsilon}}
+\newcommand{\zetatilde}{\tilde{\zeta}}
+\newcommand{\etatilde}{\tilde{\eta}}
+\newcommand{\thetatilde}{\tilde{\theta}}
+\newcommand{\iotatilde}{\tilde{\iota}}
+\newcommand{\kappatilde}{\tilde{\kappa}}
+\newcommand{\lambdatilde}{\tilde{\lambda}}
+\newcommand{\mutilde}{\tilde{\mu}}
+\newcommand{\nutilde}{\tilde{\nu}}
+\newcommand{\xitilde}{\tilde{\xi}}
+\newcommand{\pitilde}{\tilde{\pi}}
+\newcommand{\rhotilde}{\tilde{\rho}}
+\newcommand{\sigmatilde}{\tilde{\sigma}}
+\newcommand{\tautilde}{\tilde{\tau}}
+\newcommand{\upsilontilde}{\tilde{\upsilon}}
+\newcommand{\phitilde}{\tilde{\phi}}
+\newcommand{\chitilde}{\tilde{\chi}}
+\newcommand{\psitilde}{\tilde{\psi}}
+\newcommand{\omegatilde}{\tilde{\omega}}
+
+\newcommand{\Atilde}{\widetilde{A}}
+\newcommand{\Btilde}{\widetilde{B}}
+\newcommand{\Ctilde}{\widetilde{C}}
+\newcommand{\Dtilde}{\widetilde{D}}
+\newcommand{\Etilde}{\widetilde{E}}
+\newcommand{\Ftilde}{\widetilde{F}}
+\newcommand{\Gtilde}{\widetilde{G}}
+\newcommand{\Htilde}{\widetilde{H}}
+\newcommand{\Itilde}{\widetilde{I}}
+\newcommand{\Jtilde}{\widetilde{J}}
+\newcommand{\Ktilde}{\widetilde{K}}
+\newcommand{\Ltilde}{\widetilde{L}}
+\newcommand{\Mtilde}{\widetilde{M}}
+\newcommand{\Ntilde}{\widetilde{N}}
+\newcommand{\Otilde}{\widetilde{O}}
+\newcommand{\Ptilde}{\widetilde{P}}
+\newcommand{\Qtilde}{\widetilde{Q}}
+\newcommand{\Rtilde}{\widetilde{R}}
+\newcommand{\Stilde}{\widetilde{S}}
+\newcommand{\Ttilde}{\widetilde{T}}
+\newcommand{\Utilde}{\widetilde{U}}
+\newcommand{\Vtilde}{\widetilde{V}}
+\newcommand{\Wtilde}{\widetilde{W}}
+\newcommand{\Xtilde}{\widetilde{X}}
+\newcommand{\Ytilde}{\widetilde{Y}}
+\newcommand{\Ztilde}{\widetilde{Z}}
+
+\newcommand{\Gammatilde}{\widetilde{\Gamma}}
+\newcommand{\Deltatilde}{\widetilde{\Delta}}
+\newcommand{\Thetatilde}{\widetilde{\Theta}}
+\newcommand{\Lambdatilde}{\widetilde{\Lambda}}
+\newcommand{\Xitilde}{\widetilde{\Xi}}
+\newcommand{\Pitilde}{\widetilde{\Pi}}
+\newcommand{\Sigmatilde}{\widetilde{\Sigma}}
+\newcommand{\Upsilontilde}{\widetilde{\Upsilon}}
+\newcommand{\Phitilde}{\widetilde{\Phi}}
+\newcommand{\Chitilde}{\widetilde{\Chi}}
+\newcommand{\Psitilde}{\widetilde{\Psi}}
+\newcommand{\Omegatilde}{\widetilde{\Omega}}
+
+
+
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Equival}{Equiv}
+\DeclareMathOperator{\Fun}{Fun}
+\newcommand{\Funcross}{\Fun^{\cross}}
+\newcommand{\Functs}{\Fun^{\cts}}
+\newcommand{\Funpyk}{\Functs}
+\newcommand{\Funlowerstar}{\Fun_{\ast}}
+\newcommand{\Funupperstar}{\Fun^{\ast}}
+\DeclareMathOperator{\Hom}{Hom}
+\newcommand{\HOM}{\ensuremath{\textup{\textsc{Hom}}}}
+\DeclareMathOperator{\Isom}{Isom}
+\DeclareMathOperator{\Map}{Map}
+\DeclareMathOperator{\Mor}{Mor}
+\newcommand{\MOR}{\ensuremath{\textup{\textsc{Mor}}}}
+
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\PSO}{PSO}
+\DeclareMathOperator{\PSp}{PSp}
+\DeclareMathOperator{\PSU}{PSU}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\SU}{SU}
+
+\DeclareMathOperator{\cofib}{cofib}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator*{\colim}{colim}
+\DeclareMathOperator*{\hocolim}{hocolim}
+\DeclareMathOperator*{\holim}{holim}
+\DeclareMathOperator{\fib}{fib}
+
+\DeclareMathOperator{\Nerve}{N}
+\DeclareMathOperator{\trun}{\uptau}
+
+\DeclareMathOperator{\cosk}{ck}
+\DeclareMathOperator{\creff}{cr}
+\DeclareMathOperator{\ev}{ev}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\sd}{sd}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\specpos}{sp}
+\newcommand{\sdop}{\sd^{\op}}
+
+
+
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\angs}[1]{\langle #1 \rangle}
+ \newcommand{\quine}[1]{\ulcorner #1 \urcorner}
+\newcommand{\ultimes}{\,\underline{\times}\,}
+\newcommand{\horn}[2]{\upLambda_{#1}^{#2}}
+
+
+
+\newcommand{\categ}[1]{\textbf{\textup{#1}}}
+
+
+ 
+ \newcommand{\fromto}[2]{{#1} \to {#2}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Topology:</span> <span class="subtitle">General Topology 2021</span></a></h1>
+<p class="byline">Clark Barwick</p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="cha_abstract_topological_spaces.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="cha_abstract_topological_spaces.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec_continuity.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="cha_abstract_topological_spaces.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="cha_abstract_topological_spaces.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec_continuity.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="cha_subspaces_of_euclidean_space.html" data-scroll="cha_subspaces_of_euclidean_space"><span class="codenumber">1</span> <span class="title">Subspaces of Euclidean space</span></a><ul>
+<li><a href="sec_basic_definitions.html" data-scroll="sec_basic_definitions">Basic definitions</a></li>
+<li><a href="sec_continuity_for_subspaces_of_euclidean_space.html" data-scroll="sec_continuity_for_subspaces_of_euclidean_space">Continuity</a></li>
+<li><a href="sec_connectedness_for_subspaces_of_euclidean_space.html" data-scroll="sec_connectedness_for_subspaces_of_euclidean_space">Connectedness</a></li>
+<li><a href="sec_subspaces_exercises.html" data-scroll="sec_subspaces_exercises">Problem set 1, due 5 October 2021</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="cha_abstract_topological_spaces.html" data-scroll="cha_abstract_topological_spaces"><span class="codenumber">2</span> <span class="title">Abstract topological spaces</span></a><ul>
+<li><a href="sec_topologies.html" data-scroll="sec_topologies" class="active">Topologies</a></li>
+<li><a href="sec_continuity.html" data-scroll="sec_continuity">Continuity</a></li>
+<li><a href="sec_specifying_topologies_efficiently.html" data-scroll="sec_specifying_topologies_efficiently">Specifying topologies efficiently</a></li>
+<li><a href="sec_quotient_spaces.html" data-scroll="sec_quotient_spaces">Quotient spaces</a></li>
+<li><a href="sec_products.html" data-scroll="sec_products">Products</a></li>
+<li><a href="sec_esoterica.html" data-scroll="sec_esoterica">Esoterica</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="cha_compactness.html" data-scroll="cha_compactness"><span class="codenumber">3</span> <span class="title">Compactness</span></a><ul>
+<li><a href="sec_compact_topological_spaces.html" data-scroll="sec_compact_topological_spaces">Compact topological spaces</a></li>
+<li><a href="sec_compact_hausdorff_topological_spaces.html" data-scroll="sec_compact_hausdorff_topological_spaces">Compact Hausdorff topological spaces</a></li>
+<li><a href="sec_tikhonov.html" data-scroll="sec_tikhonov">The Tikhonov Theorem</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="cha_separation.html" data-scroll="cha_separation"><span class="codenumber">4</span> <span class="title">Separation</span></a><ul>
+<li><a href="sec_trennungsaxiome.html" data-scroll="sec_trennungsaxiome">Trennungsaxiome</a></li>
+<li><a href="sec_urysohn_tietze.html" data-scroll="sec_urysohn_tietze">Urysohn &amp; Tietze</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="cha_elements_of_set_theory.html" data-scroll="cha_elements_of_set_theory"><span class="codenumber">5</span> <span class="title">Elements of set theory</span></a><ul>
+<li><a href="sec_sets_and_elements.html" data-scroll="sec_sets_and_elements">Sets and elements</a></li>
+<li><a href="sec_bounded_comprehension.html" data-scroll="sec_bounded_comprehension">Bounded comprehension</a></li>
+<li><a href="sec_unions.html" data-scroll="sec_unions">Unions</a></li>
+<li><a href="sec_ordered_pairs.html" data-scroll="sec_ordered_pairs">Ordered pairs</a></li>
+<li><a href="sec_maps.html" data-scroll="sec_maps">Maps</a></li>
+<li><a href="sec_bijections.html" data-scroll="sec_bijections">Bijections</a></li>
+<li><a href="sec_products_and_sets_of_maps.html" data-scroll="sec_products_and_sets_of_maps">Products and sets of maps</a></li>
+<li><a href="sec_injections_and_surjections.html" data-scroll="sec_injections_and_surjections">Injections and surjections</a></li>
+<li><a href="sec_the_algebra_of_subsets.html" data-scroll="sec_the_algebra_of_subsets">The algebra of subsets</a></li>
+<li><a href="sec_inverse_and_direct_image.html" data-scroll="sec_inverse_and_direct_image">Inverse and direct image</a></li>
+<li><a href="sec_products_of_sets.html" data-scroll="sec_products_of_sets">Products of sets</a></li>
+<li><a href="sec_coproducts_of_sets.html" data-scroll="sec_coproducts_of_sets">Coproducts of sets</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Back Matter</span></a></li>
+</ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="sec_topologies"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">2.1</span> <span class="title">Topologies</span>
+</h2>
+<p id="p-201">There are three observations we can make about our study of subspaces of Euclidean space:</p>
+<ol class="decimal">
+<li id="li-51"><p id="p-202">When we think about the topological nature of a subspace \(X \subseteq \RR^n\text{,}\) the ambient Euclidean space in which we find them isn't all that important; homeomorphic subspaces can be found in wildly different Euclidean spaces. The only thing we <em class="emphasis">do</em> want to remember from the ambient \(\RR^n\) is the definition of the closure operator \(\tau_X\text{.}\)</p></li>
+<li id="li-52"><p id="p-203">For the vast majority of the work we've done so far, we didn't need the precise definition of \(\tau_X\) in terms of the metric on \(\RR^n\text{.}\) Rather, what we really used repeatedly were the properties given in <a class="xref" data-knowl="./knowl/prp_key_properties_of_tau.html" title="Proposition 1.1.4">Proposition 1.1.4</a>. Almost everything we did was just a direct consequence of those!</p></li>
+<li id="li-53"><p id="p-204">There are examples of sets with a reasonable notion of closeness that don't arrive in your lap embedded in a Euclidean space. We want to <em class="emphasis">do topology</em> with these examples too!</p></li>
+</ol>
+<article class="example example-like" id="exm_real_projective_line"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-exm_real_projective_line"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.1</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exm_real_projective_line"><article class="example example-like"><p id="p-205">Let's illustrate this last point with an interesting example. Let \(\PP^1_{\RR}\) be the set of \(1\)-dimensional linear subspaces of \(\RR^2\text{.}\) In other words, an element of \(\PP^1_{\RR}\) is a line in \(\RR^2\) through the origin. If \(L \in \PP^1_{\RR}\text{,}\) let \(\mu(L)\) denote the slope of \(L\text{;}\) that is, if \(L\) is spanned by a nonzero vector \((x,y) \in \RR^2\text{,}\) then</p>
+<div class="displaymath">
+\begin{equation*}
+\mu(L) = \begin{cases}y/x \amp  \text{ if } x \neq 0\text{;} \\ \infty \amp  \text{ if } x=0 . \end{cases}
+\end{equation*}
+</div>
+<p id="p-206">We will say that a line \(L \in \PP^1_{\RR}\) is close to a subset \(S \subseteq \PP^1_{\RR}\) if and only if one of the following conditions holds:</p>
+<ul class="disc">
+<li id="li-54">
+<p id="p-207">if \(\mu(L) \neq \infty\text{,}\) then for every \(\varepsilon&gt;0\text{,}\) there exists a line \(L' \in S\text{,}\) such that</p>
+<div class="displaymath">
+\begin{equation*}
+|\mu(L) - \mu(L')| \lt  \varepsilon\text{,}
+\end{equation*}
+</div>
+<p class="continuation">or</p>
+</li>
+<li id="li-55">
+<p id="p-208">if \(\mu(L) = \infty\text{,}\) then for every real number \(N\text{,}\) there exists a line \(L' \in S\) such that</p>
+<div class="displaymath">
+\begin{equation*}
+|\mu(L')|&gt;N\text{.}
+\end{equation*}
+</div>
+</li>
+</ul>
+<p id="p-209">Equivalently, if we think of the circle \(S^1 \subset \RR^2\text{,}\) then every line \(L \in \PP^1_{\RR}\) intersects \(S^1\) in exactly two points</p>
+<aside class="aside aside-like" id="aside-20"><p id="p-210">For our purposes, it won't matter which of the two intersection points we call \(i(L)\) and which we call \(j(L)\text{.}\)</p></aside><p id="p-211">\(i(L)\) and \(j(L)\text{,}\) where \(i(L) = -j(L)\text{.}\) We may now say that \(L \in \PP^1_{\RR}\) is close to \(S \subseteq \PP^1_{\RR}\) if and only if, for every \(\varepsilon&gt;0\text{,}\) there exists a line \(L' \in S\) such that either \(\|i(L)-i(L')\|\lt \varepsilon\) or \(\|i(L)-j(L)\|\lt \varepsilon\text{.}\)</p></article></div>
+<p id="p-212">To deal with examples like this one, we're going to pull a trick that is often quite powerful in mathematics: we're going to turn <a class="xref" data-knowl="./knowl/prp_key_properties_of_tau.html" title="Proposition 1.1.4">Proposition 1.1.4</a> into a <em class="emphasis">definition</em>. Thus a <dfn class="terminology">topology</dfn> on a set \(X\) is a systematic way of asking whether an element of \(X\) — which we will call <em class="emphasis">point</em> — is “close” to a subset. In order to constitute a topology on the set \(X\text{,}\) this notion of closeness must satsify three conditions:</p>
+<ul class="disc">
+<li id="li-56"><p id="p-213">For every subset \(S \subseteq X\) and any point \(x \in X\text{,}\) if \(x \in S\text{,}\) then \(x\) is close to \(S\text{.}\) More briefly, an element of a subset is close to that subset.</p></li>
+<li id="li-57"><p id="p-214">For every finite collection \(\{ S_1, \dots, S_n \}\) of subsets of \(X\text{,}\) if a point \(x \in X\) is close to the union \(S_1 \cup \dots \cup S_n\text{,}\) then there exists \(i \in \{ 1, \dots,
+n \}\) such that \(x\) is close to \(S_i\text{.}\) More briefly, if a point is close to a finite union of subsets, then it is close to one of those subsets. In particular, when \(n = 0\text{,}\) this condition says that no point is close to the empty set \(\emptyset\text{.}\)</p></li>
+<li id="li-58"><p id="p-215">Suppose \(S\) and \(T\) are two subsets of \(X\) such that every point \(s \in S\) is close to \(T\text{;}\) then if a point \(x\) is close to \(S\text{,}\) it is also close to \(T\text{.}\)</p></li>
+</ul>
+<p id="p-216">To formalise this idea, we introduce, for each subset \(S \subseteq X\text{,}\) the set \(\tau(S)\) of all the elements of \(X\) that are close to \(S\text{,}\) and we list its properties.</p>
+<div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="video-5" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/2U6uUSRK_C0?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<article class="definition definition-like" id="definition-6"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.2</span><span class="period">.</span>
+</h6>
+<p id="p-217">A <dfn class="terminology">topology</dfn> on a set \(X\) is a map</p>
+<div class="displaymath">
+\begin{equation*}
+\tau \colon \PP(X) \to \PP(X)
+\end{equation*}
+</div>
+<p class="continuation">such that the following conditions hold.</p>
+<ol class="decimal">
+<li id="li-59"><p id="p-218">For any \(S \in \PP(X)\text{,}\) one has \(S \subseteq \tau(S)\text{.}\) In particular, \(\tau(X) = X\text{.}\)</p></li>
+<li id="li-60">
+<p id="p-219">For any finite subset \(\Sigma \subseteq \PP(X)\text{,}\) one has</p>
+<div class="displaymath">
+\begin{equation*}
+\tau \left( \bigcup_{ S \in \Sigma} S \right) = \bigcup_{ S \in \Sigma } \tau(S)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">In particular, <aside class="aside aside-like" id="aside-21"><p id="p-220">An empty union \(\bigcup_{S \in \varnothing} Y_S\) is empty.</p></aside> \(\tau (\emptyset) = \emptyset\text{.}\) Also, observe that \(\tau\) is <dfn class="terminology">inclusion-preserving</dfn>; that is, if \(S \subseteq T\text{,}\) then \(\tau(S) \subseteq \tau(T)\text{.}\)</p>
+</li>
+<li id="li-61"><p id="p-221">For any \(S \in \PP(X)\text{,}\) one has \(\tau( \tau( S ) ) = \tau( S )\text{.}\)</p></li>
+</ol>
+<p id="p-222">If \(x \in X\) and \(S \in \PP(X)\text{,}\) then we say that \(x\) <dfn class="terminology">is close to</dfn> \(S\) if and only if \(x \in \tau(S)\text{.}\)</p>
+<p id="p-223">A pair \((X, \tau)\) consisting of a set \(X\) and a topology \(\tau\) on \(X\) is called a <dfn class="terminology">topological space</dfn>. We call the elements of a topological space <dfn class="terminology">points</dfn>.</p>
+<p id="p-224">The set \(\tau(S)\) is called the <dfn class="terminology">closure</dfn> of \(S\text{.}\) We say that \(S\) is <dfn class="terminology">closed</dfn> if \(S = \tau( S )\text{,}\) and we say that \(S\) is <dfn class="terminology">open</dfn> if its complement is closed.</p>
+<aside class="aside aside-like" id="aside-22"><p id="p-225">In a little while, we'll discuss how one can specify a topology by listing the open sets, which is what you will frequently see in other books.</p></aside></article><article class="example example-like" id="example-17"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-17"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.3</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-17"><article class="example example-like"><p id="p-227">We have already seen the first example. Any subset \(X \subseteq \RR^n\) inherits a topology \(\tau_X\) that carries a subset \(S \subseteq X\) to</p>
+<div class="displaymath">
+\begin{equation*}
+\tau_X(S) = \{ x\in X : (\forall \varepsilon&gt;0)(\exists s \in S)(d(x,s)\lt \varepsilon\}\text{.}
+\end{equation*}
+</div>
+<p id="p-228">When \(X=\RR^n\text{,}\) this is often called the <dfn class="terminology">standard topology</dfn>, and for \(X \subseteq \RR^n\text{,}\) this is called the <dfn class="terminology">subspace topology</dfn>.</p></article></div>
+<article class="example example-like" id="example-18"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-18"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.4</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-18"><article class="example example-like"><p id="p-229">The closure operation on \(\PP^1_{\RR}\) (<a class="xref" data-knowl="./knowl/exm_real_projective_line.html" title="Example 2.1.1">Example 2.1.1</a>) is a topology.</p>
+<ol class="decimal">
+<li id="li-62"><p id="p-230">Let \(S \subseteq \PP^1_{\RR}\text{.}\) If \(L \in S\text{,}\) then the conditions are automatic for \(L \in \tau(S)\text{.}\)</p></li>
+<li id="li-63"><p id="p-231">Let \(S_1, \dots, S_n \subseteq \PP^1_{\RR}\) be a collection of subsets of \(\PP^1_{\RR}\text{,}\) and let \(L \in \PP^1_{\RR}\text{.}\) If \(L\) is close to \(S_1 \cup \cdots \cup S_n\text{,}\) then a Pigeonhole argument like the one given in <a class="xref" data-knowl="./knowl/prp_key_properties_of_tau.html" title="Proposition 1.1.4">Proposition 1.1.4</a> ensures that \(L\) is close to \(S_1 \cup \cdots \cup S_n\text{.}\) <aside class="aside aside-like" id="aside-23"><p id="p-232">Fill in the details here! Often, in writing, mathematicians say something like, “by the same argument …,” or “by the standard argument …,” or even, “it is obvious that….” This can be a little annoying (and I don't recommend calling very many things “obvious”), but it is a good opportunity for you to take a moment to sort through the details yourself.</p></aside> If \(L\) is close to some \(S_i\text{,}\) then it is certainly close to \(S_1 \cup \cdots \cup S_n\text{.}\)</p></li>
+<li id="li-64"><p id="p-233">Let \(S \subseteq \PP^1_{\RR}\text{,}\) and let \(L \in \PP^1_{\RR}\) be a line that is close to \(\tau(S)\text{.}\) We aim to show that \(L\) is close to \(S\text{;}\) so let \(\varepsilon&gt;0\text{.}\) There exists a line \(L' \in \tau(S)\) such that either \(\|i(L) - i(L')\|\lt \varepsilon\) or \(\|i(L)-j(L')\|\lt \varepsilon/2\text{.}\) Accordingly, there exists a line \(L'' \in S\) such that either \(\|i(L') - i(L'')\| \lt \varepsilon/2\) or \(\|i(L') - j(L'')\| \lt \varepsilon/2\text{.}\) Analyzing the four options and applying the triangle inequality, we find that either \(\|i(L) - i(L'')\|\lt \varepsilon\) or \(\|i(L) - j(L'') \|\lt \varepsilon\text{.}\)</p></li>
+</ol></article></div>
+<article class="example example-like" id="example-19"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-19"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.5</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-19"><article class="example example-like"><p id="p-234">The empty set \(\emptyset\) admits a unique topology. The powerset \(\PP( \emptyset )\) is a singleton \(\{ \emptyset \}\text{,}\) and the identity is the only map \(\{ \emptyset \} \to \{ \emptyset \}\text{.}\) This map is a topology. The only subset available — \(\emptyset\) itself — is both open and closed.</p></article></div>
+<article class="example example-like" id="example-20"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-20"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.6</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-20"><article class="example example-like"><p id="p-235">More generally, on any set \(X\text{,}\) the identity map</p>
+<div class="displaymath">
+\begin{equation*}
+\delta \colon \PP(X) \to \PP(X)
+\end{equation*}
+</div>
+<p class="continuation">is always a topology. This is called the <dfn class="terminology">discrete topology</dfn> on a set \(X\text{.}\)</p>
+<p id="p-236">In the discrete topology, a point \(x \in X\) is close to a subset \(S \subseteq X\) if and only if \(x \in S\text{.}\) Every subset of \(X\) is both open and closed in the discrete topology.</p></article></div>
+<article class="example example-like" id="example-21"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-21"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.7</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-21"><article class="example example-like"><p id="p-237">Let us study topologies on the singleton \(\{ x \}\text{.}\) The power set \(\PP( \{ x \} )\) is a two-element set \(\{ \emptyset, \{ x \} \}\text{.}\) There are four maps from this set to itself, but most of these are not topologies. In order for a map \(\tau\) to be a topology, the first condition demands that \(\tau( \{ x \} ) = \{ x \}\text{,}\) and the second condition demands that \(\tau ( \emptyset ) = \emptyset\text{.}\) Thus the only topology on the singleton \(\{ x \}\) is the discrete topology.</p></article></div>
+<article class="example example-like" id="topologiesontwopointset"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-topologiesontwopointset"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.8</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-topologiesontwopointset"><article class="example example-like"><p id="p-238">Let \(X \coloneq \{ x , y \}\text{.}\) In order to specify a topology \(\tau\) on \(X\text{,}\) it is really only necessary to specify the subsets \(\tau ( \{ x \} )\) and \(\tau ( \{ y \} )\text{.}\) The first condition states that these subsets must contain the sets \(\{ x \}\) and \(\{ y \}\text{,}\) respectively, and the second and third conditions become automatic. That gives us four topologies on \(\{ x, y \}\text{:}\)</p>
+<ul class="disc">
+<li id="li-65"><p id="p-239">the discrete topology, in which \(\tau( \{ x \} ) = \{ x \}\) and \(\tau( \{ y \} ) = \{ y \}\text{;}\)</p></li>
+<li id="li-66"><p id="p-240">the topology in which \(\tau( \{ x \} ) = \{ x \}\text{,}\) and \(\tau( \{ y \} ) = X\text{;}\)</p></li>
+<li id="li-67"><p id="p-241">the topology in which \(\tau( \{ y \} ) = X\text{,}\) and \(\tau( \{ x \} ) = \{ x \}\text{;}\) and</p></li>
+<li id="li-68"><p id="p-242">the topology in which \(\tau( \{ x \} ) = \tau( \{ y \} ) = X\text{.}\)</p></li>
+</ul>
+<p id="p-243">Let us describe the relation of closeness for each of these topologies. The only questions that aren't answered by the axioms of a topology is: “is \(x\) close to \(\{ y \}\text{?}\)” and “is \(y\) close to \(\{ x \}\text{?}\)” Let's answer these in each case:</p>
+<ul class="disc">
+<li id="li-69"><p id="p-244">in the discrete topology, \(x\) is not close to \(\{ y \}\text{,}\) and \(y\) is not close to \(\{ x \}\text{;}\)</p></li>
+<li id="li-70"><p id="p-245">in the second of these topologies, \(x\) is close to \(\{ y \}\text{,}\) but \(y\) is not close to \(\{ x \}\text{;}\)</p></li>
+<li id="li-71"><p id="p-246">in the third topology, \(y\) is close to \(\{ x \}\text{,}\) but \(x\) is not close to \(\{ y \}\text{;}\) and</p></li>
+<li id="li-72"><p id="p-247">finally, in the last of these topologies, \(x\) is close to \(\{ y \}\) and \(y\) is close to \(\{ x \}\text{.}\)</p></li>
+</ul>
+<p id="p-248">The asymmetry in the second and third topologies is strange from our natural idea of what “close” ought to mean. Nevertheless, these topologies are actually interesting examples; even rather bizarre ideas of closeness can be captured in topology!</p>
+<p id="p-249">Finally, for each of these examples, let us determine which sets are open and closed. In each case, the only questions that aren't answered by the axioms are: “is \(\{ x \}\) open? closed?” and “is \(\{ y \}\) open? closed?”</p>
+<ul class="disc">
+<li id="li-73"><p id="p-250">in the discrete topology, both \(\{ x \}\) and \(\{ y \}\) are both open and closed;</p></li>
+<li id="li-74"><p id="p-251">in the second topology, \(\{ x \}\) is closed and not open, and \(\{ y \}\) is open and not closed.</p></li>
+<li id="li-75"><p id="p-252">in the third topology, the situation is reversed: \(\{ x \}\) is open and not closed, and \(\{ y \}\) is closed and not open;</p></li>
+<li id="li-76"><p id="p-253">in the last of these topologies, neither \(\{ x \}\) nor \(\{ y \}\) is open or closed.</p></li>
+</ul></article></div>
+<p id="p-254">The discrete topology makes sense for any set. Similarly, the last of the topologies in <a class="xref" data-knowl="./knowl/topologiesontwopointset.html" title="Example 2.1.8">Example 2.1.8</a> above is sensible for any set.</p>
+<article class="example example-like" id="example-23"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-23"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.9</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-23"><article class="example example-like"><p id="p-255">For any set \(X\text{,}\) we define a map</p>
+<div class="displaymath">
+\begin{equation*}
+\iota \colon \PP(X) \to \PP(X)
+\end{equation*}
+</div>
+<p class="continuation">by the formula</p>
+<div class="displaymath">
+\begin{equation*}
+\iota( S ) \coloneq \begin{cases}\emptyset \amp  \text{ if }  S = \emptyset ; \\ X \amp  \text{ if }  S \neq \emptyset . \end{cases}
+\end{equation*}
+</div>
+<p id="p-256">This is a topology called the <dfn class="terminology">indiscrete topology</dfn>. Thus in the indiscrete topology, any point is close to any nonempty subset. The only subsets of \(X\) that are open or closed in the indiscrete topology are \(\emptyset\) and \(X\) itself.</p></article></div>
+<p id="p-257">The other two topologies of <a class="xref" data-knowl="./knowl/topologiesontwopointset.html" title="Example 2.1.8">Example 2.1.8</a> are more interesting:</p>
+<article class="example example-like" id="exm_Alexandroff"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-exm_Alexandroff"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.10</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exm_Alexandroff"><article class="example example-like"><p id="p-258">Let \(P\) be a <em class="emphasis">preorder</em>. That is, \(P\) is a set equipped with a relation \(\leq\) such that:</p>
+<ul class="disc">
+<li id="li-77"><p id="p-259">for every \(a \in P\text{,}\) one has \(a \leq a\text{;}\) and</p></li>
+<li id="li-78"><p id="p-260">for every \(a,b,c \in P\text{,}\) if \(a \leq b\) and \(b \leq c\text{,}\) then \(a \leq c\text{.}\)</p></li>
+</ul>
+<p id="p-261">Then we can define a topology as follows. For any subset \(S \subseteq P\text{,}\) we define</p>
+<div class="displaymath">
+\begin{equation*}
+\tau_{\leq}(S) \coloneq \{a \in P : (\exists s \in S)(a \leq s) \}\text{.}
+\end{equation*}
+</div>
+<p id="p-262">In other words, \(a \in P\) is close to \(S\) if and only if some element of \(S\) exceeds it.</p>
+<p id="p-263">Let us quickly confirm that this is a topology:</p>
+<ol class="decimal">
+<li id="li-79"><p id="p-264">Let \(S \subseteq P\) be a subset. Since \(s \leq s\) for every \(s \in S\text{,}\) it follows that \(S \subseteq \tau_{\leq}(S)\text{.}\)</p></li>
+<li id="li-80">
+<p id="p-265">Let \(S_1, \dots, S_n \subseteq P\) be a finite collection of subsets of \(P\text{.}\) Then</p>
+<div class="displaymath">
+\begin{align*}
+\tau_{\leq}(S_1 \cup \cdots \cup S_n) \amp  = \{a\in P : (\exists s \in S_1 \cup \cdots \cup S_n)(a \leq s) \}\\
+\amp  = \{a \in P : (\exists i)(\exists s \in S_i)(a \leq s)\}\\
+\amp  = \tau_{\leq}(S)_1 \cup \cdots \cup \tau_{\leq}(S)_n \text{.}
+\end{align*}
+</div>
+</li>
+<li id="li-81">
+<p id="p-266">Let \(S \subseteq P\) be a subset. Then</p>
+<div class="displaymath">
+\begin{align*}
+\tau_{\leq}(\tau_{\leq}(S)) \amp = \{a \in P : (\exists t \in \overline{S})(a \leq t) \}\\
+\amp = \{a \in P : (\exists s \in S)(\exists t \in X)(a \leq t \leq s) \}\\
+\amp = \{a \in P : (\exists s \in S)(a \leq s) \}\\
+\amp = \tau_{\leq}(S) \text{.}
+\end{align*}
+</div>
+</li>
+</ol>
+<p id="p-267">This topology is called the <dfn class="terminology">Alexandroff topology</dfn>.</p>
+<p id="p-268">The <em class="emphasis">closed subsets</em> are the subsets \(Z \subseteq P\) with the property that if \(a \in P\text{,}\) \(z \in Z\text{,}\) and \(a \leq z\text{,}\) then \(a \in Z\) as well. The <em class="emphasis">open subsets</em> are the subsets \(U \subseteq P\) with the property that if \(a \in P\text{,}\) \(u \in U\text{,}\) and \(a \geq u\text{,}\) then \(a \in U\) as well.</p></article></div>
+<article class="example example-like" id="exm_one_point_compactification_of_RR"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-exm_one_point_compactification_of_RR"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.11</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exm_one_point_compactification_of_RR"><article class="example example-like"><p id="p-269">Form the set \(\RR\sqcup\{\infty\}\text{,}\) where \(\infty\) is just some symbol such that \(\infty\notin\RR\text{.}\) We already have a topology on \(\RR\text{;}\) let's doctor it a mite to make a topology on \(\RR\sqcup\{\infty\}\text{.}\) To do this, we have to understand how our notion of closeness has changed. So we have a point \(x\in \RR\sqcup\{\infty\}\) and a subset \(S\subseteq\RR\sqcup\{\infty\}\text{,}\) and we want to see if \(x\) is close to \(S\text{.}\) There are two cases:</p>
+<ul class="disc">
+<li id="li-82"><p id="p-270">If \(x\in\RR\text{,}\) then we declare that \(x\) is close to \(S\) if and only if \(x\) is close to \(S\cap\RR\) (for the standard topology on \(\RR\)).</p></li>
+<li id="li-83"><p id="p-271">We declare that \(\infty\) is close to \(S\) if and only if, for every \(N\in\RR_{\geq 0}\text{,}\) there is a point of \(S\) that does not lie <aside class="aside aside-like" id="aside-24"><p id="p-272">Note that this includes two possibilities: the point of \(S\) may <em class="emphasis">be</em> \(\infty\text{,}\) or else the point may be a real element \(s\in S\) such that \(|s|&gt;N\text{.}\)</p></aside> in \([-N,N]\text{.}\)</p></li>
+</ul>
+<p id="p-273">Let's see that this is a topology. In effect, you check everything by checking the two cases (\(x\in\RR\) or \(x\notin\RR\)) separately. In the first case, you use the fact that \(\RR\) has a topology already, and in the second, you give a little argument.</p>
+<ul class="disc">
+<li id="li-84"><p id="p-274">By definition if \(x\) lies in a subset \(S\subseteq\RR\sqcup\{\infty\}\text{,}\) then \(x\) is close to \(S\text{.}\)</p></li>
+<li id="li-85">
+<p id="p-275">Let \(\{S_1,\dots,S_n\}\) be a finite collection of subsets of \(\RR\sqcup\{\infty\}\text{.}\) If \(x\in \RR\text{,}\) then since one has</p>
+<div class="displaymath">
+\begin{equation*}
+(S_1\cup\dots\cup S_n)\cap\RR=(S_1\cap\RR)\cup\dots\cup (S_n\cap\RR)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">it follows that \(x\) is close to \(S_1\cup\dots\cup S_n\) if and only if \(x\) is close to \((S_1\cap\RR)\cup\dots\cup (S_n\cap\RR)\) (for the standard topology on \(\RR\)), if and only if \(x\) is close to \(S_i \cap \RR\) for some \(i\) (for the topology on \(\RR\)), if and only if \(x\) is close to \(S_i\text{.}\) Now \(\infty\) is close to \(S_1\cup\dots\cup S_n\) if and only if, for any \(N\in\RR\text{,}\) there is a point of \(S_1\cup\dots\cup S_n\) that does not lie in \([-N,N]\text{.}\) This happens if and only if there is an \(i\) such that for any \(N\in\RR\text{,}\) there is <aside class="aside aside-like" id="aside-25"><p id="p-276">This is the <dfn class="terminology">pigeonhole principle</dfn>. In effect, if \(X\) is an infinite set, \(Y\) is a finite set, and \(f\colon\fromto{X}{Y}\) is a map, there is an element \(y\in Y\) such that \(f^{-1}\{y\}\) is infinite.</p></aside> a point of \(S_i\) that does not lie in \([-N,N]\text{.}\)</p>
+</li>
+<li id="li-86"><p id="p-277">Finally, suppose that every point of a subset \(S\subseteq\RR\sqcup\{\infty\}\) is close to a subset \(T\subseteq\RR\sqcup\{\infty\}\text{.}\) Now if \(x\) is close to \(S\text{,}\) there are two options. First, if \(x\in\RR\text{,}\) then \(x\) is close to \(S\cap\RR\) and hence to \(T\cap\RR\text{.}\) Otherwise, if \(x=\infty\text{,}\) then if \(\infty\in T\) or \(\infty\in S\text{,}\) then we're done. If not, then for every \(N\in\RR\text{,}\) there is a point \(s_N\in S\subseteq\RR\) such that \(|s_N|&gt;N\text{;}\) this point \(s_N\) is close to \(T\text{,}\) so if we set \(\epsilon_N\coloneq|s_N|-N\text{,}\) then there exists a point \(t_N\in T\) such that \(|s_N-t_N|\lt \epsilon_N\text{.}\) Thus \(|t_N|&gt;N\text{,}\) and so \(\infty\) is close to \(T\text{.}\)</p></li>
+</ul></article></div>
+<p id="p-278">This isn't the only way to enlarge \(\RR\text{.}\)</p>
+<article class="example example-like" id="example-26"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-26"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.12</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-26"><article class="example example-like"><p id="p-279">Define a topology on \(\RR\sqcup\{-\infty,+\infty\}\) in which, for any point \(x\in\RR\sqcup\{-\infty,+\infty\}\) and any subset \(S\subseteq\RR\sqcup\{-\infty,+\infty\}\text{,}\)</p>
+<ul class="disc">
+<li id="li-87"><p id="p-280">If \(x\in\RR\text{,}\) then \(x\) is close to \(S\) if and only if \(x\) is close to \(S\cap\RR\text{.}\)</p></li>
+<li id="li-88"><p id="p-281">We declare that \(-\infty\) is close to \(S\) if and only if either \(-\infty\in S\) or for any \(N\in\RR_{\geq 0}\text{,}\) there is a point \(s\in S\cap\RR\) such that \(s\lt -N\text{.}\)</p></li>
+<li id="li-89"><p id="p-282">We declare that \(+\infty\) is close to \(S\) if and only if either \(+\infty\in S\) or for any \(N\in\RR_{\geq 0}\text{,}\) there is a point \(s\in S\cap\RR\) such that \(s&gt;N\text{.}\)</p></li>
+</ul>
+<p id="p-283">This is a topology.</p>
+<aside class="aside aside-like" id="aside-26"><p id="p-284">You should convince yourself of this!</p></aside></article></div>
+<p id="p-285">There is another , more standard, way to specify topologies. It's a little less intuitive, but it becomes technically convenient when we want to do things like <dfn class="terminology">generate</dfn> topologies.</p>
+<article class="definition definition-like" id="definition-7"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.13</span><span class="period">.</span>
+</h6>
+<p id="p-286">Fix a set \(X\text{.}\) Let's define two different kinds of information on \(X\text{.}\)</p>
+<ul class="disc">
+<li id="li-90">
+<p id="p-287">A <dfn class="terminology">system of open sets</dfn> on \(X\) is a subset \(\mathscr{O}\subseteq\PP(X)\) that is stable under unions <aside class="aside aside-like" id="aside-27"><p id="p-288">possibly empty</p></aside> and finite intersections <aside class="aside aside-like" id="aside-28"><p id="p-289">possibly empty</p></aside>. That is, if \(\Sigma\subseteq \mathscr{O}\text{,}\) then the union</p>
+<div class="displaymath">
+\begin{equation*}
+\bigcup_{U\in \Sigma} U
+\end{equation*}
+</div>
+<p class="continuation">also lies in \(\mathscr{O}\text{,}\) and if \(\Sigma\) is finite, then the intersection</p>
+<div class="displaymath">
+\begin{equation*}
+\bigcap_{U\in \Sigma} U
+\end{equation*}
+</div>
+<p class="continuation">also lies in \(\mathscr{O}\text{.}\)</p>
+</li>
+<li id="li-91">
+<p id="p-290">Dually, a <dfn class="terminology">system of closed sets</dfn> on \(X\) is a subset \(\mathscr{C}\subseteq\PP(X)\) that is stable under intersections and finite unions. That is, if \(\Sigma \subseteq\mathscr{C}\text{,}\) then the intersection</p>
+<div class="displaymath">
+\begin{equation*}
+\bigcap_{Z\in\Sigma} Z
+\end{equation*}
+</div>
+<p class="continuation">also lies in \(\mathscr{C}\text{,}\) and if \(\Sigma\) is finite, then the union</p>
+<div class="displaymath">
+\begin{equation*}
+\bigcup_{Z\in\Sigma} Z
+\end{equation*}
+</div>
+<p class="continuation">also lies in \(\mathscr{C}\text{.}\)</p>
+</li>
+</ul></article><p id="p-291">Specifying a system of open sets is the same as specifying a system of closed sets. More precisely, the formation of the complement in \(X\) defines a bijection between the set of systems of open sets and the set of systems of closed sets.</p>
+<p id="p-292">Specifying a topology is the same as specifying a system of closed sets.</p>
+<p id="p-293">For any a topology \(\tau\) on \(X\text{,}\) one may define \(\mathscr{C}_{\tau}\) as the set of closed subsets of the topology:</p>
+<div class="displaymath">
+\begin{equation*}
+\mathscr{C}_{\tau} \coloneq \{ Z\in\PP(X) : \tau(Z)=Z \}\text{.}
+\end{equation*}
+</div>
+<p id="p-294">To see that \(\mathscr{C}_{\tau}\) is stable under intersection and finite union, let \(\Sigma \subseteq \mathscr{C}_{\tau}\) be a subset. Let \(W\) be the intersection \(\bigcap_{Z \in \Sigma} Z\text{.}\) For every \(Z \in \Sigma\text{,}\) since \(\tau\) is inclusion-preserving, it follows that \(\tau\left(W\right) \subseteq \tau(Z) = Z\text{.}\) Consequently, \(\tau(W)\) is contained in the intersection \(W\text{,}\) so \(W\) is closed. If \(\Sigma\) is finite, then since \(\tau\) preserves finite unions, we have</p>
+<div class="displaymath">
+\begin{equation*}
+\tau\left(\bigcup_{Z\in\Sigma} Z\right) = \bigcup_{Z\in\Sigma} \tau(Z) = \bigcup_{Z \in \Sigma} Z\text{.}
+\end{equation*}
+</div>
+<p id="p-295">This proves that \(\mathscr{C}_{\tau}\) is a system of closed sets.</p>
+<p id="p-296">In the opposite direction, for any system of closed subsets \(\mathscr{C}\) on \(X\text{,}\) define a map \(\tau_{\mathscr{C}}\colon\PP(X) \to \PP(X)\) that carries a subset \(S\subseteq X\) to the smallest element of \(\mathscr{C}\) that contains \(S\text{:}\)</p>
+<aside class="aside aside-like" id="aside-29"><p id="p-297">Since \(\mathscr{C}\) is stable under intersections, this formula indeed defines an element of \(\mathscr{C}\text{.}\) So \(\tau_{\mathscr{C}}(S)\) is the smallest element of \(\mathscr{C}\) that contains \(S\text{.}\)</p></aside><div class="displaymath">
+\begin{equation*}
+\tau_{\mathscr{C}}(S) \coloneq \bigcap_{\substack{Z\in \mathscr{C},\\ S\subseteq Z} } Z\text{.}
+\end{equation*}
+</div>
+<p id="p-298">Let us see that \(\tau_{\mathscr{C}}\) is a topology.</p>
+<ol class="decimal">
+<li id="li-92"><p id="p-299">By definition, for every subset \(S \subseteq X\text{,}\) we have \(S \subseteq \tau(S)\text{.}\)</p></li>
+<li id="li-93">
+<p id="p-300">By definition, \(\tau_{\mathscr{C}}\) is an inclusion-preserving operation. Thus if \(S_1, \dots, S_n \subseteq X\) is a finite collection of subsets of \(X\text{,}\) then it follows that</p>
+<div class="displaymath">
+\begin{equation*}
+\tau_{\mathscr{C}}(S_1 \cup \cdots \cup S_n) \supseteq \tau_{\mathscr{C}}(S_1) \cup \cdots \cup \tau_{\mathscr{C}}(S_n)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">On the other hand, since \(\mathscr{C}\) is stable under finite unions, it follows that \(\tau_{\mathscr{C}}(S_1) \cup \cdots \cup \tau_{\mathscr{C}}(S_n) \in \mathscr{C}\text{.}\) Since in addition, \(S_1 \cup \cdots \cup S_n \subseteq \tau_{\mathscr{C}}(S_1) \cup \cdots \cup \tau_{\mathscr{C}}(S_n)\text{,}\) it follows <aside class="aside aside-like" id="aside-30"><p id="p-301">The point here is that \(\tau_{\mathscr{C}}(S_1 \cup \cdots \cup S_n)\) is the <em class="emphasis">smallest</em> closed subset that contains \(S_1 \cup \cdots \cup S_n\text{.}\)</p></aside> that</p>
+<div class="displaymath">
+\begin{equation*}
+\tau_{\mathscr{C}}(S_1 \cup \cdots \cup S_n) \subseteq \tau_{\mathscr{C}}(S_1) \cup \cdots \cup \tau_{\mathscr{C}}(S_n)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">whence \(\tau_{\mathscr{C}}\) preserves finite unions.</p>
+</li>
+<li id="li-94">
+<p id="p-302">Finally, \(\tau_{\mathscr{C}}(\tau_{\mathscr{C}}(S)\) is the smallest element of \(\mathscr{C}\) that contains \(\tau_{\mathscr{C}}(S)\text{.}\) But since \(\tau_{\mathscr{C}}(S)\) itself likes in \(\mathscr{C}\text{,}\) it follows that</p>
+<div class="displaymath">
+\begin{equation*}
+\tau_{\mathscr{C}}(\tau_{\mathscr{C}}(S)) \subseteq \tau_{\mathscr{C}}(S)\text{.}
+\end{equation*}
+</div>
+</li>
+</ol>
+<p id="p-303">Thus one may specify a topology on \(X\) by specifying the closed sets and checking stability under intersections and finite unions, or specifying the open sets and checking stability under unions and finite intersections.</p>
+<aside class="aside aside-like" id="aside-31"><p id="p-304">Most textbooks define topologies as a system of open sets. There's nothing wrong with this definition, but we've delayed this description, because it seems difficult to motivate fully.</p></aside><article class="example example-like" id="example-27"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-27"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.14</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-27"><article class="example example-like"><p id="p-305">Here's an extremely important example in modern mathematics. This one will be following us around throughout this text. Let \(X \subseteq \RR^m\) be any subspace, and let \(n \in \NN\text{.}\) We are about to define a topological space \(C_n(X)\) called the <dfn class="terminology">configuration space of \(n\) points in \(X\)</dfn>. As a set, \(C_n(X)\) is the set of subsets \(\{x_1,\dots,x_n\} \subseteq X\) of \(n\) distinct points:</p>
+<div class="displaymath">
+\begin{equation*}
+C_n(X) \coloneq \{ S \subseteq \PP(X) : \# S = n \}\text{.}
+\end{equation*}
+</div>
+<p id="p-306">To endow it with a topology, we need to define an auxiliary topological space.</p>
+<p id="p-307">Recall that we defined the subspace</p>
+<div class="displaymath">
+\begin{equation*}
+X^n \coloneq X \times \cdots \times X = \{ x = (x_1, \dots, x_n) \in \RR^{mn} : (\forall i)(x_i \in X) \} \subseteq \RR^{mn}\text{.}
+\end{equation*}
+</div>
+<p id="p-308">We now pass to a further subspace:</p>
+<div class="displaymath">
+\begin{equation*}
+E_n(X) \coloneq \{(x_1, \dots, x_n) \in X^n : (\forall i,j)((i \neq j) \implies (x_i \neq x_j)) \} \subseteq X^m\text{.}
+\end{equation*}
+</div>
+<p id="p-309">Now there is a map \(q \colon  E_m(X) \to C_m(X)\) defined by</p>
+<div class="displaymath">
+\begin{equation*}
+q(x_1, \dots, x_n) \coloneq \{x_1, \dots, x_n\}\text{.}
+\end{equation*}
+</div>
+<p id="p-310">We now declare that \(U \subseteq C_n(X)\) is open if and only if \(q^{-1}(U) \subseteq E_n(X)\) is open. This defines a system of open sets (and hence a topology), since the formation of the inverse image preserves unions and intersections.</p></article></div>
+<article class="example example-like" id="example-28"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-28"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.15</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-28"><article class="example example-like"><p id="p-311">Any set \(X\) can be given the <dfn class="terminology">cofinite</dfn> topology, in which a subset \(Z\subseteq X\) is declared to be closed if and only if either \(Z\) is finite or \(Z=X\text{.}\) Thus in the cofinite topology,</p>
+<div class="displaymath">
+\begin{equation*}
+\tau(S) = \begin{cases}S \amp  \text{ if }  S \text{ is finite; }  \\ X \amp  \text{ if }  S \text{ is infinite. } \end{cases}
+\end{equation*}
+</div></article></div>
+<article class="definition definition-like" id="definition-8"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.16</span><span class="period">.</span>
+</h6>
+<p id="p-312">Let \(X\) be a topological space, and let \(x \in X\text{.}\) Then an <dfn class="terminology">open neighborhood</dfn> of \(x\) is an open subset \(U \subseteq X\) such that \(x \in U\text{.}\) A <dfn class="terminology">neighborhood</dfn> of \(x\) is a subset of \(X\) that contains an open neighborhood of \(x\text{.}\)</p></article><p id="p-313">If \(X\) is a topological space, then \(\tau(S)\) is the smallest closed subset that contains \(S\text{.}\) Equivalently, a point \(y \in X\) lies in the closure \(\tau(S)\) if and only if, for any open neighborhood \(U\) of \(y\text{,}\) the intersection \(U \cap \tau(S)\) is nonempty.</p>
+<p id="p-314">Why are these equivalent? Well, if \(y \notin \tau(S)\text{,}\) then \(X \smallsetminus \tau(S)\) is an open neighborhood of \(y\) that does not intersect \(S\text{.}\) Conversely, if \(U\) is an open neighborhood of \(x\) that does not intersect \(\tau(S)\text{,}\) then \(X \smallsetminus U\) is a closed subset that contains \(S\) and therefore \(\tau(S)\text{.}\)</p></section></div></main>
+</div>
+</body>
+</html>

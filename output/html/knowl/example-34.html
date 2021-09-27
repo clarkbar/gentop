@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-09-27T08:44:19+01:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<article class="example example-like"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.12</span><span class="period">.</span>
+</h6>
+<p>Let's show that the following three topological spaces are homeomorphic:</p>
+<ul class="disc">
+<li><p>The circle \(S^1 \subseteq \RR^2\text{.}\)</p></li>
+<li><p>The topological space \(\PP^1_{\RR}\) from <a class="xref" data-knowl="./knowl/exm_real_projective_line.html" title="Example 2.1.1">Example 2.1.1</a>.</p></li>
+<li><p>The topological spaces \(\RR \sqcup \{\infty\}\) from <a class="xref" data-knowl="./knowl/exm_one_point_compactification_of_RR.html" title="Example 2.1.11">Example 2.1.11</a>.</p></li>
+</ul>
+<p>The map \(L \colon S^1 \to \PP^1_{\RR}\) defined above is not a homeomorphism, but that doesn't mean we can't find another homeomorphism between these two topological spaces. So let's try to go the other way. Let's define a map \(h \colon \PP^1_{\RR} \to S^1\text{.}\) For every line \(L \in \PP^1_{\RR}\text{,}\) there is a point \(z \in S^1\) such that \(L=L(z)\text{.}\) If we think of \(S^1 \subset \CC\text{,}\) we can define \(h(L)\) as \(z^2\) for any \(z \in S^1\) such that \(L = L(z)\text{.}\) In other words, if \(L\) is the line spanned by a nonzero vector \((x,y) \in \RR^2\text{,}\) then</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+h(L) = \left( \frac{x^2-y^2}{x^2+y^2}, \frac{2xy}{x^2+y^2} \right)\text{.}
+\end{equation*}
+</div>
+<p>This is well-defined, since this formula gives the same value if you replace \((x,y)\) with \((\alpha x, \alpha y)\) for \(\alpha \in \RR \smallsetminus \{0\}\text{.}\)</p>
+<p>Let us prove that \(h\) is continuous. We may be tempted to use the fact that the formula above defines a continuous function \(\RR^2 \smallsetminus \{0\} \to S^1\text{,}\) but we have to be a little careful, because \(\PP^1_{\RR}\) wasn't defined as a subspace of a Euclidean space. Assume that \(S \subseteq \PP^1_{\RR}\text{,}\) and assume that \(L \in \tau(S)\text{.}\) Let \(\varepsilon &gt;0\text{;}\) there exists a line \(L' \in S\) such that either \(\|i(L) - i(L')\| \lt  \varepsilon/2\) or \(\|i(L) - j(L')\| \lt  \varepsilon/2\text{.}\) Furthermore, we know that no two points in \(S^1\) are separated by a distance of more than \(2\text{;}\) therefore, both \(\|i(L) - i(L')\| \leq 2\) or \(\|i(L) - j(L')\| \leq 2\text{.}\) We may therefore multiply these inequalities to obtain:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\|i(L) - i(L')\| \|i(L) - j(L')\| \lt  \varepsilon\text{.}
+\end{equation*}
+</div>
+<p>Since \(i(L') = -j(L')\text{,}\) we therefore obtain</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\|h(L) - h(L')\| = \|i(L)^2 -j(L')^2\| \lt  \varepsilon\text{.}
+\end{equation*}
+</div>
+<p>It therefore follows that \(h(L)\) is close to \(h(S)\text{.}\) So \(h\) is continuous.</p>
+<p>Now let us show that \(h\) is a bijection. If \(w \in S^1\text{,}\) then the inverse image \(h^{-1}\{w\}\) is the set of lines \(L \in \PP^1_{\RR}\) such that either \(i(L)\) or \(j(L)\) is a square root of \(w\text{.}\) In fact, since \(i(L) = -j(L)\text{,}\) it follows that \(i(L)\) is a square root of \(w\) if and only if \(j(L)\) is a square root of \(w\text{.}\) Hence \(h^{-1}\{w\}\) consists of exactly one line: the line passing through either square root of \(w\) and the origin.</p>
+<p>Now let's demonstrate that \(h\) is a homeomorphism. For this, we note that the inverse \(h^{-1}\) carries \(w \in S^1\) to the line passing through the square roots of \(w\) and the origin. To prove that this is continuous, assume that \(T \subseteq S^1\text{,}\) and assume that \(w \in S^1\) is close to \(T\text{.}\) Let \(\varepsilon&gt;0\text{;}\) then there exists \(w' \in T\) such that \(\|w-w'\| \lt  \varepsilon^2\text{.}\) Now if \(z, -z \in S^1\) are the two square roots of \(w\text{,}\) and if \(z', -z' \in S^1\) are the two square roots of \(w'\text{,}\) then either \(|z-z'|\lt \varepsilon\) or \(|z+z'|\lt \varepsilon\text{,}\) since otherwise, we would have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+|w-w'| = |z-z'| |z+z'| \geq \varepsilon^2\text{.}
+\end{equation*}
+</div>
+<p>Consequently, it follows that \(h^{-1}(w)\) is close to \(h^{-1}(T)\text{.}\) This now completes the proof that \(\PP^1_{\RR}\) and \(S^1\) are homeomorphic.</p>
+<p>Now we prove that \(\RR \sqcup \{\infty\}\) and \(S^1\) are homeomorphic. Indeed, define maps</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+f \colon S^1 \to \RR \sqcup \{\infty\} \andeq g \colon \RR \sqcup \{\infty\} \to S^1
+\end{equation*}
+</div>
+<p class="continuation">by the formulas</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+f(x,y) \coloneq \begin{cases}x/(1-y) \amp  \text{ if }  y \neq 1 ; \\ \infty \amp  \text{ if }  y = 1 . \end{cases}
+\end{equation*}
+</div>
+<p class="continuation">and</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+g(t) \coloneq \begin{cases}1/(t^2+1)(2t, t^2-1) \amp  \text{ if }  t \neq \infty ; \\ (0,1) \amp  \text{ if }  t = \infty . \end{cases}
+\end{equation*}
+</div>
+<p>A direct check confirms that \(f\) and \(g\) are inverses, but the interesting thing to prove is that they are each continuous.</p>
+<p>For \(f\text{,}\) continuity away from the point \((0,1)\) follows from the elementary analytic facts we are happy to assume here. But continuity at \((0,1)\) is more interesting! So assume that \(S \subseteq S^1\) is a subset to which \((0,1)\) is close. We have to show that \(\infty\) is close to \(f(S)\text{.}\) So let \(N &gt; 0\) be a real number; we aim to find an element \((x,y) \in S\) such that \(|x/(1-y)| &gt; N\) or, equivalently, that \(x^2/(1-y)^2 = (1+y)/(1-y) &gt; N^2\text{,}\) Choose \(\varepsilon&gt;0\) so that \(\varepsilon \leq 2/N^2\text{;}\) since \((0,1)\) is close to \(S\text{,}\) there exists a point \((x,y) \in S\) such that \(x^2 - (1-y)^2 \lt  \varepsilon\) and \(y \geq 0\text{.}\) Since \(x^2+y^2 = 1\text{,}\) this implies that \(1-y \lt  \varepsilon/2\text{,}\) and since \(1+y \geq 1\text{,}\) we obtain</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\frac{1+y}{1-y} \geq \frac{1}{1-y} &gt; \frac{2}{\varepsilon} &gt; N^2\text{.}
+\end{equation*}
+</div>
+<p>Once again, elementary analysis facts imply that \(g\) is continuous at every point of \(\RR\text{.}\) We must show that \(g\) is continuous at \(\infty\) as well. For this, assume that \(T \subseteq \RR \sqcup \{\infty\}\) is a subset such that \(\infty\) is close to \(T\text{.}\) Let \(\varepsilon &gt;0\text{;}\) we aim to show that there exists an element \(t\in T\) such that \(\|g(t)-(0,1)\| \lt  \varepsilon\text{.}\) If \(\infty \in T\text{,}\) then this is immediate, so it suffices to consider the case in which \(T \subseteq \RR\) is an unbounded subset. There exists \(t \in T\) such that \(|t| &gt; 2/\varepsilon\text{,}\) and so</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\left\|1/(t^2+1)(2t, t^2-1) - (0,1)\right\|^2 = \frac{4}{t^2+1} \lt  \varepsilon^2\text{,}
+\end{equation*}
+</div>
+<p class="continuation">so that \(\| g(t) - (0,1) \| \lt  \varepsilon\text{,}\) just as we'd hoped.</p>
+<p>The upshot here is that we have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\PP^1_{\RR} \cong S^1 \cong \RR \sqcup \{\infty\}\text{.}
+\end{equation*}
+</div></article><span class="incontext"><a href="sec_continuity.html#example-34">in-context</a></span>
+</body>
+</html>

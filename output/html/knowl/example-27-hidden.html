@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-09-27T08:44:19+01:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body><article class="example example-like"><p>Here's an extremely important example in modern mathematics. This one will be following us around throughout this text. Let \(X \subseteq \RR^m\) be any subspace, and let \(n \in \NN\text{.}\) We are about to define a topological space \(C_n(X)\) called the <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">configuration space of \(n\) points in \(X\)</dfn>. As a set, \(C_n(X)\) is the set of subsets \(\{x_1,\dots,x_n\} \subseteq X\) of \(n\) distinct points:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+C_n(X) \coloneq \{ S \subseteq \PP(X) : \# S = n \}\text{.}
+\end{equation*}
+</div>
+<p>To endow it with a topology, we need to define an auxiliary topological space.</p>
+<p>Recall that we defined the subspace</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+X^n \coloneq X \times \cdots \times X = \{ x = (x_1, \dots, x_n) \in \RR^{mn} : (\forall i)(x_i \in X) \} \subseteq \RR^{mn}\text{.}
+\end{equation*}
+</div>
+<p>We now pass to a further subspace:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+E_n(X) \coloneq \{(x_1, \dots, x_n) \in X^n : (\forall i,j)((i \neq j) \implies (x_i \neq x_j)) \} \subseteq X^m\text{.}
+\end{equation*}
+</div>
+<p>Now there is a map \(q \colon  E_m(X) \to C_m(X)\) defined by</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+q(x_1, \dots, x_n) \coloneq \{x_1, \dots, x_n\}\text{.}
+\end{equation*}
+</div>
+<p>We now declare that \(U \subseteq C_n(X)\) is open if and only if \(q^{-1}(U) \subseteq E_n(X)\) is open. This defines a system of open sets (and hence a topology), since the formation of the inverse image preserves unions and intersections.</p></article></body>
+</html>

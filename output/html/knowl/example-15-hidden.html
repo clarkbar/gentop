@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-09-27T08:44:18+01:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body><article class="example example-like"><p>The line \(\RR\) is not homeomorphic to \(S^1\text{.}\) Indeed, suppose it were; choose a homeomorphism \(f \colon \RR \to S^1\text{.}\) This will restrict to a homeomorphism \(\RR \smallsetminus \{0\} \to S^1\smallsetminus\{f(0)\}\text{.}\) However, we claim that \(S^1 \smallsetminus \{f(0)\}\) is connected. In fact, we'll do better: we shall prove that \(S^1 \smallsetminus \{f(0)\}\) is homeomorphic to \(\RR\text{.}\)</p>
+<p>To make our formulas simpler, let's use complex numbers.</p>
+<aside class="aside aside-like"><p>The field of complex numbers \(\CC\) is really nothing more than \(\RR^2\text{,}\) equipped with its complex multiplication rule \((a,b)\cdot (c,d) = (ac-bd,
+ad+bc)\text{.}\)</p></aside><p>We have:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+S^1 = \{z \in \CC : |z| = 1 \}\text{.}
+\end{equation*}
+</div>
+<p>Let \(w = f(0)\text{.}\) We may first construct a homeomorphism \(S^1\smallsetminus\{w\} \to S^1 \smallsetminus \{1\}\) by the rule \(z \mapsto z/w\text{.}\) Since the inverse map is \(z \mapsto wz\text{,}\) which is also continuous, we are done.</p>
+<p>With this done, we now construct a homeomorphism \(\left]0,1\right[ \to S^1 \smallsetminus \{1\}\) by the rule \(t \mapsto \exp(2\pi i t)\text{.}\) This map is a continuous bijection, but what about its inverse \(r\text{?}\) To make it easy to deduce the continuity of \(r\) from well-known bits of analysis, we write it as:</p>
+<aside class="aside aside-like"><p>Please note, however, that this formula will not work to define a continuous map from \(S^1 \to \RR\text{.}\)</p></aside><div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+r(x,y) = \frac{1}{2}-\frac{1}{\pi}\arctan\left(\frac{y}{1-x}\right)\text{.}
+\end{equation*}
+</div>
+<p>It now follows that \(S^1\smallsetminus\{1\}\) is homeomorphic to an open interval and thus to \(\RR\) itself.</p></article></body>
+</html>

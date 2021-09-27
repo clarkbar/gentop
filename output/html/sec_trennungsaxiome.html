@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-09-27T08:44:17+01:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Trennungsaxiome</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore",
+    processHtmlClass: "has_am",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{\andeq}{\text{\qquad and\qquad}}
+\newcommand{\respectively}[1]{\text{\qquad(respectively,\quad}{#1}\text{\quad)}}
+\newcommand{\resp}[1]{\text{\qquad(resp.,\quad}{#1}\text{\quad)}}
+
+\newcommand{\comma}{\rlap{\ ,}}
+\newcommand{\period}{\rlap{\ .}}
+\newcommand{\semicolon}{\rlap{\ ;}}
+ \newcommand{\coloneq}{\mathrel{:=}}
+
+ 
+
+ \newcommand{\mathup}[1]{\mathrm{#1}}
+ \newcommand{\mathbfup}[1]{\mathbf{#1}}
+ 
+ \renewcommand{\AA}{\mathbfit{A}}
+ \newcommand{\BB}{\mathbfit{B}}
+ \newcommand{\CC}{\mathbfit{C}}
+ \newcommand{\DD}{\mathbfit{D}}
+ \newcommand{\EE}{\mathbfit{E}}
+ \newcommand{\FF}{\mathbfit{F}}
+ \newcommand{\GG}{\mathbfit{G}}
+ \newcommand{\HH}{\mathbfit{H}}
+ \newcommand{\II}{\mathbfit{I}}
+ \newcommand{\JJ}{\mathbfit{J}}
+ \newcommand{\KK}{\mathbfit{K}}
+ \newcommand{\LL}{\mathbfit{L}}
+ \newcommand{\MM}{\mathbfit{M}}
+ \newcommand{\NN}{\mathbfit{N}}
+ \newcommand{\OO}{\mathbfit{O}}
+ \newcommand{\PP}{\mathbfit{P}}
+ \newcommand{\QQ}{\mathbfit{Q}}
+ \newcommand{\RR}{\mathbfit{R}}
+ \renewcommand{\SS}{\mathbfit{S}}
+ \newcommand{\TT}{\mathbfit{T}}
+ \newcommand{\UU}{\mathbfit{U}}
+ \newcommand{\VV}{\mathbfit{V}}
+ \newcommand{\WW}{\mathbfit{W}}
+ \newcommand{\XX}{\mathbfit{X}}
+ \newcommand{\YY}{\mathbfit{Y}}
+ \newcommand{\ZZ}{\mathbfit{Z}}
+ 
+ \let\Gammaup\Gamma
+ \let\Deltaup\Delta
+ \let\Thetaup\Theta
+ \let\Lambdaup\Lambda
+ \let\Xiup\Xi
+ \let\Piup\Pi
+ \let\Sigmaup\Sigma
+ \let\Upsilonup\Upsilon
+ \let\Phiup\Phi
+ \let\Psiup\Psi
+ \let\Omegaup\Omega
+ 
+ \renewcommand{\Gamma}{\mathit{\Gammaup}}
+ \renewcommand{\Delta}{\mathit{\Deltaup}}
+ \renewcommand{\Theta}{\mathit{\Thetaup}}
+ \renewcommand{\Lambda}{\mathit{\Lambdaup}}
+ \renewcommand{\Xi}{\mathit{\Xiup}}
+ \renewcommand{\Pi}{\mathit{\Piup}}
+ \renewcommand{\Sigma}{\mathit{\Sigmaup}}
+ \renewcommand{\Upsilon}{\mathit{\Upsilonup}}
+ \renewcommand{\Phi}{\mathit{\Phiup}}
+ \renewcommand{\Psi}{\mathit{\Psiup}}
+ \renewcommand{\Omega}{\mathit{\Omegaup}}
+ 
+
+
+\renewcommand{\epsilon}{\varepsilon}
+ \newcommand{\el}{\ell}
+\renewcommand{\phi}{\varphi}
+
+\newcommand{\mfa}{\mathfrak{a}}
+\newcommand{\mfb}{\mathfrak{b}}
+\newcommand{\mfc}{\mathfrak{c}}
+\newcommand{\mfd}{\mathfrak{d}}
+\newcommand{\mfe}{\mathfrak{e}}
+\newcommand{\mff}{\mathfrak{f}}
+\newcommand{\mfg}{\mathfrak{g}}
+\newcommand{\mfh}{\mathfrak{h}}
+\newcommand{\mfi}{\mathfrak{i}}
+\newcommand{\mfj}{\mathfrak{j}}
+\newcommand{\mfk}{\mathfrak{k}}
+\newcommand{\mfl}{\mathfrak{l}}
+\newcommand{\mfm}{\mathfrak{m}}
+\newcommand{\mfn}{\mathfrak{n}}
+\newcommand{\mfo}{\mathfrak{o}}
+\newcommand{\mfp}{\mathfrak{p}}
+\newcommand{\mfq}{\mathfrak{q}}
+\newcommand{\mfr}{\mathfrak{r}}
+\newcommand{\mfs}{\mathfrak{s}}
+\newcommand{\mft}{\mathfrak{t}}
+\newcommand{\mfu}{\mathfrak{u}}
+\newcommand{\mfv}{\mathfrak{v}}
+\newcommand{\mfw}{\mathfrak{w}}
+\newcommand{\mfx}{\mathfrak{x}}
+\newcommand{\mfy}{\mathfrak{y}}
+\newcommand{\mfz}{\mathfrak{z}}
+
+\newcommand{\ahat}{\hat{a}}
+\newcommand{\bhat}{\hat{b}}
+\newcommand{\chat}{\hat{c}}
+\newcommand{\dhat}{\hat{d}}
+\newcommand{\ehat}{\hat{e}}
+\newcommand{\fhat}{\hat{f}}
+\newcommand{\ghat}{\hat{g}}
+\newcommand{\hhat}{\hat{h}}
+\newcommand{\ihat}{\hat{\i}}
+\newcommand{\jhat}{\hat{\j}}
+\newcommand{\khat}{\hat{k}}
+\newcommand{\elhat}{\hat{\el}}
+\newcommand{\mhat}{\hat{m}}
+\newcommand{\nhat}{\hat{n}}
+\newcommand{\ohat}{\hat{o}}
+\newcommand{\phat}{\hat{p}}
+\newcommand{\qhat}{\hat{q}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\uhat}{\hat{u}}
+\newcommand{\vhat}{\hat{v}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\xhat}{\hat{x}}
+\newcommand{\yhat}{\hat{y}}
+\newcommand{\zhat}{\hat{z}}
+
+\newcommand{\alphahat}{\hat{\alpha}}
+\newcommand{\betahat}{\hat{\beta}}
+\newcommand{\gammahat}{\hat{\gamma}}
+\newcommand{\deltahat}{\hat{\delta}}
+\newcommand{\epsilonhat}{\hat{\epsilon}}
+\newcommand{\zetahat}{\hat{\zeta}}
+\newcommand{\etahat}{\hat{\eta}}
+\newcommand{\thetahat}{\hat{\theta}}
+\newcommand{\iotahat}{\hat{\iota}}
+\newcommand{\kappahat}{\hat{\kappa}}
+\newcommand{\lambdahat}{\hat{\lambda}}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\xihat}{\hat{\xi}}
+\newcommand{\pihat}{\hat{\pi}}
+\newcommand{\rhohat}{\hat{\rho}}
+\newcommand{\sigmahat}{\hat{\sigma}}
+\newcommand{\tauhat}{\hat{\tau}}
+\newcommand{\upsilonhat}{\hat{\upsilon}}
+\newcommand{\phihat}{\hat{\phi}}
+\newcommand{\chihat}{\hat{\chi}}
+\newcommand{\psihat}{\hat{\psi}}
+\newcommand{\omegahat}{\hat{\omega}}
+
+\newcommand{\Ahat}{\hat{A}}
+\newcommand{\Bhat}{\hat{B}}
+\newcommand{\Chat}{\hat{C}}
+\newcommand{\Dhat}{\hat{D}}
+\newcommand{\Ehat}{\hat{E}}
+\newcommand{\Fhat}{\hat{F}}
+\newcommand{\Ghat}{\hat{G}}
+\newcommand{\Hhat}{\hat{H}}
+\newcommand{\Ihat}{\hat{I}}
+\newcommand{\Jhat}{\hat{J}}
+\newcommand{\Khat}{\hat{K}}
+\newcommand{\Lhat}{\hat{L}}
+\newcommand{\Mhat}{\hat{M}}
+\newcommand{\Nhat}{\hat{N}}
+\newcommand{\Ohat}{\hat{O}}
+\newcommand{\Phat}{\hat{P}}
+\newcommand{\Qhat}{\hat{Q}}
+\newcommand{\Rhat}{\hat{R}}
+\newcommand{\Shat}{\hat{S}}
+\newcommand{\That}{\hat{T}}
+\newcommand{\Uhat}{\hat{U}}
+\newcommand{\Vhat}{\hat{V}}
+\newcommand{\What}{\hat{W}}
+\newcommand{\Xhat}{\hat{X}}
+\newcommand{\Yhat}{\hat{Y}}
+\newcommand{\Zhat}{\hat{Z}}
+
+\newcommand{\Gammahat}{\hat{\Gamma}}
+\newcommand{\Deltahat}{\hat{\Delta}}
+\newcommand{\Thetahat}{\hat{\Theta}}
+\newcommand{\Lambdahat}{\hat{\Lambda}}
+\newcommand{\Xihat}{\hat{\Xi}}
+\newcommand{\Pihat}{\hat{\Pi}}
+\newcommand{\Sigmahat}{\hat{\Sigma}}
+\newcommand{\Upsilonhat}{\hat{\Upsilon}}
+\newcommand{\Phihat}{\hat{\Phi}}
+\newcommand{\Chihat}{\hat{\Chi}}
+\newcommand{\Psihat}{\hat{\Psi}}
+\newcommand{\Omegahat}{\hat{\Omega}}
+
+\newcommand{\atilde}{\tilde{a}}
+\newcommand{\btilde}{\tilde{b}}
+\newcommand{\ctilde}{\tilde{c}}
+\newcommand{\dtilde}{\tilde{d}}
+\newcommand{\etilde}{\tilde{e}}
+\newcommand{\ftilde}{\tilde{f}}
+\newcommand{\gtilde}{\tilde{g}}
+\newcommand{\htilde}{\tilde{h}}
+\newcommand{\itilde}{\tilde{\i}}
+\newcommand{\jtilde}{\tilde{\j}}
+\newcommand{\ktilde}{\tilde{k}}
+\newcommand{\eltilde}{\tilde{\el}}
+\newcommand{\mtilde}{\tilde{m}}
+\newcommand{\ntilde}{\tilde{n}}
+\newcommand{\otilde}{\tilde{o}}
+\newcommand{\ptilde}{\tilde{p}}
+\newcommand{\qtilde}{\tilde{q}}
+\newcommand{\rtilde}{\tilde{r}}
+\newcommand{\stilde}{\tilde{s}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\xtilde}{\tilde{x}}
+\newcommand{\ytilde}{\tilde{y}}
+\newcommand{\ztilde}{\tilde{z}}
+
+\newcommand{\alphatilde}{\tilde{\alpha}}
+\newcommand{\betatilde}{\tilde{\beta}}
+\newcommand{\gammatilde}{\tilde{\gamma}}
+\newcommand{\deltatilde}{\tilde{\delta}}
+\newcommand{\epsilontilde}{\tilde{\epsilon}}
+\newcommand{\zetatilde}{\tilde{\zeta}}
+\newcommand{\etatilde}{\tilde{\eta}}
+\newcommand{\thetatilde}{\tilde{\theta}}
+\newcommand{\iotatilde}{\tilde{\iota}}
+\newcommand{\kappatilde}{\tilde{\kappa}}
+\newcommand{\lambdatilde}{\tilde{\lambda}}
+\newcommand{\mutilde}{\tilde{\mu}}
+\newcommand{\nutilde}{\tilde{\nu}}
+\newcommand{\xitilde}{\tilde{\xi}}
+\newcommand{\pitilde}{\tilde{\pi}}
+\newcommand{\rhotilde}{\tilde{\rho}}
+\newcommand{\sigmatilde}{\tilde{\sigma}}
+\newcommand{\tautilde}{\tilde{\tau}}
+\newcommand{\upsilontilde}{\tilde{\upsilon}}
+\newcommand{\phitilde}{\tilde{\phi}}
+\newcommand{\chitilde}{\tilde{\chi}}
+\newcommand{\psitilde}{\tilde{\psi}}
+\newcommand{\omegatilde}{\tilde{\omega}}
+
+\newcommand{\Atilde}{\widetilde{A}}
+\newcommand{\Btilde}{\widetilde{B}}
+\newcommand{\Ctilde}{\widetilde{C}}
+\newcommand{\Dtilde}{\widetilde{D}}
+\newcommand{\Etilde}{\widetilde{E}}
+\newcommand{\Ftilde}{\widetilde{F}}
+\newcommand{\Gtilde}{\widetilde{G}}
+\newcommand{\Htilde}{\widetilde{H}}
+\newcommand{\Itilde}{\widetilde{I}}
+\newcommand{\Jtilde}{\widetilde{J}}
+\newcommand{\Ktilde}{\widetilde{K}}
+\newcommand{\Ltilde}{\widetilde{L}}
+\newcommand{\Mtilde}{\widetilde{M}}
+\newcommand{\Ntilde}{\widetilde{N}}
+\newcommand{\Otilde}{\widetilde{O}}
+\newcommand{\Ptilde}{\widetilde{P}}
+\newcommand{\Qtilde}{\widetilde{Q}}
+\newcommand{\Rtilde}{\widetilde{R}}
+\newcommand{\Stilde}{\widetilde{S}}
+\newcommand{\Ttilde}{\widetilde{T}}
+\newcommand{\Utilde}{\widetilde{U}}
+\newcommand{\Vtilde}{\widetilde{V}}
+\newcommand{\Wtilde}{\widetilde{W}}
+\newcommand{\Xtilde}{\widetilde{X}}
+\newcommand{\Ytilde}{\widetilde{Y}}
+\newcommand{\Ztilde}{\widetilde{Z}}
+
+\newcommand{\Gammatilde}{\widetilde{\Gamma}}
+\newcommand{\Deltatilde}{\widetilde{\Delta}}
+\newcommand{\Thetatilde}{\widetilde{\Theta}}
+\newcommand{\Lambdatilde}{\widetilde{\Lambda}}
+\newcommand{\Xitilde}{\widetilde{\Xi}}
+\newcommand{\Pitilde}{\widetilde{\Pi}}
+\newcommand{\Sigmatilde}{\widetilde{\Sigma}}
+\newcommand{\Upsilontilde}{\widetilde{\Upsilon}}
+\newcommand{\Phitilde}{\widetilde{\Phi}}
+\newcommand{\Chitilde}{\widetilde{\Chi}}
+\newcommand{\Psitilde}{\widetilde{\Psi}}
+\newcommand{\Omegatilde}{\widetilde{\Omega}}
+
+
+
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Equival}{Equiv}
+\DeclareMathOperator{\Fun}{Fun}
+\newcommand{\Funcross}{\Fun^{\cross}}
+\newcommand{\Functs}{\Fun^{\cts}}
+\newcommand{\Funpyk}{\Functs}
+\newcommand{\Funlowerstar}{\Fun_{\ast}}
+\newcommand{\Funupperstar}{\Fun^{\ast}}
+\DeclareMathOperator{\Hom}{Hom}
+\newcommand{\HOM}{\ensuremath{\textup{\textsc{Hom}}}}
+\DeclareMathOperator{\Isom}{Isom}
+\DeclareMathOperator{\Map}{Map}
+\DeclareMathOperator{\Mor}{Mor}
+\newcommand{\MOR}{\ensuremath{\textup{\textsc{Mor}}}}
+
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\PSO}{PSO}
+\DeclareMathOperator{\PSp}{PSp}
+\DeclareMathOperator{\PSU}{PSU}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\SU}{SU}
+
+\DeclareMathOperator{\cofib}{cofib}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator*{\colim}{colim}
+\DeclareMathOperator*{\hocolim}{hocolim}
+\DeclareMathOperator*{\holim}{holim}
+\DeclareMathOperator{\fib}{fib}
+
+\DeclareMathOperator{\Nerve}{N}
+\DeclareMathOperator{\trun}{\uptau}
+
+\DeclareMathOperator{\cosk}{ck}
+\DeclareMathOperator{\creff}{cr}
+\DeclareMathOperator{\ev}{ev}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\sd}{sd}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\specpos}{sp}
+\newcommand{\sdop}{\sd^{\op}}
+
+
+
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\angs}[1]{\langle #1 \rangle}
+ \newcommand{\quine}[1]{\ulcorner #1 \urcorner}
+\newcommand{\ultimes}{\,\underline{\times}\,}
+\newcommand{\horn}[2]{\upLambda_{#1}^{#2}}
+
+
+
+\newcommand{\categ}[1]{\textbf{\textup{#1}}}
+
+
+ 
+ \newcommand{\fromto}[2]{{#1} \to {#2}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Topology:</span> <span class="subtitle">General Topology 2021</span></a></h1>
+<p class="byline">Clark Barwick</p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="cha_separation.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="cha_separation.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec_urysohn_tietze.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="cha_separation.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="cha_separation.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec_urysohn_tietze.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="cha_subspaces_of_euclidean_space.html" data-scroll="cha_subspaces_of_euclidean_space"><span class="codenumber">1</span> <span class="title">Subspaces of Euclidean space</span></a><ul>
+<li><a href="sec_basic_definitions.html" data-scroll="sec_basic_definitions">Basic definitions</a></li>
+<li><a href="sec_continuity_for_subspaces_of_euclidean_space.html" data-scroll="sec_continuity_for_subspaces_of_euclidean_space">Continuity</a></li>
+<li><a href="sec_connectedness_for_subspaces_of_euclidean_space.html" data-scroll="sec_connectedness_for_subspaces_of_euclidean_space">Connectedness</a></li>
+<li><a href="sec_subspaces_exercises.html" data-scroll="sec_subspaces_exercises">Problem set 1, due 5 October 2021</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="cha_abstract_topological_spaces.html" data-scroll="cha_abstract_topological_spaces"><span class="codenumber">2</span> <span class="title">Abstract topological spaces</span></a><ul>
+<li><a href="sec_topologies.html" data-scroll="sec_topologies">Topologies</a></li>
+<li><a href="sec_continuity.html" data-scroll="sec_continuity">Continuity</a></li>
+<li><a href="sec_specifying_topologies_efficiently.html" data-scroll="sec_specifying_topologies_efficiently">Specifying topologies efficiently</a></li>
+<li><a href="sec_quotient_spaces.html" data-scroll="sec_quotient_spaces">Quotient spaces</a></li>
+<li><a href="sec_products.html" data-scroll="sec_products">Products</a></li>
+<li><a href="sec_esoterica.html" data-scroll="sec_esoterica">Esoterica</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="cha_compactness.html" data-scroll="cha_compactness"><span class="codenumber">3</span> <span class="title">Compactness</span></a><ul>
+<li><a href="sec_compact_topological_spaces.html" data-scroll="sec_compact_topological_spaces">Compact topological spaces</a></li>
+<li><a href="sec_compact_hausdorff_topological_spaces.html" data-scroll="sec_compact_hausdorff_topological_spaces">Compact Hausdorff topological spaces</a></li>
+<li><a href="sec_tikhonov.html" data-scroll="sec_tikhonov">The Tikhonov Theorem</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="cha_separation.html" data-scroll="cha_separation"><span class="codenumber">4</span> <span class="title">Separation</span></a><ul>
+<li><a href="sec_trennungsaxiome.html" data-scroll="sec_trennungsaxiome" class="active">Trennungsaxiome</a></li>
+<li><a href="sec_urysohn_tietze.html" data-scroll="sec_urysohn_tietze">Urysohn &amp; Tietze</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="cha_elements_of_set_theory.html" data-scroll="cha_elements_of_set_theory"><span class="codenumber">5</span> <span class="title">Elements of set theory</span></a><ul>
+<li><a href="sec_sets_and_elements.html" data-scroll="sec_sets_and_elements">Sets and elements</a></li>
+<li><a href="sec_bounded_comprehension.html" data-scroll="sec_bounded_comprehension">Bounded comprehension</a></li>
+<li><a href="sec_unions.html" data-scroll="sec_unions">Unions</a></li>
+<li><a href="sec_ordered_pairs.html" data-scroll="sec_ordered_pairs">Ordered pairs</a></li>
+<li><a href="sec_maps.html" data-scroll="sec_maps">Maps</a></li>
+<li><a href="sec_bijections.html" data-scroll="sec_bijections">Bijections</a></li>
+<li><a href="sec_products_and_sets_of_maps.html" data-scroll="sec_products_and_sets_of_maps">Products and sets of maps</a></li>
+<li><a href="sec_injections_and_surjections.html" data-scroll="sec_injections_and_surjections">Injections and surjections</a></li>
+<li><a href="sec_the_algebra_of_subsets.html" data-scroll="sec_the_algebra_of_subsets">The algebra of subsets</a></li>
+<li><a href="sec_inverse_and_direct_image.html" data-scroll="sec_inverse_and_direct_image">Inverse and direct image</a></li>
+<li><a href="sec_products_of_sets.html" data-scroll="sec_products_of_sets">Products of sets</a></li>
+<li><a href="sec_coproducts_of_sets.html" data-scroll="sec_coproducts_of_sets">Coproducts of sets</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Back Matter</span></a></li>
+</ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="sec_trennungsaxiome"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">4.1</span> <span class="title">Trennungsaxiome</span>
+</h2>
+<div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="video-12" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/cIVCBPNNOik?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<p id="p-579">placeholder</p></section></div></main>
+</div>
+</body>
+</html>

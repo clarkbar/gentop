@@ -1,0 +1,286 @@
+% !TeX program = xelatex
+
+\documentclass[a4paper,twoside,nols,nobib]{tufte-handout}
+\usepackage{classnotes}
+
+%-------------------------------------------------------------------%
+% Title page data %
+%-------------------------------------------------------------------%
+
+\title{General topology}
+\author{The Problems}
+\date{Autumn 2020}
+
+%-------------------------------------------------------------------%
+
+\begin{document}
+
+\maketitle
+
+%-------------------------------------------------------------------%
+\section*{Abstract topological spaces}
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+\noindent
+Let $X \subseteq \RR^n$ be a nonempty subspace, and let $S \subseteq X$ be a subset.
+Show that the following conditions are equivalent.
+\begin{itemize}
+	\item There is a point $ x \in X $ such that for every $N \in \RR$, there exists $ s \in S $ such that $d(x,s)>N$.
+	\item For every point $x \in X $ and every $N \in \RR$, there exists $ s\in S$ such that $d(x,s)>N$.
+\end{itemize}
+We'll say that $S$ is \defn{unbounded} if either (and therefore both) of these conditions is satisfied.
+Otherwise, we'll say that $S$ is \defn{bounded}.
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{ntn*}
+The next two problems refer to the following notation.
+Let $X \subseteq \RR^n$ be a nonempty subspace; denote by $\tau$ the subspace topology on $X$.
+Let $X^+$ be the set $X \cup \{\infty\}$, where $\infty \notin X$;
+define $\tau^+ \colon \PP( X^+) \to \PP(X^+)$ as follows:
+for any set $S \subseteq X^+$,
+\[
+	\tau^+(S) \coloneq \begin{cases}
+		\tau(S) & \text{if $S \subseteq X$ and $S$ is bounded;} \\ 
+		\tau(S) \cup \{\infty\} & \text{if $S\subseteq X$ and $S$ is unbounded;} \\
+		\tau(S \smallsetminus \{\infty\}) \cup \{\infty\} & \text{if $\infty \in S$.}
+	\end{cases}
+\]
+\end{ntn*}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+\noindent
+Prove that $\tau^+ $ is a topology on $X^+$.
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+\noindent
+Let $\phi \colon S^n \to (\RR^n)^+$ be the map given by the rule
+\[
+	\phi(x_0,x_1,\dots,x_n) \coloneq \begin{cases}
+		\left(\frac{x_1}{1-x_0},\frac{x_2}{1-x_0},\dots,\frac{x_n}{1-x_0}\right) & \text{if $x_0\neq 1$;} \\
+		\infty & \text{otherwise.}
+	\end{cases}
+\]
+Prove that $\phi$ is a homeomorphism, where $(\RR^n)^+$ is given the topology $\tau^+$ described above.
+\end{Problem}
+
+\bigskip
+
+(With this in mind, let's reflect on the $3$-sphere $S^3$, which is homeomorphic to $(\RR^3)^+$.
+Now $\RR^3$ is pretty easy to visualize, so all you have to imagine is that you've added a single point at $\infty$ to $\RR^3$.
+Try to picture it!)
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Define the subspace
+	\[
+		D^2 \coloneq \{ x \in \RR^2 : \|x\|\leq 2 \} \subset \RR^2 \period
+	\]
+	Construct a homeomorphism from the \emph{solid torus} $ST^2 = D^2 \times S^1 \subset \RR^4$ and the subspace
+	\[
+		S \coloneq \{ (x,y,z) \in \RR^3 : (2 - \sqrt{x^2+y^2})^2 + z^2 \leq 1 \} \subset \RR^3 \period
+	\]
+\end{Problem}
+
+\bigskip
+
+(I suggest drawing a picture of this!)
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+\noindent
+Keep the notations from the previous problem.
+Consider the interior $ \iota S$ of $S$ as a subset of $\RR^3$, and therefore as a subset of $(\RR^3)^+$, which is (as you've proved) homeomorphic to $S^3$.
+Prove that $(\RR^3)^+ \smallsetminus \iota S$ is homeomorphic to $ST^2$.
+\end{Problem}
+
+\bigskip
+
+(Reflect on the meaning of the following claim: $S^3$ is the union of two solid tori along a torus $T^2$.)
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Let $X$ be a topological space.
+	Construct a topological space $P_X$ and a continuous surjection $ f \colon X \to P_X $ such that for every $p \in P_X$, the fiber $f^{-1}\{p\}$ is connected.
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Construct a basis for the Cantor space $C$ that consists of clopen subsets.
+\end{Problem}
+
+%-------------------------------------------------------------------%
+\section*{Extra problems (not to be handed in)}
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Let $(X,d)$ be a metric space.
+	Let $D > 0$.
+	Define a new metric $d'\colon X \times X \to \RR$ by the formula
+	\[
+		d'(x,y) \coloneq \min(d(x,y), D) \period
+	\]
+	Prove that the topology $\tau_d$ on $X$ corresponding to $d$ \emph{coincides} with the topology $\tau_{d'}$ on $X$ corresponding to $d'$.
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	The \defn{Sierpi\'{n}ski topological space} $S$ is the Alexandroff topological space attached to the poset $\{0,1\}$, where $0<1$.
+	For any topological space $X$, construct a bijection between the set $\mathscr{C} \subseteq \PP(X)$ of closed sets of $X$ and the set $\Map(X,S)$ of continuous maps $X\to S$.
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	A \emph{filtration} on a topological space $X$ is a sequence of subsets
+	\[
+		X_0 \subseteq X_1 \subseteq X_2 \subseteq \cdots \subseteq X
+	\]
+	such that for each $i\in \NN$, the subset $X_i \subseteq X$ is closed, and the union
+	\[
+		\bigcup_{i\in \NN}X_i
+	\]
+	is again $X$.
+
+	Construct a topological space $Z$ such that for any topological space $X$, the set $\Map(X,Z)$ of continuous maps $X \to Z$ is in bijection with the set $\mathscr{F}$ of filtrations on $X$.
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{ntn*}
+	let $(X,\tau)$ be a topological space.
+	The formation of the \emph{closure} is an operation
+	\[
+		\tau \colon \PP(X) \to \PP(X)
+	\]
+	on the power set $\PP(X)$
+	(i.e., a map from $\PP(X)$ to itself).
+	The formation of the \emph{complement} is an operation
+	\[
+		\kappa \colon \PP(X) \to \PP(X) \period
+	\]
+	Thus $\kappa(S) = X \smallsetminus S$.
+
+	Please note that $\tau$ is \emph{inclusion-preserving},%
+	\sidenote{That is, if $S \subseteq T$, then $\tau(S) \subseteq \tau(T)$.}
+	and $\kappa$ is \emph{inclusion-reversing};%
+	\sidenote{That is, if $S \subseteq T$, then $\kappa(S) \supseteq \kappa(T)$.}
+	also of course $S\subseteq \tau(S)$.
+	Finally, please observe that $\tau$ is \emph{idempotent},%
+	\sidenote{That is, $\tau^2 = \tau$}
+	and that $\kappa$ is \emph{involutive}.%
+	\sidenote{That is, $\kappa^2 = \operatorname{id}$.}
+
+	We are interested in the operations $\PP(X) \to \PP(X)$ that we can obtain by composing $\tau$ and $\kappa$ repeatedly.
+	For example, the \defn{interior} operator is
+	\[
+		\iota \coloneq \kappa\tau\kappa \colon \PP(X) \to \PP(X) \period
+	\]
+	Note that $\iota$ is inclusion-preserving%
+	\sidenote{Indeed, if you write down a sequence of $\tau$'s and $\kappa$'s, then that operator will be inclusion-preserving if and only if there are an even number of $\kappa$'s and inclusion-reversing if and only if there are an odd number of $\kappa$'s.}
+	and $\iota$ is idempotent.
+
+	Many of the most important kinds of subsets of topological spaces are identified using $\tau$ and $\kappa$.
+	For example, a subset $S\subseteq X$ is \defn{closed} if and only if it is its own closure: $S=\tau(S)=S$;
+	it is \defn{open} if and only if it is its own interior: $S=\iota(S)=\kappa\tau\kappa(S)$.
+\end{ntn*}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Write down all the subsets of $\RR$ (always with the standard topology) you can obtain by repeatedly applying the closure $\tau$ and the interior $\iota$ to the set
+\[
+	S \coloneq \{-30\} \cup \left]-20,0\right[ \cup \left]0,20\right[ \cup \left(\QQ \cap \left[25,30\right[\right) \period
+\]
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	A subset $S \subseteq X$ is said to be \emph{dense} if $\tau(S) = X$.
+	Find a countable dense subset of $\RR$.
+\end{Problem}
+			
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	A subset $S \subseteq X$ is said to be \emph{co-dense} if it has empty interior, so that $\iota(S) = \varnothing$.
+	Give an example of an uncountable co-dense subset $S \subseteq \RR$.
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	A subset $S \subseteq X$ is said to be \defn{nowhere dense} if the interior of its closure is empty;
+	that is, $S$ is nowhere dense if $\iota\tau(S)=\varnothing$, or equivalently, $\kappa\tau\kappa\tau(S) = \varnothing$.
+	Any nowhere dense subset of a topological space is co-dense, but
+	give an example of a co-dense subset of $\RR$ that is not nowhere dense.
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Show that if $T\subseteq X$ is a closed co-dense subset, then any subset $S \subseteq T$ is nowhere dense.
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Let $Z\subseteq X$.
+	Prove that $Z$ is the closure of some open subset of $X$ if and only if $Z$ is the closure of its interior, so that $Z=\tau\iota(Z)$, or equivalently, $Z = \tau\kappa\tau\kappa(Z)$.
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Show that
+	\[
+		\tau\kappa\tau = \tau\kappa\tau\kappa\tau\kappa\tau \period
+	\]
+
+	Deduce that
+	\[
+		\iota\tau = \iota\tau\iota\tau \andeq \tau\iota = \tau\iota\tau\iota
+	\]
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Let $S\subseteq X$.
+	What is the maximum number of sets one can form by repeatedly applying the closure and complement operators to $S$?
+\end{Problem}
+
+
+%-------------------------------------------------------------------%
+%-------------------------------------------------------------------%
+%-------------------------------------------------------------------%
+%-------------------------------------------------------------------%
+
+\end{document}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-09-27T08:44:19+01:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
+<p>Let's see that this is a topology. In effect, you check everything by checking the two cases (\(x\in\RR\) or \(x\notin\RR\)) separately. In the first case, you use the fact that \(\RR\) has a topology already, and in the second, you give a little argument.</p>
+<ul class="disc">
+<li><p>By definition if \(x\) lies in a subset \(S\subseteq\RR\sqcup\{\infty\}\text{,}\) then \(x\) is close to \(S\text{.}\)</p></li>
+<li>
+<p>Let \(\{S_1,\dots,S_n\}\) be a finite collection of subsets of \(\RR\sqcup\{\infty\}\text{.}\) If \(x\in \RR\text{,}\) then since one has</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+(S_1\cup\dots\cup S_n)\cap\RR=(S_1\cap\RR)\cup\dots\cup (S_n\cap\RR)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">it follows that \(x\) is close to \(S_1\cup\dots\cup S_n\) if and only if \(x\) is close to \((S_1\cap\RR)\cup\dots\cup (S_n\cap\RR)\) (for the standard topology on \(\RR\)), if and only if \(x\) is close to \(S_i \cap \RR\) for some \(i\) (for the topology on \(\RR\)), if and only if \(x\) is close to \(S_i\text{.}\) Now \(\infty\) is close to \(S_1\cup\dots\cup S_n\) if and only if, for any \(N\in\RR\text{,}\) there is a point of \(S_1\cup\dots\cup S_n\) that does not lie in \([-N,N]\text{.}\) This happens if and only if there is an \(i\) such that for any \(N\in\RR\text{,}\) there is <aside class="aside aside-like"><p>This is the <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">pigeonhole principle</dfn>. In effect, if \(X\) is an infinite set, \(Y\) is a finite set, and \(f\colon\fromto{X}{Y}\) is a map, there is an element \(y\in Y\) such that \(f^{-1}\{y\}\) is infinite.</p></aside> a point of \(S_i\) that does not lie in \([-N,N]\text{.}\)</p>
+</li>
+<li><p>Finally, suppose that every point of a subset \(S\subseteq\RR\sqcup\{\infty\}\) is close to a subset \(T\subseteq\RR\sqcup\{\infty\}\text{.}\) Now if \(x\) is close to \(S\text{,}\) there are two options. First, if \(x\in\RR\text{,}\) then \(x\) is close to \(S\cap\RR\) and hence to \(T\cap\RR\text{.}\) Otherwise, if \(x=\infty\text{,}\) then if \(\infty\in T\) or \(\infty\in S\text{,}\) then we're done. If not, then for every \(N\in\RR\text{,}\) there is a point \(s_N\in S\subseteq\RR\) such that \(|s_N|&gt;N\text{;}\) this point \(s_N\) is close to \(T\text{,}\) so if we set \(\epsilon_N\coloneq|s_N|-N\text{,}\) then there exists a point \(t_N\in T\) such that \(|s_N-t_N|\lt \epsilon_N\text{.}\) Thus \(|t_N|&gt;N\text{,}\) and so \(\infty\) is close to \(T\text{.}\)</p></li>
+</ul>
+<span class="incontext"><a href="sec_topologies.html#p-273">in-context</a></span>
+</body>
+</html>

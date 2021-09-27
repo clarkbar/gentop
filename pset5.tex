@@ -1,0 +1,132 @@
+% !TeX program = xelatex
+
+\documentclass[a4paper,twoside,nols,nobib]{tufte-handout}
+\usepackage{classnotes}
+
+%-------------------------------------------------------------------%
+% Title page data %
+%-------------------------------------------------------------------%
+
+\title{General topology}
+\author{The Problems}
+\date{Autumn 2020}
+
+%-------------------------------------------------------------------%
+
+\begin{document}
+
+\maketitle
+
+%-------------------------------------------------------------------%
+\section*{The one-point compactification}
+%-------------------------------------------------------------------%
+
+\begin{dfn*}
+	Let $(X,\tau)$ be a topological space.
+	Define $X^{\ast}$ as the set $X \cup \{ \infty \}$, where $\infty \notin X$.
+	We endow $X^{\ast}$ with a topology $\tau^{\ast}$ defined as follows.
+	Let $S \subseteq X^{\ast}$ be a subset.
+	\[
+		\tau^{\ast}(S) \coloneq \begin{cases}
+			\tau(S \cap X) \cup \{\infty\} & \text{if for every closed and compact }Z \subseteq X\text{, there is a point }x \in S\cap(X \smallsetminus Z)\text{;} \\
+			\tau(S \cap X) & \text{otherwise.}
+		\end{cases}
+	\]
+
+	In other words, a subset $Z \subseteq X^{\ast}$ is closed if and only if either $Z \subseteq X$ is closed and compact or $Z = Z_0 \cup \{\infty\}$, where $Z_0 \subseteq X$ is closed.
+
+	In still other words, a subset $U \subseteq X^{\ast}$ is open if and only if either $U \subseteq X$ is open or $U = U_0 \cup \{\infty\}$, where $U_0 \subseteq X$ is an open set whose complement $X \smallsetminus U_0$ is compact.
+
+	We call $X^{\ast}$ the \defn{one-point compactification} of $X$.
+\end{dfn*}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Prove that the one-point compactification $X^*$ is compact.
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Assume that $X$ is Hausdorff and \defn{locally compact} -- that is, that every point $ x \in X$ is contained in an open neighborhood whose closure is compact.
+	Prove that the one-point compactification $X^*$ is Hausdorff.
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{dfn*}
+	Let $X$ and $Y$ be topological spaces.
+	A map $f \colon X \to Y$ is \defn{closed} if and only if, for any closed subset $V \subseteq X$, the image $f(V) \subseteq Y$ is closed.
+	A map $f \colon X \to Y$ is \defn{proper} if and only if, for any compact subspace $K \subseteq Y$, the inverse image $f^{-1}K \subseteq X$ is compact.
+\end{dfn*}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Let $X$ and $Y$ be locally compact Hausdorff topological spaces, and let $f \colon X \to Y$ be a continuous map.
+	Show that the following are equivalent.
+	\begin{itemize}
+		\item The map $f$ is proper.
+		\item For any topological space $Z$, the map $\operatorname{id} \times f \colon Z \times X \to Z \times Y$ is closed.
+		\item The map $f$ is closed, and for any point $y \in Y$, the inverse image $f^{-1}\{y\}$ is compact.
+	\end{itemize}
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Which of the following maps are proper? You do not need to justify your answer.
+	\begin{itemize}
+		\item any continuous map $f \colon X \to Y$ from a compact topological space $X$ to a Hausdorff topological space $Y$;
+		\item any inclusion $j \colon U \inclusion X$ of an open subspace $U \subseteq X$;
+		\item any inclusion $i \colon Z \inclusion X$ of a closed subspace $Z \subseteq X$;
+		\item the map $\RR \to \RR$ given by $t \mapsto 2^t$;
+		\item the product
+		\[
+			\prod_{\alpha\in\Lambda} f_{\alpha} \colon \prod_{\alpha\in\Lambda} X_{\alpha} \to \prod_{\alpha\in\Lambda} Y_{\alpha}
+		\]
+		of any family $\{f_{\alpha} \colon X_{\alpha} \to Y_{\alpha}\}_{\alpha \in \Lambda}$ of proper continuous maps;
+		\item for any $n \geq 1$, the quotient map $\CC^{n+1}\smallsetminus \{0\} \to \PP_{\CC}^n$;
+		\item for any $n \geq 1$, the quotient map $S^{2n+1} \to \PP_{\CC}^n$.
+	\end{itemize}
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Let $X$ and $Y$ be locally compact Hausdorff spaces, and let $X^*$ and $Y^*$ be the one-point compactifications.
+	Let $f \colon X \to Y$ be a proper continuous map, and define $F \colon X^* \to Y^*$ by the formula
+	\[
+		F (x) \coloneq \begin{cases}
+			f(x) & \text{if } x\in X\rlap{\ }\text{;}\\
+			\infty & \text{if } x=\infty \period
+		\end{cases}
+	\]
+	Prove that $F$ is continuous.
+\end{Problem}
+
+%-------------------------------------------------------------------%
+
+\begin{Problem}
+	\noindent
+	Give an example of two locally compact Hausdorff topological spaces $X$ and $Y$ and a continuous map $f \colon X \to Y$ such that if we define $F \colon X^* \to Y^*$ by the formula
+	\[
+		F (x) \coloneq \begin{cases}
+			f(x) & \text{if } x\in X\rlap{\ }\text{;}\\
+			\infty & \text{if } x=\infty \comma
+		\end{cases}
+	\]
+	then $F$ is not continuous.
+\end{Problem}
+
+%-------------------------------------------------------------------%
+%-------------------------------------------------------------------%
+%-------------------------------------------------------------------%
+
+\end{document}

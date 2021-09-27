@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-09-27T08:44:18+01:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body><article class="hiddenproof"><p>Assume (1); we aim to prove (2). Let \(T \subseteq Y\text{,}\) and assume that \(x\) is close to \(f^{-1}(T)\text{.}\) Then by assumption \(f(x)\) is close to \(f(f^{-1}(T))\text{.}\) Since \(f(f^{-1}(T)) \subseteq T\text{,}\) it follows that \(f(x)\) is close to \(T\text{,}\) so \(x \in f^{-1}(\tau_Y(T))\text{.}\)</p>
+<p>Assume (2); we aim to prove (3). Let \(Z \subseteq Y\) be closed. Then</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\tau_X(f^{-1}(Z)) \subseteq f^{-1}(\tau_Y(Z)) = f^{-1}(Z)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">so \(f^{-1}(Z)\) is closed.</p>
+<p>Assume (3); then (4) follows by taking complements.</p>
+<p>Assume (4); we aim to prove (5). Let \(x \in X\text{,}\) and let \(\varepsilon &gt; 0\text{.}\) The subset \(f^{-1}(B^n(f(x),\varepsilon)\cap Y) \subseteq X\) is open. Consequently, there exists \(\delta&gt;0\) such that \(B^m(x,\delta)\cap X \subseteq f^{-1}(B^n(f(x),\varepsilon)\cap Y)\text{;}\) that is, for any \(x_0 \in X\) such that \(d(x_0,x)\lt \delta\text{,}\) one has \(d(f(x_0),f(x))\lt \varepsilon\text{,}\) as desired.</p>
+<p>Assume (5); we aim to prove (1). Let \(S \subseteq X\text{,}\) and let \(x\in X\) be a point that is close to \(S\text{.}\) Let \(\varepsilon &gt; 0\text{.}\) By assumption there is a \(\delta&gt;0\) such that for any \(x_0 \in X\) with \(d(x_0,x)\lt \delta\text{,}\) we have \(d(f(x_0),f(x))\lt \varepsilon\text{.}\) Since \(x\) is close to \(S\text{,}\) we may select \(s \in S\) such that \(d(x,s) \lt \delta\text{.}\) Thus \(d(f(x),f(s))\lt \varepsilon\text{.}\) This proves that \(f(x)\) is close to \(f(S)\text{.}\)</p></article></body>
+</html>

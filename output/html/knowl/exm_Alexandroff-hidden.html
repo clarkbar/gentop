@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-09-27T08:44:18+01:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body><article class="example example-like"><p>Let \(P\) be a <em xmlns:svg="http://www.w3.org/2000/svg" class="emphasis">preorder</em>. That is, \(P\) is a set equipped with a relation \(\leq\) such that:</p>
+<ul class="disc">
+<li><p>for every \(a \in P\text{,}\) one has \(a \leq a\text{;}\) and</p></li>
+<li><p>for every \(a,b,c \in P\text{,}\) if \(a \leq b\) and \(b \leq c\text{,}\) then \(a \leq c\text{.}\)</p></li>
+</ul>
+<p>Then we can define a topology as follows. For any subset \(S \subseteq P\text{,}\) we define</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\tau_{\leq}(S) \coloneq \{a \in P : (\exists s \in S)(a \leq s) \}\text{.}
+\end{equation*}
+</div>
+<p>In other words, \(a \in P\) is close to \(S\) if and only if some element of \(S\) exceeds it.</p>
+<p>Let us quickly confirm that this is a topology:</p>
+<ol class="decimal">
+<li><p>Let \(S \subseteq P\) be a subset. Since \(s \leq s\) for every \(s \in S\text{,}\) it follows that \(S \subseteq \tau_{\leq}(S)\text{.}\)</p></li>
+<li>
+<p>Let \(S_1, \dots, S_n \subseteq P\) be a finite collection of subsets of \(P\text{.}\) Then</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+\tau_{\leq}(S_1 \cup \cdots \cup S_n) \amp  = \{a\in P : (\exists s \in S_1 \cup \cdots \cup S_n)(a \leq s) \}\\
+\amp  = \{a \in P : (\exists i)(\exists s \in S_i)(a \leq s)\}\\
+\amp  = \tau_{\leq}(S)_1 \cup \cdots \cup \tau_{\leq}(S)_n \text{.}
+\end{align*}
+</div>
+</li>
+<li>
+<p>Let \(S \subseteq P\) be a subset. Then</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+\tau_{\leq}(\tau_{\leq}(S)) \amp = \{a \in P : (\exists t \in \overline{S})(a \leq t) \}\\
+\amp = \{a \in P : (\exists s \in S)(\exists t \in X)(a \leq t \leq s) \}\\
+\amp = \{a \in P : (\exists s \in S)(a \leq s) \}\\
+\amp = \tau_{\leq}(S) \text{.}
+\end{align*}
+</div>
+</li>
+</ol>
+<p>This topology is called the <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">Alexandroff topology</dfn>.</p>
+<p>The <em xmlns:svg="http://www.w3.org/2000/svg" class="emphasis">closed subsets</em> are the subsets \(Z \subseteq P\) with the property that if \(a \in P\text{,}\) \(z \in Z\text{,}\) and \(a \leq z\text{,}\) then \(a \in Z\) as well. The <em xmlns:svg="http://www.w3.org/2000/svg" class="emphasis">open subsets</em> are the subsets \(U \subseteq P\) with the property that if \(a \in P\text{,}\) \(u \in U\text{,}\) and \(a \geq u\text{,}\) then \(a \in U\) as well.</p></article></body>
+</html>

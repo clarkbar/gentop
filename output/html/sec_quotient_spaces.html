@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-09-27T08:44:16+01:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Quotient spaces</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore",
+    processHtmlClass: "has_am",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{\andeq}{\text{\qquad and\qquad}}
+\newcommand{\respectively}[1]{\text{\qquad(respectively,\quad}{#1}\text{\quad)}}
+\newcommand{\resp}[1]{\text{\qquad(resp.,\quad}{#1}\text{\quad)}}
+
+\newcommand{\comma}{\rlap{\ ,}}
+\newcommand{\period}{\rlap{\ .}}
+\newcommand{\semicolon}{\rlap{\ ;}}
+ \newcommand{\coloneq}{\mathrel{:=}}
+
+ 
+
+ \newcommand{\mathup}[1]{\mathrm{#1}}
+ \newcommand{\mathbfup}[1]{\mathbf{#1}}
+ 
+ \renewcommand{\AA}{\mathbfit{A}}
+ \newcommand{\BB}{\mathbfit{B}}
+ \newcommand{\CC}{\mathbfit{C}}
+ \newcommand{\DD}{\mathbfit{D}}
+ \newcommand{\EE}{\mathbfit{E}}
+ \newcommand{\FF}{\mathbfit{F}}
+ \newcommand{\GG}{\mathbfit{G}}
+ \newcommand{\HH}{\mathbfit{H}}
+ \newcommand{\II}{\mathbfit{I}}
+ \newcommand{\JJ}{\mathbfit{J}}
+ \newcommand{\KK}{\mathbfit{K}}
+ \newcommand{\LL}{\mathbfit{L}}
+ \newcommand{\MM}{\mathbfit{M}}
+ \newcommand{\NN}{\mathbfit{N}}
+ \newcommand{\OO}{\mathbfit{O}}
+ \newcommand{\PP}{\mathbfit{P}}
+ \newcommand{\QQ}{\mathbfit{Q}}
+ \newcommand{\RR}{\mathbfit{R}}
+ \renewcommand{\SS}{\mathbfit{S}}
+ \newcommand{\TT}{\mathbfit{T}}
+ \newcommand{\UU}{\mathbfit{U}}
+ \newcommand{\VV}{\mathbfit{V}}
+ \newcommand{\WW}{\mathbfit{W}}
+ \newcommand{\XX}{\mathbfit{X}}
+ \newcommand{\YY}{\mathbfit{Y}}
+ \newcommand{\ZZ}{\mathbfit{Z}}
+ 
+ \let\Gammaup\Gamma
+ \let\Deltaup\Delta
+ \let\Thetaup\Theta
+ \let\Lambdaup\Lambda
+ \let\Xiup\Xi
+ \let\Piup\Pi
+ \let\Sigmaup\Sigma
+ \let\Upsilonup\Upsilon
+ \let\Phiup\Phi
+ \let\Psiup\Psi
+ \let\Omegaup\Omega
+ 
+ \renewcommand{\Gamma}{\mathit{\Gammaup}}
+ \renewcommand{\Delta}{\mathit{\Deltaup}}
+ \renewcommand{\Theta}{\mathit{\Thetaup}}
+ \renewcommand{\Lambda}{\mathit{\Lambdaup}}
+ \renewcommand{\Xi}{\mathit{\Xiup}}
+ \renewcommand{\Pi}{\mathit{\Piup}}
+ \renewcommand{\Sigma}{\mathit{\Sigmaup}}
+ \renewcommand{\Upsilon}{\mathit{\Upsilonup}}
+ \renewcommand{\Phi}{\mathit{\Phiup}}
+ \renewcommand{\Psi}{\mathit{\Psiup}}
+ \renewcommand{\Omega}{\mathit{\Omegaup}}
+ 
+
+
+\renewcommand{\epsilon}{\varepsilon}
+ \newcommand{\el}{\ell}
+\renewcommand{\phi}{\varphi}
+
+\newcommand{\mfa}{\mathfrak{a}}
+\newcommand{\mfb}{\mathfrak{b}}
+\newcommand{\mfc}{\mathfrak{c}}
+\newcommand{\mfd}{\mathfrak{d}}
+\newcommand{\mfe}{\mathfrak{e}}
+\newcommand{\mff}{\mathfrak{f}}
+\newcommand{\mfg}{\mathfrak{g}}
+\newcommand{\mfh}{\mathfrak{h}}
+\newcommand{\mfi}{\mathfrak{i}}
+\newcommand{\mfj}{\mathfrak{j}}
+\newcommand{\mfk}{\mathfrak{k}}
+\newcommand{\mfl}{\mathfrak{l}}
+\newcommand{\mfm}{\mathfrak{m}}
+\newcommand{\mfn}{\mathfrak{n}}
+\newcommand{\mfo}{\mathfrak{o}}
+\newcommand{\mfp}{\mathfrak{p}}
+\newcommand{\mfq}{\mathfrak{q}}
+\newcommand{\mfr}{\mathfrak{r}}
+\newcommand{\mfs}{\mathfrak{s}}
+\newcommand{\mft}{\mathfrak{t}}
+\newcommand{\mfu}{\mathfrak{u}}
+\newcommand{\mfv}{\mathfrak{v}}
+\newcommand{\mfw}{\mathfrak{w}}
+\newcommand{\mfx}{\mathfrak{x}}
+\newcommand{\mfy}{\mathfrak{y}}
+\newcommand{\mfz}{\mathfrak{z}}
+
+\newcommand{\ahat}{\hat{a}}
+\newcommand{\bhat}{\hat{b}}
+\newcommand{\chat}{\hat{c}}
+\newcommand{\dhat}{\hat{d}}
+\newcommand{\ehat}{\hat{e}}
+\newcommand{\fhat}{\hat{f}}
+\newcommand{\ghat}{\hat{g}}
+\newcommand{\hhat}{\hat{h}}
+\newcommand{\ihat}{\hat{\i}}
+\newcommand{\jhat}{\hat{\j}}
+\newcommand{\khat}{\hat{k}}
+\newcommand{\elhat}{\hat{\el}}
+\newcommand{\mhat}{\hat{m}}
+\newcommand{\nhat}{\hat{n}}
+\newcommand{\ohat}{\hat{o}}
+\newcommand{\phat}{\hat{p}}
+\newcommand{\qhat}{\hat{q}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\uhat}{\hat{u}}
+\newcommand{\vhat}{\hat{v}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\xhat}{\hat{x}}
+\newcommand{\yhat}{\hat{y}}
+\newcommand{\zhat}{\hat{z}}
+
+\newcommand{\alphahat}{\hat{\alpha}}
+\newcommand{\betahat}{\hat{\beta}}
+\newcommand{\gammahat}{\hat{\gamma}}
+\newcommand{\deltahat}{\hat{\delta}}
+\newcommand{\epsilonhat}{\hat{\epsilon}}
+\newcommand{\zetahat}{\hat{\zeta}}
+\newcommand{\etahat}{\hat{\eta}}
+\newcommand{\thetahat}{\hat{\theta}}
+\newcommand{\iotahat}{\hat{\iota}}
+\newcommand{\kappahat}{\hat{\kappa}}
+\newcommand{\lambdahat}{\hat{\lambda}}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\xihat}{\hat{\xi}}
+\newcommand{\pihat}{\hat{\pi}}
+\newcommand{\rhohat}{\hat{\rho}}
+\newcommand{\sigmahat}{\hat{\sigma}}
+\newcommand{\tauhat}{\hat{\tau}}
+\newcommand{\upsilonhat}{\hat{\upsilon}}
+\newcommand{\phihat}{\hat{\phi}}
+\newcommand{\chihat}{\hat{\chi}}
+\newcommand{\psihat}{\hat{\psi}}
+\newcommand{\omegahat}{\hat{\omega}}
+
+\newcommand{\Ahat}{\hat{A}}
+\newcommand{\Bhat}{\hat{B}}
+\newcommand{\Chat}{\hat{C}}
+\newcommand{\Dhat}{\hat{D}}
+\newcommand{\Ehat}{\hat{E}}
+\newcommand{\Fhat}{\hat{F}}
+\newcommand{\Ghat}{\hat{G}}
+\newcommand{\Hhat}{\hat{H}}
+\newcommand{\Ihat}{\hat{I}}
+\newcommand{\Jhat}{\hat{J}}
+\newcommand{\Khat}{\hat{K}}
+\newcommand{\Lhat}{\hat{L}}
+\newcommand{\Mhat}{\hat{M}}
+\newcommand{\Nhat}{\hat{N}}
+\newcommand{\Ohat}{\hat{O}}
+\newcommand{\Phat}{\hat{P}}
+\newcommand{\Qhat}{\hat{Q}}
+\newcommand{\Rhat}{\hat{R}}
+\newcommand{\Shat}{\hat{S}}
+\newcommand{\That}{\hat{T}}
+\newcommand{\Uhat}{\hat{U}}
+\newcommand{\Vhat}{\hat{V}}
+\newcommand{\What}{\hat{W}}
+\newcommand{\Xhat}{\hat{X}}
+\newcommand{\Yhat}{\hat{Y}}
+\newcommand{\Zhat}{\hat{Z}}
+
+\newcommand{\Gammahat}{\hat{\Gamma}}
+\newcommand{\Deltahat}{\hat{\Delta}}
+\newcommand{\Thetahat}{\hat{\Theta}}
+\newcommand{\Lambdahat}{\hat{\Lambda}}
+\newcommand{\Xihat}{\hat{\Xi}}
+\newcommand{\Pihat}{\hat{\Pi}}
+\newcommand{\Sigmahat}{\hat{\Sigma}}
+\newcommand{\Upsilonhat}{\hat{\Upsilon}}
+\newcommand{\Phihat}{\hat{\Phi}}
+\newcommand{\Chihat}{\hat{\Chi}}
+\newcommand{\Psihat}{\hat{\Psi}}
+\newcommand{\Omegahat}{\hat{\Omega}}
+
+\newcommand{\atilde}{\tilde{a}}
+\newcommand{\btilde}{\tilde{b}}
+\newcommand{\ctilde}{\tilde{c}}
+\newcommand{\dtilde}{\tilde{d}}
+\newcommand{\etilde}{\tilde{e}}
+\newcommand{\ftilde}{\tilde{f}}
+\newcommand{\gtilde}{\tilde{g}}
+\newcommand{\htilde}{\tilde{h}}
+\newcommand{\itilde}{\tilde{\i}}
+\newcommand{\jtilde}{\tilde{\j}}
+\newcommand{\ktilde}{\tilde{k}}
+\newcommand{\eltilde}{\tilde{\el}}
+\newcommand{\mtilde}{\tilde{m}}
+\newcommand{\ntilde}{\tilde{n}}
+\newcommand{\otilde}{\tilde{o}}
+\newcommand{\ptilde}{\tilde{p}}
+\newcommand{\qtilde}{\tilde{q}}
+\newcommand{\rtilde}{\tilde{r}}
+\newcommand{\stilde}{\tilde{s}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\xtilde}{\tilde{x}}
+\newcommand{\ytilde}{\tilde{y}}
+\newcommand{\ztilde}{\tilde{z}}
+
+\newcommand{\alphatilde}{\tilde{\alpha}}
+\newcommand{\betatilde}{\tilde{\beta}}
+\newcommand{\gammatilde}{\tilde{\gamma}}
+\newcommand{\deltatilde}{\tilde{\delta}}
+\newcommand{\epsilontilde}{\tilde{\epsilon}}
+\newcommand{\zetatilde}{\tilde{\zeta}}
+\newcommand{\etatilde}{\tilde{\eta}}
+\newcommand{\thetatilde}{\tilde{\theta}}
+\newcommand{\iotatilde}{\tilde{\iota}}
+\newcommand{\kappatilde}{\tilde{\kappa}}
+\newcommand{\lambdatilde}{\tilde{\lambda}}
+\newcommand{\mutilde}{\tilde{\mu}}
+\newcommand{\nutilde}{\tilde{\nu}}
+\newcommand{\xitilde}{\tilde{\xi}}
+\newcommand{\pitilde}{\tilde{\pi}}
+\newcommand{\rhotilde}{\tilde{\rho}}
+\newcommand{\sigmatilde}{\tilde{\sigma}}
+\newcommand{\tautilde}{\tilde{\tau}}
+\newcommand{\upsilontilde}{\tilde{\upsilon}}
+\newcommand{\phitilde}{\tilde{\phi}}
+\newcommand{\chitilde}{\tilde{\chi}}
+\newcommand{\psitilde}{\tilde{\psi}}
+\newcommand{\omegatilde}{\tilde{\omega}}
+
+\newcommand{\Atilde}{\widetilde{A}}
+\newcommand{\Btilde}{\widetilde{B}}
+\newcommand{\Ctilde}{\widetilde{C}}
+\newcommand{\Dtilde}{\widetilde{D}}
+\newcommand{\Etilde}{\widetilde{E}}
+\newcommand{\Ftilde}{\widetilde{F}}
+\newcommand{\Gtilde}{\widetilde{G}}
+\newcommand{\Htilde}{\widetilde{H}}
+\newcommand{\Itilde}{\widetilde{I}}
+\newcommand{\Jtilde}{\widetilde{J}}
+\newcommand{\Ktilde}{\widetilde{K}}
+\newcommand{\Ltilde}{\widetilde{L}}
+\newcommand{\Mtilde}{\widetilde{M}}
+\newcommand{\Ntilde}{\widetilde{N}}
+\newcommand{\Otilde}{\widetilde{O}}
+\newcommand{\Ptilde}{\widetilde{P}}
+\newcommand{\Qtilde}{\widetilde{Q}}
+\newcommand{\Rtilde}{\widetilde{R}}
+\newcommand{\Stilde}{\widetilde{S}}
+\newcommand{\Ttilde}{\widetilde{T}}
+\newcommand{\Utilde}{\widetilde{U}}
+\newcommand{\Vtilde}{\widetilde{V}}
+\newcommand{\Wtilde}{\widetilde{W}}
+\newcommand{\Xtilde}{\widetilde{X}}
+\newcommand{\Ytilde}{\widetilde{Y}}
+\newcommand{\Ztilde}{\widetilde{Z}}
+
+\newcommand{\Gammatilde}{\widetilde{\Gamma}}
+\newcommand{\Deltatilde}{\widetilde{\Delta}}
+\newcommand{\Thetatilde}{\widetilde{\Theta}}
+\newcommand{\Lambdatilde}{\widetilde{\Lambda}}
+\newcommand{\Xitilde}{\widetilde{\Xi}}
+\newcommand{\Pitilde}{\widetilde{\Pi}}
+\newcommand{\Sigmatilde}{\widetilde{\Sigma}}
+\newcommand{\Upsilontilde}{\widetilde{\Upsilon}}
+\newcommand{\Phitilde}{\widetilde{\Phi}}
+\newcommand{\Chitilde}{\widetilde{\Chi}}
+\newcommand{\Psitilde}{\widetilde{\Psi}}
+\newcommand{\Omegatilde}{\widetilde{\Omega}}
+
+
+
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Equival}{Equiv}
+\DeclareMathOperator{\Fun}{Fun}
+\newcommand{\Funcross}{\Fun^{\cross}}
+\newcommand{\Functs}{\Fun^{\cts}}
+\newcommand{\Funpyk}{\Functs}
+\newcommand{\Funlowerstar}{\Fun_{\ast}}
+\newcommand{\Funupperstar}{\Fun^{\ast}}
+\DeclareMathOperator{\Hom}{Hom}
+\newcommand{\HOM}{\ensuremath{\textup{\textsc{Hom}}}}
+\DeclareMathOperator{\Isom}{Isom}
+\DeclareMathOperator{\Map}{Map}
+\DeclareMathOperator{\Mor}{Mor}
+\newcommand{\MOR}{\ensuremath{\textup{\textsc{Mor}}}}
+
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\PSO}{PSO}
+\DeclareMathOperator{\PSp}{PSp}
+\DeclareMathOperator{\PSU}{PSU}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\SU}{SU}
+
+\DeclareMathOperator{\cofib}{cofib}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator*{\colim}{colim}
+\DeclareMathOperator*{\hocolim}{hocolim}
+\DeclareMathOperator*{\holim}{holim}
+\DeclareMathOperator{\fib}{fib}
+
+\DeclareMathOperator{\Nerve}{N}
+\DeclareMathOperator{\trun}{\uptau}
+
+\DeclareMathOperator{\cosk}{ck}
+\DeclareMathOperator{\creff}{cr}
+\DeclareMathOperator{\ev}{ev}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\sd}{sd}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\specpos}{sp}
+\newcommand{\sdop}{\sd^{\op}}
+
+
+
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\angs}[1]{\langle #1 \rangle}
+ \newcommand{\quine}[1]{\ulcorner #1 \urcorner}
+\newcommand{\ultimes}{\,\underline{\times}\,}
+\newcommand{\horn}[2]{\upLambda_{#1}^{#2}}
+
+
+
+\newcommand{\categ}[1]{\textbf{\textup{#1}}}
+
+
+ 
+ \newcommand{\fromto}[2]{{#1} \to {#2}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Topology:</span> <span class="subtitle">General Topology 2021</span></a></h1>
+<p class="byline">Clark Barwick</p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_specifying_topologies_efficiently.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="cha_abstract_topological_spaces.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec_products.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_specifying_topologies_efficiently.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="cha_abstract_topological_spaces.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec_products.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="cha_subspaces_of_euclidean_space.html" data-scroll="cha_subspaces_of_euclidean_space"><span class="codenumber">1</span> <span class="title">Subspaces of Euclidean space</span></a><ul>
+<li><a href="sec_basic_definitions.html" data-scroll="sec_basic_definitions">Basic definitions</a></li>
+<li><a href="sec_continuity_for_subspaces_of_euclidean_space.html" data-scroll="sec_continuity_for_subspaces_of_euclidean_space">Continuity</a></li>
+<li><a href="sec_connectedness_for_subspaces_of_euclidean_space.html" data-scroll="sec_connectedness_for_subspaces_of_euclidean_space">Connectedness</a></li>
+<li><a href="sec_subspaces_exercises.html" data-scroll="sec_subspaces_exercises">Problem set 1, due 5 October 2021</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="cha_abstract_topological_spaces.html" data-scroll="cha_abstract_topological_spaces"><span class="codenumber">2</span> <span class="title">Abstract topological spaces</span></a><ul>
+<li><a href="sec_topologies.html" data-scroll="sec_topologies">Topologies</a></li>
+<li><a href="sec_continuity.html" data-scroll="sec_continuity">Continuity</a></li>
+<li><a href="sec_specifying_topologies_efficiently.html" data-scroll="sec_specifying_topologies_efficiently">Specifying topologies efficiently</a></li>
+<li><a href="sec_quotient_spaces.html" data-scroll="sec_quotient_spaces" class="active">Quotient spaces</a></li>
+<li><a href="sec_products.html" data-scroll="sec_products">Products</a></li>
+<li><a href="sec_esoterica.html" data-scroll="sec_esoterica">Esoterica</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="cha_compactness.html" data-scroll="cha_compactness"><span class="codenumber">3</span> <span class="title">Compactness</span></a><ul>
+<li><a href="sec_compact_topological_spaces.html" data-scroll="sec_compact_topological_spaces">Compact topological spaces</a></li>
+<li><a href="sec_compact_hausdorff_topological_spaces.html" data-scroll="sec_compact_hausdorff_topological_spaces">Compact Hausdorff topological spaces</a></li>
+<li><a href="sec_tikhonov.html" data-scroll="sec_tikhonov">The Tikhonov Theorem</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="cha_separation.html" data-scroll="cha_separation"><span class="codenumber">4</span> <span class="title">Separation</span></a><ul>
+<li><a href="sec_trennungsaxiome.html" data-scroll="sec_trennungsaxiome">Trennungsaxiome</a></li>
+<li><a href="sec_urysohn_tietze.html" data-scroll="sec_urysohn_tietze">Urysohn &amp; Tietze</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="cha_elements_of_set_theory.html" data-scroll="cha_elements_of_set_theory"><span class="codenumber">5</span> <span class="title">Elements of set theory</span></a><ul>
+<li><a href="sec_sets_and_elements.html" data-scroll="sec_sets_and_elements">Sets and elements</a></li>
+<li><a href="sec_bounded_comprehension.html" data-scroll="sec_bounded_comprehension">Bounded comprehension</a></li>
+<li><a href="sec_unions.html" data-scroll="sec_unions">Unions</a></li>
+<li><a href="sec_ordered_pairs.html" data-scroll="sec_ordered_pairs">Ordered pairs</a></li>
+<li><a href="sec_maps.html" data-scroll="sec_maps">Maps</a></li>
+<li><a href="sec_bijections.html" data-scroll="sec_bijections">Bijections</a></li>
+<li><a href="sec_products_and_sets_of_maps.html" data-scroll="sec_products_and_sets_of_maps">Products and sets of maps</a></li>
+<li><a href="sec_injections_and_surjections.html" data-scroll="sec_injections_and_surjections">Injections and surjections</a></li>
+<li><a href="sec_the_algebra_of_subsets.html" data-scroll="sec_the_algebra_of_subsets">The algebra of subsets</a></li>
+<li><a href="sec_inverse_and_direct_image.html" data-scroll="sec_inverse_and_direct_image">Inverse and direct image</a></li>
+<li><a href="sec_products_of_sets.html" data-scroll="sec_products_of_sets">Products of sets</a></li>
+<li><a href="sec_coproducts_of_sets.html" data-scroll="sec_coproducts_of_sets">Coproducts of sets</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Back Matter</span></a></li>
+</ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="sec_quotient_spaces"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">2.4</span> <span class="title">Quotient spaces</span>
+</h2>
+<div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="video-7" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/Ufad084cBwg?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<p id="p-402">Let \(X\) be a set. Recall that an <em class="emphasis">equivalence relation</em> \(\sim\) on \(X\) is a relation that satisfies the following conditions:</p>
+<ul class="disc">
+<li id="li-116"><p id="p-403">For every \(x \in X\text{,}\) one has \(x \sim x\text{.}\)</p></li>
+<li id="li-117"><p id="p-404">For every \(x,y \in X\text{,}\) one has \(x \sim y\) if and only if \(y \sim x\text{.}\)</p></li>
+<li id="li-118"><p id="p-405">For every \(x,y,z \in X\text{,}\) if \(x \sim y\) and \(y \sim z\text{,}\) then \(x \sim z\text{.}\)</p></li>
+</ul>
+<p id="p-406">If \(x \in X\text{,}\) one can form the <em class="emphasis">equivalence class</em> \([x] \coloneq \{ y \in X : y \sim x \}\text{.}\) Now the set \(X/\!\sim \colon \{ [x] : x \in X \}\) of equivalence classes relative to \(\sim\) is called the <em class="emphasis">quotient</em> of \(X\) relative to \(\sim\text{.}\) The assignment \(x \mapsto [x]\) is a map \(q \colon X \to X/\!\sim\text{,}\) which is called the <em class="emphasis">quotient map</em>; The map \(q\) is a surjection, and it enjoys the following pleasant property: for every set \(Y\) and every map \(f \colon X \to Y\) with the property that for every \(x,
+y \in X\text{,}\) if \(x \sim y\text{,}\) then \(f(x) = f(y)\text{,}\) there exists a unique map \(f' \colon X/\!\sim \to Y\) such that \(f' \circ q = f\text{.}\)</p>
+<p id="p-407">Every surjection is secretly a quotient map: if \(p \colon X \to T\) is a surjection, then we may define an equivalence relation \(\sim\) on \(X\) in which \(x \sim y\) if and only if \(p(x) = p(y)\text{.}\) We may call this the equivalence relation <em class="emphasis">induced by</em> \(p\text{.}\) The unique map \(p' \colon X/\!\sim \to T\) through which \(p\) factors is then a bijection.</p>
+<p id="p-408">Finally, if \(R\) is <em class="emphasis">any</em> relation on \(X\text{,}\) then it <em class="emphasis">generates</em> an equivalence relation. That is, recall that \(\sim\) is <em class="emphasis">really</em> a subset</p>
+<aside class="aside aside-like" id="aside-34"><p id="p-409">consisting of those pairs \((x,y)\) such that \(x R y\)</p></aside><p id="p-410">of \(X \times X\text{.}\) If we look at the collection of all subsets \(Q \in \PP(X \times X)\) that are equivalence relations that contain \(R\text{,}\) then the intersection of all these \(Q\) is itself an equivalence relation that contains \(R\text{.}\) This intersection is the <em class="emphasis">equivalence relation generated by</em> \(R\text{.}\)</p>
+<article class="definition definition-like" id="definition-15"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.4.1</span><span class="period">.</span>
+</h6>
+<p id="p-411">Let \(X\) be a topological space, let \(Y\) be a set, and let \(p \colon X \to Y\) be a surjection. The final topology with respect to \(p\) is the <dfn class="terminology">quotient topology</dfn> on \(Y\text{;}\) this is the finest topology on \(Y\) such that the map \(p\) is continuous. We call \(p\) the <dfn class="terminology">quotient map</dfn>. We also say that \(Y\) is the <dfn class="terminology">quotient space</dfn> of \(X\) under the equivalence relation induced by \(p\text{.}\)</p></article><p id="p-412">The ability to form quotients of topological spaces is really the most powerful motivation for defining abstract topological spaces in the first place.</p>
+<article class="example example-like" id="example-40"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-40"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.2</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-40"><article class="example example-like"><p id="p-413">Consider the real line \(\RR\text{,}\) and consider the equivalence relation \(\sim\) in which \(x \sim y\) if and only if \(y-x\) is an integer. Now consider the map \(t \mapsto \exp(2\pi t)\text{;}\) this is a continuous map \(e \colon \RR \to S^1\text{.}\) By the discussion above, there exists a unique map \(f \colon \RR/\!\sim \to S^1\) such that if \(q \colon \RR \to \RR/\!\sim\) is the quotient map, then \(f \circ q = e\text{.}\) This map is continuous with respect to the quotient topology on \(\RR/\sim\text{.}\) In fact, \(f\) is a homeomorphism.</p>
+<p id="p-414">Similarly, consider the closed interval \([0,1]\text{,}\) and consider the equivalence relation \(\sim\) generated by the requirement that \(0\sim 1\text{.}\) Then the inclusion map \([0,1] \inclusion \RR\) descends to a continuous map \([0,1]/\sim \to \RR/\!\sim\text{,}\) and this map is a homeomorphism as well. This justifies our intuition that the circle is obtained from the interval by identifying the endpoints.</p></article></div>
+<article class="example example-like" id="example-41"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-41"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.3</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-41"><article class="example example-like"><p id="p-415">Let \(X \subseteq \RR^n\) be a subspace, and let \(k \in \NN\) be a natural number. Then we have the subspace \(X^k \subseteq \RR^{nk}\text{.}\) Furthermore, we can define the subsspace</p>
+<div class="displaymath">
+\begin{equation*}
+Y \coloneq \{(x_1,\dots,x_k) \in X^k : (\forall i \neq j)(x_i \neq x_j) \} \subseteq X^k\text{.}
+\end{equation*}
+</div>
+<p id="p-416">Now conisder the equivalence relation \(\sim\) on \(Y\) in which \((x_1, \dots,
+x_k) \sim (y_1,\dots, y_k)\) if and only if there exists a permutation</p>
+<aside class="aside aside-like" id="aside-35"><p id="p-417">We write \(\Sigma_k\) for the set of permutations of the set \(\{1,\dots,k\}\text{.}\)</p></aside><p id="p-418">\(\sigma \in \Sigma_k\) such that for each \(i\text{,}\) one has \(y_i = x_{\sigma(i)}\text{.}\) Now we can think of the points of the quotient space \(C_k(X) \coloneq Y/\!\sim\) as <em class="emphasis">unordered</em> collections of \(k\) points on \(X\text{.}\) This space \(C_k(X)\) is called the <dfn class="terminology">configuration space</dfn> of \(k\) marked points on \(X\text{.}\)</p>
+<p id="p-419">The space \(C_0(X)\) has exactly one point.</p>
+<p id="p-420">The space \(C_1(X)\) is \(X\) itself.</p>
+<p id="p-421">The space \(C_2(X)\) is much more interesting. For example, \(C_2(\RR^2) \cong \RR^3 \times S^1\text{.}\) The space \(C_2(S^1)\) is the <em class="emphasis">Möbius band</em>.</p>
+<p id="p-422">As \(k\) goes higher, these spaces become even more involved.</p>
+<p id="p-423">The spaces \(C_k(X)\) are extremely important in physics, since we may think of them as the space of possible states of \(k\) noninteracting particles on \(X\text{.}\)</p></article></div>
+<article class="example example-like" id="example-42"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-42"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.4</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-42"><article class="example example-like"><p id="p-424">Let \(V\) be a finite dimensional real vector space. Since \(V\) is a finite dimensional, it is isomorphic to \(\RR^n\text{.}\) Let us transport the topology from \(\RR^n\) to \(V\) along such an isomorphism.</p>
+<aside class="aside aside-like" id="aside-36"><p id="p-425">That is, if \(\phi \colon V \to \RR^n\) is a linear isomorphism, then \(U \subseteq V\) is open if and only if \(\phi(V) \subseteq \RR^n\) is open. As an exercise, you can show that the topology is the same, irrespective of which isomorphism \(\phi\) you select. (Hint: linear isomorphisms from \(\RR^n\) to itself are always homeomorphisms!)</p></aside><p id="p-426">Thus \(V\) is homeomorphic to \(\RR^n\text{.}\)</p>
+<p id="p-427">For every \(k \in \NN^{\ast}\text{,}\) the set \(V^k\) of \(k\)-tuples \((v_1, \dots,
+v_k)\) of vectors in \(V\) is also a vector space, and thus also a topological space that is homeomorphic to \(\RR^{nk}\text{.}\) Now we let \(L_{\RR}(k,V) \subseteq V^k\) be the set of \(k\)-tuples \((v_1, \dots,
+v_k)\) of vectors in \(V\) that are linearly independent, so that they span a \(k\)-dimensional subspace of \(V\text{.}\)</p>
+<p id="p-428">Now we define an equivalence relation \(\sim\) on \(L_{\RR}(k, V)\) by the rule that \((v_1, \dots,
+v_k) \sim (w_1, \dots, w_k)\) if and only if their spans are equal (as subspaces of \(V\)). The quotient space \(G_{\RR}(k,V) \coloneq L_{\RR}(k,V)/\!\sim\) is called the <dfn class="terminology">Grassmannian</dfn> of \(k\)-dimensional subspaces of \(V\text{.}\) The points of \(G_{\RR}(k,V)\) are \(k\)-dimensional real linear subspaces of \(V\text{.}\) One often writes \(G_{\RR}(k,n)\) as a shorthand for \(G_{\RR}(k, \RR^n)\text{.}\)</p>
+<p id="p-429">In the particular case in which \(k=1\text{,}\) the space \(G_{\RR}(1,n)\) is the space of lines through the origin of \(\RR^n\text{;}\) this is also called the (real) <dfn class="terminology">projective space</dfn> \(\PP^{n-1}_{\RR}\text{.}\)</p>
+<p id="p-430">We can do this same thing with \(\CC\) in place</p>
+<aside class="aside aside-like" id="aside-37"><p id="p-431">That is, we can look at a finite dimensional complex vector space V with the topology transported from \(\CC^n \cong \RR^{2n}\text{;}\) we can consider the subspace \(L(k, V)\) of \(\CC\)-linearly independent \(k\)-tuples of \(V^k\text{;}\) and we can contemplate the quotient \(G(k, V)\) of \(k\)-dimensional complex subspaces of \(V\text{.}\)</p></aside><p id="p-432">of \(\RR\text{.}\)</p>
+<p id="p-433">In particular, \(G(k,n)\) is the space of <em class="emphasis">complex</em> lines through the origin in \(\CC^n\text{;}\) this is called the (complex) <dfn class="terminology">projective space</dfn> \(\PP^{n-1}\text{.}\)</p></article></div>
+<p id="p-434">Let \(X\) and \(Y\) be topological spaces, and let \(p \colon X \to Y\) be a continuous surjection. Then \(p\) need not be a quotient map. For example, the map \(e \colon \left]0,1\right] \to S^1\) given by \(t \mapsto \exp(2\pi t)\) is not a quotient map: even though \(e^{-1}(e(\left]1/2,1/2\right])) = \left]1/2,1/2\right]\) is open, the subset \(e(\left]1/2,1/2\right]) \subseteq S^1\) is not. If \(p\) is an <em class="emphasis">open map</em> — that is, if it carries open sets to open sets — then it is a quotient map.</p>
+<p id="p-435">Let \(\{X_a\}_{a\in A}\) be an indexed family of sets. Then the <dfn class="terminology">coproduct of sets</dfn> is by definition the union</p>
+<div class="displaymath">
+\begin{equation*}
+\coprod_{a\in A}X_a\coloneq\bigcup_{a\in A}X_a\times\{a\}\text{.}
+\end{equation*}
+</div>
+<p id="p-436">It is engineered precisely so that a map out of the coproduct is determined by each of its components. More precisely, the coproduct is equipped with inclusion maps</p>
+<div class="displaymath">
+\begin{equation*}
+\iota_b\colon\fromto{X_b}{\coprod_{a\in A}X_a}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">one for every \(b\in A\text{,}\) given by \(\iota_b(x)=(x,b)\text{.}\) For any set \(Y\text{,}\) and for any collection \(\{ f_a \colon X_a \to Y\}_{a\in A}\) of maps, there exists a unique map</p>
+<div class="displaymath">
+\begin{equation*}
+f \colon \coprod_{a \in A} X_a \to Y
+\end{equation*}
+</div>
+<p class="continuation">such that for each \(a\in A\text{,}\) one has \(f \circ \iota_a = f_a\text{.}\) Thus composition with the inclusions induces a bijection</p>
+<div class="displaymath">
+\begin{equation*}
+\prod_{a\in A}-\circ \iota_{a} \colon\fromto{\Map\left(\coprod_{a\in A}X_a,Y\right)}{\prod_{a\in A}\Map(X_a,Y)}\text{.}
+\end{equation*}
+</div>
+<article class="definition definition-like" id="definition-16"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.4.5</span><span class="period">.</span>
+</h6>
+<p id="p-437">Let \(X\) be a topological space, and let \(A\subseteq X\) a subspace. Consider the map \(q\colon\fromto{X}{(X-A)\sqcup\{X-A\}}\) defined by</p>
+<div class="displaymath">
+\begin{equation*}
+q(x)\coloneq \begin{cases}x\amp \text{ if } x\notin A;\\ X-A\amp \text{ if } x\in A. \end{cases}
+\end{equation*}
+</div>
+<p id="p-438">We define \(X/A\) as the set \((X-A)\sqcup\{X-A\}\) equipped with the final topology with respect to \(q\text{.}\)</p></article><article class="example example-like" id="example-43"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-43"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.6</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-43"><article class="example example-like"><p id="p-439">Consider the subspace</p>
+<div class="displaymath">
+\begin{equation*}
+D^{n}\coloneq\{x\in\RR^{n} : \|x\|\leq 1\}\subset\RR^{n}
+\end{equation*}
+</div>
+<p class="continuation">and the subspace</p>
+<div class="displaymath">
+\begin{equation*}
+S^{n-1}\coloneq\{x\in D^{n} : \|x\|=1\}\subset D^{n}\text{.}
+\end{equation*}
+</div>
+<p id="p-440">Then the space \(D^n/S^{n-1}\) is homeomorphic to \((\RR^n)^+\text{,}\) which is in turn homeomorphic to \(S^n\text{.}\)</p></article></div>
+<article class="definition definition-like" id="definition-17"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.4.7</span><span class="period">.</span>
+</h6>
+<p id="p-441">Let \(\{(X_a,\tau_a)\}_{a\in A}\) be an indexed family of topological spaces. Then the <dfn class="terminology">coproduct topology</dfn> \(\coprod_{a\in A}\tau_a\) is the final topology with respect to the set \(\{\iota_a\}_{\alpha\in A}\text{.}\)</p></article><p id="p-442">Let \(S=\coprod_{a\in A}S_a\subseteq\coprod_{a\in A}X_a\) (so that \(S_a\subseteq X_a\)). If \(\tau\) is the coproduct topology, then</p>
+<div class="displaymath">
+\begin{equation*}
+\tau(S)=\coprod_{a\in A}\tau_a(S_a)\text{.}
+\end{equation*}
+</div>
+<article class="example example-like" id="example-44"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-44"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.8</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-44"><article class="example example-like"><p id="p-443">If \(X\) is topological space, then \(X_+\) denotes the coproduct \(X\sqcup\{X\}\) with the coproduct topology.</p></article></div>
+<article class="example example-like" id="example-45"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-45"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.9</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-45"><article class="example example-like"><p id="p-444">Let \(A = (A,\delta)\) be a discrete topological space. Suppose \(f\colon\fromto{X}{A}\) a continuous map. Then we have a bijection \(G \colon \coprod_{a\in A}f^{-1}\{a\} \to X\text{.}\) Let us show that this is a homeomorphism, where the right hand side is given the coproduct topology (and the fibers \(f^{-1}\{a\} \subseteq X\) are given the subspace topology). By construction, the map \(G\) is continuous. It remains to show that \(G^{-1}\) is continuous; let \(U \subseteq \coprod_{a\in A}f^{-1}\{a\}\) be an open subset. Then \(U \cap f^{-1}\{a\}\) is open in \(f^{-1}\{a\}\text{,}\) and so since \(U\) is the union of these intersections, it suffices to prove that any open subset of \(f^{-1}\{a\}\) is open in \(X\text{.}\) Indeed, this is true, since \(f^{-1}\{a\}\) is itself open.</p>
+<p id="p-445">Conversely, if \(\{X_a\}_{a\in A}\) is an indexed family of topological spaces, then define the map</p>
+<div class="displaymath">
+\begin{equation*}
+g\colon\fromto{\coprod_{a\in A}X_a}{A}
+\end{equation*}
+</div>
+<p class="continuation">such that \(g(x)=a\) if and only if \(x\in X_a\text{.}\) The map \(g\) is continuous.</p>
+<p id="p-446">In other words, a decomposition of a toploogical space into a coproduct of topological spaces is equivalent to a continuous map into a discrete topological space.</p></article></div>
+<p id="p-447">Much of the story of topology is the story of “gluing topological spaces together” to get new ones. We are now ready to say exactly what this means.</p>
+<article class="example example-like" id="example-46"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-46"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.10</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-46"><article class="example example-like"><p id="p-448">Let \(U\text{,}\) \(V\text{,}\) and \(X\) be three topological spaces, and let \(f\colon\fromto{X}{U}\) and \(g\colon\fromto{X}{V}\) be two continuous maps. Consider the equivalence relation \(\sim\) on \(U\sqcup V\) generated by declaring that: for every element \(x\in X\text{,}\) \(f(x) \sim g(x)\text{.}\) Write \(U \cup^X V\) for the quotient \((U\sqcup V)/\sim\) with the quotient topology.</p>
+<p id="p-449">Consider the subset</p>
+<div class="displaymath">
+\begin{equation*}
+D^{n}\coloneq\{x\in\RR^{n} : \|x\|\leq 1\}\subset\RR^{n}
+\end{equation*}
+</div>
+<p class="continuation">and the subset</p>
+<div class="displaymath">
+\begin{equation*}
+S^{n-1}\coloneq\{x\in D^{n} : \|x\|=1\}\subset D^{n}\text{.}
+\end{equation*}
+</div>
+<p id="p-450">Here's a standard way to build a new space from an old one. Suppose \(X\) a topological space, and suppose \(f\colon\fromto{S^{n-1}}{X}\) a continuous map. Then we can form the <dfn class="terminology">cell attachment for attaching map \(f\)</dfn></p>
+<div class="displaymath">
+\begin{equation*}
+X\cup^{S^{n-1}}D^n\text{.}
+\end{equation*}
+</div>
+<p id="p-451">A <dfn class="terminology">cell complex</dfn> is a topological space \(Y\) that is built via cell attachments from discrete spaces; that is, a cell complex is a topological space \(Y\) along with a sequence of subspaces</p>
+<div class="displaymath">
+\begin{equation*}
+Y_0\subseteq Y_1\subseteq \cdots\subseteq Y
+\end{equation*}
+</div>
+<p class="continuation">such that:</p>
+<ul class="disc">
+<li id="li-119"><p id="p-452">\(Y=\bigcup_{n\geq 0}Y_n\text{;}\)</p></li>
+<li id="li-120"><p id="p-453">\(Y_0\) is discrete;</p></li>
+<li id="li-121">
+<p id="p-454">for any \(n\geq 1\text{,}\) there exist an indexed family \(\left\{f_{\alpha}\colon\fromto{S^{n-1}}{Y_{n-1}}\right\}_{\alpha\in A_n}\) of attaching maps such that</p>
+<div class="displaymath">
+\begin{equation*}
+Y_n=Y_{n-1}\cup^{\coprod_{\alpha\in A_n}S^{n-1}}\coprod_{\alpha\in A_n}D^{n}\text{.}
+\end{equation*}
+</div>
+</li>
+</ul></article></div></section></div></main>
+</div>
+</body>
+</html>

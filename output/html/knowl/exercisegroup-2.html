@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-09-27T08:44:18+01:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<div class="exercisegroup">
+<h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
+<span class="type">Exercise Group</span><span class="space"> </span><span class="codenumber">1.4.5–12</span><span class="period">.</span>
+</h6>
+<div class="introduction">
+<p>Let \(X \subseteq \RR^m\) be a subspace. The formation of the <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">closure</dfn> is an operation</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\tau \colon \PP(X) \to \PP(X)
+\end{equation*}
+</div>
+<p class="continuation">on the power set \(\PP(X)\) (i.e., a map from \(\PP(X)\) to itself). The formation of the <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">complement</dfn> is an operation</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\kappa \colon \PP(X) \to \PP(X) \period
+\end{equation*}
+</div>
+<p class="continuation">Thus \(\kappa(S) = X \smallsetminus S\text{.}\) Please note that \(\tau\) is <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">inclusion-preserving</dfn> — that is, if \(S \subseteq T\text{,}\) then \(\tau(S) \subseteq \tau(T)\text{.}\) — and \(\kappa\) is <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">inclusion-reversing</dfn> — that is, if \(S \subseteq T\text{,}\) then \(\kappa(S) \supseteq \kappa(T)\text{.}\) Also of course \(S\subseteq \tau(S)\text{.}\) Finally, please observe that \(\tau\) is <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">idempotent</dfn> — that is, \(\tau^2 = \tau\) and that \(\kappa\) is <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">involutive</dfn> — that is, \(\kappa^2 = \operatorname{id}\text{.}\) We are interested in the operations \(\PP(X) \to \PP(X)\) that we can obtain by composing \(\tau\) and \(\kappa\) repeatedly. For example, the <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">interior</dfn> operator is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\iota \coloneq \kappa\tau\kappa \colon \PP(X) \to \PP(X).
+\end{equation*}
+</div>
+<p class="continuation">Note that \(\iota\) is inclusion-preserving, and \(\iota\) is idempotent. Many of the most important kinds of subsets of topological spaces are identified using \(\tau\) and \(\kappa\text{.}\) For example, a subset \(S\subseteq X\) is <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">closed</dfn> if and only if it is its own closure: \(S=\tau(S)=S\text{;}\) it is <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">open</dfn> if and only if it is its own interior: \(S=\iota(S)=\kappa\tau\kappa(S)\text{.}\)</p>
+</div>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="exercisegroup-exercises">
+<article class="exercise exercise-like"><h6 class="heading"><span class="codenumber">5<span class="period">.</span></span></h6>
+<p>Write down all the subsets of \(\RR\) you can obtain by repeatedly applying the closure \(\tau\) and the interior \(\iota\) to the set</p>
+<div class="displaymath">
+\begin{equation*}
+S \coloneq \{-30\} \cup \left]-20,0\right[ \cup \left]0,20\right[ \cup \left(\QQ \cap \left[25,30\right[\right).
+\end{equation*}
+</div>
+<p class="continuation">You do not need to prove that your computation is correct. [10 points]</p></article><article class="exercise exercise-like"><h6 class="heading"><span class="codenumber">6<span class="period">.</span></span></h6>
+<p>A subset \(S \subseteq X\) is said to be <dfn class="terminology">dense</dfn> if \(\tau(S) = X\text{.}\) Find a countable dense subset of \(\RR\text{.}\) You do not need to prove that your computation is correct. [10 points]</p></article><article class="exercise exercise-like"><h6 class="heading"><span class="codenumber">7<span class="period">.</span></span></h6>
+<p>A subset \(S \subseteq X\) is said to be <dfn class="terminology">co-dense</dfn> if it has empty interior, so that \(\iota(S) = \varnothing\text{.}\) Give an example of an uncountable co-dense subset \(S \subseteq \RR\text{.}\) You do not need to prove that your computation is correct. [10 points]</p></article><article class="exercise exercise-like"><h6 class="heading"><span class="codenumber">8<span class="period">.</span></span></h6>
+<p>A subset \(S \subseteq X\) is said to be <dfn class="terminology">nowhere dense</dfn> if the interior of its closure is empty; that is, \(S\) is nowhere dense if \(\iota\tau(S)=\varnothing\text{,}\) or equivalently, \(\kappa\tau\kappa\tau(S) = \varnothing\text{.}\) Any nowhere dense subset of a topological space is co-dense, but give an example of a co-dense subset of \(\RR\) that is not nowhere dense. You do not need to prove that your computation is correct. [10 points]</p></article><article class="exercise exercise-like"><h6 class="heading"><span class="codenumber">9<span class="period">.</span></span></h6>
+<p>Show that if \(T\subseteq X\) is a closed co-dense subset, then any subset \(S \subseteq T\) is nowhere dense. [12 points]</p></article><article class="exercise exercise-like"><h6 class="heading"><span class="codenumber">10<span class="period">.</span></span></h6>
+<p><em class="emphasis">Optional.</em> Let \(Z\subseteq X\text{.}\) Prove that \(Z\) is the closure of some open subset of \(X\) if and only if \(Z\) is the closure of its interior, so that \(Z=\tau\iota(Z)\text{,}\) or equivalently, \(Z = \tau\kappa\tau\kappa(Z)\text{.}\)</p></article><article class="exercise exercise-like"><h6 class="heading"><span class="codenumber">11<span class="period">.</span></span></h6>
+<p><em class="emphasis">Optional.</em> Show that</p>
+<div class="displaymath">
+\begin{equation*}
+\tau\kappa\tau = \tau\kappa\tau\kappa\tau\kappa\tau .
+\end{equation*}
+</div>
+<p class="continuation">Deduce that</p>
+<div class="displaymath">
+\begin{equation*}
+\iota\tau = \iota\tau\iota\tau \text{ and } \tau\iota = \tau\iota\tau\iota .
+\end{equation*}
+</div></article><article class="exercise exercise-like"><h6 class="heading"><span class="codenumber">12<span class="period">.</span></span></h6>
+<p><em class="emphasis">Optional.</em> Let \(S\subseteq X\text{.}\) What is the maximum number of sets one can form by repeatedly applying the closure and complement operators to \(S\text{?}\)</p></article>
+</div>
+</div>
+<span class="incontext"><a href="sec_subspaces_exercises.html#exercisegroup-2">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-09-27T08:44:15+01:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Connectedness</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore",
+    processHtmlClass: "has_am",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{\andeq}{\text{\qquad and\qquad}}
+\newcommand{\respectively}[1]{\text{\qquad(respectively,\quad}{#1}\text{\quad)}}
+\newcommand{\resp}[1]{\text{\qquad(resp.,\quad}{#1}\text{\quad)}}
+
+\newcommand{\comma}{\rlap{\ ,}}
+\newcommand{\period}{\rlap{\ .}}
+\newcommand{\semicolon}{\rlap{\ ;}}
+ \newcommand{\coloneq}{\mathrel{:=}}
+
+ 
+
+ \newcommand{\mathup}[1]{\mathrm{#1}}
+ \newcommand{\mathbfup}[1]{\mathbf{#1}}
+ 
+ \renewcommand{\AA}{\mathbfit{A}}
+ \newcommand{\BB}{\mathbfit{B}}
+ \newcommand{\CC}{\mathbfit{C}}
+ \newcommand{\DD}{\mathbfit{D}}
+ \newcommand{\EE}{\mathbfit{E}}
+ \newcommand{\FF}{\mathbfit{F}}
+ \newcommand{\GG}{\mathbfit{G}}
+ \newcommand{\HH}{\mathbfit{H}}
+ \newcommand{\II}{\mathbfit{I}}
+ \newcommand{\JJ}{\mathbfit{J}}
+ \newcommand{\KK}{\mathbfit{K}}
+ \newcommand{\LL}{\mathbfit{L}}
+ \newcommand{\MM}{\mathbfit{M}}
+ \newcommand{\NN}{\mathbfit{N}}
+ \newcommand{\OO}{\mathbfit{O}}
+ \newcommand{\PP}{\mathbfit{P}}
+ \newcommand{\QQ}{\mathbfit{Q}}
+ \newcommand{\RR}{\mathbfit{R}}
+ \renewcommand{\SS}{\mathbfit{S}}
+ \newcommand{\TT}{\mathbfit{T}}
+ \newcommand{\UU}{\mathbfit{U}}
+ \newcommand{\VV}{\mathbfit{V}}
+ \newcommand{\WW}{\mathbfit{W}}
+ \newcommand{\XX}{\mathbfit{X}}
+ \newcommand{\YY}{\mathbfit{Y}}
+ \newcommand{\ZZ}{\mathbfit{Z}}
+ 
+ \let\Gammaup\Gamma
+ \let\Deltaup\Delta
+ \let\Thetaup\Theta
+ \let\Lambdaup\Lambda
+ \let\Xiup\Xi
+ \let\Piup\Pi
+ \let\Sigmaup\Sigma
+ \let\Upsilonup\Upsilon
+ \let\Phiup\Phi
+ \let\Psiup\Psi
+ \let\Omegaup\Omega
+ 
+ \renewcommand{\Gamma}{\mathit{\Gammaup}}
+ \renewcommand{\Delta}{\mathit{\Deltaup}}
+ \renewcommand{\Theta}{\mathit{\Thetaup}}
+ \renewcommand{\Lambda}{\mathit{\Lambdaup}}
+ \renewcommand{\Xi}{\mathit{\Xiup}}
+ \renewcommand{\Pi}{\mathit{\Piup}}
+ \renewcommand{\Sigma}{\mathit{\Sigmaup}}
+ \renewcommand{\Upsilon}{\mathit{\Upsilonup}}
+ \renewcommand{\Phi}{\mathit{\Phiup}}
+ \renewcommand{\Psi}{\mathit{\Psiup}}
+ \renewcommand{\Omega}{\mathit{\Omegaup}}
+ 
+
+
+\renewcommand{\epsilon}{\varepsilon}
+ \newcommand{\el}{\ell}
+\renewcommand{\phi}{\varphi}
+
+\newcommand{\mfa}{\mathfrak{a}}
+\newcommand{\mfb}{\mathfrak{b}}
+\newcommand{\mfc}{\mathfrak{c}}
+\newcommand{\mfd}{\mathfrak{d}}
+\newcommand{\mfe}{\mathfrak{e}}
+\newcommand{\mff}{\mathfrak{f}}
+\newcommand{\mfg}{\mathfrak{g}}
+\newcommand{\mfh}{\mathfrak{h}}
+\newcommand{\mfi}{\mathfrak{i}}
+\newcommand{\mfj}{\mathfrak{j}}
+\newcommand{\mfk}{\mathfrak{k}}
+\newcommand{\mfl}{\mathfrak{l}}
+\newcommand{\mfm}{\mathfrak{m}}
+\newcommand{\mfn}{\mathfrak{n}}
+\newcommand{\mfo}{\mathfrak{o}}
+\newcommand{\mfp}{\mathfrak{p}}
+\newcommand{\mfq}{\mathfrak{q}}
+\newcommand{\mfr}{\mathfrak{r}}
+\newcommand{\mfs}{\mathfrak{s}}
+\newcommand{\mft}{\mathfrak{t}}
+\newcommand{\mfu}{\mathfrak{u}}
+\newcommand{\mfv}{\mathfrak{v}}
+\newcommand{\mfw}{\mathfrak{w}}
+\newcommand{\mfx}{\mathfrak{x}}
+\newcommand{\mfy}{\mathfrak{y}}
+\newcommand{\mfz}{\mathfrak{z}}
+
+\newcommand{\ahat}{\hat{a}}
+\newcommand{\bhat}{\hat{b}}
+\newcommand{\chat}{\hat{c}}
+\newcommand{\dhat}{\hat{d}}
+\newcommand{\ehat}{\hat{e}}
+\newcommand{\fhat}{\hat{f}}
+\newcommand{\ghat}{\hat{g}}
+\newcommand{\hhat}{\hat{h}}
+\newcommand{\ihat}{\hat{\i}}
+\newcommand{\jhat}{\hat{\j}}
+\newcommand{\khat}{\hat{k}}
+\newcommand{\elhat}{\hat{\el}}
+\newcommand{\mhat}{\hat{m}}
+\newcommand{\nhat}{\hat{n}}
+\newcommand{\ohat}{\hat{o}}
+\newcommand{\phat}{\hat{p}}
+\newcommand{\qhat}{\hat{q}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\uhat}{\hat{u}}
+\newcommand{\vhat}{\hat{v}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\xhat}{\hat{x}}
+\newcommand{\yhat}{\hat{y}}
+\newcommand{\zhat}{\hat{z}}
+
+\newcommand{\alphahat}{\hat{\alpha}}
+\newcommand{\betahat}{\hat{\beta}}
+\newcommand{\gammahat}{\hat{\gamma}}
+\newcommand{\deltahat}{\hat{\delta}}
+\newcommand{\epsilonhat}{\hat{\epsilon}}
+\newcommand{\zetahat}{\hat{\zeta}}
+\newcommand{\etahat}{\hat{\eta}}
+\newcommand{\thetahat}{\hat{\theta}}
+\newcommand{\iotahat}{\hat{\iota}}
+\newcommand{\kappahat}{\hat{\kappa}}
+\newcommand{\lambdahat}{\hat{\lambda}}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\xihat}{\hat{\xi}}
+\newcommand{\pihat}{\hat{\pi}}
+\newcommand{\rhohat}{\hat{\rho}}
+\newcommand{\sigmahat}{\hat{\sigma}}
+\newcommand{\tauhat}{\hat{\tau}}
+\newcommand{\upsilonhat}{\hat{\upsilon}}
+\newcommand{\phihat}{\hat{\phi}}
+\newcommand{\chihat}{\hat{\chi}}
+\newcommand{\psihat}{\hat{\psi}}
+\newcommand{\omegahat}{\hat{\omega}}
+
+\newcommand{\Ahat}{\hat{A}}
+\newcommand{\Bhat}{\hat{B}}
+\newcommand{\Chat}{\hat{C}}
+\newcommand{\Dhat}{\hat{D}}
+\newcommand{\Ehat}{\hat{E}}
+\newcommand{\Fhat}{\hat{F}}
+\newcommand{\Ghat}{\hat{G}}
+\newcommand{\Hhat}{\hat{H}}
+\newcommand{\Ihat}{\hat{I}}
+\newcommand{\Jhat}{\hat{J}}
+\newcommand{\Khat}{\hat{K}}
+\newcommand{\Lhat}{\hat{L}}
+\newcommand{\Mhat}{\hat{M}}
+\newcommand{\Nhat}{\hat{N}}
+\newcommand{\Ohat}{\hat{O}}
+\newcommand{\Phat}{\hat{P}}
+\newcommand{\Qhat}{\hat{Q}}
+\newcommand{\Rhat}{\hat{R}}
+\newcommand{\Shat}{\hat{S}}
+\newcommand{\That}{\hat{T}}
+\newcommand{\Uhat}{\hat{U}}
+\newcommand{\Vhat}{\hat{V}}
+\newcommand{\What}{\hat{W}}
+\newcommand{\Xhat}{\hat{X}}
+\newcommand{\Yhat}{\hat{Y}}
+\newcommand{\Zhat}{\hat{Z}}
+
+\newcommand{\Gammahat}{\hat{\Gamma}}
+\newcommand{\Deltahat}{\hat{\Delta}}
+\newcommand{\Thetahat}{\hat{\Theta}}
+\newcommand{\Lambdahat}{\hat{\Lambda}}
+\newcommand{\Xihat}{\hat{\Xi}}
+\newcommand{\Pihat}{\hat{\Pi}}
+\newcommand{\Sigmahat}{\hat{\Sigma}}
+\newcommand{\Upsilonhat}{\hat{\Upsilon}}
+\newcommand{\Phihat}{\hat{\Phi}}
+\newcommand{\Chihat}{\hat{\Chi}}
+\newcommand{\Psihat}{\hat{\Psi}}
+\newcommand{\Omegahat}{\hat{\Omega}}
+
+\newcommand{\atilde}{\tilde{a}}
+\newcommand{\btilde}{\tilde{b}}
+\newcommand{\ctilde}{\tilde{c}}
+\newcommand{\dtilde}{\tilde{d}}
+\newcommand{\etilde}{\tilde{e}}
+\newcommand{\ftilde}{\tilde{f}}
+\newcommand{\gtilde}{\tilde{g}}
+\newcommand{\htilde}{\tilde{h}}
+\newcommand{\itilde}{\tilde{\i}}
+\newcommand{\jtilde}{\tilde{\j}}
+\newcommand{\ktilde}{\tilde{k}}
+\newcommand{\eltilde}{\tilde{\el}}
+\newcommand{\mtilde}{\tilde{m}}
+\newcommand{\ntilde}{\tilde{n}}
+\newcommand{\otilde}{\tilde{o}}
+\newcommand{\ptilde}{\tilde{p}}
+\newcommand{\qtilde}{\tilde{q}}
+\newcommand{\rtilde}{\tilde{r}}
+\newcommand{\stilde}{\tilde{s}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\xtilde}{\tilde{x}}
+\newcommand{\ytilde}{\tilde{y}}
+\newcommand{\ztilde}{\tilde{z}}
+
+\newcommand{\alphatilde}{\tilde{\alpha}}
+\newcommand{\betatilde}{\tilde{\beta}}
+\newcommand{\gammatilde}{\tilde{\gamma}}
+\newcommand{\deltatilde}{\tilde{\delta}}
+\newcommand{\epsilontilde}{\tilde{\epsilon}}
+\newcommand{\zetatilde}{\tilde{\zeta}}
+\newcommand{\etatilde}{\tilde{\eta}}
+\newcommand{\thetatilde}{\tilde{\theta}}
+\newcommand{\iotatilde}{\tilde{\iota}}
+\newcommand{\kappatilde}{\tilde{\kappa}}
+\newcommand{\lambdatilde}{\tilde{\lambda}}
+\newcommand{\mutilde}{\tilde{\mu}}
+\newcommand{\nutilde}{\tilde{\nu}}
+\newcommand{\xitilde}{\tilde{\xi}}
+\newcommand{\pitilde}{\tilde{\pi}}
+\newcommand{\rhotilde}{\tilde{\rho}}
+\newcommand{\sigmatilde}{\tilde{\sigma}}
+\newcommand{\tautilde}{\tilde{\tau}}
+\newcommand{\upsilontilde}{\tilde{\upsilon}}
+\newcommand{\phitilde}{\tilde{\phi}}
+\newcommand{\chitilde}{\tilde{\chi}}
+\newcommand{\psitilde}{\tilde{\psi}}
+\newcommand{\omegatilde}{\tilde{\omega}}
+
+\newcommand{\Atilde}{\widetilde{A}}
+\newcommand{\Btilde}{\widetilde{B}}
+\newcommand{\Ctilde}{\widetilde{C}}
+\newcommand{\Dtilde}{\widetilde{D}}
+\newcommand{\Etilde}{\widetilde{E}}
+\newcommand{\Ftilde}{\widetilde{F}}
+\newcommand{\Gtilde}{\widetilde{G}}
+\newcommand{\Htilde}{\widetilde{H}}
+\newcommand{\Itilde}{\widetilde{I}}
+\newcommand{\Jtilde}{\widetilde{J}}
+\newcommand{\Ktilde}{\widetilde{K}}
+\newcommand{\Ltilde}{\widetilde{L}}
+\newcommand{\Mtilde}{\widetilde{M}}
+\newcommand{\Ntilde}{\widetilde{N}}
+\newcommand{\Otilde}{\widetilde{O}}
+\newcommand{\Ptilde}{\widetilde{P}}
+\newcommand{\Qtilde}{\widetilde{Q}}
+\newcommand{\Rtilde}{\widetilde{R}}
+\newcommand{\Stilde}{\widetilde{S}}
+\newcommand{\Ttilde}{\widetilde{T}}
+\newcommand{\Utilde}{\widetilde{U}}
+\newcommand{\Vtilde}{\widetilde{V}}
+\newcommand{\Wtilde}{\widetilde{W}}
+\newcommand{\Xtilde}{\widetilde{X}}
+\newcommand{\Ytilde}{\widetilde{Y}}
+\newcommand{\Ztilde}{\widetilde{Z}}
+
+\newcommand{\Gammatilde}{\widetilde{\Gamma}}
+\newcommand{\Deltatilde}{\widetilde{\Delta}}
+\newcommand{\Thetatilde}{\widetilde{\Theta}}
+\newcommand{\Lambdatilde}{\widetilde{\Lambda}}
+\newcommand{\Xitilde}{\widetilde{\Xi}}
+\newcommand{\Pitilde}{\widetilde{\Pi}}
+\newcommand{\Sigmatilde}{\widetilde{\Sigma}}
+\newcommand{\Upsilontilde}{\widetilde{\Upsilon}}
+\newcommand{\Phitilde}{\widetilde{\Phi}}
+\newcommand{\Chitilde}{\widetilde{\Chi}}
+\newcommand{\Psitilde}{\widetilde{\Psi}}
+\newcommand{\Omegatilde}{\widetilde{\Omega}}
+
+
+
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Equival}{Equiv}
+\DeclareMathOperator{\Fun}{Fun}
+\newcommand{\Funcross}{\Fun^{\cross}}
+\newcommand{\Functs}{\Fun^{\cts}}
+\newcommand{\Funpyk}{\Functs}
+\newcommand{\Funlowerstar}{\Fun_{\ast}}
+\newcommand{\Funupperstar}{\Fun^{\ast}}
+\DeclareMathOperator{\Hom}{Hom}
+\newcommand{\HOM}{\ensuremath{\textup{\textsc{Hom}}}}
+\DeclareMathOperator{\Isom}{Isom}
+\DeclareMathOperator{\Map}{Map}
+\DeclareMathOperator{\Mor}{Mor}
+\newcommand{\MOR}{\ensuremath{\textup{\textsc{Mor}}}}
+
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\PSO}{PSO}
+\DeclareMathOperator{\PSp}{PSp}
+\DeclareMathOperator{\PSU}{PSU}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\SU}{SU}
+
+\DeclareMathOperator{\cofib}{cofib}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator*{\colim}{colim}
+\DeclareMathOperator*{\hocolim}{hocolim}
+\DeclareMathOperator*{\holim}{holim}
+\DeclareMathOperator{\fib}{fib}
+
+\DeclareMathOperator{\Nerve}{N}
+\DeclareMathOperator{\trun}{\uptau}
+
+\DeclareMathOperator{\cosk}{ck}
+\DeclareMathOperator{\creff}{cr}
+\DeclareMathOperator{\ev}{ev}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\sd}{sd}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\specpos}{sp}
+\newcommand{\sdop}{\sd^{\op}}
+
+
+
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\angs}[1]{\langle #1 \rangle}
+ \newcommand{\quine}[1]{\ulcorner #1 \urcorner}
+\newcommand{\ultimes}{\,\underline{\times}\,}
+\newcommand{\horn}[2]{\upLambda_{#1}^{#2}}
+
+
+
+\newcommand{\categ}[1]{\textbf{\textup{#1}}}
+
+
+ 
+ \newcommand{\fromto}[2]{{#1} \to {#2}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Topology:</span> <span class="subtitle">General Topology 2021</span></a></h1>
+<p class="byline">Clark Barwick</p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_continuity_for_subspaces_of_euclidean_space.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="cha_subspaces_of_euclidean_space.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec_subspaces_exercises.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_continuity_for_subspaces_of_euclidean_space.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="cha_subspaces_of_euclidean_space.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec_subspaces_exercises.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="cha_subspaces_of_euclidean_space.html" data-scroll="cha_subspaces_of_euclidean_space"><span class="codenumber">1</span> <span class="title">Subspaces of Euclidean space</span></a><ul>
+<li><a href="sec_basic_definitions.html" data-scroll="sec_basic_definitions">Basic definitions</a></li>
+<li><a href="sec_continuity_for_subspaces_of_euclidean_space.html" data-scroll="sec_continuity_for_subspaces_of_euclidean_space">Continuity</a></li>
+<li><a href="sec_connectedness_for_subspaces_of_euclidean_space.html" data-scroll="sec_connectedness_for_subspaces_of_euclidean_space" class="active">Connectedness</a></li>
+<li><a href="sec_subspaces_exercises.html" data-scroll="sec_subspaces_exercises">Problem set 1, due 5 October 2021</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="cha_abstract_topological_spaces.html" data-scroll="cha_abstract_topological_spaces"><span class="codenumber">2</span> <span class="title">Abstract topological spaces</span></a><ul>
+<li><a href="sec_topologies.html" data-scroll="sec_topologies">Topologies</a></li>
+<li><a href="sec_continuity.html" data-scroll="sec_continuity">Continuity</a></li>
+<li><a href="sec_specifying_topologies_efficiently.html" data-scroll="sec_specifying_topologies_efficiently">Specifying topologies efficiently</a></li>
+<li><a href="sec_quotient_spaces.html" data-scroll="sec_quotient_spaces">Quotient spaces</a></li>
+<li><a href="sec_products.html" data-scroll="sec_products">Products</a></li>
+<li><a href="sec_esoterica.html" data-scroll="sec_esoterica">Esoterica</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="cha_compactness.html" data-scroll="cha_compactness"><span class="codenumber">3</span> <span class="title">Compactness</span></a><ul>
+<li><a href="sec_compact_topological_spaces.html" data-scroll="sec_compact_topological_spaces">Compact topological spaces</a></li>
+<li><a href="sec_compact_hausdorff_topological_spaces.html" data-scroll="sec_compact_hausdorff_topological_spaces">Compact Hausdorff topological spaces</a></li>
+<li><a href="sec_tikhonov.html" data-scroll="sec_tikhonov">The Tikhonov Theorem</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="cha_separation.html" data-scroll="cha_separation"><span class="codenumber">4</span> <span class="title">Separation</span></a><ul>
+<li><a href="sec_trennungsaxiome.html" data-scroll="sec_trennungsaxiome">Trennungsaxiome</a></li>
+<li><a href="sec_urysohn_tietze.html" data-scroll="sec_urysohn_tietze">Urysohn &amp; Tietze</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="cha_elements_of_set_theory.html" data-scroll="cha_elements_of_set_theory"><span class="codenumber">5</span> <span class="title">Elements of set theory</span></a><ul>
+<li><a href="sec_sets_and_elements.html" data-scroll="sec_sets_and_elements">Sets and elements</a></li>
+<li><a href="sec_bounded_comprehension.html" data-scroll="sec_bounded_comprehension">Bounded comprehension</a></li>
+<li><a href="sec_unions.html" data-scroll="sec_unions">Unions</a></li>
+<li><a href="sec_ordered_pairs.html" data-scroll="sec_ordered_pairs">Ordered pairs</a></li>
+<li><a href="sec_maps.html" data-scroll="sec_maps">Maps</a></li>
+<li><a href="sec_bijections.html" data-scroll="sec_bijections">Bijections</a></li>
+<li><a href="sec_products_and_sets_of_maps.html" data-scroll="sec_products_and_sets_of_maps">Products and sets of maps</a></li>
+<li><a href="sec_injections_and_surjections.html" data-scroll="sec_injections_and_surjections">Injections and surjections</a></li>
+<li><a href="sec_the_algebra_of_subsets.html" data-scroll="sec_the_algebra_of_subsets">The algebra of subsets</a></li>
+<li><a href="sec_inverse_and_direct_image.html" data-scroll="sec_inverse_and_direct_image">Inverse and direct image</a></li>
+<li><a href="sec_products_of_sets.html" data-scroll="sec_products_of_sets">Products of sets</a></li>
+<li><a href="sec_coproducts_of_sets.html" data-scroll="sec_coproducts_of_sets">Coproducts of sets</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Back Matter</span></a></li>
+</ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="sec_connectedness_for_subspaces_of_euclidean_space"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">1.3</span> <span class="title">Connectedness</span>
+</h2>
+<div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="video-4" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/-dd_eH3915I?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<article class="definition definition-like" id="definition-5"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.3.1</span><span class="period">.</span>
+</h6>
+<p id="p-126">Let \(X \subseteq \RR^n\) be a subspace. A subset \(S \subseteq X\) that is both open and closed (in \(X\)) is said to be <dfn class="terminology">clopen</dfn>.</p>
+<aside class="aside aside-like" id="aside-12"><p id="p-127">I know, this is silly.</p></aside><p id="p-128">We shall say that \(X\) is <dfn class="terminology">connected</dfn> if there are <dfn class="terminology">exactly two</dfn> clopen subsets \(S \subseteq X\text{.}\)</p></article><p id="p-129">If \(X \subseteq \RR^n\) is a nonempty subspace, then there are always <em class="emphasis">at least two</em> clospen subsets of \(X\text{:}\) the empty set \(\varnothing\text{,}\) and \(X\) itself. Thus if \(X\) is nonempty, then it is connected if and only if the only nonempty clopen subset is \(X\) itself.</p>
+<article class="example example-like" id="example-8"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-8"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.2</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-8"><article class="example example-like"><p id="p-130">The empty set \(\varnothing\text{,}\) however, is not connected: it has only one subset, itself, which is clopen.</p></article></div>
+<article class="example example-like" id="example-9"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-9"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.3</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-9"><article class="example example-like"><p id="p-131">The space \(\RR\) itself is connected. Let's prove this. There are at least two clopen subsets: \(\varnothing\) and \(\RR\) itself. Now we have to prove that there are no more. So let \(S \subseteq \RR\) be a clopen subset. If \(S \neq \varnothing\text{,}\) then there exists a point \(x \in S\text{.}\) Since \(S\) is open, there exists \(\varepsilon &gt;0\) such that \(\left]x-\varepsilon,
+x+\varepsilon\right[ \subseteq S\text{.}\) Now let us consider the set</p>
+<div class="displaymath">
+\begin{equation*}
+E \coloneq \left\{ \varepsilon &gt;0 : \left]x-\varepsilon, x+\varepsilon\right[  \subseteq S \right\} \subseteq \RR\text{.}
+\end{equation*}
+</div>
+<p id="p-132">The set \(E\) is unbounded if and only if \(S = \RR\text{,}\) so assume that \(E\) in bounded. We aim to generate a contradiction. Since \(E\) is bounded, it admits a supremum \(\varepsilon_0\text{.}\) In particular, for every \(\varepsilon \lt \varepsilon_0\text{,}\) one has \(\left]x-\varepsilon,
+x+\varepsilon\right[ \subseteq S\text{.}\) Note that \(\left]x-\varepsilon_0, x+\varepsilon_0\right[ = \bigcup_{\varepsilon \lt \varepsilon_0} \left]x-\varepsilon,
+x+\varepsilon\right[\text{,}\) so it follows that \(\left]x-\varepsilon_0, x+\varepsilon_0\right[ \subseteq S\) as well. Thus \(\varepsilon_0 \in E\text{.}\)</p>
+<p id="p-133">Now consider the point \(x+\varepsilon_0\text{.}\) This is close to \(S\text{,}\) because the closure of \(S\) contains the closure of \(\left]x-\varepsilon_0, x+\varepsilon_0\right[\text{,}\) which is \([x-\varepsilon_0,x+\varepsilon_0]\text{.}\) Since \(S\) is closed, it follows that \(x +\varepsilon_0 \in S\text{.}\) The same analysis shows that \(x-\varepsilon_0 \in S\text{.}\)</p>
+<p id="p-134">Again since \(S\) is open, we may choose a \(\delta&gt;0\) such that \(\left]x+\varepsilon_0-\delta,
+x+\varepsilon_0+\delta\right[ \subset S\) <em class="emphasis">and</em> \(\left]x-\varepsilon_0-\delta,
+x-\varepsilon_0+\delta\right[ \subset S\text{.}\) But now we have that \(\left]x-\varepsilon_0-\delta,
+x+\varepsilon_0+\delta\right[ \subset S\text{,}\) so \(\varepsilon_0+\delta \in E\text{,}\) which contradicts the maximality of \(\varepsilon_0\text{.}\)</p>
+<p id="p-135">This contradiction shows that \(E\) is unbounded, and so the only nonempty clopen subset of \(\RR\) is \(\RR\) itself.</p></article></div>
+<article class="example example-like" id="example-10"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-10"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.4</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-10"><article class="example example-like"><p id="p-136">The subspace</p>
+<div class="displaymath">
+\begin{equation*}
+Y \coloneq \{(x,y) \in \RR^2 : |x|=1 \}
+\end{equation*}
+</div>
+<p class="continuation">we introduced above is not connected. Indeed, in addition to \(\varnothing\) and \(Y\) itself, the subset</p>
+<div class="displaymath">
+\begin{equation*}
+Y_+ \coloneq \{(x,y) \in \RR^2 : x=1 \}
+\end{equation*}
+</div>
+<p class="continuation">is clopen. To see this, let us show that both \(Y_+\) and its complement</p>
+<div class="displaymath">
+\begin{equation*}
+Y_- \coloneq Y \smallsetminus Y_+ = \{ (x,y) \in \RR^2 : x = -1 \}
+\end{equation*}
+</div>
+<p class="continuation">are open. The key observation here is that if \(u \in Y_+\) and \(v \in Y_-\text{,}\) then \(d(u,v) \geq 2\text{.}\) Consequently, if \(u \in Y_+\text{,}\) then \(B^2(u,1) \cap Y \subset Y_+\text{,}\) and, similarly, if \(v \in Y_-\text{,}\) then \(B^2(v,1) \cap Y \subset Y_-\text{.}\)</p></article></div>
+<article class="proposition theorem-like" id="prp_intersecting_unions_of_connecteds_are_connected"><h6 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">1.3.5</span><span class="period">.</span>
+</h6>
+<p id="p-137">Let \(\{X_a\}_{a\in A}\) be a nonempty family of connected subspaces \(X_a \subseteq \RR^n\text{.}\) Assume that for any \(a,b \in A\text{,}\) one has \(X_a\cap X_b \neq \varnothing\text{.}\) Then the union \(x \coloneq \bigcup_{a\in A}X_a\) is connected as well.</p></article><article class="hiddenproof" id="proof-8"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-8"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-8"><article class="hiddenproof"><p id="p-138">Since \(X_a \cap X_b\) is nonempty, the union \(X\) is nonempty too. Hence it suffices to show that if \(V \subseteq X\) is a nonempty clopen, then \(V = X\text{.}\)</p>
+<p id="p-139">Note that for any \(a\in A\text{,}\) the intersection \(V \cap X_a\) is clopen in \(X_a\text{.}\) For each \(a\in A\text{,}\) the subspace \(X_a\) is connected, so \(V \cap X_a\) is either \(\varnothing\) or \(X_a\text{.}\) In other words, for each \(a \in A\text{,}\) either \(V\) is disjoint from \(X_a\) or else \(X_a \subseteq V\text{.}\) Since \(V\neq\varnothing\text{,}\) there is at least one \(a_0 \in A\) such that \(X_{a_0} \subseteq V\text{.}\)</p>
+<p id="p-140">But now for any other \(a\in A\text{,}\) the nonempty intersection \(X_a \cap X_{a_0}\) is contained in \(X_a \cap V\text{;}\) thus \(X_a \subseteq V\) as well. We thus conclude that \(X \subseteq V\text{.}\)</p></article></div>
+<p id="p-141">We are now in a position to classify all the connected subspaces of \(\RR\text{.}\)</p>
+<article class="example example-like" id="example-11"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-11"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.6</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-11"><article class="example example-like"><p id="p-142">Let \(X \subseteq\RR\) be a nonempty subset. We'll say that \(X\) is <em class="emphasis">an interval</em> if and only if, for every \(a,
+b \in X\) and every \(x \in \RR\) such that \(a \leq x \leq b\text{,}\) we have \(x\in X\text{.}\) Assume that \(X\) is an interval. If \(X\) is bounded above, then there exists a supremum \(b \in \RR\text{.}\) If \(X\) is bounded below, then there exists an infimum \(a \in \RR\text{.}\) Now, depending upon whether \(a\) and \(b\) exist, there are three options for an interval \(X\text{:}\)</p>
+<ul class="disc">
+<li id="li-42"><p id="p-143">a interval of finite length such as \([a,b]\text{,}\) \(\left]a,b\right]\text{,}\) \(\left[a,b\right[\text{,}\) or \(\left]a,b\right[\text{;}\)</p></li>
+<li id="li-43"><p id="p-144">a ray \(\left]a,+\infty\right[\text{,}\) \(\left[a,+\infty\right[\text{,}\) \(\left]-\infty,
+b\right[\text{,}\) or \(\left]-\infty, b\right]\text{;}\) or</p></li>
+<li id="li-44"><p id="p-145">the line \(\RR\) itself.</p></li>
+</ul>
+<p id="p-146">Here now is our claim: a subspace \(X \subseteq \RR\) is connected if and only if it is an interval — hence if and only if it is of one of the three forms above. To prove this, we must prove two things:</p>
+<ul class="disc">
+<li id="li-45"><p id="p-147">first, that any interval is connected, and</p></li>
+<li id="li-46"><p id="p-148">second, that any subspace that is not an interval is not connected.</p></li>
+</ul>
+<p id="p-149">To prove the first statement, assume first that \(X\) is a closed interval \([a,b]\text{.}\) Assume that \(V \subseteq [a,b]\) is a clopen subset. Suppose that \(x \in [a,b]\) is a point such that \(x \notin V\text{;}\) we aim to show that \(V\) is empty.</p>
+<p id="p-150">If there are points \(s\in V\) such that \(s \lt  x\text{,}\) let</p>
+<div class="displaymath">
+\begin{equation*}
+s_0 \coloneq \sup \{s\in V : s\lt  x\}\text{.}
+\end{equation*}
+</div>
+<p id="p-151">Thus \(s_0 \leq x\text{.}\) Observe that \(s_0\) is close</p>
+<aside class="aside aside-like" id="aside-13"><p id="p-152"><code class="code-inline tex2jax_ignore">[cross-reference to target(s) "exm_sups_and_infs_are_close" missing or not unique]</code></p></aside><p id="p-153">to \(V\text{.}\) Since \(V\) is closed, it follows that \(s_0 \in V\text{.}\) Since \(x \notin V\text{,}\) it follows that \(s_0\lt x\text{.}\) Since \(V\) is open, there is a \(\varepsilon &gt;0\) such that \(\left]s_0-\varepsilon,s_0+\varepsilon\right[ \cap [a,b]\) is contained in \(V\text{.}\) In particular, there exist points \(s \in V\) such that \(s_0 \lt s \lt x\text{,}\) which contradicts the definition of \(s_0\text{.}\) Consequently, there are no points \(s\in V\) such that \(s\lt x\text{.}\)</p>
+<p id="p-154">On the other hand, if there are points \(s \in V\) such that \(s&gt;x\text{,}\) then let</p>
+<div class="displaymath">
+\begin{equation*}
+s_1 \coloneq \inf \{s\in V : s&gt;x\}\text{.}
+\end{equation*}
+</div>
+<p id="p-155">We can replay the same argument as above to generate a contradiction. Since \(V\) is closed, \(s_1 \in V\text{.}\) Since \(V\) is open, there are points \(s\in V\) such that \(x\lt s\lt s_1\text{,}\) which is a contradiction. It therefore follows that \(V=\varnothing\text{,}\) as desired.</p>
+<p id="p-156">So far, we have shown that a closed interval \([a,b]\) is always connected. Now for a general interval \(X\text{,}\) note that if \(x\in X\text{,}\) then we may write</p>
+<div class="displaymath">
+\begin{equation*}
+X = \bigcup_{\substack{a,b\in X, \\ a\leq x\leq b} } [a,b]\text{.}
+\end{equation*}
+</div>
+<p id="p-157">This is a union of connected subspaces of \(\RR\) such that any two intersect (because they all contain \(x\)). Hence \(X\) is connected as well, thanks to the previous proposition.</p>
+<p id="p-158">Now let us prove the converse. Assume that \(X \subset \RR\) is <em class="emphasis">not</em> an interval. We aim to prove that \(X\) is not connected; it will suffice to construct a nonempty proper clopen \(V \subseteq X\text{.}\) For this, choose real numbers \(a\lt x\lt b\) such that \(a,b \in X\) but \(x \notin X\text{.}\) Now consider the subset</p>
+<div class="displaymath">
+\begin{equation*}
+V = \left[x,+\infty\right[ \cap X = \left]x,+\infty\right[ \cap X\text{.}
+\end{equation*}
+</div>
+<p id="p-159">The first expression proves that \(V\) is closed; the second proves that \(V\) is open. Since \(b \in V\) but \(a\notin V\text{,}\) it follows that \(V\) is nonempty and proper.</p></article></div>
+<p id="p-160">Here's our first truly <em class="emphasis">topological</em> theorem. We will think of this as a generalization of the intermediate value theorem.</p>
+<article class="theorem theorem-like" id="thm_IVT"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.3.7</span><span class="period">.</span>
+</h6>
+<p id="p-161">Let \(f \colon X \to Y\) be a continuous surjection. If \(X\) is connected, so is \(Y\text{.}\)</p></article><article class="hiddenproof" id="proof-9"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-9"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-9"><article class="hiddenproof"><p id="p-162">Assume that \(X\) is connected. In particular, \(X\) is nonempty, hence so is \(Y\text{.}\)</p>
+<p id="p-163">Let \(V \subseteq Y\) be a nonempty clopen. Then \(f^{-1}(V) \subseteq X\) is clopen since \(f\) is continuous, and it is nonempty since \(f\) is a surjection. Since \(X\) is connected, it follows that \(f^{-1}(V) = X\) itself. This implies that the image \(f(X)\) is contained in \(V\text{.}\) Since \(f\) is a surjection, it follows that \(V=Y\text{.}\) Thus \(Y\) has exactly two clopen subsets: \(\varnothing\) and \(Y\text{.}\)</p></article></div>
+<article class="example example-like" id="example-12"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-12"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.8</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-12"><article class="example example-like"><p id="p-164">Let \(X \subseteq \RR^n\) be a connected subspace, and let \(f \colon X \to \RR\) be a continuous map. Then the image \(f(X)\) is an interval. This is our friend, the intermediate value theorem.</p>
+<p id="p-165">Consider the following assertion: there are two <dfn class="terminology">antipodal</dfn></p>
+<aside class="aside aside-like" id="aside-14"><p id="p-166">Two points are antipodal if and only if they are in exactly opposite directions from the center of the Earth.</p></aside><p id="p-167">points on the Earth's equator that, at ground level, have exactly the same temperature.</p>
+<aside class="aside aside-like" id="aside-15"><p id="p-168">For the purposes of this discussion, we assume that temperature is a continuous function of position.</p></aside><p id="p-169">In other words, there are two coordinates of the form</p>
+<div class="displaymath">
+\begin{equation*}
+0^{\circ}\text{ S, }  \; x^{\circ}\text{E}  \andeq 0^{\circ}\text{ N, }  \; (180-x)^{\circ}\text{W}
+\end{equation*}
+</div>
+<p class="continuation">where at ground level the temperature is exactly the same.</p>
+<p id="p-170">Here's the proof. The Earth's equator is homeomorphic to the circle \(S^1\text{,}\) which is a connected subspace of \(\RR^2\text{.}\) Temperature at the equator is thus a continuous function \(T \colon S^1 \to \RR\text{.}\) Now define a related continuous map \(g \colon S^1 \to \RR\) by the formula</p>
+<div class="displaymath">
+\begin{equation*}
+g(x) = T(x)-T(-x)\text{.}
+\end{equation*}
+</div>
+<p id="p-171">Now since \(x\) and \(-x\) are antipodal points, our claim will be proved if we can show that there is a point \(x\in S^1\) such that \(g(x)=0\text{.}\) If \(g(1,0)=0\text{,}\) then we are done. Otherwise, our formula ensures that \(g(-1,0)=g(1,0)\text{,}\) so \(g(1,0)\) and \(g(-1,0)\) have different signs.</p>
+<aside class="aside aside-like" id="aside-16"><p id="p-172">That is, one is positive and one is negative.</p></aside><p id="p-173">But since the image \(g(S^1) \subseteq\RR\) is an interval, it follows that \(0 \in g(S^1)\text{.}\) Hence there exists \(x \in S^1\) such that \(g(x)=0\text{.}\)</p></article></div>
+<article class="example example-like" id="example-13"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-13"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.9</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-13"><article class="example example-like"><p id="p-174">Since \(\RR \smallsetminus\{0\}\) and the subspace</p>
+<div class="displaymath">
+\begin{equation*}
+Y = \{(x,y) \in \RR^2 : |x|=1\}
+\end{equation*}
+</div>
+<p class="continuation">are homeomorphic, it follows that \(\RR\smallsetminus \{0\}\) is not connected.</p>
+<p id="p-175">Since \(\RR\) is connected, it follows that it is not homeomorphic to \(\RR \smallsetminus \{0\}\text{.}\)</p></article></div>
+<article class="example example-like" id="example-14"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-14"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.10</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-14"><article class="example example-like"><p id="p-176">A good way to confirm that a nonempty subspace \(X \subseteq \RR^n\) is connected is to confirm that you can “walk” from every point to every other point without leaving \(X\text{.}\) For any two points \(x,y \in X\text{,}\) a <dfn class="terminology">path</dfn> from \(x\) to \(y\) in \(X\) is a continuous map</p>
+<div class="displaymath">
+\begin{equation*}
+\gamma \colon [0,1] \to X
+\end{equation*}
+</div>
+<p class="continuation">such that \(\gamma(0)=x\) and \(\gamma(1) = y\text{.}\) If \(X\) has the property that for every pair of points from \(x\) to \(y\text{,}\) there exists a path from \(x\) to \(y\) in \(X\text{,}\) then \(X\) is connected.</p>
+<aside class="aside aside-like" id="aside-17"><p id="p-177">The converse is, annoyingly, false. This is the difference between <em class="emphasis">connectedness</em> and what is called <dfn class="terminology">path connectedness</dfn>.</p></aside><p id="p-178">Why? Well, choose \(x\in X\text{.}\) For every path \(\gamma\) from \(x\) to another point in \(X\text{,}\) consider the image \(\gamma([0,1])\text{;}\) this is connected, and our assumption on \(X\) ensures that \(X\) is the union of all these images, all of which contain \(x\text{.}\) Hence \(X\) is connected.</p></article></div>
+<article class="example example-like" id="example-15"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-15"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.11</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-15"><article class="example example-like"><p id="p-179">The line \(\RR\) is not homeomorphic to \(S^1\text{.}\) Indeed, suppose it were; choose a homeomorphism \(f \colon \RR \to S^1\text{.}\) This will restrict to a homeomorphism \(\RR \smallsetminus \{0\} \to S^1\smallsetminus\{f(0)\}\text{.}\) However, we claim that \(S^1 \smallsetminus \{f(0)\}\) is connected. In fact, we'll do better: we shall prove that \(S^1 \smallsetminus \{f(0)\}\) is homeomorphic to \(\RR\text{.}\)</p>
+<p id="p-180">To make our formulas simpler, let's use complex numbers.</p>
+<aside class="aside aside-like" id="aside-18"><p id="p-181">The field of complex numbers \(\CC\) is really nothing more than \(\RR^2\text{,}\) equipped with its complex multiplication rule \((a,b)\cdot (c,d) = (ac-bd,
+ad+bc)\text{.}\)</p></aside><p id="p-182">We have:</p>
+<div class="displaymath">
+\begin{equation*}
+S^1 = \{z \in \CC : |z| = 1 \}\text{.}
+\end{equation*}
+</div>
+<p id="p-183">Let \(w = f(0)\text{.}\) We may first construct a homeomorphism \(S^1\smallsetminus\{w\} \to S^1 \smallsetminus \{1\}\) by the rule \(z \mapsto z/w\text{.}\) Since the inverse map is \(z \mapsto wz\text{,}\) which is also continuous, we are done.</p>
+<p id="p-184">With this done, we now construct a homeomorphism \(\left]0,1\right[ \to S^1 \smallsetminus \{1\}\) by the rule \(t \mapsto \exp(2\pi i t)\text{.}\) This map is a continuous bijection, but what about its inverse \(r\text{?}\) To make it easy to deduce the continuity of \(r\) from well-known bits of analysis, we write it as:</p>
+<aside class="aside aside-like" id="aside-19"><p id="p-185">Please note, however, that this formula will not work to define a continuous map from \(S^1 \to \RR\text{.}\)</p></aside><div class="displaymath">
+\begin{equation*}
+r(x,y) = \frac{1}{2}-\frac{1}{\pi}\arctan\left(\frac{y}{1-x}\right)\text{.}
+\end{equation*}
+</div>
+<p id="p-186">It now follows that \(S^1\smallsetminus\{1\}\) is homeomorphic to an open interval and thus to \(\RR\) itself.</p></article></div></section></div></main>
+</div>
+</body>
+</html>

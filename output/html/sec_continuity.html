@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-09-27T08:44:16+01:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Continuity</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore",
+    processHtmlClass: "has_am",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{\andeq}{\text{\qquad and\qquad}}
+\newcommand{\respectively}[1]{\text{\qquad(respectively,\quad}{#1}\text{\quad)}}
+\newcommand{\resp}[1]{\text{\qquad(resp.,\quad}{#1}\text{\quad)}}
+
+\newcommand{\comma}{\rlap{\ ,}}
+\newcommand{\period}{\rlap{\ .}}
+\newcommand{\semicolon}{\rlap{\ ;}}
+ \newcommand{\coloneq}{\mathrel{:=}}
+
+ 
+
+ \newcommand{\mathup}[1]{\mathrm{#1}}
+ \newcommand{\mathbfup}[1]{\mathbf{#1}}
+ 
+ \renewcommand{\AA}{\mathbfit{A}}
+ \newcommand{\BB}{\mathbfit{B}}
+ \newcommand{\CC}{\mathbfit{C}}
+ \newcommand{\DD}{\mathbfit{D}}
+ \newcommand{\EE}{\mathbfit{E}}
+ \newcommand{\FF}{\mathbfit{F}}
+ \newcommand{\GG}{\mathbfit{G}}
+ \newcommand{\HH}{\mathbfit{H}}
+ \newcommand{\II}{\mathbfit{I}}
+ \newcommand{\JJ}{\mathbfit{J}}
+ \newcommand{\KK}{\mathbfit{K}}
+ \newcommand{\LL}{\mathbfit{L}}
+ \newcommand{\MM}{\mathbfit{M}}
+ \newcommand{\NN}{\mathbfit{N}}
+ \newcommand{\OO}{\mathbfit{O}}
+ \newcommand{\PP}{\mathbfit{P}}
+ \newcommand{\QQ}{\mathbfit{Q}}
+ \newcommand{\RR}{\mathbfit{R}}
+ \renewcommand{\SS}{\mathbfit{S}}
+ \newcommand{\TT}{\mathbfit{T}}
+ \newcommand{\UU}{\mathbfit{U}}
+ \newcommand{\VV}{\mathbfit{V}}
+ \newcommand{\WW}{\mathbfit{W}}
+ \newcommand{\XX}{\mathbfit{X}}
+ \newcommand{\YY}{\mathbfit{Y}}
+ \newcommand{\ZZ}{\mathbfit{Z}}
+ 
+ \let\Gammaup\Gamma
+ \let\Deltaup\Delta
+ \let\Thetaup\Theta
+ \let\Lambdaup\Lambda
+ \let\Xiup\Xi
+ \let\Piup\Pi
+ \let\Sigmaup\Sigma
+ \let\Upsilonup\Upsilon
+ \let\Phiup\Phi
+ \let\Psiup\Psi
+ \let\Omegaup\Omega
+ 
+ \renewcommand{\Gamma}{\mathit{\Gammaup}}
+ \renewcommand{\Delta}{\mathit{\Deltaup}}
+ \renewcommand{\Theta}{\mathit{\Thetaup}}
+ \renewcommand{\Lambda}{\mathit{\Lambdaup}}
+ \renewcommand{\Xi}{\mathit{\Xiup}}
+ \renewcommand{\Pi}{\mathit{\Piup}}
+ \renewcommand{\Sigma}{\mathit{\Sigmaup}}
+ \renewcommand{\Upsilon}{\mathit{\Upsilonup}}
+ \renewcommand{\Phi}{\mathit{\Phiup}}
+ \renewcommand{\Psi}{\mathit{\Psiup}}
+ \renewcommand{\Omega}{\mathit{\Omegaup}}
+ 
+
+
+\renewcommand{\epsilon}{\varepsilon}
+ \newcommand{\el}{\ell}
+\renewcommand{\phi}{\varphi}
+
+\newcommand{\mfa}{\mathfrak{a}}
+\newcommand{\mfb}{\mathfrak{b}}
+\newcommand{\mfc}{\mathfrak{c}}
+\newcommand{\mfd}{\mathfrak{d}}
+\newcommand{\mfe}{\mathfrak{e}}
+\newcommand{\mff}{\mathfrak{f}}
+\newcommand{\mfg}{\mathfrak{g}}
+\newcommand{\mfh}{\mathfrak{h}}
+\newcommand{\mfi}{\mathfrak{i}}
+\newcommand{\mfj}{\mathfrak{j}}
+\newcommand{\mfk}{\mathfrak{k}}
+\newcommand{\mfl}{\mathfrak{l}}
+\newcommand{\mfm}{\mathfrak{m}}
+\newcommand{\mfn}{\mathfrak{n}}
+\newcommand{\mfo}{\mathfrak{o}}
+\newcommand{\mfp}{\mathfrak{p}}
+\newcommand{\mfq}{\mathfrak{q}}
+\newcommand{\mfr}{\mathfrak{r}}
+\newcommand{\mfs}{\mathfrak{s}}
+\newcommand{\mft}{\mathfrak{t}}
+\newcommand{\mfu}{\mathfrak{u}}
+\newcommand{\mfv}{\mathfrak{v}}
+\newcommand{\mfw}{\mathfrak{w}}
+\newcommand{\mfx}{\mathfrak{x}}
+\newcommand{\mfy}{\mathfrak{y}}
+\newcommand{\mfz}{\mathfrak{z}}
+
+\newcommand{\ahat}{\hat{a}}
+\newcommand{\bhat}{\hat{b}}
+\newcommand{\chat}{\hat{c}}
+\newcommand{\dhat}{\hat{d}}
+\newcommand{\ehat}{\hat{e}}
+\newcommand{\fhat}{\hat{f}}
+\newcommand{\ghat}{\hat{g}}
+\newcommand{\hhat}{\hat{h}}
+\newcommand{\ihat}{\hat{\i}}
+\newcommand{\jhat}{\hat{\j}}
+\newcommand{\khat}{\hat{k}}
+\newcommand{\elhat}{\hat{\el}}
+\newcommand{\mhat}{\hat{m}}
+\newcommand{\nhat}{\hat{n}}
+\newcommand{\ohat}{\hat{o}}
+\newcommand{\phat}{\hat{p}}
+\newcommand{\qhat}{\hat{q}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\uhat}{\hat{u}}
+\newcommand{\vhat}{\hat{v}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\xhat}{\hat{x}}
+\newcommand{\yhat}{\hat{y}}
+\newcommand{\zhat}{\hat{z}}
+
+\newcommand{\alphahat}{\hat{\alpha}}
+\newcommand{\betahat}{\hat{\beta}}
+\newcommand{\gammahat}{\hat{\gamma}}
+\newcommand{\deltahat}{\hat{\delta}}
+\newcommand{\epsilonhat}{\hat{\epsilon}}
+\newcommand{\zetahat}{\hat{\zeta}}
+\newcommand{\etahat}{\hat{\eta}}
+\newcommand{\thetahat}{\hat{\theta}}
+\newcommand{\iotahat}{\hat{\iota}}
+\newcommand{\kappahat}{\hat{\kappa}}
+\newcommand{\lambdahat}{\hat{\lambda}}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\nuhat}{\hat{\nu}}
+\newcommand{\xihat}{\hat{\xi}}
+\newcommand{\pihat}{\hat{\pi}}
+\newcommand{\rhohat}{\hat{\rho}}
+\newcommand{\sigmahat}{\hat{\sigma}}
+\newcommand{\tauhat}{\hat{\tau}}
+\newcommand{\upsilonhat}{\hat{\upsilon}}
+\newcommand{\phihat}{\hat{\phi}}
+\newcommand{\chihat}{\hat{\chi}}
+\newcommand{\psihat}{\hat{\psi}}
+\newcommand{\omegahat}{\hat{\omega}}
+
+\newcommand{\Ahat}{\hat{A}}
+\newcommand{\Bhat}{\hat{B}}
+\newcommand{\Chat}{\hat{C}}
+\newcommand{\Dhat}{\hat{D}}
+\newcommand{\Ehat}{\hat{E}}
+\newcommand{\Fhat}{\hat{F}}
+\newcommand{\Ghat}{\hat{G}}
+\newcommand{\Hhat}{\hat{H}}
+\newcommand{\Ihat}{\hat{I}}
+\newcommand{\Jhat}{\hat{J}}
+\newcommand{\Khat}{\hat{K}}
+\newcommand{\Lhat}{\hat{L}}
+\newcommand{\Mhat}{\hat{M}}
+\newcommand{\Nhat}{\hat{N}}
+\newcommand{\Ohat}{\hat{O}}
+\newcommand{\Phat}{\hat{P}}
+\newcommand{\Qhat}{\hat{Q}}
+\newcommand{\Rhat}{\hat{R}}
+\newcommand{\Shat}{\hat{S}}
+\newcommand{\That}{\hat{T}}
+\newcommand{\Uhat}{\hat{U}}
+\newcommand{\Vhat}{\hat{V}}
+\newcommand{\What}{\hat{W}}
+\newcommand{\Xhat}{\hat{X}}
+\newcommand{\Yhat}{\hat{Y}}
+\newcommand{\Zhat}{\hat{Z}}
+
+\newcommand{\Gammahat}{\hat{\Gamma}}
+\newcommand{\Deltahat}{\hat{\Delta}}
+\newcommand{\Thetahat}{\hat{\Theta}}
+\newcommand{\Lambdahat}{\hat{\Lambda}}
+\newcommand{\Xihat}{\hat{\Xi}}
+\newcommand{\Pihat}{\hat{\Pi}}
+\newcommand{\Sigmahat}{\hat{\Sigma}}
+\newcommand{\Upsilonhat}{\hat{\Upsilon}}
+\newcommand{\Phihat}{\hat{\Phi}}
+\newcommand{\Chihat}{\hat{\Chi}}
+\newcommand{\Psihat}{\hat{\Psi}}
+\newcommand{\Omegahat}{\hat{\Omega}}
+
+\newcommand{\atilde}{\tilde{a}}
+\newcommand{\btilde}{\tilde{b}}
+\newcommand{\ctilde}{\tilde{c}}
+\newcommand{\dtilde}{\tilde{d}}
+\newcommand{\etilde}{\tilde{e}}
+\newcommand{\ftilde}{\tilde{f}}
+\newcommand{\gtilde}{\tilde{g}}
+\newcommand{\htilde}{\tilde{h}}
+\newcommand{\itilde}{\tilde{\i}}
+\newcommand{\jtilde}{\tilde{\j}}
+\newcommand{\ktilde}{\tilde{k}}
+\newcommand{\eltilde}{\tilde{\el}}
+\newcommand{\mtilde}{\tilde{m}}
+\newcommand{\ntilde}{\tilde{n}}
+\newcommand{\otilde}{\tilde{o}}
+\newcommand{\ptilde}{\tilde{p}}
+\newcommand{\qtilde}{\tilde{q}}
+\newcommand{\rtilde}{\tilde{r}}
+\newcommand{\stilde}{\tilde{s}}
+\newcommand{\ttilde}{\tilde{t}}
+\newcommand{\utilde}{\tilde{u}}
+\newcommand{\vtilde}{\tilde{v}}
+\newcommand{\wtilde}{\tilde{w}}
+\newcommand{\xtilde}{\tilde{x}}
+\newcommand{\ytilde}{\tilde{y}}
+\newcommand{\ztilde}{\tilde{z}}
+
+\newcommand{\alphatilde}{\tilde{\alpha}}
+\newcommand{\betatilde}{\tilde{\beta}}
+\newcommand{\gammatilde}{\tilde{\gamma}}
+\newcommand{\deltatilde}{\tilde{\delta}}
+\newcommand{\epsilontilde}{\tilde{\epsilon}}
+\newcommand{\zetatilde}{\tilde{\zeta}}
+\newcommand{\etatilde}{\tilde{\eta}}
+\newcommand{\thetatilde}{\tilde{\theta}}
+\newcommand{\iotatilde}{\tilde{\iota}}
+\newcommand{\kappatilde}{\tilde{\kappa}}
+\newcommand{\lambdatilde}{\tilde{\lambda}}
+\newcommand{\mutilde}{\tilde{\mu}}
+\newcommand{\nutilde}{\tilde{\nu}}
+\newcommand{\xitilde}{\tilde{\xi}}
+\newcommand{\pitilde}{\tilde{\pi}}
+\newcommand{\rhotilde}{\tilde{\rho}}
+\newcommand{\sigmatilde}{\tilde{\sigma}}
+\newcommand{\tautilde}{\tilde{\tau}}
+\newcommand{\upsilontilde}{\tilde{\upsilon}}
+\newcommand{\phitilde}{\tilde{\phi}}
+\newcommand{\chitilde}{\tilde{\chi}}
+\newcommand{\psitilde}{\tilde{\psi}}
+\newcommand{\omegatilde}{\tilde{\omega}}
+
+\newcommand{\Atilde}{\widetilde{A}}
+\newcommand{\Btilde}{\widetilde{B}}
+\newcommand{\Ctilde}{\widetilde{C}}
+\newcommand{\Dtilde}{\widetilde{D}}
+\newcommand{\Etilde}{\widetilde{E}}
+\newcommand{\Ftilde}{\widetilde{F}}
+\newcommand{\Gtilde}{\widetilde{G}}
+\newcommand{\Htilde}{\widetilde{H}}
+\newcommand{\Itilde}{\widetilde{I}}
+\newcommand{\Jtilde}{\widetilde{J}}
+\newcommand{\Ktilde}{\widetilde{K}}
+\newcommand{\Ltilde}{\widetilde{L}}
+\newcommand{\Mtilde}{\widetilde{M}}
+\newcommand{\Ntilde}{\widetilde{N}}
+\newcommand{\Otilde}{\widetilde{O}}
+\newcommand{\Ptilde}{\widetilde{P}}
+\newcommand{\Qtilde}{\widetilde{Q}}
+\newcommand{\Rtilde}{\widetilde{R}}
+\newcommand{\Stilde}{\widetilde{S}}
+\newcommand{\Ttilde}{\widetilde{T}}
+\newcommand{\Utilde}{\widetilde{U}}
+\newcommand{\Vtilde}{\widetilde{V}}
+\newcommand{\Wtilde}{\widetilde{W}}
+\newcommand{\Xtilde}{\widetilde{X}}
+\newcommand{\Ytilde}{\widetilde{Y}}
+\newcommand{\Ztilde}{\widetilde{Z}}
+
+\newcommand{\Gammatilde}{\widetilde{\Gamma}}
+\newcommand{\Deltatilde}{\widetilde{\Delta}}
+\newcommand{\Thetatilde}{\widetilde{\Theta}}
+\newcommand{\Lambdatilde}{\widetilde{\Lambda}}
+\newcommand{\Xitilde}{\widetilde{\Xi}}
+\newcommand{\Pitilde}{\widetilde{\Pi}}
+\newcommand{\Sigmatilde}{\widetilde{\Sigma}}
+\newcommand{\Upsilontilde}{\widetilde{\Upsilon}}
+\newcommand{\Phitilde}{\widetilde{\Phi}}
+\newcommand{\Chitilde}{\widetilde{\Chi}}
+\newcommand{\Psitilde}{\widetilde{\Psi}}
+\newcommand{\Omegatilde}{\widetilde{\Omega}}
+
+
+
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Equival}{Equiv}
+\DeclareMathOperator{\Fun}{Fun}
+\newcommand{\Funcross}{\Fun^{\cross}}
+\newcommand{\Functs}{\Fun^{\cts}}
+\newcommand{\Funpyk}{\Functs}
+\newcommand{\Funlowerstar}{\Fun_{\ast}}
+\newcommand{\Funupperstar}{\Fun^{\ast}}
+\DeclareMathOperator{\Hom}{Hom}
+\newcommand{\HOM}{\ensuremath{\textup{\textsc{Hom}}}}
+\DeclareMathOperator{\Isom}{Isom}
+\DeclareMathOperator{\Map}{Map}
+\DeclareMathOperator{\Mor}{Mor}
+\newcommand{\MOR}{\ensuremath{\textup{\textsc{Mor}}}}
+
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\PSO}{PSO}
+\DeclareMathOperator{\PSp}{PSp}
+\DeclareMathOperator{\PSU}{PSU}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\SU}{SU}
+
+\DeclareMathOperator{\cofib}{cofib}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator*{\colim}{colim}
+\DeclareMathOperator*{\hocolim}{hocolim}
+\DeclareMathOperator*{\holim}{holim}
+\DeclareMathOperator{\fib}{fib}
+
+\DeclareMathOperator{\Nerve}{N}
+\DeclareMathOperator{\trun}{\uptau}
+
+\DeclareMathOperator{\cosk}{ck}
+\DeclareMathOperator{\creff}{cr}
+\DeclareMathOperator{\ev}{ev}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\sd}{sd}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\specpos}{sp}
+\newcommand{\sdop}{\sd^{\op}}
+
+
+
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\angs}[1]{\langle #1 \rangle}
+ \newcommand{\quine}[1]{\ulcorner #1 \urcorner}
+\newcommand{\ultimes}{\,\underline{\times}\,}
+\newcommand{\horn}[2]{\upLambda_{#1}^{#2}}
+
+
+
+\newcommand{\categ}[1]{\textbf{\textup{#1}}}
+
+
+ 
+ \newcommand{\fromto}[2]{{#1} \to {#2}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Topology:</span> <span class="subtitle">General Topology 2021</span></a></h1>
+<p class="byline">Clark Barwick</p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_topologies.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="cha_abstract_topological_spaces.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec_specifying_topologies_efficiently.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_topologies.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="cha_abstract_topological_spaces.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec_specifying_topologies_efficiently.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="cha_subspaces_of_euclidean_space.html" data-scroll="cha_subspaces_of_euclidean_space"><span class="codenumber">1</span> <span class="title">Subspaces of Euclidean space</span></a><ul>
+<li><a href="sec_basic_definitions.html" data-scroll="sec_basic_definitions">Basic definitions</a></li>
+<li><a href="sec_continuity_for_subspaces_of_euclidean_space.html" data-scroll="sec_continuity_for_subspaces_of_euclidean_space">Continuity</a></li>
+<li><a href="sec_connectedness_for_subspaces_of_euclidean_space.html" data-scroll="sec_connectedness_for_subspaces_of_euclidean_space">Connectedness</a></li>
+<li><a href="sec_subspaces_exercises.html" data-scroll="sec_subspaces_exercises">Problem set 1, due 5 October 2021</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="cha_abstract_topological_spaces.html" data-scroll="cha_abstract_topological_spaces"><span class="codenumber">2</span> <span class="title">Abstract topological spaces</span></a><ul>
+<li><a href="sec_topologies.html" data-scroll="sec_topologies">Topologies</a></li>
+<li><a href="sec_continuity.html" data-scroll="sec_continuity" class="active">Continuity</a></li>
+<li><a href="sec_specifying_topologies_efficiently.html" data-scroll="sec_specifying_topologies_efficiently">Specifying topologies efficiently</a></li>
+<li><a href="sec_quotient_spaces.html" data-scroll="sec_quotient_spaces">Quotient spaces</a></li>
+<li><a href="sec_products.html" data-scroll="sec_products">Products</a></li>
+<li><a href="sec_esoterica.html" data-scroll="sec_esoterica">Esoterica</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="cha_compactness.html" data-scroll="cha_compactness"><span class="codenumber">3</span> <span class="title">Compactness</span></a><ul>
+<li><a href="sec_compact_topological_spaces.html" data-scroll="sec_compact_topological_spaces">Compact topological spaces</a></li>
+<li><a href="sec_compact_hausdorff_topological_spaces.html" data-scroll="sec_compact_hausdorff_topological_spaces">Compact Hausdorff topological spaces</a></li>
+<li><a href="sec_tikhonov.html" data-scroll="sec_tikhonov">The Tikhonov Theorem</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="cha_separation.html" data-scroll="cha_separation"><span class="codenumber">4</span> <span class="title">Separation</span></a><ul>
+<li><a href="sec_trennungsaxiome.html" data-scroll="sec_trennungsaxiome">Trennungsaxiome</a></li>
+<li><a href="sec_urysohn_tietze.html" data-scroll="sec_urysohn_tietze">Urysohn &amp; Tietze</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="cha_elements_of_set_theory.html" data-scroll="cha_elements_of_set_theory"><span class="codenumber">5</span> <span class="title">Elements of set theory</span></a><ul>
+<li><a href="sec_sets_and_elements.html" data-scroll="sec_sets_and_elements">Sets and elements</a></li>
+<li><a href="sec_bounded_comprehension.html" data-scroll="sec_bounded_comprehension">Bounded comprehension</a></li>
+<li><a href="sec_unions.html" data-scroll="sec_unions">Unions</a></li>
+<li><a href="sec_ordered_pairs.html" data-scroll="sec_ordered_pairs">Ordered pairs</a></li>
+<li><a href="sec_maps.html" data-scroll="sec_maps">Maps</a></li>
+<li><a href="sec_bijections.html" data-scroll="sec_bijections">Bijections</a></li>
+<li><a href="sec_products_and_sets_of_maps.html" data-scroll="sec_products_and_sets_of_maps">Products and sets of maps</a></li>
+<li><a href="sec_injections_and_surjections.html" data-scroll="sec_injections_and_surjections">Injections and surjections</a></li>
+<li><a href="sec_the_algebra_of_subsets.html" data-scroll="sec_the_algebra_of_subsets">The algebra of subsets</a></li>
+<li><a href="sec_inverse_and_direct_image.html" data-scroll="sec_inverse_and_direct_image">Inverse and direct image</a></li>
+<li><a href="sec_products_of_sets.html" data-scroll="sec_products_of_sets">Products of sets</a></li>
+<li><a href="sec_coproducts_of_sets.html" data-scroll="sec_coproducts_of_sets">Coproducts of sets</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Back Matter</span></a></li>
+</ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="sec_continuity"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">2.2</span> <span class="title">Continuity</span>
+</h2>
+<p id="p-315">The good news now is that continuity works almost exactly as it did in the example of subspaces of Euclidean space (<a href="sec_basic_definitions.html" class="internal" title="Section 1.1: Basic definitions">Section 1.1</a>). The only difference is that we no langer have access to the \(\varepsilon\)-\(\delta\) characterization of continuity.</p>
+<article class="definition definition-like" id="definition-9"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.2.1</span><span class="period">.</span>
+</h6>
+<p id="p-316">Let \(X\) and \(Y\) be topological spaces, and let \(f \colon X \to Y\) be a map. Then \(f\) is <dfn class="terminology">continuous</dfn> if and only if, for every subset \(S \subseteq X\) any every point \(x\in X\) that is close to \(S\text{,}\) the point \(f(x)\) is close to \(f(S)\text{.}\)</p></article><article class="proposition theorem-like" id="proposition-8"><h6 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.2.2</span><span class="period">.</span>
+</h6>
+<p id="p-317">Let \(X\) and \(Y\) be topological spaces. The following are equivalent for a map \(f \colon X \to Y\text{.}\)</p>
+<ol class="decimal">
+<li id="li-95"><p id="p-318">The map \(f\) is continuous.</p></li>
+<li id="li-96"><p id="p-319">For any subset \(T \subseteq Y\text{,}\) one has \(\tau_X(f^{-1}(T)) \subseteq f^{-1}(\tau_Y(T))\text{.}\)</p></li>
+<li id="li-97"><p id="p-320">For any closed subset \(Z \subseteq Y\text{,}\) the inverse image \(f^{-1}(Z) \subseteq X\) is closed.</p></li>
+<li id="li-98"><p id="p-321">For any open subset \(U \subseteq Y\text{,}\) the inverse image \(f^{-1}(U) \subseteq X\) is open.</p></li>
+</ol></article><article class="hiddenproof" id="proof-10"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-10"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-10"><article class="hiddenproof"><p id="p-322">Everything is exactly as in the proof of <a class="xref" data-knowl="./knowl/prp_equivalent_characterizations_of_continuity.html" title="Proposition 1.2.2">Proposition 1.2.2</a>, except that since we do not have condition (5), we shall have to prove directly that (4) implies (1).</p>
+<p id="p-323">So assume (4); we aim to prove (1). Let \(S \subseteq X\text{,}\) and let \(x \in \tau_X(S)\text{.}\) Observe that the complement \(V \coloneq Y \smallsetminus \tau_Y(f(S))\) is open; hence so is the inverse image \(U \coloneq f^{-1}(V) \subseteq X\text{.}\) Note also that \(S\) is disjoint from \(U\text{.}\) Thus the complement \(X \smallsetminus U\) is a closed subset that contains \(S\text{.}\) Consequently, \(\tau_X(S) \subseteq U\text{.}\) So since \(x \in \tau_X(S)\text{,}\) it follows that \(f(x) \notin V\text{.}\) In other words, \(f(x) \in \tau_Y(f(S))\text{,}\) as desired.</p></article></div>
+<article class="example example-like" id="example-29"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-29"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.3</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-29"><article class="example example-like"><p id="p-324">Let \(X\text{,}\) \(Y\text{,}\) and \(Z\) be topological spaces. Then the identity map \(\id \colon X \to X\) is continuous. Also, if \(f \colon X \to Y\) and \(g \colon Y \to Z\) are continuous, then the composition \(g \circ f \colon X \to Z\) is continuous as well.</p></article></div>
+<article class="example example-like" id="example-30"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-30"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.4</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-30"><article class="example example-like"><p id="p-325">Let \(X\) be a topological space, and let \(S\) be a set. Any map \(f \colon S \to X\) is continuous if \(S\) is endowed with the <em class="emphasis">discrete</em> topology. Dually, any map \(g \colon X \to S\) is continuous if \(S\) is endowed with the emph{chaotic} topology.</p></article></div>
+<article class="definition definition-like" id="definition-10"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.2.5</span><span class="period">.</span>
+</h6>
+<p id="p-326">Suppose \(\tau_1\) and \(\tau_2\) are two topologies on the same set \(X\text{.}\) Then we say that \(\tau_1\) is <dfn class="terminology">finer</dfn> than \(\tau_2\) — and that \(\tau_2\) is <dfn class="terminology">coarser</dfn> than \(\tau_1\) — if the identity map on \(X\) is continuous as a map</p>
+<div class="displaymath">
+\begin{equation*}
+(X,\tau_1) (X,\tau_2)\text{.}
+\end{equation*}
+</div>
+<p id="p-327">Hence if \(\tau_1\) is finer than \(\tau_2\text{,}\) then the closure of a set relative to \(\tau_1\) is contained in its closure relative to \(\tau_2\text{.}\) In particular, the topology \(\tau_1\) has more closed sets than the topology \(\tau_2\text{.}\) Forming complements, we deduce also that the topology \(\tau_1\) has more open sets than the topology \(\tau_2\text{.}\)</p>
+<p id="p-328">There are two extremes: the finest topology on a set is the discrete topology, and the coarsest is the chaotic topology.</p></article><article class="example example-like" id="example-31"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-31"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.6</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-31"><article class="example example-like"><p id="p-329">Recall the topological space \(\PP^1_{\RR}\) of <a class="xref" data-knowl="./knowl/exm_real_projective_line.html" title="Example 2.1.1">Example 2.1.1</a>. Define a map \(L \colon S^1 \to \PP^1_{\RR}\) as follows: for every point \(x \in S^1\text{,}\) let \(L(x)\) be the \(1\)-dimensional subspace spanned by the vector \(x\text{.}\) That is, \(L(x)\) is the unique line in \(\RR^2\) that passes through the origin and \(x\text{.}\) It follows from the definition of the topology on \(\PP^1_{\RR}\) that \(L\) is continuous.</p>
+<p id="p-330">To unpack this a little, let \(S \subseteq S^1\) be a subset, and let \(x \in \tau(S)\text{.}\) We want to see that \(L(x)\) is close to the image \(L(S)\text{.}\) Let \(\varepsilon&gt;0\text{.}\) There exists \(s \in S\) such that \(\|x-s\| \lt \varepsilon\text{.}\) Now \(L(x)\) intersects \(S^1\) at the points \(x\) and \(-x\text{,}\) and \(L(s)\) intersects \(S^1\) in the points \(s\) and \(-s\text{.}\) Thus the line \(L(s)\) has the property that, in the notation of <a class="xref" data-knowl="./knowl/exm_real_projective_line.html" title="Example 2.1.1">Example 2.1.1</a>, \(\|i(L(x))-i(L(s))\| \lt \varepsilon\) or \(\|i(L(x))-j(L(s))\| \lt \varepsilon\text{.}\)</p>
+<p id="p-331">Please note that while \(L\) is surjective, it is not injective, since for every \(x \in S^1\text{,}\) one has \(L(x) = L(-x)\text{.}\)</p></article></div>
+<article class="definition definition-like" id="definition-11"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.2.7</span><span class="period">.</span>
+</h6>
+<p id="p-332">Let \(X\) and \(Y\) be topological spaces, and let \(x \in X\text{.}\) Then a map \(f \colon X \to Y\) is <dfn class="terminology">continuous at \(x\)</dfn> if and only if, for any subset \(S \subseteq X\text{,}\) if \(x\) is close to \(S\) then \(f(x)\) is close to \(f(S)\text{.}\)</p></article><p id="p-333">A map \(f \colon X \to Y\) is continuous if and only if it is continuous at every point \(x \in X\text{.}\)</p>
+<article class="example example-like" id="example-32"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-32"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.8</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-32"><article class="example example-like"><p id="p-334">Consider the map \(s \colon \RR \to \RR\) given by the formula</p>
+<div class="displaymath">
+\begin{equation*}
+s(x) \coloneq \begin{cases}x/|x| \amp  \text{ if }  x \neq 0 ; \\ 0 \amp  \text{ if }  x=0 . \end{cases}
+\end{equation*}
+</div>
+<p id="p-335">Then \(s\) is continuous at every \(x \in \RR \smallsetminus \{0\}\text{.}\) If \(s\) were continuous at \(0\text{,}\) then it would be continuous. But even though the set \(\{1\} \subset \RR\) is closed, its inverse image</p>
+<div class="displaymath">
+\begin{equation*}
+s^{-1}\{1\} = \left]0, +\infty \right[ \subset \RR
+\end{equation*}
+</div>
+<p class="continuation">is not. Hence \(s\) is not continuous at \(0\text{,}\) as we expect!</p></article></div>
+<article class="example example-like" id="exm_reciprocalextension"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-exm_reciprocalextension"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.9</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exm_reciprocalextension"><article class="example example-like"><p id="p-336">Consider the function \(f(x)=1/x\text{.}\) This is a continuous map</p>
+<div class="displaymath">
+\begin{equation*}
+f\colon \RR-\{0\} \to \RR-\{0\}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">relative to the subspace topology on each side. Of course we have removed the point \(0\in\RR\text{,}\) because in primary school we were told that \(1/0\) is “undefined.” But let's try to define it anyhow.</p>
+<p id="p-337">We note that, as \(x\) approaches \(0\) from the right, \(1/x\) increases without bound; as \(x\) approaches \(0\) from the left, \(1/x\) decreases without bound. If we wanted to add a point that would play the role of \(1/0\text{,}\) then this leads us to the following idea: consider the topological space \(\RR\sqcup\{\infty\}\) constructed in <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "exm_onepointcompactificationofRR" missing or not unique]</code>. Now we may extend our map \(f\colon \RR-\{0\} \to \RR-\{0\}\) to a map \(F \colon \RR\sqcup\{\infty\} \to \RR\sqcup\{\infty\}\) by</p>
+<div class="displaymath">
+\begin{equation*}
+F(x) \coloneq \begin{cases}1/x \amp  \text{ if } x \in \RR \smallsetminus \{0\} ; \\ \infty   \amp  \text{ if } x = 0 ; \\ 0   \amp  \text{ if } x = \infty . \end{cases}
+\end{equation*}
+</div>
+<p id="p-338">With the topology we've given \(\RR\sqcup\{\infty\}\text{,}\) this is continuous! The only thing left for us to check is continuity at \(0\) and \(\infty\text{.}\)</p>
+<p id="p-339">To do this, let \(S \subseteq \RR \sqcup \{ \infty \}\) be a subset such that \(0\) is close to \(S\text{.}\) Let \(N &gt;0\text{.}\) There exists an element \(s \in S\) such that \(|s| \lt 1/N\text{.}\) Thus \(|F(s)|&gt;N\text{.}\) It follows that \(F\) is continuous at \(0\text{.}\)</p>
+<p id="p-340">The proof of contiuity at \(\infty\) is similar.</p>
+<aside class="aside aside-like" id="aside-32"><p id="p-341">Please fill in the details!</p></aside></article></div>
+<article class="proposition theorem-like" id="prp_equivalent_characterization_of_continuity_at_a_point"><h6 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.2.10</span><span class="period">.</span>
+</h6>
+<p id="p-342">Let \(X\) and \(Y\) be topological spaces, and let \(x \in X\text{.}\) The following are equivalent for a map \(f \colon X \to Y\text{.}\)</p>
+<ol class="decimal">
+<li id="li-99"><p id="p-343">The map \(f\) is continuous at \(x\text{.}\)</p></li>
+<li id="li-100"><p id="p-344">For any open neighborhood \(V\) of \(f(x)\text{,}\) the inverse image \(f^{-1}(V)\) is an open neighborhood of \(x\text{.}\)</p></li>
+</ol></article><article class="hiddenproof" id="proof-11"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-11"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-11"><article class="hiddenproof"><p id="p-345">Assume (1); we aim to prove (2). Let \(V\) be an open neighborhood of \(f(x)\text{.}\) Let \(S \coloneq f^{-1}(Y \smallsetminus V)\text{.}\) If \(x \in \tau_X(S)\text{,}\) then</p>
+<div class="displaymath">
+\begin{equation*}
+f(x) \in \tau_Y(f(S)) \subseteq \tau(Y \smallsetminus V) = Y \smallsetminus V\text{,}
+\end{equation*}
+</div>
+<p class="continuation">since \(Y \smallsetminus V\) is closed. This is a contradiction, which shows that \(x \notin \tau_X(S)\text{.}\) Now let \(U \coloneq X \smallsetminus \tau_X(S)\text{.}\) This is now an open neighborhood of \(x\text{,}\) and \(f(U) \subseteq V\text{.}\)</p>
+<p id="p-346">Conversely, assume (2); we aim to prove (1). Let \(S \subseteq X\) be a subset, and let \(x \in \tau_X(S)\text{.}\) Let \(V \coloneq Y \smallsetminus \tau_Y(f(S))\text{.}\) If \(f(x) \in V\text{,}\) then by assumption there exists an open neighborhood \(U\) of \(x\) such that \(f(U) \subseteq V\text{.}\) Since \(S\) is disjoint from \(f^{-1}(V)\text{,}\) it follows that the closure \(\tau_X(S)\) is disjoint from \(U\) as well. This is a contradiction that implies that \(f(x) \notin V\text{,}\) so that \(f(x) \in \tau(f(S))\text{.}\)</p></article></div>
+<p id="p-347">The definition of <em class="emphasis">homeomorphism</em> is also just the same as for subspaces of Euclidean space:</p>
+<article class="definition definition-like" id="definition-12"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.2.11</span><span class="period">.</span>
+</h6>
+<p id="p-348">Let \(X\) and \(Y\) be topological spaces. A <dfn class="terminology">homeomorphism</dfn> \(f \colon X \to Y\) is a continuous bijection whose inverse \(f^{-1}\) is continuous. The two topological spaces \(X\) and \(Y\) are <dfn class="terminology">homeomorphic</dfn> if and only if there exists a homeomorphism \(X \to Y\text{.}\) In this case, we may write \(X \cong Y\text{.}\)</p></article><article class="example example-like" id="example-34"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-34"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.12</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-34"><article class="example example-like"><p id="p-349">Let's show that the following three topological spaces are homeomorphic:</p>
+<ul class="disc">
+<li id="li-101"><p id="p-350">The circle \(S^1 \subseteq \RR^2\text{.}\)</p></li>
+<li id="li-102"><p id="p-351">The topological space \(\PP^1_{\RR}\) from <a class="xref" data-knowl="./knowl/exm_real_projective_line.html" title="Example 2.1.1">Example 2.1.1</a>.</p></li>
+<li id="li-103"><p id="p-352">The topological spaces \(\RR \sqcup \{\infty\}\) from <a class="xref" data-knowl="./knowl/exm_one_point_compactification_of_RR.html" title="Example 2.1.11">Example 2.1.11</a>.</p></li>
+</ul>
+<p id="p-353">The map \(L \colon S^1 \to \PP^1_{\RR}\) defined above is not a homeomorphism, but that doesn't mean we can't find another homeomorphism between these two topological spaces. So let's try to go the other way. Let's define a map \(h \colon \PP^1_{\RR} \to S^1\text{.}\) For every line \(L \in \PP^1_{\RR}\text{,}\) there is a point \(z \in S^1\) such that \(L=L(z)\text{.}\) If we think of \(S^1 \subset \CC\text{,}\) we can define \(h(L)\) as \(z^2\) for any \(z \in S^1\) such that \(L = L(z)\text{.}\) In other words, if \(L\) is the line spanned by a nonzero vector \((x,y) \in \RR^2\text{,}\) then</p>
+<div class="displaymath">
+\begin{equation*}
+h(L) = \left( \frac{x^2-y^2}{x^2+y^2}, \frac{2xy}{x^2+y^2} \right)\text{.}
+\end{equation*}
+</div>
+<p id="p-354">This is well-defined, since this formula gives the same value if you replace \((x,y)\) with \((\alpha x, \alpha y)\) for \(\alpha \in \RR \smallsetminus \{0\}\text{.}\)</p>
+<p id="p-355">Let us prove that \(h\) is continuous. We may be tempted to use the fact that the formula above defines a continuous function \(\RR^2 \smallsetminus \{0\} \to S^1\text{,}\) but we have to be a little careful, because \(\PP^1_{\RR}\) wasn't defined as a subspace of a Euclidean space. Assume that \(S \subseteq \PP^1_{\RR}\text{,}\) and assume that \(L \in \tau(S)\text{.}\) Let \(\varepsilon &gt;0\text{;}\) there exists a line \(L' \in S\) such that either \(\|i(L) - i(L')\| \lt  \varepsilon/2\) or \(\|i(L) - j(L')\| \lt  \varepsilon/2\text{.}\) Furthermore, we know that no two points in \(S^1\) are separated by a distance of more than \(2\text{;}\) therefore, both \(\|i(L) - i(L')\| \leq 2\) or \(\|i(L) - j(L')\| \leq 2\text{.}\) We may therefore multiply these inequalities to obtain:</p>
+<div class="displaymath">
+\begin{equation*}
+\|i(L) - i(L')\| \|i(L) - j(L')\| \lt  \varepsilon\text{.}
+\end{equation*}
+</div>
+<p id="p-356">Since \(i(L') = -j(L')\text{,}\) we therefore obtain</p>
+<div class="displaymath">
+\begin{equation*}
+\|h(L) - h(L')\| = \|i(L)^2 -j(L')^2\| \lt  \varepsilon\text{.}
+\end{equation*}
+</div>
+<p id="p-357">It therefore follows that \(h(L)\) is close to \(h(S)\text{.}\) So \(h\) is continuous.</p>
+<p id="p-358">Now let us show that \(h\) is a bijection. If \(w \in S^1\text{,}\) then the inverse image \(h^{-1}\{w\}\) is the set of lines \(L \in \PP^1_{\RR}\) such that either \(i(L)\) or \(j(L)\) is a square root of \(w\text{.}\) In fact, since \(i(L) = -j(L)\text{,}\) it follows that \(i(L)\) is a square root of \(w\) if and only if \(j(L)\) is a square root of \(w\text{.}\) Hence \(h^{-1}\{w\}\) consists of exactly one line: the line passing through either square root of \(w\) and the origin.</p>
+<p id="p-359">Now let's demonstrate that \(h\) is a homeomorphism. For this, we note that the inverse \(h^{-1}\) carries \(w \in S^1\) to the line passing through the square roots of \(w\) and the origin. To prove that this is continuous, assume that \(T \subseteq S^1\text{,}\) and assume that \(w \in S^1\) is close to \(T\text{.}\) Let \(\varepsilon&gt;0\text{;}\) then there exists \(w' \in T\) such that \(\|w-w'\| \lt  \varepsilon^2\text{.}\) Now if \(z, -z \in S^1\) are the two square roots of \(w\text{,}\) and if \(z', -z' \in S^1\) are the two square roots of \(w'\text{,}\) then either \(|z-z'|\lt \varepsilon\) or \(|z+z'|\lt \varepsilon\text{,}\) since otherwise, we would have</p>
+<div class="displaymath">
+\begin{equation*}
+|w-w'| = |z-z'| |z+z'| \geq \varepsilon^2\text{.}
+\end{equation*}
+</div>
+<p id="p-360">Consequently, it follows that \(h^{-1}(w)\) is close to \(h^{-1}(T)\text{.}\) This now completes the proof that \(\PP^1_{\RR}\) and \(S^1\) are homeomorphic.</p>
+<p id="p-361">Now we prove that \(\RR \sqcup \{\infty\}\) and \(S^1\) are homeomorphic. Indeed, define maps</p>
+<div class="displaymath">
+\begin{equation*}
+f \colon S^1 \to \RR \sqcup \{\infty\} \andeq g \colon \RR \sqcup \{\infty\} \to S^1
+\end{equation*}
+</div>
+<p class="continuation">by the formulas</p>
+<div class="displaymath">
+\begin{equation*}
+f(x,y) \coloneq \begin{cases}x/(1-y) \amp  \text{ if }  y \neq 1 ; \\ \infty \amp  \text{ if }  y = 1 . \end{cases}
+\end{equation*}
+</div>
+<p class="continuation">and</p>
+<div class="displaymath">
+\begin{equation*}
+g(t) \coloneq \begin{cases}1/(t^2+1)(2t, t^2-1) \amp  \text{ if }  t \neq \infty ; \\ (0,1) \amp  \text{ if }  t = \infty . \end{cases}
+\end{equation*}
+</div>
+<p id="p-362">A direct check confirms that \(f\) and \(g\) are inverses, but the interesting thing to prove is that they are each continuous.</p>
+<p id="p-363">For \(f\text{,}\) continuity away from the point \((0,1)\) follows from the elementary analytic facts we are happy to assume here. But continuity at \((0,1)\) is more interesting! So assume that \(S \subseteq S^1\) is a subset to which \((0,1)\) is close. We have to show that \(\infty\) is close to \(f(S)\text{.}\) So let \(N &gt; 0\) be a real number; we aim to find an element \((x,y) \in S\) such that \(|x/(1-y)| &gt; N\) or, equivalently, that \(x^2/(1-y)^2 = (1+y)/(1-y) &gt; N^2\text{,}\) Choose \(\varepsilon&gt;0\) so that \(\varepsilon \leq 2/N^2\text{;}\) since \((0,1)\) is close to \(S\text{,}\) there exists a point \((x,y) \in S\) such that \(x^2 - (1-y)^2 \lt  \varepsilon\) and \(y \geq 0\text{.}\) Since \(x^2+y^2 = 1\text{,}\) this implies that \(1-y \lt  \varepsilon/2\text{,}\) and since \(1+y \geq 1\text{,}\) we obtain</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{1+y}{1-y} \geq \frac{1}{1-y} &gt; \frac{2}{\varepsilon} &gt; N^2\text{.}
+\end{equation*}
+</div>
+<p id="p-364">Once again, elementary analysis facts imply that \(g\) is continuous at every point of \(\RR\text{.}\) We must show that \(g\) is continuous at \(\infty\) as well. For this, assume that \(T \subseteq \RR \sqcup \{\infty\}\) is a subset such that \(\infty\) is close to \(T\text{.}\) Let \(\varepsilon &gt;0\text{;}\) we aim to show that there exists an element \(t\in T\) such that \(\|g(t)-(0,1)\| \lt  \varepsilon\text{.}\) If \(\infty \in T\text{,}\) then this is immediate, so it suffices to consider the case in which \(T \subseteq \RR\) is an unbounded subset. There exists \(t \in T\) such that \(|t| &gt; 2/\varepsilon\text{,}\) and so</p>
+<div class="displaymath">
+\begin{equation*}
+\left\|1/(t^2+1)(2t, t^2-1) - (0,1)\right\|^2 = \frac{4}{t^2+1} \lt  \varepsilon^2\text{,}
+\end{equation*}
+</div>
+<p class="continuation">so that \(\| g(t) - (0,1) \| \lt  \varepsilon\text{,}\) just as we'd hoped.</p>
+<p id="p-365">The upshot here is that we have</p>
+<div class="displaymath">
+\begin{equation*}
+\PP^1_{\RR} \cong S^1 \cong \RR \sqcup \{\infty\}\text{.}
+\end{equation*}
+</div></article></div></section></div></main>
+</div>
+</body>
+</html>

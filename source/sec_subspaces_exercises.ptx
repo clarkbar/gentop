@@ -1,0 +1,190 @@
+<exercises xml:id="sec_subspaces_exercises">
+  <title>Problem set 1, due 5 October 2021</title>
+  <exercise>
+    <statement>
+      <p>
+        Prove or disprove: for every countable subspace <m>X \subset \RR</m> is <term>discrete</term> in the following sense:
+	every subset <m> S \subseteq X </m> is both open and closed.
+	[12 points]
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+	Let <m>X \subseteq \RR^n</m> be a subspace.
+	For every pair of subsets <m>S, T \in \PP(X)</m>, write
+	<me>
+	  d(S,T) = \inf\{ d(s,t) : (s \in S) \wedge (t \in T) \} .
+	</me>
+	Suppose that <m>S, T \in \PP(X)</m> are subsets with the property that <m>d(S,T) = 0</m>.
+	Prove or provide counterexamples for each of the following claims:
+	<ul>
+	  <li> <m>S \cap T \neq \varnothing</m> [3 points];</li>
+	  <li> <m>S \cap \tau(T) \neq \varnothing</m> [3 points];</li>
+	  <li> <m>S \cap \tau(T)) \cup (\tau(S) \cap T) \neq \varnothing</m> [3 points];</li>
+	  <li> <m>\tau(S) \cap \tau(T) \neq \varnothing</m> [3 points]. </li>
+	</ul>
+      </p>
+    </statement>
+  </exercise>
+  <exercisegroup>
+  <introduction>
+      <p>
+	Define a subspace <m> C \subset [0,1] </m> as follows.
+	For every natural number <m> n </m>, set
+	<me>
+		C_n \coloneq \bigcup_{k=0}^{3^{n-1}-1} \left(\left[\frac{3k}{3^n},\frac{3k+1}{3^n}\right]\cup\left[\frac{3k+2}{3^n},\frac{3k+3}{3^n}\right]\right) \comma
+	</me>
+	and define
+	<me>
+		C \coloneq \bigcap_{n\geq 1} C_n \period
+	</me>
+	The topological space <m>C</m> is called the <term>Cantor space</term>.
+      </p>
+  </introduction>
+  <exercise>
+    <statement>
+      <p>
+        Prove that <m> C </m> is closed in the interval <m>[0,1]</m>.
+	[12 points]
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        What is the interior of <m> C </m> as a subspace of the interval <m>[0,1]</m>?
+	That is, what is the largest open subset <m> U \subseteq [0, 1]</m> such that <m>U \subseteq C</m>?
+	[12 points]
+      </p>
+    </statement>
+  </exercise>
+  </exercisegroup>
+  <exercisegroup>
+  <introduction>
+      <p>
+        Let <m>X \subseteq \RR^m</m> be a subspace.
+	The formation of the <term>closure</term> is an operation
+	<me>
+		\tau \colon \PP(X) \to \PP(X)
+	</me>
+	on the power set <m>\PP(X)</m>
+	(i.e., a map from <m>\PP(X)</m> to itself).
+	The formation of the <term>complement</term> is an operation
+	<me>
+		\kappa \colon \PP(X) \to \PP(X) \period
+	</me>
+	Thus <m>\kappa(S) = X \smallsetminus S</m>.
+
+	Please note that <m>\tau</m> is <term>inclusion-preserving</term> <mdash />
+	that is, if <m>S \subseteq T</m>, then <m>\tau(S) \subseteq \tau(T)</m>. <mdash />
+	and <m>\kappa</m> is <term>inclusion-reversing</term> <mdash />
+	that is, if <m>S \subseteq T</m>, then <m>\kappa(S) \supseteq \kappa(T)</m>.
+	Also of course <m>S\subseteq \tau(S)</m>.
+	Finally, please observe that <m>\tau</m> is <term>idempotent</term> <mdash />
+	that is, <m>\tau^2 = \tau</m>
+	and that <m>\kappa</m> is <term>involutive</term> <mdash />
+	that is, <m>\kappa^2 = \operatorname{id}</m>.
+
+	We are interested in the operations <m>\PP(X) \to \PP(X)</m> that we can obtain by composing <m>\tau</m> and <m>\kappa</m> repeatedly.
+	For example, the <term>interior</term> operator is
+	<me>
+		\iota \coloneq \kappa\tau\kappa \colon \PP(X) \to \PP(X).
+	</me>
+	Note that <m>\iota</m> is inclusion-preserving,
+	and <m>\iota</m> is idempotent.
+
+	Many of the most important kinds of subsets of topological spaces are identified using <m>\tau</m> and <m>\kappa</m>.
+	For example, a subset <m>S\subseteq X</m> is <term>closed</term> if and only if it is its own closure: <m>S=\tau(S)=S</m>;
+	it is <term>open</term> if and only if it is its own interior: <m>S=\iota(S)=\kappa\tau\kappa(S)</m>.
+      </p>
+  </introduction>
+  <exercise>
+    <statement>
+      <p>
+	Write down all the subsets of <m>\RR</m> you can obtain by repeatedly applying the closure <m>\tau</m> and the interior <m>\iota</m> to the set
+	  <me>
+ 	    S \coloneq \{-30\} \cup \left]-20,0\right[ \cup \left]0,20\right[ \cup \left(\QQ \cap \left[25,30\right[\right).
+	  </me>
+	You do not need to prove that your computation is correct.
+	[10 points]
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+	A subset <m>S \subseteq X</m> is said to be <term>dense</term> if <m>\tau(S) = X</m>.
+	Find a countable dense subset of <m>\RR</m>.
+	You do not need to prove that your computation is correct.
+	[10 points]
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+	A subset <m>S \subseteq X</m> is said to be <term>co-dense</term> if it has empty interior, so that <m>\iota(S) = \varnothing</m>.
+	Give an example of an uncountable co-dense subset <m>S \subseteq \RR</m>.
+	You do not need to prove that your computation is correct.
+	[10 points]
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+	A subset <m>S \subseteq X</m> is said to be <term>nowhere dense</term> if the interior of its closure is empty;
+	that is, <m>S</m> is nowhere dense if <m>\iota\tau(S)=\varnothing</m>, or equivalently, <m>\kappa\tau\kappa\tau(S) = \varnothing</m>.
+	Any nowhere dense subset of a topological space is co-dense, but
+	give an example of a co-dense subset of <m>\RR</m> that is not nowhere dense.
+	You do not need to prove that your computation is correct.
+	[10 points]
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+	Show that if <m>T\subseteq X</m> is a closed co-dense subset,
+	then any subset <m>S \subseteq T</m> is nowhere dense.
+	[12 points]
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <em>Optional.</em>
+	Let <m>Z\subseteq X</m>.
+	Prove that <m>Z</m> is the closure of some open subset of <m>X</m> if and only if <m>Z</m> is the closure of its interior, so that <m>Z=\tau\iota(Z)</m>, or equivalently, <m>Z = \tau\kappa\tau\kappa(Z)</m>.
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <em>Optional.</em>
+	Show that
+	<me>
+		\tau\kappa\tau = \tau\kappa\tau\kappa\tau\kappa\tau .
+	</me>
+	Deduce that
+	<me>
+		\iota\tau = \iota\tau\iota\tau \text{ and } \tau\iota = \tau\iota\tau\iota .
+	</me>
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <em>Optional.</em>
+	Let <m>S\subseteq X</m>.
+	What is the maximum number of sets one can form by repeatedly applying the closure and complement operators to <m>S</m>?
+      </p>
+    </statement>
+  </exercise>
+  </exercisegroup>
+</exercises>
