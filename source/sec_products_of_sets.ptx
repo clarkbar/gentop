@@ -72,6 +72,6 @@
       f\colon S \to \prod_{a\in A}U_a
     </me>
     such that <m>\pi_a\circ f=f_a</m>.
-    Indeed, the map <m>f</m> is given by the assignment <m>s \mapsto (f_a(x))_{a\in A}</m>.
+    Indeed, the map <m>f</m> is given by the assignment <m>s \mapsto (f_a(s))_{a\in A}</m>.
   </p>
 </section>
